@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # TODO
+# Tell a random dad joke
+# 
 # Make following block steps, i.e. # of parallelism when you choose print parallel
+
+dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
@@ -80,4 +84,5 @@ EOF
 esac
 
 printf "%s\n" "$new_yaml"
+printf "%s\n" "$dad_joke"
 printf "%s\n" "$new_yaml" | buildkite-agent pipeline upload
