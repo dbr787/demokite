@@ -76,5 +76,5 @@ EOF
   ;;
 esac
 
+printf "%s\n" "$new_yaml"
 printf "%s\n" "$new_yaml" | buildkite-agent pipeline upload
-#printf "%s\n" "$new_yaml"
