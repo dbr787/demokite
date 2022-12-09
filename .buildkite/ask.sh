@@ -16,7 +16,7 @@ decision_steps=$(cat <<EOF
           - label: "Finish the build red"
             value: "build-fail"
   - label: "Process input"
-    command: ".buildkite/generate_steps.sh"
+    command: ".buildkite/ask.sh"
 EOF
 )
 
