@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO
+# Make following block steps, i.e. # of parallelism when you choose print parallel
+
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
     prompt: "Choose the next set of steps to be dynamically generated"
@@ -27,8 +30,8 @@ EOF
 
 # this bit is an ugly hack to avoid checking metadata on first run of the script
 current_state=""
-first_step_label=":pipeline: Upload Pipeline"
-if [ "$BUILDKITE_LABEL" != "$first_step_label" ]; then
+first_step_key="initial-pipeline-upload"
+if [ "$BUILDKITE_STEP_KEY" != "$first_step_key" ]; then
   current_state=$(buildkite-agent meta-data get "choice")
 else
   printf "steps:\n"
