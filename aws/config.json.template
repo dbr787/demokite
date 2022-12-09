@@ -1,0 +1,46 @@
+[
+  {
+    "ParameterKey": "BuildkiteAgentToken",
+    "ParameterValue": "xxx"
+  },
+  {
+    "ParameterKey": "BootstrapScriptUrl",
+    "ParameterValue": "https://raw.githubusercontent.com/dbr787/govkite/main/bootstrap.sh"
+  },
+  {
+    "ParameterKey": "AssociatePublicIpAddress",
+    "ParameterValue": "true"
+  },
+  {
+    "ParameterKey": "AgentsPerInstance",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "InstanceType",
+    "ParameterValue": "t3.small"
+  },
+  {
+    "ParameterKey": "MinSize",
+    "ParameterValue": "0"
+  },
+  {
+    "ParameterKey": "MaxSize",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "RootVolumeSize",
+    "ParameterValue": "50"
+  },
+  {
+    "ParameterKey": "SpotPrice",
+    "ParameterValue": "0"
+  },
+  {
+    "ParameterKey": "OnDemandPercentage",
+    "ParameterValue": "100"
+  },
+  {
+    "ParameterKey": "ScaleInIdlePeriod",
+    "ParameterValue": "600"
+  }
+]
