@@ -1,4 +1,6 @@
 steps:
+- label: test command
+  command: pwd
 - label: Style examples
   command: |
     buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
