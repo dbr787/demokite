@@ -5,6 +5,7 @@ steps:
     - ls -la
     - ls -la .buildkite
     - ls -la .buildkite/annotate/
+    - cat .buildkite/annotate/code.md
 - label: Style examples
   command: |
     buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
