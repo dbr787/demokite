@@ -3,6 +3,8 @@ steps:
   commands:
     - pwd
     - ls -la
+    - ls -la .buildkite
+    - ls -la .buildkite/annotate/
 - label: Style examples
   command: |
     buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
