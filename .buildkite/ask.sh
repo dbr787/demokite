@@ -5,6 +5,10 @@
 # 
 # Make following block steps, i.e. # of parallelism when you choose print parallel
 
+
+
+
+
 dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
 decision_steps=$(cat <<EOF
