@@ -85,5 +85,9 @@ steps:
 - label: "\U0001F440"
   command: 'buildkite-agent meta-data get body | buildkite-agent annotate --style
     "$(buildkite-agent meta-data get style)" $([[ $(buildkite-agent meta-data get
-    append) == ''append'' ]] && echo ''--append''); env ANNOTATE_LABEL="Update" buildkite-agent
-    pipeline upload .buildkite/pipeline_annotate_image.yaml'
+    append) == ''append'' ]] && echo ''--append'');'
+# - label: "\U0001F440"
+#   command: 'buildkite-agent meta-data get body | buildkite-agent annotate --style
+#     "$(buildkite-agent meta-data get style)" $([[ $(buildkite-agent meta-data get
+#     append) == ''append'' ]] && echo ''--append''); env ANNOTATE_LABEL="Update" buildkite-agent
+#     pipeline upload .buildkite/pipeline_annotate_image.yaml'
