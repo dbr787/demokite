@@ -49,7 +49,7 @@ case $current_state in
   logo)
     action_step=$(cat <<EOF
   - label: ":buildkite: Display UnblockConf Logo"
-    command: "cd .buildkite && buildkite-agent artifact upload man-beard.gif && log_image.sh artifact://man-beard.gif"
+    command: "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
