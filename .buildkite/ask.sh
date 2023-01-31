@@ -15,13 +15,13 @@ decision_steps=$(cat <<EOF
       - select: "Choices"
         key: "choice"
         options:
-          - label: "Show some cool log features"
+          - label: ":terminal: Show some cool log features"
             value: "log-stuff"
-          - label: "Print 'hello world' a bunch of times in parallel"
+          - label: ":earth_asia: Print 'hello world' a bunch of times in parallel"
             value: "hello-world"
-          - label: "Finish the build green"
+          - label: ":thumbsup: Finish the build green"
             value: "build-pass"
-          - label: "Finish the build red"
+          - label: ":thumbsdown: Finish the build red"
             value: "build-fail"
   - label: "Process input"
     command: ".buildkite/ask.sh"
@@ -48,7 +48,7 @@ new_yaml=""
 case $current_state in
   log-stuff)
     action_step=$(cat <<EOF
-  - label: ":terminal: Show Log Stuff"
+  - label: ":terminal: Log Stuff"
     command: "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
 EOF
 )
@@ -67,7 +67,7 @@ EOF
 
   build-pass)
     action_step=$(cat <<EOF
-  - label: ":thumbsup: Passing build"
+  - label: ":thumbsup: Pass build"
     command: "echo 'Exiting build with status 0' && exit 0"
 EOF
 )
@@ -76,7 +76,7 @@ EOF
 
   build-fail)
     action_step=$(cat <<EOF
-  - label: ":thumbsdown: Failing build"
+  - label: ":thumbsdown: Fail build"
     command: "echo 'Exiting build with status 1' && exit 1"
 EOF
 )
