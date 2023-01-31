@@ -5,11 +5,7 @@
 # 
 # Make following block steps, i.e. # of parallelism when you choose print parallel
 
-
-
-
-
-dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
+# dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
@@ -30,6 +26,8 @@ decision_steps=$(cat <<EOF
     command: ".buildkite/ask.sh"
 EOF
 )
+
+
 
 wait_step=$(cat <<EOF
   - wait
@@ -60,9 +58,9 @@ EOF
 
   hello-world)
     action_step=$(cat <<EOF
-  - label: ":zap: Parallel job %N of %t"
+  - label: ":zap: Parallel Steps"
     command: "echo 'Hello, world!'"
-    parallelism: 5 
+    parallelism: 5
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
