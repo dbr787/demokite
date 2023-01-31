@@ -15,8 +15,8 @@ decision_steps=$(cat <<EOF
       - select: "Choices"
         key: "choice"
         options:
-          - label: "Display the UnblockConf logo again"
-            value: "logo"
+          - label: "Show some cool log features"
+            value: "log-stuff"
           - label: "Print 'hello world' a bunch of times in parallel"
             value: "hello-world"
           - label: "Finish the build green"
@@ -46,9 +46,9 @@ fi
 
 new_yaml=""
 case $current_state in
-  logo)
+  log-stuff)
     action_step=$(cat <<EOF
-  - label: ":buildkite: Display UnblockConf Logo"
+  - label: ":terminal: Show Log Stuff"
     command: "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
 EOF
 )
