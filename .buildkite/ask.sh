@@ -7,6 +7,7 @@
 
 # dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
+
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
     prompt: "Choose the next set of steps to be dynamically generated"
@@ -26,8 +27,6 @@ decision_steps=$(cat <<EOF
     command: ".buildkite/ask.sh"
 EOF
 )
-
-
 
 wait_step=$(cat <<EOF
   - wait
@@ -50,7 +49,7 @@ case $current_state in
   logo)
     action_step=$(cat <<EOF
   - label: ":buildkite: Display UnblockConf Logo"
-    command: "buildkite-agent artifact upload unblock.png && ./log_image.sh artifact://unblock.png"
+    command: "buildkite-agent artifact upload unblock.png && .buildkite/log_image.sh artifact://unblock.png"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
