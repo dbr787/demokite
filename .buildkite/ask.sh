@@ -82,7 +82,7 @@ EOF
   parallel)
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
-    command: ".buildkite/parallel_job.sh"
+    command: ".buildkite/parallel_job.sh && wait 5"
     parallelism: 10
 EOF
 )
