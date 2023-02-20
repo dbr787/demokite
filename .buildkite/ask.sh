@@ -44,6 +44,8 @@ else
 fi
 
 
+
+
 new_yaml=""
 case $current_state in
   log-stuff)
@@ -54,7 +56,7 @@ case $current_state in
       - "buildkite-agent artifact upload man-beard.gif"
       - "./log_image.sh artifact://man-beard.gif"
       - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
-      - "echo '--- How about links?\n"
+      - "echo '--- How about links?'"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
       - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
