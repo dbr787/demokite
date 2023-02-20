@@ -7,7 +7,6 @@
 
 # dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
-
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
     prompt: "Choose the next set of steps to be dynamically generated"
@@ -44,12 +43,18 @@ else
   exit 0
 fi
 
+
 new_yaml=""
 case $current_state in
   log-stuff)
     action_step=$(cat <<EOF
   - label: ":terminal: Log Stuff"
-    command: "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
+    commands: 
+      - "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
+      - echo -e "--- Here is some colored text \033[33mand it was all yellow\033[0m :cow::bell:"
+      - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
+      - "echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt"
+      - "echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
@@ -84,6 +89,4 @@ EOF
   ;;
 esac
 
-printf "%s\n" "$new_yaml"
-printf "%s\n" "$dad_joke"
 printf "%s\n" "$new_yaml" | buildkite-agent pipeline upload
