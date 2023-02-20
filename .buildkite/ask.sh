@@ -16,8 +16,8 @@ decision_steps=$(cat <<EOF
         options:
           - label: ":terminal: Show some cool log features"
             value: "log-stuff"
-          - label: ":earth_asia: Print 'hello world' a bunch of times in parallel"
-            value: "hello-world"
+          - label: ":people_holding_hands: Run some jobs in parallel"
+            value: "parallel"
           - label: ":earth_asia: Create some annotations"
             value: "annotate"
           - label: ":thumbsup: Finish the build green"
@@ -50,6 +50,7 @@ fi
 # - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
 # - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a\n'
 # command: "echo :earth_asia: Hello, world! %N of %t"
+# command: "cd .buildkite && ./parallel_job.sh"
 
 new_yaml=""
 case $current_state in
@@ -78,10 +79,10 @@ EOF
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
   ;;
 
-  hello-world)
+  parallel)
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
-    command: "cd .buildkite && ./parallel_job.sh"
+    command: ".buildkite/parallel_job.sh"
     parallelism: 10
 EOF
 )
