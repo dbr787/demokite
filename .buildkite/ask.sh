@@ -51,9 +51,9 @@ case $current_state in
   - label: ":terminal: Log Stuff"
     commands: 
       - "cd .buildkite"
+      - "echo '+++ I wrote a song for you..."
       - "buildkite-agent artifact upload man-beard.gif"
       - "./log_image.sh artifact://man-beard.gif"
-      - "echo '+++ I wrote a song for you..."
       - echo -e " \033[33mand it was called yellow\033[0m :cow::bell:"
       - "echo '--- How about links?"
       - "./inline_link.sh https://www.buildkite.com"
