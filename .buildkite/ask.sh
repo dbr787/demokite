@@ -99,7 +99,7 @@ EOF
   annotate)
     action_step=$(cat <<EOF
   - label: ":memo: Annotate"
-    command: "buildkite-agent annotate 'Example `default` style' --context 'ctx-default'"
+    command: "buildkite-agent annotate 'Example \`default\` style annotation' --context 'ctx-default'"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
