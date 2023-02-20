@@ -80,7 +80,7 @@ EOF
   hello-world)
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
-    command: "echo ':earth_asia: Hello, world! %N of %t"
+    command: "echo :earth_asia: Hello, world! %N of %t"
     parallelism: 10
 EOF
 )
