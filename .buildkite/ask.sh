@@ -5,11 +5,7 @@
 # 
 # Make following block steps, i.e. # of parallelism when you choose print parallel
 
-
-
-
-
-dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
+# dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
 
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
@@ -18,13 +14,15 @@ decision_steps=$(cat <<EOF
       - select: "Choices"
         key: "choice"
         options:
-          - label: "Display the UnblockConf logo again"
-            value: "logo"
-          - label: "Print 'hello world' a bunch of times in parallel"
-            value: "hello-world"
-          - label: "Finish the build green"
+          - label: ":terminal: Show some cool log features"
+            value: "log-stuff"
+          - label: ":people_holding_hands: Run some jobs in parallel"
+            value: "parallel"
+          - label: ":memo: Create some annotations"
+            value: "annotate"
+          - label: ":thumbsup: Finish the build green"
             value: "build-pass"
-          - label: "Finish the build red"
+          - label: ":thumbsdown: Finish the build red"
             value: "build-fail"
   - label: "Process input"
     command: ".buildkite/ask.sh"
@@ -47,22 +45,61 @@ else
   exit 0
 fi
 
+
+# - "./log_image.sh artifact://man-beard.gif"
+# - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
+# - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a\n'
+# command: "echo :earth_asia: Hello, world! %N of %t"
+# command: "cd .buildkite && ./parallel_job.sh"
+
+    # command: |
+    #   buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
+    #   buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
+    #   buildkite-agent annotate 'Example `warning` style' --style 'warning' --context 'ctx-warn'
+    #   buildkite-agent annotate 'Example `error` style' --style 'error' --context 'ctx-error'
+    #   buildkite-agent annotate 'Example `success` style' --style 'success' --context 'ctx-success'
+
 new_yaml=""
 case $current_state in
-  logo)
+  log-stuff)
     action_step=$(cat <<EOF
-  - label: ":buildkite: Display UnblockConf Logo"
-    command: "buildkite-agent artifact upload unblock.png && ./log_image.sh artifact://unblock.png"
+  - label: ":terminal: Log Stuff"
+    commands: 
+      - "cd .buildkite"
+      - "buildkite-agent artifact upload man-beard.gif"
+      
+      - echo -e "--- I wrote a song for you :yellow_heart:"
+      - echo -e "\033[33m... and it was called yellow\033[0m"
+      
+      - "echo '--- How about GIFs?'"
+      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a'
+      
+      - "echo '--- How about links?'"
+      - "./inline_link.sh https://www.buildkite.com"
+      - "./inline_link.sh https://buildkite.com/unblock"
+      
+      - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
+      - "echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt"
+      - "echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
   ;;
 
-  hello-world)
+  parallel)
     action_step=$(cat <<EOF
-  - label: ":zap: Parallel job %N of %t"
-    command: "echo 'Hello, world!'"
-    parallelism: 5 
+  - label: ":zap: Parallel Steps"
+    command: ".buildkite/parallel_job.sh"
+    parallelism: 10
+EOF
+)
+    new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
+  ;;
+
+  annotate)
+    action_step=$(cat <<EOF
+  - label: ":memo: Annotate"
+    command: "buildkite-agent annotate 'Example \`default\` style annotation' --context 'ctx-default'"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
@@ -70,7 +107,7 @@ EOF
 
   build-pass)
     action_step=$(cat <<EOF
-  - label: ":thumbsup: Passing build"
+  - label: ":thumbsup: Pass build"
     command: "echo 'Exiting build with status 0' && exit 0"
 EOF
 )
@@ -79,7 +116,7 @@ EOF
 
   build-fail)
     action_step=$(cat <<EOF
-  - label: ":thumbsdown: Failing build"
+  - label: ":thumbsdown: Fail build"
     command: "echo 'Exiting build with status 1' && exit 1"
 EOF
 )
@@ -87,6 +124,4 @@ EOF
   ;;
 esac
 
-printf "%s\n" "$new_yaml"
-printf "%s\n" "$dad_joke"
 printf "%s\n" "$new_yaml" | buildkite-agent pipeline upload
