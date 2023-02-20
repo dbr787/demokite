@@ -18,7 +18,7 @@ decision_steps=$(cat <<EOF
             value: "log-stuff"
           - label: ":people_holding_hands: Run some jobs in parallel"
             value: "parallel"
-          - label: ":earth_asia: Create some annotations"
+          - label: ":memo: Create some annotations"
             value: "annotate"
           - label: ":thumbsup: Finish the build green"
             value: "build-pass"
@@ -91,7 +91,7 @@ EOF
 
   annotate)
     action_step=$(cat <<EOF
-  - label: ":console: Annotate"
+  - label: ":memo: Annotate"
     command: |
       buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
       buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
