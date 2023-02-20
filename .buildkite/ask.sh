@@ -50,10 +50,12 @@ case $current_state in
     action_step=$(cat <<EOF
   - label: ":terminal: Log Stuff"
     commands: 
+      - "echo '+++ What do you think?"
       - "cd .buildkite && buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
+      - "echo '--- How about links?"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
-      - echo -e "--- I wrote a song for you \033[33mand it was called yellow\033[0m :cow::bell:"
+      - echo -e "--- I wrote a song for you\n\033[33mand it was called yellow\033[0m :cow::bell:"
       - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
       - "echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt"
       - "echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt"
