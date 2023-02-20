@@ -56,6 +56,7 @@ case $current_state in
       - "cd .buildkite"
       - "buildkite-agent artifact upload man-beard.gif"
       - echo -e "--- I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
+      - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
       - "echo '--- How about links?'"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
