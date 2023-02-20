@@ -56,8 +56,8 @@ case $current_state in
     commands: 
       - "cd .buildkite"
       - "buildkite-agent artifact upload man-beard.gif"
-      - echo -e "--- I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
-      - echo -e "\033[33mand it was called yellow\033[0m :yellow_heart:"
+      - echo -e "--- I wrote a song for you :yellow_heart:"
+      - echo -e "\033[33m... and it was called yellow\033[0m"
       - "echo '--- How about GIFs?'"
       - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a\n'
       - "echo '--- How about links?'"
