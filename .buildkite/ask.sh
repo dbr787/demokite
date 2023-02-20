@@ -49,6 +49,7 @@ fi
 # - "./log_image.sh artifact://man-beard.gif"
 # - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
 # - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a\n'
+# command: "echo :earth_asia: Hello, world! %N of %t"
 
 new_yaml=""
 case $current_state in
@@ -80,7 +81,7 @@ EOF
   hello-world)
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
-    command: "echo :earth_asia: Hello, world! %N of %t"
+    command: "cd .buildkite && ./parallel_job.sh"
     parallelism: 10
 EOF
 )
