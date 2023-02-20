@@ -53,12 +53,12 @@ case $current_state in
       - "cd .buildkite"
       - "buildkite-agent artifact upload man-beard.gif"
       - "./log_image.sh artifact://man-beard.gif"
-      - "echo '+++ I wrote a song for you..."
-      - echo -e " \033[33mand it was called yellow\033[0m :cow::bell:\n"
+      - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
       - "echo '--- How about links?\n"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
       - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
+      - printf '\033]1338;url='artifact://man-beard.gif';alt='"$2"'\a\n'
       - "echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt"
       - "echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt"
 EOF
