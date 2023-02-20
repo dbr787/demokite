@@ -18,6 +18,8 @@ decision_steps=$(cat <<EOF
             value: "log-stuff"
           - label: ":earth_asia: Print 'hello world' a bunch of times in parallel"
             value: "hello-world"
+          - label: ":earth_asia: Create some annotations"
+            value: "annotate"
           - label: ":thumbsup: Finish the build green"
             value: "build-pass"
           - label: ":thumbsdown: Finish the build red"
@@ -79,9 +81,10 @@ EOF
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
     commands: 
-      - "echo ':earth_asia: Hello, world!'"
+      - echo -e ":earth_asia: Hello, world!"
+      - echo "$BUILDKITE_PARALLEL_JOB of $BUILDKITE_PARALLEL_JOB_COUNT"
       - sleep 5
-    parallelism: 5
+    parallelism: 10
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
