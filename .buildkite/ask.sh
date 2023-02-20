@@ -102,6 +102,9 @@ EOF
     commands:
       - "buildkite-agent annotate 'Example \`default\` style annotation' --context 'ctx-default'"
       - "buildkite-agent annotate 'Example \`info\` style annotation' --style 'info' --context 'ctx-info'"
+      - "buildkite-agent annotate 'Example \`warning\` style annotation' --style 'warning' --context 'ctx-warning'"
+      - "buildkite-agent annotate 'Example \`error\` style annotation' --style 'error' --context 'ctx-error'"
+      - "buildkite-agent annotate 'Example \`success\` style annotation' --style 'success' --context 'ctx-success'"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
