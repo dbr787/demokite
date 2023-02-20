@@ -63,7 +63,7 @@ new_yaml=""
 case $current_state in
   log-stuff)
     action_step=$(cat <<EOF
-  - label: ":terminal: Log Stuff"
+  - label: ":terminal: Log stuff"
     commands: 
       - "cd .buildkite"
       - "buildkite-agent artifact upload man-beard.gif"
@@ -88,7 +88,7 @@ EOF
 
   parallel)
     action_step=$(cat <<EOF
-  - label: ":zap: Parallel Steps"
+  - label: ":zap: Parallel steps"
     command: ".buildkite/parallel_job.sh"
     parallelism: 10
 EOF
@@ -99,7 +99,8 @@ EOF
   annotate)
     action_step=$(cat <<EOF
   - label: ":memo: Annotate"
-    command: "buildkite-agent annotate 'Example \`default\` style annotation' --context 'ctx-default'"
+    command: | 
+      "buildkite-agent annotate 'Example \`default\` style annotation' --context 'ctx-default'"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
