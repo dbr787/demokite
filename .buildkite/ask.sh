@@ -89,6 +89,20 @@ EOF
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
   ;;
 
+  annotate)
+    action_step=$(cat <<EOF
+  - label: ":console: Annotate"
+    command: |
+      buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
+      buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
+      buildkite-agent annotate 'Example `warning` style' --style 'warning' --context 'ctx-warn'
+      buildkite-agent annotate 'Example `error` style' --style 'error' --context 'ctx-error'
+      buildkite-agent annotate 'Example `success` style' --style 'success' --context 'ctx-success'
+EOF
+)
+    new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
+  ;;
+
   build-pass)
     action_step=$(cat <<EOF
   - label: ":thumbsup: Pass build"
