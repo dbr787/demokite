@@ -80,7 +80,7 @@ EOF
   hello-world)
     action_step=$(cat <<EOF
   - label: ":zap: Parallel Steps"
-    command: "echo ':earth_asia: Hello, world! $BUILDKITE_PARALLEL_JOB of $BUILDKITE_PARALLEL_JOB_COUNT' && sleep 5"
+    command: "echo ':earth_asia: Hello, world! %N of %t"
     parallelism: 10
 EOF
 )
