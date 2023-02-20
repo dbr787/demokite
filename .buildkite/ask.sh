@@ -59,7 +59,7 @@ case $current_state in
       - echo -e "--- I wrote a song for you :yellow_heart:"
       - echo -e "\033[33m... and it was called yellow\033[0m"
       - "echo '--- How about GIFs?'"
-      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"''
+      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a'
       - "echo '--- How about links?'"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
