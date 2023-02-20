@@ -44,7 +44,8 @@ else
 fi
 
 
-
+# - "./log_image.sh artifact://man-beard.gif"
+# - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
 
 new_yaml=""
 case $current_state in
@@ -54,8 +55,7 @@ case $current_state in
     commands: 
       - "cd .buildkite"
       - "buildkite-agent artifact upload man-beard.gif"
-      - "./log_image.sh artifact://man-beard.gif"
-      - echo -e "I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
+      - echo -e "--- I wrote a song for you \033[33mand it was called yellow\033[0m :yellow_heart:"
       - "echo '--- How about links?'"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
