@@ -51,7 +51,8 @@ case $current_state in
   - label: ":terminal: Log Stuff"
     commands: 
       - "cd .buildkite"
-      - "buildkite-agent artifact upload man-beard.gif && ./log_image.sh artifact://man-beard.gif"
+      - "buildkite-agent artifact upload man-beard.gif"
+      - "./log_image.sh artifact://man-beard.gif"
       - "echo '+++ What do you think?"
       - "echo '--- How about links?"
       - "./inline_link.sh https://www.buildkite.com"
