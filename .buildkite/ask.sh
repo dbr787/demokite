@@ -50,7 +50,6 @@ case $current_state in
     action_step=$(cat <<EOF
   - label: ":terminal: Log Stuff"
     commands: 
-      - "cd .buildkite"
       - "echo '+++ What do you think?"
       - "cd .buildkite && buildkite-agent artifact upload ./man-beard.gif && ./log_image.sh artifact://man-beard.gif"
       - "echo '--- How about links?"
