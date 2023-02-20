@@ -52,6 +52,13 @@ fi
 # command: "echo :earth_asia: Hello, world! %N of %t"
 # command: "cd .buildkite && ./parallel_job.sh"
 
+    # command: |
+    #   buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
+    #   buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
+    #   buildkite-agent annotate 'Example `warning` style' --style 'warning' --context 'ctx-warn'
+    #   buildkite-agent annotate 'Example `error` style' --style 'error' --context 'ctx-error'
+    #   buildkite-agent annotate 'Example `success` style' --style 'success' --context 'ctx-success'
+
 new_yaml=""
 case $current_state in
   log-stuff)
@@ -92,12 +99,7 @@ EOF
   annotate)
     action_step=$(cat <<EOF
   - label: ":memo: Annotate"
-    command: |
-      buildkite-agent annotate 'Example `default` style' --context 'ctx-default'
-      buildkite-agent annotate 'Example `info` style' --style 'info' --context 'ctx-info'
-      buildkite-agent annotate 'Example `warning` style' --style 'warning' --context 'ctx-warn'
-      buildkite-agent annotate 'Example `error` style' --style 'error' --context 'ctx-error'
-      buildkite-agent annotate 'Example `success` style' --style 'success' --context 'ctx-success'
+    command: "buildkite-agent annotate 'Example `default` style' --context 'ctx-default'"
 EOF
 )
     new_yaml=$(printf "%s\n%s\n%s" "$action_step" "$wait_step" "$decision_steps")
