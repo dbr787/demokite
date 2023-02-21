@@ -1,0 +1,6 @@
+name: "demokite"
+description: "The only demo you'll ever need..."
+steps:
+  - label: ":feelsgood: Begin"
+    key: "initial-pipeline-upload"
+    command: ".buildkite/ask.sh | buildkite-agent pipeline upload"
