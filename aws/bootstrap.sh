@@ -9,6 +9,7 @@ set -eo pipefail
 echo "--- :evergreen_tree: Pre-Checkout Hook"
 # env
 echo "pre-checkout hook executed successfully"
+echo "+++"
 # buildkite-agent annotate "pre-checkout hook executed successfully 🚀"
 EOF
 
