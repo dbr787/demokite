@@ -15,4 +15,3 @@ EOF
 
 # update permissions on pre-checkout hook
 sudo chmod +x /etc/buildkite-agent/hooks/pre-checkout
-
