@@ -46,9 +46,10 @@ CHOICES=""
 # EOF
 # )
 
-SCRIPT_DIR=$(dirname "$0")
-# WAIT_STEP=$(cat $SCRIPT_DIR/steps/wait.yml)
-HELLO_STEP=$(cat $SCRIPT_DIR/steps/hello.yml)
+WAIT_STEP=$(cat .buildkite/steps/wait.yml)
+HELLO_STEP=$(cat .buildkite/steps/hello.yml)
+ANNOTATIONS_STEP=$(cat .buildkite/steps/annotations.yml)
+
 # STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
 
 # sed -e '/---/d' -e '/steps:/d' -e '/^$/d' .buildkite/steps/wait.yml
@@ -70,4 +71,5 @@ HELLO_STEP=$(cat $SCRIPT_DIR/steps/hello.yml)
 
 # output to file, add as artifact, then upload
 
-echo "$HELLO_STEP" | buildkite-agent pipeline upload
+echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
+# echo "$WAIT_STEP"
