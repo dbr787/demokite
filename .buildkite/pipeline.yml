@@ -1,4 +1,4 @@
 steps:
   - label: ":feelsgood: Let's Begin"
     key: "begin"
-    command: ".buildkite/begin.sh | buildkite-agent pipeline upload"
+    command: ".buildkite/begin.sh"
