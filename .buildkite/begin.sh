@@ -40,14 +40,17 @@ CHOICE_BUILD_FAIL=""
 
 CHOICES=""
 
-STEP_OUTPUT=$(cat <<EOF
-  - label: ":thumbsup: Pass build"
-    command: "echo 'Exiting build with status 0' && exit 0"
-EOF
-)
+# STEP_OUTPUT=$(cat <<EOF
+#   - label: ":thumbsup: Pass build"
+#     command: "echo 'Exiting build with status 0' && exit 0"
+# EOF
+# )
 
-STEP_OUTPUT="- command: echo hello"
+# STEP_OUTPUT="- command: echo hello"
+STEP_OUTPUT=$(cat <<EOF
+---
+steps:
+- command: echo hello
+EOF)
 
 echo "$STEP_OUTPUT" | buildkite-agent pipeline upload
-# echo "$STEP_OUTPUT"
-# return "$STEP_OUTPUT"
