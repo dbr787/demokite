@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# TODO
-# Tell a random dad joke
-# 
-# Make following block steps, i.e. # of parallelism when you choose print parallel
-
-# dad_joke=$(curl -H "Accept: text/plain" https://icanhazdadjoke.com/)
+set -euxo pipefail
 
 decision_steps=$(cat <<EOF
   - block: ":thinking_face: What now?"
