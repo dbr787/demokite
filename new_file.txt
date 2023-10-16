@@ -1,0 +1,1 @@
+--- steps: - label: ":wave: Hello" key: "hello" command: echo hello

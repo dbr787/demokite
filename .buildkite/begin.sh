@@ -47,15 +47,27 @@ CHOICES=""
 # )
 
 SCRIPT_DIR=$(dirname "$0")
-# echo "SCRIPT_DIR: $SCRIPT_DIR"
-# WAIT_STEP=$(cat ./steps/wait.yml)
+# WAIT_STEP=$(cat $SCRIPT_DIR/steps/wait.yml)
 HELLO_STEP=$(cat $SCRIPT_DIR/steps/hello.yml)
+# STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
 
-# STEP_OUTPUT="- command: echo hello"
-# STEP_OUTPUT=$(cat <<EOF
-# ---
-# steps:
-# - command: echo hello
-# EOF)
+# sed -e '/---/d' -e '/steps:/d' -e '/^$/d' .buildkite/steps/wait.yml
+
+# echo $STEP_OUTPUT > new_file.txt
+# echo $HELLO_STEP > new_file.txt
+# cat $HELLO_STEP > new_file.txt
+
+# cat $SCRIPT_DIR/steps/hello.yml > new_file2.txt
+
+# printf "%s\n" "$STEP_OUTPUT" > new_file3.txt
+# TESTVAR=$(printf "%s\n" "$STEP_OUTPUT")
+
+
+# printf "%s\n" "$TESTVAR"
+# sed -e '/---/d' -e '/steps:/d' -e '/^$/d' 
+
+# printf "$STEP_OUTPUT"
+
+# output to file, add as artifact, then upload
 
 echo "$HELLO_STEP" | buildkite-agent pipeline upload

@@ -1,0 +1,13 @@
+---
+steps:
+  - label: ":wave: Hello"
+    key: "hello"
+    command: echo hello
+---
+steps:
+  - wait
+---
+steps:
+  - label: ":wave: Hello"
+    key: "hello"
+    command: echo hello
