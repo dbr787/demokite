@@ -71,5 +71,6 @@ ANNOTATIONS_STEP=$(cat .buildkite/steps/annotations.yml)
 
 # output to file, add as artifact, then upload
 
-echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
-# echo "$WAIT_STEP"
+echo "$HELLO_STEP" | buildkite-agent pipeline upload
+# echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
+# echo "$ANNOTATIONS_STEP"
