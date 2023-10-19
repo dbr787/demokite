@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo ":buildkite: The current working directory is:\n$(pwd)";
+echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
 ls -la;
 
