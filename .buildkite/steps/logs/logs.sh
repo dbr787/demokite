@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pwd;
+echo ":buildkite: The current working directory is:\n$(pwd)";
 
 ls -la;
 
