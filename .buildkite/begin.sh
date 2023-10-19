@@ -49,6 +49,7 @@ CHOICES=""
 WAIT_STEP=$(cat .buildkite/steps/wait.yml)
 HELLO_STEP=$(cat .buildkite/steps/hello.yml)
 ANNOTATIONS_STEP=$(cat .buildkite/steps/annotations.yml)
+LOGS_STEP=$(cat .buildkite/steps/logs/logs.yml)
 
 # STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
 
@@ -72,5 +73,6 @@ ANNOTATIONS_STEP=$(cat .buildkite/steps/annotations.yml)
 # output to file, add as artifact, then upload
 
 # echo "$HELLO_STEP" | buildkite-agent pipeline upload
-echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
+# echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
+echo "$LOGS_STEP" | buildkite-agent pipeline upload
 # echo "$ANNOTATIONS_STEP"
