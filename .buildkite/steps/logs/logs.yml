@@ -10,7 +10,7 @@ steps:
       - echo -e "--- I wrote a song for you :yellow_heart:"
       - echo -e "\033[33m... and it was called yellow\033[0m"
       - "echo '--- How about GIFs?'"
-      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a\n'
+      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\n'
       - "echo '--- How about links?'"
       - printf '\033]1339;url='"https://www.buildkite.com"'\a\n'
       - printf '\033]1339;url='"https://www.buildkite.com"';content='"This is a link to the Buildkite website"'\a\n'
