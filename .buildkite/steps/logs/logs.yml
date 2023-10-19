@@ -11,15 +11,10 @@ steps:
       - echo -e "\033[33m... and it was called yellow\033[0m"
       - "echo '--- How about GIFs?'"
       - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\a'
-      - "echo 'test'"
-      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\n'
-      - "echo 'test'"
-      - printf '\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"''
-      - "echo 'test'"
       - "echo '--- How about links?'"
       - "./inline_link.sh https://www.buildkite.com"
       - "./inline_link.sh https://buildkite.com/unblock"
-      - printf '\033]1339;url='"https://www.buildkite.com"';content='"my-link"'\a'
+      - printf '\033]1339;url='"https://www.buildkite.com"';content='"my-link"'\a\n'
       - "echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt"
       - "echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt"
       - "echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt"
