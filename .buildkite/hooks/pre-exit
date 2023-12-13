@@ -58,6 +58,7 @@ echo -e "\033[:thisisfine::perfection::bash::sadpanda::partyparrot::docker::meta
 echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
 echo -e ":cow::bell:"
 echo -e "--- Running \033[33mspecs\033[0m :cow::bell:"
+echo -e "Running \033[33mspecs\033[0m :cow::bell:"
 # :terminal:
 # :speech_balloon:
 # :ghost:
