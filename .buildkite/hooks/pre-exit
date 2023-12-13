@@ -45,8 +45,9 @@ echo -e "\033[97;100m   16. bright white   \033[0m"
 echo -e ""
 echo -e "We can use 3 different background colors..."
 echo -e "\033[37;40m   01. black (gray)   \033[0m"
-echo -e "\033[94;41m   02. red   \033[0m"
-echo -e "\033[95;42m   03. green   \033[0m"
+echo -e "\033[40m   01. black (gray)   \033[0m"
+echo -e "\033[41m   02. red   \033[0m"
+echo -e "\033[42m   03. green   \033[0m"
 
 
 
