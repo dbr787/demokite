@@ -54,16 +54,9 @@ echo -e "\033[5m   this is blinking text   \033[0m"
 echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
 echo -e "We can use emojis..."
+echo -e "\033[:thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: 👋\033[0m"
 echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
 echo -e ""
-# :thisisfine: for failing build intentionally
-# :perfection: for succeeding build intentionally
-# :bash:
-# :sadpanda:
-# :partyparrot:
-# :docker:
-# :metal:
-# :red_button:
 # :terminal:
 # :speech_balloon:
 # :ghost:
