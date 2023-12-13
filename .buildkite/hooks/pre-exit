@@ -47,7 +47,51 @@ echo -e "\033[40m   01. black (BG40)   \033[0m"
 echo -e "\033[41m   02. red (BG41)   \033[0m"
 echo -e "\033[42m   03. green (BG42)   \033[0m"
 echo -e ""
+echo -e "We can use text styling..."
+echo -e "\033[3m   this is italic text   \033[0m"
+echo -e "\033[4m   this is underline text   \033[0m"
+echo -e "\033[5m   this is blinking text   \033[0m"
+echo -e "\033[9m   this striked text   \033[0m"
+echo -e ""
+echo -e "We can use emojis..."
+echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
+echo -e ""
+# :thisisfine: for failing build intentionally
+# :perfection: for succeeding build intentionally
+# :bash:
+# :sadpanda:
+# :partyparrot:
+# :docker:
+# :metal:
+# :red_button:
+# :terminal:
+# :speech_balloon:
+# :ghost:
+# :writing_hand:
+# :index_pointing_at_the_viewer:
+# :brain:
+# :mage:
+# :astronaut:
+# :scientist:
+# :technologist:
+# :teacher:
+# :artist:
+# :cook:
+# :supervillain:
+# :superhero:
+# :ninja:
+# :juggling:
+# :shrug:
+# :pinched_fingers:
+# :nail_care:
 
+echo -e ""
+echo -e "And we can do any combination of the above..."
+
+# 3 italic
+# 4 underline
+# 5 slow-blink
+# 9 crossed-out
 
 echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 
