@@ -56,6 +56,17 @@ echo -e "\033[4m   this is underlined text   \033[0m"
 echo -e "\033[5m   this is blinking text   \033[0m"
 echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
+echo -e "Let's try xterm colors..."
+
+echo -e "\033[16m   this is testing xterm 16   \033[0m"
+echo -e "\033[17m   this is testing xterm 17   \033[0m"
+echo -e "\033[18m   this is testing xterm 18   \033[0m"
+echo -e "\033[19m   this is testing xterm 19   \033[0m"
+echo -e "\033[20m   this is testing xterm 20   \033[0m"
+echo -e "\033[21m   this is testing xterm 21   \033[0m"
+
+
+
 
 printf '\033]1339;url='"https://github.com/buildkite/emojis"';content='"Buildkite emojis"''
 printf 'are supported, BUT...'
