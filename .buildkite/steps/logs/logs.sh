@@ -2,6 +2,8 @@
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
+echo -e "\033[33m... and it was called yellow\033[0m"
+
 ls -la;
 
 cd .buildkite/steps/logs/;
