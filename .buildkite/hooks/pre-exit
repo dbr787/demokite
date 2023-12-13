@@ -13,6 +13,7 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 # faint (2) just looks gray 
 # rapid-blink (6) is the same as slow-blink (5)
 # conceal (8) doesn't work
+# background colors 
 
 # so we're left with...
 # 1 bold
@@ -23,23 +24,23 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 # 30-37 foreground colors
 # 40-47 background colors
 
-
-echo -e "\033[30;41m   black on red   \033[0m"
-echo -e "\033[31;42m   red on green   \033[0m"
-echo -e "\033[32;43m   green on yellow   \033[0m"
-echo -e "\033[33;44m   yellow on blue   \033[0m"
-echo -e "\033[34;45m   blue on magenta   \033[0m"
-echo -e "\033[35;46m   magenta on cyan   \033[0m"
-echo -e "\033[36;47m   cyan on white   \033[0m"
-echo -e "\033[37;40m   white on black   \033[0m"
-echo -e "\033[90;101m   test   \033[0m"
-echo -e "\033[91;102m   test   \033[0m"
-echo -e "\033[92;103m   test   \033[0m"
-echo -e "\033[93;104m   test   \033[0m"
-echo -e "\033[94;105m   test   \033[0m"
-echo -e "\033[95;106m   test   \033[0m"
-echo -e "\033[96;107m   test   \033[0m"
-echo -e "\033[97;100m   test   \033[0m"
+echo -e "We can use 16 different foreground colors..."
+echo -e "\033[30;41m   01. black on red   \033[0m"
+echo -e "\033[31;42m   02. red on green   \033[0m"
+echo -e "\033[32;43m   03. green on yellow   \033[0m"
+echo -e "\033[33;44m   04. yellow on blue   \033[0m"
+echo -e "\033[34;45m   05. blue on magenta   \033[0m"
+echo -e "\033[35;46m   06. magenta on cyan   \033[0m"
+echo -e "\033[36;47m   07. cyan on white   \033[0m"
+echo -e "\033[37;40m   08. white on black   \033[0m"
+echo -e "\033[90;101m  09. bright black   \033[0m"
+echo -e "\033[91;102m  10. bright red   \033[0m"
+echo -e "\033[92;103m  11. bright green   \033[0m"
+echo -e "\033[93;104m  12. bright yellow   \033[0m"
+echo -e "\033[94;105m  13. bright blue   \033[0m"
+echo -e "\033[95;106m  14. bright magenta   \033[0m"
+echo -e "\033[96;107m  15. bright cyan   \033[0m"
+echo -e "\033[97;100m  16. bright white   \033[0m"
 
 
 
