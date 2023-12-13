@@ -58,12 +58,11 @@ echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
 echo -e "Let's try xterm colors..."
 
-echo -e "\033[16m   this is testing xterm 16   \033[0m"
-echo -e "\033[17m   this is testing xterm 17   \033[0m"
-echo -e "\033[18m   this is testing xterm 18   \033[0m"
-echo -e "\033[19m   this is testing xterm 19   \033[0m"
-echo -e "\033[20m   this is testing xterm 20   \033[0m"
-echo -e "\033[21m   this is testing xterm 21   \033[0m"
+echo -e "\033[213m   this is testing xterm 16   \033[0m"
+echo -e "\033[235m   this is testing xterm 17   \033[0m"
+echo -e "\033[144m   this is testing xterm 19   \033[0m"
+echo -e "\033[99m   this is testing xterm 20   \033[0m"
+echo -e "\033[121m   this is testing xterm 21   \033[0m"
 
 
 
