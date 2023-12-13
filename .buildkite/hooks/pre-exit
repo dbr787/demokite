@@ -2,4 +2,4 @@
 
 set -euxo pipefail
 
-echo -e "\033[33mrepository pre-exit hook here, hai!\033[0m"
+echo -e "\033[31;42mrepository pre-exit hook here, hai!\033[0m"

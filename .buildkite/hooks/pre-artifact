@@ -2,4 +2,4 @@
 
 set -euxo pipefail
 
-echo "repository pre-artifact hook here, hai!"
+echo -e "\033[33mrepository pre-artifact hook here, hai!\033[0m"
