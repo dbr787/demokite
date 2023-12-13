@@ -5,3 +5,20 @@
 set -euo pipefail # don't print executed commands to the terminal
 
 echo -e "\033[33mrepository command hook here, hai!\033[0m"
+
+# https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
+# These variables will be redacted from logs....
+
+MY_PASSWORD="ThisIsASecret"
+MY_SECRET="ThisIsASecret"
+MY_TOKEN="ThisIsASecret"
+MY_ACCESS_KEY="ThisIsASecret"
+MY_SECRET_KEY="ThisIsASecret"
+MY_CONNECTION_STRING="ThisIsASecret" # (added in Agent v3.53.0)
+
+echo "MY_PASSWORD=$MY_PASSWORD"
+echo "MY_SECRET=$MY_SECRET"
+echo "MY_TOKEN=$MY_TOKEN"
+echo "MY_ACCESS_KEY=$MY_ACCESS_KEY"
+echo "MY_SECRET_KEY=$MY_SECRET_KEY"
+echo "MY_CONNECTION_STRING=$MY_CONNECTION_STRING"
