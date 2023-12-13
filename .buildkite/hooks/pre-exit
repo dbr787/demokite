@@ -7,7 +7,9 @@ set -euo pipefail # don't print executed commands to the terminal
 # explanation of ANSI escape sequences for the Select Graphic Rendition subset
 # https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
 echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
-echo -e "\033[32;5;43mrepository pre-exit hook here, hai! 👋\033[0m"
+
+
+echo -e "\033[1;3;4;5;9m   bold italic underline slow-blink crossed-out   \033[0m"
 echo -e "\033[33;6;44mrepository pre-exit hook here, hai! 👋\033[0m"
 echo -e "\033[34;3;45mrepository pre-exit hook here, hai! 👋\033[0m"
 echo -e "\033[35;9;46mrepository pre-exit hook here, hai! 👋\033[0m"
