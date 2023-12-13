@@ -49,7 +49,7 @@ echo -e "\033[42m   03. green (BG42)   \033[0m"
 echo -e ""
 echo -e "We can use text styling..."
 echo -e "\033[3m   this is italic text   \033[0m"
-echo -e "\033[4m   this is underline text   \033[0m"
+echo -e "\033[4m   this is underlined text   \033[0m"
 echo -e "\033[5m   this is blinking text   \033[0m"
 echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
@@ -57,6 +57,7 @@ echo -e "We can use emojis..."
 echo -e "\033[:thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: 👋\033[0m"
 echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
 echo -e ":cow::bell:"
+echo -e "--- Running \033[33mspecs\033[0m :cow::bell:"
 # :terminal:
 # :speech_balloon:
 # :ghost:
