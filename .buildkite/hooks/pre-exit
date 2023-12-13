@@ -53,34 +53,9 @@ echo -e "\033[4m   this is underlined text   \033[0m"
 echo -e "\033[5m   this is blinking text   \033[0m"
 echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
-echo -e "--- :thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: It looks like custom buildkite emojis can be used at the top level of the logs, but... not within log groups..."
-echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: Not supported within log groups (nested)..."
-echo -e "\033[:thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: 👋\033[0m"
-echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
-echo -e ":cow::bell:"
-echo -e "--- Running \033[33mspecs\033[0m :cow::bell:"
-echo -e "Running \033[33mspecs\033[0m :cow::bell:"
-# :terminal:
-# :speech_balloon:
-# :ghost:
-# :writing_hand:
-# :index_pointing_at_the_viewer:
-# :brain:
-# :mage:
-# :astronaut:
-# :scientist:
-# :technologist:
-# :teacher:
-# :artist:
-# :cook:
-# :supervillain:
-# :superhero:
-# :ninja:
-# :juggling:
-# :shrug:
-# :pinched_fingers:
-# :nail_care:
-
+echo -e "---  Buildkite emojis are supported, BUT... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
+echo -e "They don't display within log groups (nested)... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
+echo -e "But normal emojis work within log groups (nested)! 😎🥱🐱🦃🥙🍪🥬🌷🛴🧭🏰⛄"
 echo -e ""
 echo -e "And we can do any combination of the above..."
 
