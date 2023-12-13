@@ -23,7 +23,8 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 # 30-37 foreground colors
 # 40-47 background colors
 
-# buildkite emojis dont display inside log groups, only in a group header
+# buildkite emojis dont display inside log groups, only in a group header?
+# links seem to need to take up an entire line, don't seem to be able to make one word a link?
 
 echo -e ""
 echo -e "We can use 16 different foreground colors..."
@@ -60,6 +61,8 @@ printf '\033]1339;url='"https://github.com/buildkite/emojis"';content='"Buildkit
 printf 'are supported, BUT...'
 echo 'are supported, BUT...'
 echo -e 'are supported, BUT...'
+
+echo -e "\033[1339;url=https://google.com;content=Google Search\033[0m"
 
 echo -e "--- Buildkite emojis are supported, BUT... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
 echo -e "They don't display within log groups (nested)... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
