@@ -64,6 +64,8 @@ echo -e 'are supported, BUT...'
 
 echo -e "\033[1339;url=https://google.com;content=Google Search\033[0m"
 
+echo -e '\e]8;;http://example.com\e\\This is a link\e]8;;\e\\'
+
 echo -e "--- Buildkite emojis are supported, BUT... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
 echo -e "They don't display within log groups (nested)... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
 echo -e "But normal emojis work within log groups (nested)! 😎🥱🐱🦃🥙🍪🥬🌷🛴🧭🏰⛄"
