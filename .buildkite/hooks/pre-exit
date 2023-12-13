@@ -23,6 +23,8 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 # 30-37 foreground colors
 # 40-47 background colors
 
+# buildkite emojis dont display inside log groups, only in a group header
+
 echo -e ""
 echo -e "We can use 16 different foreground colors..."
 echo -e "\033[30;41m   01. black (FG30) on red (BG41)   \033[0m"
@@ -54,7 +56,10 @@ echo -e "\033[5m   this is blinking text   \033[0m"
 echo -e "\033[9m   this striked text   \033[0m"
 echo -e ""
 
-printf '\033]1339;url='"https://github.com/buildkite/emojis"';content='"Buildkite emojis"' are supported, BUT...\a\n'
+printf '\033]1339;url='"https://github.com/buildkite/emojis"';content='"Buildkite emojis"''
+printf 'are supported, BUT...'
+echo 'are supported, BUT...'
+echo -e 'are supported, BUT...'
 
 echo -e "--- Buildkite emojis are supported, BUT... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
 echo -e "They don't display within log groups (nested)... :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button:"
