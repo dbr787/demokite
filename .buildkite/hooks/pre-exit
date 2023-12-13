@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# set -euxo pipefail
+# set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+# set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
 echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
+
+# Job lifecycle hooks have access to all the standard Buildkite environment variables.
+echo $BUILDKITE_PIPELINE_SLUG
