@@ -56,7 +56,7 @@ echo -e ""
 echo -e "We can use emojis..."
 echo -e "\033[:thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button: 👋\033[0m"
 echo -e ":thisisfine::perfection::bash::sadpanda::partyparrot::docker::metal::red_button:"
-echo -e ""
+echo -e ":cow::bell:"
 # :terminal:
 # :speech_balloon:
 # :ghost:
