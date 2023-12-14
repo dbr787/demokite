@@ -61,13 +61,13 @@ echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
 ls -la;
 
-cd .buildkite/steps/logs/;
+# cd .buildkite/steps/logs/;
 
-buildkite-agent artifact upload man-beard.gif;
+# buildkite-agent artifact upload man-beard.gif;
 
 echo '--- How about GIFs?'
 
-printf 'hello\033]1338;url='"artifact://man-beard.gif"';alt='"man-beard"'\t\ahello\n'
+printf 'hello\033]1338;url='"artifact://man.gif"';alt='"man"'\t\ahello\n'
 
 echo '--- How about links?'
 
@@ -82,7 +82,7 @@ echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
 echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt
 
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
-# These variables will be redacted from logs....
+# These variables should be redacted from logs....
 
 MY_PASSWORD="ThisIsASecret"
 MY_SECRET="ThisIsASecret"
