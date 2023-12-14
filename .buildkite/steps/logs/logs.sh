@@ -4,12 +4,17 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-echo -e "--- I wrote a song for you :yellow_heart:";
+echo -e "--- I wrote a song for you :guitar::yellow_heart:";
 echo -e "\033[33m... and it was called yellow\033[0m"
 echo -e "\033[93mbut i prefer bright yellow\033[0m"
 str1="\033[33m... and it was called yellow\033[0m"
-str2="\033[95mbut i prefer magenta\033[0m"
-echo -e "$str1$str2"
+str2="\033[35mbut i prefer magenta\033[0m"
+str3="\033[95mor bright magenta\033[0m"
+echo -e "$str1$str2$str3"
+
+link1='\033]1339;url='"https://www.buildkite.com/"';content='"This is a link to the Buildkite website"'\a\n'
+link2=" and more text"
+echo -e "$link1$link2"
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
