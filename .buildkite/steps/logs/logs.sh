@@ -80,14 +80,13 @@ echokite "  12. We have bright yellow text" bright_yellow none normal
 echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
 echo "We also have 3 different background colors..."
+echokite "  01. We have red background" white red normal
+echokite "  02. We have green background" black green normal
+echokite "  02. We have green background" bright_black green normal
+echokite "  03. We have black background" white black normal
 
 
 
-echo -e "Hopefully a blank line was printed"
-printf "\n"
-echo -e "Or now at least"
-echo ""
-echo "Or even now?"
 # echo -e "\033[30m01. black (FG30)\033[0m"
 # echo -e "\033[31m02. red (FG31)\033[0m"
 # echo -e "\033[32m03. green (FG32)\033[0m"
