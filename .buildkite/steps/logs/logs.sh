@@ -9,20 +9,13 @@ set -euo pipefail # don't print executed commands to the terminal
 # buildkite emojis dont display inside log groups, only in a group header
 # links in group headers underline on hover, but are not clickable
 
-yum install tree -yq;
-
-job_dir=$(pwd)
-job_dir_contents=$(ls -la $job_dir)
-
-# echo -e ":buildkite: The current working directory is:\n$(pwd)";
-# ls -la;
+cur_dir=$(pwd)
+cur_dir_contents=$(ls -lah $cur_dir)
 
 # change into steps/logs/ directory
-# cd .buildkite/steps/logs/assets/;
 cd .buildkite/steps/logs/;
 
-# upload gifs as artifacts
-# buildkite-agent artifact upload "*.gif" --log-level error;
+# upload assets as artifacts
 buildkite-agent artifact upload "assets/*" --log-level error;
 
 # echokite function to print text colors and styles
@@ -118,12 +111,10 @@ echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
-# echo -e "The currently running job default directory is:\n$job_dir";
-echo "The currently running job default directory is:"
-echokite "$job_dir" blue none italic
+echo "The current working directory is:"
+echokite "$cur_dir" blue none italic
 echo "The contents of that directory is:"
-
-
+echokite "$cur_dir_contents" blue none italic
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
 
