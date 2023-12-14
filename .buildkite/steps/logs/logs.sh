@@ -106,11 +106,11 @@ echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
 printf '  \033]1338;url='"artifact://bean.gif"';alt='"bean"'\t\a\n'
-echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:" bright_red none underline)"
+echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:"
 echo ""
 echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
-echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_red none underline)"
+echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
 
 
