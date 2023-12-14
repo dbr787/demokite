@@ -10,29 +10,44 @@ cd .buildkite/steps/logs/assets/;
 # upload gifs as artifacts
 buildkite-agent artifact upload "*.gif" --log-level error;
 
-
-function_name () {
-   echo "Parameter #1 is $1"
+color () {
+    local style="$1"
+    local color="$2"
+    local text="$3"
+    local ansi_color="37"
+    if [ $color == "black" ]; then ansi_color=30 fi;
+    # normal="0"
+    # italic="3"
+    # underline="4"
+    # blink="5"
+    # strike="9"
+    echo -e "\033[${style};${color}m${text}\033[0m"
 }
 
-ansi_prefix="\033["
+color 0 $black "hello"
 
-black='\033[0;30m'
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[0;34m'
-magenta='\033[0;35m'
-cyan='\033[0;36m'
-white='\033[0;37m'
-bright_black='\033[0;37m'
-bright_red='\033[0;37m'
-bright_green='\033[0;37m'
-bright_yellow='\033[0;93m'
-bright_blue='\033[0;94m'
+# ansi_prefix="\033["
+# black='30'
+# red='31'
+# green='32'
+# yellow='33'
+# blue='34'
+# magenta='35'
+# cyan='36'
+# white='37'
+# bright_black='90'
+# bright_red='91'
+# bright_green='92'
+# bright_yellow='93'
+# bright_blue='94'
 
 
 
+
+echo -e "\033[3m   this is italic text   \033[0m"
+echo -e "\033[4m   this is underlined text   \033[0m"
+echo -e "\033[5m   this is blinking text   \033[0m"
+echo -e "\033[9m   this striked text   \033[0m"
 
 
 
