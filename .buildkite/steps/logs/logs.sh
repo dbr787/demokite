@@ -9,8 +9,10 @@ set -euo pipefail # don't print executed commands to the terminal
 # buildkite emojis dont display inside log groups, only in a group header
 # links in group headers underline on hover, but are not clickable
 
-echo -e ":buildkite: The current working directory is:\n$(pwd)";
+job_dir=$(pwd)
+job_dir_contents=$(ls -la $job_dir)
 
+echo -e ":buildkite: The current working directory is:\n$(pwd)";
 ls -la;
 
 # change into steps/logs/ directory
@@ -113,6 +115,9 @@ echo ""
 echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
+echo ""
+echo -e "  :buildkite: The currently running job default directory is:\n$job_dir";
+echo -e "  :buildkite: The contents of that directory is:\n$job_dir_contents";
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
 
