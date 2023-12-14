@@ -86,6 +86,7 @@ str04=$(echokite "in any combination" bright_blue none blink)
 str05=$(echokite "you desire!" cyan none strike)
 echo -e "$str01 $str02 $str03 $str04 $str05"
 echo ""
+echo -e "--- :link: $(echokite "Expand this group to see links" bright_blue none underline)"
 
 
 
@@ -108,34 +109,30 @@ echo ""
 # echo -e "\033[93m12. bright yellow (FG93)\033[0m"
 # echo -e "\033[94m13. bright blue (FG94)\033[0m"
 
-echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
-echo -e "\033[33m... and it was called yellow\033[0m"
-str1="\033[93mbut i prefer bright yellow\033[0m"
-str2=", "
-str3="\033[35msometimes magenta\033[0m"
-str4="\033[90;3m, and on rare occassions \033[0m"
-str5="\033[36ma refreshing cyan\033[0m"
-str6="."
-echo -e "$str1$str2$str3$str4$str5$str6"
+# echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
+# echo -e "\033[33m... and it was called yellow\033[0m"
+# str1="\033[93mbut i prefer bright yellow\033[0m"
+# str2=", "
+# str3="\033[35msometimes magenta\033[0m"
+# str4="\033[90;3m, and on rare occassions \033[0m"
+# str5="\033[36ma refreshing cyan\033[0m"
+# str6="."
+# echo -e "$str1$str2$str3$str4$str5$str6"
 # echo -e "\033[90mbut let's see bright black too\033[0m"
 # echo -e "\033[30mbut let's see dark   black too\033[0m"
 
-
-str1="\033[30;42mI like to use a green background to show success\033[0m"
-str2=", "
-str3="\033[41ma red background to show failure\033[0m"
-str4=", "
-str5="\033[40mand a gray background for other highlights\033[0m"
-str6="."
-echo -e "$str1$str2$str3$str4$str5$str6"
-
-
-
+# str1="\033[30;42mI like to use a green background to show success\033[0m"
+# str2=", "
+# str3="\033[41ma red background to show failure\033[0m"
+# str4=", "
+# str5="\033[40mand a gray background for other highlights\033[0m"
+# str6="."
+# echo -e "$str1$str2$str3$str4$str5$str6"
 
 link0="Here is some text, and "
 link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
 link2=" and here is some more text"
-echo -e "--- $link0$link1$link2"
+echo -e "$link0$link1$link2"
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
