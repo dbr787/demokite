@@ -65,19 +65,19 @@ echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
 
 echo ""
 echo "With Buildkite logs, we have 13 different text foreground colors to choose from..."
-echokite "  01. We have black text" black normal
-echokite "  02. We have red text" red normal
-echokite "  03. We have green text" green normal
-echokite "  04. We have yellow text" yellow normal
-echokite "  05. We have blue text" blue normal
-echokite "  06. We have magenta text" magenta normal
-echokite "  07. We have cyan text" cyan normal
-echokite "  08. We have white text" white normal
-echokite "  09. We have bright black text" bright_black normal
-echokite "  10. We have bright red text" bright_red normal
-echokite "  11. We have bright green text" bright_green normal
-echokite "  12. We have bright yellow text" bright_yellow normal
-echokite "  13. We have bright blue text" bright_blue normal
+echokite "  01. We have black text" black none normal
+echokite "  02. We have red text" red none normal
+echokite "  03. We have green text" green none normal
+echokite "  04. We have yellow text" yellow none normal
+echokite "  05. We have blue text" blue none normal
+echokite "  06. We have magenta text" magenta none normal
+echokite "  07. We have cyan text" cyan none normal
+echokite "  08. We have white text" white none normal
+echokite "  09. We have bright black text" bright_black none normal
+echokite "  10. We have bright red text" bright_red none normal
+echokite "  11. We have bright green text" bright_green none normal
+echokite "  12. We have bright yellow text" bright_yellow none normal
+echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
 echo "We also have 3 different background colors..."
 
