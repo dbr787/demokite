@@ -86,9 +86,15 @@ str04=$(echokite "in any combination" bright_blue none blink)
 str05=$(echokite "you desire!" cyan none strike)
 echo -e "$str01 $str02 $str03 $str04 $str05"
 echo ""
-echo -e "--- :link: $(echokite "Expand this group to see links" bright_blue none underline)"
-
-
+echo -e "--- :link: $(echokite "Expand this group to see some example links" bright_green none underline)"
+echo ""
+printf '\033]1339;url='"https://www.buildkite.com/"';content='"Links will always be this color, and will show an underline on hover"'\a\n'
+printf '\033]1339;url='"https://www.buildkite.com/"'\a\n'
+link01="We can also include a link"
+link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain words"'\a'
+link03="in a line of text"
+echo -e "$link01 $link02 $link03"
+echo ""
 
 
 
@@ -129,10 +135,7 @@ echo -e "--- :link: $(echokite "Expand this group to see links" bright_blue none
 # str6="."
 # echo -e "$str1$str2$str3$str4$str5$str6"
 
-link0="Here is some text, and "
-link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
-link2=" and here is some more text"
-echo -e "$link0$link1$link2"
+
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
