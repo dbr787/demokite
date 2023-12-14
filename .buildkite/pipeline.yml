@@ -2,4 +2,4 @@
 steps:
   - label: ":feelsgood: Let's Begin"
     key: "begin"
-    command: ".buildkite/begin.sh"
+    command: ".buildkite/demokite.sh"

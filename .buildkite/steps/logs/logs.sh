@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+# set -euxo pipefail # print executed commands to the terminal
+set -euo pipefail # don't print executed commands to the terminal
+
+echo -e "--- I wrote a song for you :yellow_heart:";
+
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
 echo -e "\033[33m... and it was called yellow\033[0m"
