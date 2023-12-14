@@ -4,8 +4,11 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+# change into steps/logs/ directory
+cd .buildkite/steps/logs/;
+
 # upload gifs as artifacts
-buildkite-agent artifact upload ".buildkite/steps/logs/*.gif"
+buildkite-agent artifact upload "*.gif";
 
 # We can use 16 different foreground colors...
 echo -e "\033[30m   01. black (FG30)   \033[0m"
@@ -14,11 +17,11 @@ echo -e "\033[32m   03. green (FG32)   \033[0m"
 echo -e "\033[33m   04. yellow (FG33)   \033[0m"
 echo -e "\033[34m   05. blue (FG34)   \033[0m"
 echo -e "\033[35m   06. magenta (FG35)   \033[0m"
-# echo -e "\033[95m   14. bright magenta (FG95)   \033[0m"
+# echo -e "\033[95m   14. bright magenta (FG95)   \033[0m" # this color is the same as magenta (FG35)
 echo -e "\033[36m   07. cyan (FG36)   \033[0m"
-# echo -e "\033[96m   15. bright cyan (FG96)   \033[0m"
+# echo -e "\033[96m   15. bright cyan (FG96)   \033[0m" # this color is the same as cyan (FG36)
 echo -e "\033[37m   08. white (FG37)   \033[0m"
-# echo -e "\033[97m   16. bright white (FG97)   \033[0m"
+# echo -e "\033[97m   16. bright white (FG97)   \033[0m" # this color is the same as white (FG37)
 echo -e "\033[90m   09. bright black (FG90)   \033[0m"
 echo -e "\033[91m   10. bright red (FG91)   \033[0m"
 echo -e "\033[92m   11. bright green (FG92)   \033[0m"
