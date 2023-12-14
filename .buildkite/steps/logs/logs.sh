@@ -90,6 +90,15 @@ echokite "  02. We have italic style" white none italic
 echokite "  03. We have underlined style" white none underline
 echokite "  04. We have blinking style" white none blink
 echokite "  05. We have striked style" white none strike
+echo ""
+str01=$(echokite "All of these" bright_green red normal)
+str02=$(echokite "options and styles" magenta gray italic)
+str03=$(echokite "can be used" bright_red green underline)
+str04=$(echokite "in any combination" bright_blue none blink)
+str05=$(echokite "you desire!" cyan none strike)
+echo -e "$str01 $str02 $str03 $str04 $str05"
+echo ""
+
 
 
 
