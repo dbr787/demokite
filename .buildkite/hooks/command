@@ -9,7 +9,7 @@ echo -e "\033[35mrepository command hook here, hi! 👋\033[0m"
 # this hook will override any command specified in the job
 # rename the file from 'command.example' to 'command' to use this hook
 
-echo -e "\033[33mrepository command hook here, hai!\033[0m"
+. $BUILDKITE_COMMAND
 
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
 # These variables will be redacted from logs....
