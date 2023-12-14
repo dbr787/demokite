@@ -4,6 +4,8 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+echo -e "\033[35mrepository command hook here, hi! 👋\033[0m"
+
 # this hook will override any command specified in the job
 # rename the file from 'command.example' to 'command' to use this hook
 
