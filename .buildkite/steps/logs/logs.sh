@@ -10,22 +10,43 @@ cd .buildkite/steps/logs/assets/;
 # upload gifs as artifacts
 buildkite-agent artifact upload "*.gif" --log-level error;
 
-color () {
-    local style="$1"
+echokite () {
+    local text="$1"
     local color="$2"
-    local text="$3"
-    local ansi_color="37"
+    local style="$3"
+    local ansi_text="" # empty
+    local ansi_color="37" # white
+    local ansi_style="0" # normal
+    
+    [ $style == "normal" ] && ansi_style="0"
+    [ $style == "italic" ] && ansi_style="3"
+    [ $style == "underline" ] && ansi_style="4"
+    [ $style == "blink" ] && ansi_style="5"
+    [ $style == "strike" ] && ansi_style="9"
+
+    [ $color == "black" ] && ansi_color="93"
+    [ $color == "red" ] && ansi_color="93"
+    [ $color == "green" ] && ansi_color="93"
     [ $color == "yellow" ] && ansi_color="93"
-    # normal="0"
-    # italic="3"
-    # underline="4"
-    # blink="5"
-    # strike="9"
-    echo -e "\033[${style};${ansi_color}m${text}\033[0m"
+    [ $color == "blue" ] && ansi_color="93"
+    [ $color == "magenta" ] && ansi_color="93"
+    [ $color == "cyan" ] && ansi_color="93"
+    [ $color == "white" ] && ansi_color="93"
+    [ $color == "bright_black" ] && ansi_color="93"
+    [ $color == "bright_red" ] && ansi_color="93"
+    [ $color == "bright_green" ] && ansi_color="93"
+    [ $color == "bright_yellow" ] && ansi_color="93"
+    [ $color == "bright_blue" ] && ansi_color="93"
+
+    echo -e "\033[${ansi_style};${ansi_color}m${ansi_text}\033[0m"
 }
 
-color "0" "yellow" "hello this is my colored text"
-color 0 yellow "hello this is my colored text"
+echokite "hello this is my colored text" yellow normal
+echokite "hello this is my colored text" bright_green italic
+echokite "hello this is my colored text" magenta underline
+echokite "hello this is my colored text" bright_blue blink
+echokite "hello this is my colored text" bright_red strike
+echokite "hello this is my colored text" blue italic
 
 # ansi_prefix="\033["
 # black='30'
