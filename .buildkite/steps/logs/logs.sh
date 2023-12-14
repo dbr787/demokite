@@ -57,20 +57,24 @@ echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
 
 
 
-echo -e "We have 13 different foreground colors to choose from..."
-echokite "01. We have black text" black normal
-echokite "02. We have red text" red normal
-echokite "03. We have green text" green normal
-echokite "04. We have yellow text" yellow normal
-echokite "05. We have blue text" blue normal
-echokite "06. We have magenta text" magenta normal
-echokite "07. We have cyan text" cyan normal
-echokite "08. We have white text" white normal
-echokite "09. We have bright black text" bright_black normal
-echokite "10. We have bright red text" bright_red normal
-echokite "11. We have bright green text" bright_green normal
-echokite "12. We have bright yellow text" bright_yellow normal
-echokite "13. We have bright blue text" bright_blue normal
+echo -e "With Buildkite logs, we have 13 different text foreground colors to choose from..."
+echokite "  01. We have black text" black normal
+echokite "  02. We have red text" red normal
+echokite "  03. We have green text" green normal
+echokite "  04. We have yellow text" yellow normal
+echokite "  05. We have blue text" blue normal
+echokite "  06. We have magenta text" magenta normal
+echokite "  07. We have cyan text" cyan normal
+echokite "  08. We have white text" white normal
+echokite "  09. We have bright black text" bright_black normal
+echokite "  10. We have bright red text" bright_red normal
+echokite "  11. We have bright green text" bright_green normal
+echokite "  12. We have bright yellow text" bright_yellow normal
+echokite "  13. We have bright blue text" bright_blue normal
+echo -e ""
+echo -e "Hopefully a blank line was printed"
+printf "\n"
+echo -e "Or now at least"
 
 # echo -e "\033[30m01. black (FG30)\033[0m"
 # echo -e "\033[31m02. red (FG31)\033[0m"
