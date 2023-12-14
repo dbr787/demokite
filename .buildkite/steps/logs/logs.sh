@@ -112,6 +112,8 @@ echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
+echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
+
 
 
 
