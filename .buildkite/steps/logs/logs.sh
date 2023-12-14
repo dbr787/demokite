@@ -10,11 +10,12 @@ cd .buildkite/steps/logs/assets/;
 # upload gifs as artifacts
 buildkite-agent artifact upload "*.gif" --log-level error;
 
+# echokite function to print text colors and styles
 echokite () {
     local text="$1"
     local color="$2"
     local style="$3"
-    local ansi_text="" # empty
+    local ansi_text=$text # empty
     local ansi_color="37" # white
     local ansi_style="0" # normal
     
@@ -47,6 +48,8 @@ echokite "hello this is my colored text" magenta underline
 echokite "hello this is my colored text" bright_blue blink
 echokite "hello this is my colored text" bright_red strike
 echokite "hello this is my colored text" blue italic
+
+
 
 # ansi_prefix="\033["
 # black='30'
