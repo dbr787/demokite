@@ -15,7 +15,7 @@ echokite () {
     local text="$1"
     local color="$2"
     local style="$3"
-    local ansi_text=$text # empty
+    local ansi_text="$text" # empty
     local ansi_color="37" # white
     local ansi_style="0" # normal
     
@@ -25,19 +25,19 @@ echokite () {
     [ $style == "blink" ] && ansi_style="5"
     [ $style == "strike" ] && ansi_style="9"
 
-    [ $color == "black" ] && ansi_color="93"
-    [ $color == "red" ] && ansi_color="93"
-    [ $color == "green" ] && ansi_color="93"
-    [ $color == "yellow" ] && ansi_color="93"
-    [ $color == "blue" ] && ansi_color="93"
-    [ $color == "magenta" ] && ansi_color="93"
-    [ $color == "cyan" ] && ansi_color="93"
-    [ $color == "white" ] && ansi_color="93"
-    [ $color == "bright_black" ] && ansi_color="93"
-    [ $color == "bright_red" ] && ansi_color="93"
-    [ $color == "bright_green" ] && ansi_color="93"
+    [ $color == "black" ] && ansi_color="30"
+    [ $color == "red" ] && ansi_color="31"
+    [ $color == "green" ] && ansi_color="32"
+    [ $color == "yellow" ] && ansi_color="33"
+    [ $color == "blue" ] && ansi_color="34"
+    [ $color == "magenta" ] && ansi_color="35"
+    [ $color == "cyan" ] && ansi_color="36"
+    [ $color == "white" ] && ansi_color="37"
+    [ $color == "bright_black" ] && ansi_color="90"
+    [ $color == "bright_red" ] && ansi_color="91"
+    [ $color == "bright_green" ] && ansi_color="92"
     [ $color == "bright_yellow" ] && ansi_color="93"
-    [ $color == "bright_blue" ] && ansi_color="93"
+    [ $color == "bright_blue" ] && ansi_color="94"
 
     echo -e "\033[${ansi_style};${ansi_color}m${ansi_text}\033[0m"
 }
