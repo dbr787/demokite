@@ -13,10 +13,12 @@ buildkite-agent artifact upload "*.gif" --log-level error;
 # echokite function to print text colors and styles
 echokite () {
     local text="$1"
-    local color="$2"
-    local style="$3"
+    local fg_color="$2"
+    local bg_color="$3"
+    local style="$4"
     local ansi_text="$text" # empty
-    local ansi_color="37" # white
+    local ansi_fg_color="37" # white
+    local ansi_bg_color="47" # white/reset?
     local ansi_style="0" # normal
     
     [ $style == "normal" ] && ansi_style="0"
@@ -25,39 +27,44 @@ echokite () {
     [ $style == "blink" ] && ansi_style="5"
     [ $style == "strike" ] && ansi_style="9"
 
-    [ $color == "black" ] && ansi_color="30"
-    [ $color == "red" ] && ansi_color="31"
-    [ $color == "green" ] && ansi_color="32"
-    [ $color == "yellow" ] && ansi_color="33"
-    [ $color == "blue" ] && ansi_color="34"
-    [ $color == "magenta" ] && ansi_color="35"
-    [ $color == "cyan" ] && ansi_color="36"
-    [ $color == "white" ] && ansi_color="37"
-    [ $color == "bright_black" ] && ansi_color="90"
-    [ $color == "bright_red" ] && ansi_color="91"
-    [ $color == "bright_green" ] && ansi_color="92"
-    [ $color == "bright_yellow" ] && ansi_color="93"
-    [ $color == "bright_blue" ] && ansi_color="94"
+    [ $fg_color == "black" ] && ansi_fg_color="30"
+    [ $fg_color == "red" ] && ansi_fg_color="31"
+    [ $fg_color == "green" ] && ansi_fg_color="32"
+    [ $fg_color == "yellow" ] && ansi_fg_color="33"
+    [ $fg_color == "blue" ] && ansi_fg_color="34"
+    [ $fg_color == "magenta" ] && ansi_fg_color="35"
+    [ $fg_color == "cyan" ] && ansi_fg_color="36"
+    [ $fg_color == "white" ] && ansi_fg_color="37"
+    [ $fg_color == "bright_black" ] && ansi_fg_color="90"
+    [ $fg_color == "bright_red" ] && ansi_fg_color="91"
+    [ $fg_color == "bright_green" ] && ansi_fg_color="92"
+    [ $fg_color == "bright_yellow" ] && ansi_fg_color="93"
+    [ $fg_color == "bright_blue" ] && ansi_fg_color="94"
 
-    echo -e "\033[${ansi_style};${ansi_color}m${ansi_text}\033[0m"
+    [ $bg_color == "none" ] && ansi_bg_color="47" # white should reset background?
+    [ $bg_color == "black" ] && ansi_bg_color="40"
+    [ $bg_color == "red" ] && ansi_bg_color="41"
+    [ $bg_color == "green" ] && ansi_bg_color="42"
+
+    echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m"
 }
 
-echokite "hello this is my colored text" yellow normal
-echokite "hello this is my colored text" bright_green italic
-echokite "hello this is my colored text" magenta underline
-echokite "hello this is my colored text" bright_blue blink
-echokite "hello this is my colored text" bright_red strike
-echokite "hello this is my colored text" blue italic
+echokite "hello this is my colored text" yellow none normal
+echokite "hello this is my colored text" bright_green none italic
+echokite "hello this is my colored text" magenta none underline
+echokite "hello this is my colored text" bright_blue none blink
+echokite "hello this is my colored text" bright_red none strike
+echokite "hello this is my colored text" blue none italic
 
-test1=$(echokite "hello this is my colored text" yellow normal)
-test2=$(echokite "hello this is my colored text" bright_green italic)
-test3=$(echokite "hello this is my colored text" bright_blue blink)
+test1=$(echokite "hello this is my colored text" yellow none normal)
+test2=$(echokite "hello this is my colored text" bright_green none italic)
+test3=$(echokite "hello this is my colored text" bright_blue none blink)
 echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
 
 
 
-echo -e ""
-echo -e "With Buildkite logs, we have 13 different text foreground colors to choose from..."
+echo ""
+echo "With Buildkite logs, we have 13 different text foreground colors to choose from..."
 echokite "  01. We have black text" black normal
 echokite "  02. We have red text" red normal
 echokite "  03. We have green text" green normal
@@ -71,7 +78,11 @@ echokite "  10. We have bright red text" bright_red normal
 echokite "  11. We have bright green text" bright_green normal
 echokite "  12. We have bright yellow text" bright_yellow normal
 echokite "  13. We have bright blue text" bright_blue normal
-echo -e ""
+echo ""
+echo "We also have 3 different background colors..."
+
+
+
 echo -e "Hopefully a blank line was printed"
 printf "\n"
 echo -e "Or now at least"
