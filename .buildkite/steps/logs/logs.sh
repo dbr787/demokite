@@ -96,7 +96,7 @@ link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
-echo ""
+# echo ""
 printf '  \033]1338;url='"artifact://man.gif"';alt='"man"'\t\a\n'
 
 
