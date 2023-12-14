@@ -9,7 +9,7 @@ set -euo pipefail # don't print executed commands to the terminal
 # buildkite emojis dont display inside log groups, only in a group header
 # links in group headers underline on hover, but are not clickable
 
-sudo yum install tree -yq;
+yum install tree -yq;
 
 job_dir=$(pwd)
 job_dir_contents=$(ls -la $job_dir)
