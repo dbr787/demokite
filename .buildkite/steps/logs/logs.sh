@@ -56,7 +56,7 @@ echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
 
 
 
-
+echo -e ""
 echo -e "With Buildkite logs, we have 13 different text foreground colors to choose from..."
 echokite "  01. We have black text" black normal
 echokite "  02. We have red text" red normal
@@ -75,7 +75,8 @@ echo -e ""
 echo -e "Hopefully a blank line was printed"
 printf "\n"
 echo -e "Or now at least"
-
+echo ""
+echo "Or even now?"
 # echo -e "\033[30m01. black (FG30)\033[0m"
 # echo -e "\033[31m02. red (FG31)\033[0m"
 # echo -e "\033[32m03. green (FG32)\033[0m"
