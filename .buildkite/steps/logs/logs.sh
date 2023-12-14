@@ -4,13 +4,14 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-echo -e "--- I wrote a song for you :guitar::yellow_heart:";
+echo -e "--- I wrote a song for you :yellow_heart: :guitar:";
 echo -e "\033[33m... and it was called yellow\033[0m"
-echo -e "\033[93mbut i prefer bright yellow\033[0m"
-str1="\033[33m... and it was called yellow\033[0m"
-str2="\033[35m but i prefer magenta\033[0m"
-str3="\033[95m or bright magenta\033[0m"
-echo -e "$str1$str2$str3"
+str1="\033[93mbut i prefer bright yellow\033[0m"
+str2=", "
+str3="\033[35msometimes magenta\033[0m"
+str4=", and on rare occassions "
+str5="\033[36ma refreshing cyan\033[0m"
+echo -e "$str1$str2$str3$str4$str5"
 
 link0="Here is some text, and "
 link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
