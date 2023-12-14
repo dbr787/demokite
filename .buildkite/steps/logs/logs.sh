@@ -4,12 +4,12 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-echo -e "--- \033[33mI wrote a song for you\033[0m :yellow_heart: :guitar:";
+echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
 echo -e "\033[33m... and it was called yellow\033[0m"
 str1="\033[93mbut i prefer bright yellow\033[0m"
 str2=", "
 str3="\033[35msometimes magenta\033[0m"
-str4=", and on rare occassions "
+str4="\033[30m, and on rare occassions \033[0m"
 str5="\033[36ma refreshing cyan\033[0m"
 str6="."
 echo -e "$str1$str2$str3$str4$str5$str6"
