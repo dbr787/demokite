@@ -4,6 +4,11 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+# feedback/issues
+# log group inner content should be indented
+# buildkite emojis dont display inside log groups, only in a group header
+# links in group headers underline on hover, but are not clickable
+
 # change into steps/logs/ directory
 cd .buildkite/steps/logs/assets/;
 
@@ -96,11 +101,15 @@ link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
-printf '  \033]1338;url='"artifact://man.gif"';alt='"man"'\t\a\n'
-echo -e "--- :partyparrot: $(echokite "And of course we have Buildkite emojis " bright_red none underline)"
+printf '  \033]1338;url='"artifact://bean.gif"';alt='"bean"'\t\a\n'
+echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers: :nail_care:" bright_red none underline)"
 echo ""
-echo -e "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
+echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
+echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers: :nail_care:" bright_red none underline)"
+echo ""
+
+
 
 # echo -e "\033[30m01. black (FG30)\033[0m"
 # echo -e "\033[31m02. red (FG31)\033[0m"
