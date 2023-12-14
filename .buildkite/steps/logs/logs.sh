@@ -15,16 +15,16 @@ color () {
     local color="$2"
     local text="$3"
     local ansi_color="37"
-    if [ $color == "black" ]; then ansi_color=30 fi;
+    [ $color == "yellow" ] && ansi_color="93"
     # normal="0"
     # italic="3"
     # underline="4"
     # blink="5"
     # strike="9"
-    echo -e "\033[${style};${color}m${text}\033[0m"
+    echo -e "\033[${style};${ansi_color}m${text}\033[0m"
 }
 
-color 0 $black "hello"
+color "0" "yellow" "hello this is my colored text"
 
 # ansi_prefix="\033["
 # black='30'
@@ -41,6 +41,11 @@ color 0 $black "hello"
 # bright_yellow='93'
 # bright_blue='94'
 
+# normal="0"
+# italic="3"
+# underline="4"
+# blink="5"
+# strike="9"
 
 
 
