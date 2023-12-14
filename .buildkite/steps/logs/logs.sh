@@ -9,11 +9,13 @@ set -euo pipefail # don't print executed commands to the terminal
 # buildkite emojis dont display inside log groups, only in a group header
 # links in group headers underline on hover, but are not clickable
 
+sudo yum install tree -yq;
+
 job_dir=$(pwd)
 job_dir_contents=$(ls -la $job_dir)
 
-echo -e ":buildkite: The current working directory is:\n$(pwd)";
-ls -la;
+# echo -e ":buildkite: The current working directory is:\n$(pwd)";
+# ls -la;
 
 # change into steps/logs/ directory
 # cd .buildkite/steps/logs/assets/;
@@ -119,10 +121,9 @@ echo ""
 # echo -e "The currently running job default directory is:\n$job_dir";
 echo "The currently running job default directory is:"
 echokite "$job_dir" blue none italic
+echo "The contents of that directory is:"
 
 
-
-echo -e "  The contents of that directory is:\n$job_dir_contents";
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
 
