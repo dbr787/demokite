@@ -2,5 +2,5 @@
 steps:
   - label: ":terminal: Show Logs"
     key: "logs"
-    command: ".buildkite/steps/logs/logs.sh"
-    # command: ".buildkite/steps/logs/logs.sh | sed -e '/^---\|^+++\|^~~~/!s/^/  /'"
+    command: ".buildkite/steps/logs/logs.sh | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'"
+    # command: ".buildkite/steps/logs/logs.sh"
