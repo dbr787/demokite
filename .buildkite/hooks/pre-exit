@@ -33,7 +33,7 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 
 
 # buildkite emojis dont display inside log groups, only in a group header?
-# links seem to need to take up an entire line, don't seem to be able to make one word a link?
+# links underline on hover, but are not clickable when used in a group header
 
 echo -e ""
 echo -e "We can use 16 different foreground colors..."
