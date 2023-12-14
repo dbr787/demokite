@@ -54,58 +54,40 @@ test2=$(echokite "hello this is my colored text" bright_green italic)
 test3=$(echokite "hello this is my colored text" bright_blue blink)
 echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
 
-# ansi_prefix="\033["
-# black='30'
-# red='31'
-# green='32'
-# yellow='33'
-# blue='34'
-# magenta='35'
-# cyan='36'
-# white='37'
-# bright_black='90'
-# bright_red='91'
-# bright_green='92'
-# bright_yellow='93'
-# bright_blue='94'
-
-# normal="0"
-# italic="3"
-# underline="4"
-# blink="5"
-# strike="9"
 
 
 
-echo -e "\033[3m   this is italic text   \033[0m"
-echo -e "\033[4m   this is underlined text   \033[0m"
-echo -e "\033[5m   this is blinking text   \033[0m"
-echo -e "\033[9m   this striked text   \033[0m"
+echo -e "We have 13 different foreground colors to choose from..."
+echokite "01. We have black text" black normal
+echokite "02. We have red text" red normal
+echokite "03. We have green text" green normal
+echokite "04. We have yellow text" yellow normal
+echokite "05. We have blue text" blue normal
+echokite "06. We have magenta text" magenta normal
+echokite "07. We have cyan text" cyan normal
+echokite "08. We have white text" white normal
+echokite "09. We have bright black text" bright_black normal
+echokite "10. We have bright red text" bright_red normal
+echokite "11. We have bright green text" bright_green normal
+echokite "12. We have bright yellow text" bright_yellow normal
+echokite "13. We have bright blue text" bright_blue normal
 
-
-
-
-
-
-
-
-# We can use 16 different foreground colors...
-echo -e "\033[30m01. black (FG30)\033[0m"
-echo -e "\033[31m02. red (FG31)\033[0m"
-echo -e "\033[32m03. green (FG32)\033[0m"
-echo -e "\033[33m04. yellow (FG33)\033[0m"
-echo -e "\033[34m05. blue (FG34)\033[0m"
-echo -e "\033[35m06. magenta (FG35)\033[0m"
-# echo -e "\033[95m   14. bright magenta (FG95)   \033[0m" # this color is the same as magenta (FG35)
-echo -e "\033[36m07. cyan (FG36)\033[0m"
-# echo -e "\033[96m   15. bright cyan (FG96)   \033[0m" # this color is the same as cyan (FG36)
-echo -e "\033[37m08. white (FG37)\033[0m"
-# echo -e "\033[97m   16. bright white (FG97)   \033[0m" # this color is the same as white (FG37)
-echo -e "\033[90m09. bright black (FG90)\033[0m"
-echo -e "\033[91m10. bright red (FG91)\033[0m"
-echo -e "\033[92m11. bright green (FG92)\033[0m"
-echo -e "\033[93m12. bright yellow (FG93)\033[0m"
-echo -e "\033[94m13. bright blue (FG94)\033[0m"
+# echo -e "\033[30m01. black (FG30)\033[0m"
+# echo -e "\033[31m02. red (FG31)\033[0m"
+# echo -e "\033[32m03. green (FG32)\033[0m"
+# echo -e "\033[33m04. yellow (FG33)\033[0m"
+# echo -e "\033[34m05. blue (FG34)\033[0m"
+# echo -e "\033[35m06. magenta (FG35)\033[0m"
+# # echo -e "\033[95m   14. bright magenta (FG95)   \033[0m" # this color is the same as magenta (FG35)
+# echo -e "\033[36m07. cyan (FG36)\033[0m"
+# # echo -e "\033[96m   15. bright cyan (FG96)   \033[0m" # this color is the same as cyan (FG36)
+# echo -e "\033[37m08. white (FG37)\033[0m"
+# # echo -e "\033[97m   16. bright white (FG97)   \033[0m" # this color is the same as white (FG37)
+# echo -e "\033[90m09. bright black (FG90)\033[0m"
+# echo -e "\033[91m10. bright red (FG91)\033[0m"
+# echo -e "\033[92m11. bright green (FG92)\033[0m"
+# echo -e "\033[93m12. bright yellow (FG93)\033[0m"
+# echo -e "\033[94m13. bright blue (FG94)\033[0m"
 
 echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
 echo -e "\033[33m... and it was called yellow\033[0m"
