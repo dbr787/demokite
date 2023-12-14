@@ -14,6 +14,7 @@ str5="\033[36ma refreshing cyan\033[0m"
 str6="."
 echo -e "$str1$str2$str3$str4$str5$str6"
 echo -e "\033[90mbut let's see bright black too\033[0m"
+echo -e "\033[30mbut let's see dark   black too\033[0m"
 
 
 str1="\033[30;42mI like to use a green background to show success\033[0m"
