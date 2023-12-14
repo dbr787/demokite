@@ -25,6 +25,7 @@ color () {
 }
 
 color "0" "yellow" "hello this is my colored text"
+color 0 yellow "hello this is my colored text"
 
 # ansi_prefix="\033["
 # black='30'
