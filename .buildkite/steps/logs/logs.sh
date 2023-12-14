@@ -116,8 +116,13 @@ echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
-echo -e "  :buildkite: The currently running job default directory is:\n$job_dir";
-echo -e "  :buildkite: The contents of that directory is:\n$job_dir_contents";
+# echo -e "The currently running job default directory is:\n$job_dir";
+echo "The currently running job default directory is:"
+echokite "$job_dir" blue none italic
+
+
+
+echo -e "  The contents of that directory is:\n$job_dir_contents";
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
 
