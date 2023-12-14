@@ -49,6 +49,8 @@ echokite () {
     echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m"
 }
 
+# echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
+echo -e "--- :rainbow: $(echokite "Expand this group to see text styling options" magenta none underline)"
 echo ""
 echo "With Buildkite logs, we have 13 different text colors to choose from..."
 echokite "  01. We have black text" black none normal
@@ -71,11 +73,11 @@ echo -e "  $(echokite "02. We have green background" black green normal)"
 echo -e "  $(echokite "03. We have gray background" white gray normal)"
 echo ""
 echo "We can also style text with 5 different variations..."
-echo -e "  $(echokite "  01. We have normal style" white none normal)"
-echo -e "  $(echokite "  02. We have italic style" white none italic)"
-echo -e "  $(echokite "  03. We have underlined style" white none underline)"
-echo -e "  $(echokite "  04. We have blinking style" white none blink)"
-echo -e "  $(echokite "  05. We have striked style" white none strike)"
+echo -e "  $(echokite "01. We have normal style" white none normal)"
+echo -e "  $(echokite "02. We have italic style" white none italic)"
+echo -e "  $(echokite "03. We have underlined style" white none underline)"
+echo -e "  $(echokite "04. We have blinking style" white none blink)"
+echo -e "  $(echokite "05. We have striked style" white none strike)"
 echo ""
 str01=$(echokite "All of these" bright_green red normal)
 str02=$(echokite "options and styles" magenta gray italic)
