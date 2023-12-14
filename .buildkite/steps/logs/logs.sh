@@ -5,6 +5,8 @@
 set -euo pipefail # don't print executed commands to the terminal
 
 echo -e "--- I wrote a song for you :yellow_heart:";
+echo -e "\033[33m... and it was called yellow\033[0m"
+echo -e "\033[93mbut i prefer bright yellow\033[0m"
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
