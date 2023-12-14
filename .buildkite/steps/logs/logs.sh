@@ -52,7 +52,7 @@ echokite () {
 # echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
 echo -e "--- :rainbow: $(echokite "Expand this group to see text styling options" magenta none underline)"
 echo ""
-echo "With Buildkite logs, we have 13 different text colors to choose from..."
+echo "With Buildkite logs, there are 13 different text colors to choose from..."
 echokite "  01. We have black text" black none normal
 echokite "  02. We have red text" red none normal
 echokite "  03. We have green text" green none normal
@@ -67,12 +67,12 @@ echokite "  11. We have bright green text" bright_green none normal
 echokite "  12. We have bright yellow text" bright_yellow none normal
 echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
-echo "We also have 3 different background colors..."
+echo "There are also 3 different background colors..."
 echo -e "  $(echokite "01. We have red background" white red normal)"
 echo -e "  $(echokite "02. We have green background" black green normal)"
 echo -e "  $(echokite "03. We have gray background" white gray normal)"
 echo ""
-echo "We can also style text with 5 different variations..."
+echo "And we can style text with 5 different variations..."
 echo -e "  $(echokite "01. We have normal style" white none normal)"
 echo -e "  $(echokite "02. We have italic style" white none italic)"
 echo -e "  $(echokite "03. We have underlined style" white none underline)"
@@ -95,7 +95,9 @@ link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain w
 link03="in a line of text"
 echo -e "$link01 $link02 $link03"
 echo ""
-
+echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
+echo ""
+printf '\033]1338;url='"artifact://man.gif"';alt='"man"'\t\a\n'
 
 
 # echo -e "\033[30m01. black (FG30)\033[0m"
