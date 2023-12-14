@@ -96,9 +96,11 @@ link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
-# echo ""
 printf '  \033]1338;url='"artifact://man.gif"';alt='"man"'\t\a\n'
-
+echo -e "--- :partyparrot: $(echokite "And of course we have Buildkite emojis " bright_red none underline)"
+echo ""
+echo -e "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
+echo ""
 
 # echo -e "\033[30m01. black (FG30)\033[0m"
 # echo -e "\033[31m02. red (FG31)\033[0m"
