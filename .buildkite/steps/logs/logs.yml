@@ -4,4 +4,4 @@ steps:
     key: "logs"
     # command: ".buildkite/steps/logs/logs.sh | sed 's/^/  /'"
     # command: ".buildkite/steps/logs/logs.sh | sed -e '/^---/! s/^/  /'
-    command: ".buildkite/steps/logs/logs.sh | sed -e '/^---\|^+++\|^~~~/!s/^/  /'
+    command: ".buildkite/steps/logs/logs.sh | sed -e -E '/^---\|^+++\|^~~~/!s/^/  /'"
