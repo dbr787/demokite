@@ -80,9 +80,12 @@ echokite "  12. We have bright yellow text" bright_yellow none normal
 echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
 echo "We also have 3 different background colors..."
-echokite "  01. We have red background" white red normal
-echokite "  02. We have green background" black green normal
-echokite "  03. We have gray background" white gray normal
+echo -e "  $(echokite "01. We have red background" white red normal)"
+str_bg02=$(echokite "  02. We have green background" black green normal)
+str_bg03=$(echokite "  03. We have gray background" white gray normal)
+
+
+
 echo ""
 echo "We can also style text with 5 different variations..."
 echokite "  01. We have normal style" white none normal
