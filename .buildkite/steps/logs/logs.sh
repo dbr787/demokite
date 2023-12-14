@@ -9,6 +9,10 @@ set -euo pipefail # don't print executed commands to the terminal
 # buildkite emojis dont display inside log groups, only in a group header
 # links in group headers underline on hover, but are not clickable
 
+echo -e ":buildkite: The current working directory is:\n$(pwd)";
+
+ls -la;
+
 # change into steps/logs/ directory
 cd .buildkite/steps/logs/assets/;
 
@@ -102,11 +106,11 @@ echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
 printf '  \033]1338;url='"artifact://bean.gif"';alt='"bean"'\t\a\n'
-echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers: :nail_care:" bright_red none underline)"
+echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:" bright_red none underline)"
 echo ""
 echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
-echo -e "--- :partyparrot: $(echokite "And of course we support Buildkite emojis :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :scientist: :technologist: :teacher: :artist: :cook: :supervillain: :superhero: :ninja: :juggling: :shrug: :pinched_fingers: :nail_care:" bright_red none underline)"
+echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_red none underline)"
 echo ""
 
 
@@ -150,9 +154,9 @@ echo ""
 
 
 
-echo -e ":buildkite: The current working directory is:\n$(pwd)";
+# echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
-ls -la;
+# ls -la;
 
 # cd .buildkite/steps/logs/;
 
@@ -170,16 +174,16 @@ echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
 # These variables should be redacted from logs....
 
-MY_PASSWORD="ThisIsASecret"
-MY_SECRET="ThisIsASecret"
-MY_TOKEN="ThisIsASecret"
-MY_ACCESS_KEY="ThisIsASecret"
-MY_SECRET_KEY="ThisIsASecret"
-MY_CONNECTION_STRING="ThisIsASecret" # (added in Agent v3.53.0)
+# MY_PASSWORD="ThisIsASecret"
+# MY_SECRET="ThisIsASecret"
+# MY_TOKEN="ThisIsASecret"
+# MY_ACCESS_KEY="ThisIsASecret"
+# MY_SECRET_KEY="ThisIsASecret"
+# MY_CONNECTION_STRING="ThisIsASecret" # (added in Agent v3.53.0)
 
-echo "MY_PASSWORD=$MY_PASSWORD"
-echo "MY_SECRET=$MY_SECRET"
-echo "MY_TOKEN=$MY_TOKEN"
-echo "MY_ACCESS_KEY=$MY_ACCESS_KEY"
-echo "MY_SECRET_KEY=$MY_SECRET_KEY"
-echo "MY_CONNECTION_STRING=$MY_CONNECTION_STRING"
+# echo "MY_PASSWORD=$MY_PASSWORD"
+# echo "MY_SECRET=$MY_SECRET"
+# echo "MY_TOKEN=$MY_TOKEN"
+# echo "MY_ACCESS_KEY=$MY_ACCESS_KEY"
+# echo "MY_SECRET_KEY=$MY_SECRET_KEY"
+# echo "MY_CONNECTION_STRING=$MY_CONNECTION_STRING"
