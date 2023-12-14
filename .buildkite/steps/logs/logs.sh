@@ -4,7 +4,7 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-echo -e "--- I wrote a song for you :yellow_heart: :guitar:";
+echo -e "--- \033[33mI wrote a song for you\033[0m :yellow_heart: :guitar:";
 echo -e "\033[33m... and it was called yellow\033[0m"
 str1="\033[93mbut i prefer bright yellow\033[0m"
 str2=", "
@@ -22,14 +22,7 @@ str5="\033[40mand a gray background for other highlights\033[0m"
 str6="."
 echo -e "$str1$str2$str3$str4$str5$str6"
 
-echo -e "\033[30;41m   01. black (FG30) on red (BG41)   \033[0m"
-echo -e "\033[31;42m   02. red (FG31) on green (BG42)   \033[0m"
-echo -e "\033[32;43m   03. green (FG32) on yellow (BG43)   \033[0m"
-echo -e "\033[33;44m   04. yellow (FG33) on blue (BG44)   \033[0m"
-echo -e "\033[34;45m   05. blue (FG34) on magenta (BG45)   \033[0m"
-echo -e "\033[35;46m   06. magenta (FG35) on cyan (BG46)   \033[0m"
-echo -e "\033[36;47m   07. cyan (FG36) on white (BG47)   \033[0m"
-echo -e "\033[37;40m   08. white (FG37) on black (BG40)   \033[0m"
+
 
 
 link0="Here is some text, and "
@@ -46,10 +39,6 @@ ls -la;
 cd .buildkite/steps/logs/;
 
 buildkite-agent artifact upload man-beard.gif;
-
-echo -e "--- I wrote a song for you :yellow_heart:";
-
-echo -e "\033[33m... and it was called yellow\033[0m"
 
 echo '--- How about GIFs?'
 
