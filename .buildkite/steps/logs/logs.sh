@@ -12,7 +12,7 @@ str2="\033[35mbut i prefer magenta\033[0m"
 str3="\033[95mor bright magenta\033[0m"
 echo -e "$str1$str2$str3"
 
-link1='\033]1339;url='"https://www.buildkite.com/"';content='"This is a link to the Buildkite website"'\a\n'
+link1='\033]1339;url='"https://www.buildkite.com/"';content='"This is a link to the Buildkite website"'\a'
 link2=" and more text"
 echo -e "$link1$link2"
 
