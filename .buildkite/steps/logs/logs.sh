@@ -18,7 +18,7 @@ echokite () {
     local style="$4"
     local ansi_text="$text" # empty
     local ansi_fg_color="37" # white
-    local ansi_bg_color="47" # white/reset?
+    local ansi_bg_color="47" # white/none
     local ansi_style="0" # normal
     
     [ $style == "normal" ] && ansi_style="0"
@@ -41,8 +41,8 @@ echokite () {
     [ $fg_color == "bright_yellow" ] && ansi_fg_color="93"
     [ $fg_color == "bright_blue" ] && ansi_fg_color="94"
 
-    [ $bg_color == "none" ] && ansi_bg_color="47" # white should reset background?
-    [ $bg_color == "black" ] && ansi_bg_color="40"
+    [ $bg_color == "none" ] && ansi_bg_color="47" # white renders nobackground
+    [ $bg_color == "gray" ] && ansi_bg_color="40"
     [ $bg_color == "red" ] && ansi_bg_color="41"
     [ $bg_color == "green" ] && ansi_bg_color="42"
 
@@ -82,8 +82,15 @@ echo ""
 echo "We also have 3 different background colors..."
 echokite "  01. We have red background" white red normal
 echokite "  02. We have green background" black green normal
-echokite "  02. We have green background" bright_black green normal
-echokite "  03. We have black background" white black normal
+echokite "  03. We have gray background" white gray normal
+echo ""
+echo "We can also style text with 5 different variations..."
+echokite "  01. We have normal style" white none normal
+echokite "  02. We have italic style" white none italic
+echokite "  03. We have underlined style" white none underline
+echokite "  04. We have blinking style" white none blink
+echokite "  05. We have striked style" white none strike
+
 
 
 
