@@ -4,6 +4,9 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+# upload gifs as artifacts
+buildkite-agent artifact upload ".buildkite/steps/logs/*.gif"
+
 # We can use 16 different foreground colors...
 echo -e "\033[30m   01. black (FG30)   \033[0m"
 echo -e "\033[31m   02. red (FG31)   \033[0m"
