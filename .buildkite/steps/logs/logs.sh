@@ -49,22 +49,8 @@ echokite () {
     echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m"
 }
 
-echokite "hello this is my colored text" yellow none normal
-echokite "hello this is my colored text" bright_green none italic
-echokite "hello this is my colored text" magenta none underline
-echokite "hello this is my colored text" bright_blue none blink
-echokite "hello this is my colored text" bright_red none strike
-echokite "hello this is my colored text" blue none italic
-
-test1=$(echokite "hello this is my colored text" yellow none normal)
-test2=$(echokite "hello this is my colored text" bright_green none italic)
-test3=$(echokite "hello this is my colored text" bright_blue none blink)
-echo -e "Here we go! $test1 and then $test2 and then $test3 - Hooray!"
-
-
-
 echo ""
-echo "With Buildkite logs, we have 13 different text foreground colors to choose from..."
+echo "With Buildkite logs, we have 13 different text colors to choose from..."
 echokite "  01. We have black text" black none normal
 echokite "  02. We have red text" red none normal
 echokite "  03. We have green text" green none normal
@@ -81,18 +67,15 @@ echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
 echo "We also have 3 different background colors..."
 echo -e "  $(echokite "01. We have red background" white red normal)"
-str_bg02=$(echokite "  02. We have green background" black green normal)
-str_bg03=$(echokite "  03. We have gray background" white gray normal)
-
-
-
+echo -e "  $(echokite "02. We have green background" black green normal)"
+echo -e "  $(echokite "03. We have gray background" white gray normal)"
 echo ""
 echo "We can also style text with 5 different variations..."
-echokite "  01. We have normal style" white none normal
-echokite "  02. We have italic style" white none italic
-echokite "  03. We have underlined style" white none underline
-echokite "  04. We have blinking style" white none blink
-echokite "  05. We have striked style" white none strike
+echo -e "  $(echokite "  01. We have normal style" white none normal)"
+echo -e "  $(echokite "  02. We have italic style" white none italic)"
+echo -e "  $(echokite "  03. We have underlined style" white none underline)"
+echo -e "  $(echokite "  04. We have blinking style" white none blink)"
+echo -e "  $(echokite "  05. We have striked style" white none strike)"
 echo ""
 str01=$(echokite "All of these" bright_green red normal)
 str02=$(echokite "options and styles" magenta gray italic)
