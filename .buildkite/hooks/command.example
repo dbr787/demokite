@@ -57,7 +57,7 @@ echo ""
 
 # this hook will override any command specified in the job
 # rename the file from 'command.example' to 'command' to use this hook
-
+echo "$BUILDKITE_COMMAND"
 . "$BUILDKITE_COMMAND"
 
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
