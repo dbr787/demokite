@@ -74,5 +74,6 @@ LOGS_STEP=$(cat .buildkite/steps/logs/logs.yml)
 
 # echo "$HELLO_STEP" | buildkite-agent pipeline upload
 # echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
+echo "$LOGS_STEP"
 echo "$LOGS_STEP" | buildkite-agent pipeline upload
 # echo "$ANNOTATIONS_STEP"
