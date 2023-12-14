@@ -12,7 +12,8 @@ set -euo pipefail # don't print executed commands to the terminal
 # test sed indent
 # . .buildkite/steps/logs/test.sh | sed -e '/^---\|^+++\|^~~~/!s/^/  /'
 . .buildkite/steps/logs/test.sh | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
-
+echo "--- now the next one"
+. .buildkite/steps/logs/test.sh | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
 
 cur_dir=$(pwd)
 cur_dir_contents=$(ls -lah $cur_dir)
