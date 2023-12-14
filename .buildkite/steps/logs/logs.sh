@@ -167,9 +167,12 @@ echo ""
 # echo '--- How about links?'
 # printf '\033]1339;url='"https://www.buildkite.com/"'\a\n'
 # printf '\033]1339;url='"https://www.buildkite.com/"';content='"This is a link to the Buildkite website"'\a\n'
-echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt
-echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
-echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt
+
+
+# echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt
+# echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
+# echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt
+
 
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
 # These variables should be redacted from logs....
