@@ -8,13 +8,14 @@ echo -e "--- I wrote a song for you :guitar::yellow_heart:";
 echo -e "\033[33m... and it was called yellow\033[0m"
 echo -e "\033[93mbut i prefer bright yellow\033[0m"
 str1="\033[33m... and it was called yellow\033[0m"
-str2="\033[35mbut i prefer magenta\033[0m"
-str3="\033[95mor bright magenta\033[0m"
+str2="\033[35m but i prefer magenta\033[0m"
+str3="\033[95m or bright magenta\033[0m"
 echo -e "$str1$str2$str3"
 
-link1='\033]1339;url='"https://www.buildkite.com/"';content='"This is a link to the Buildkite website"'\a'
-link2=" and more text"
-echo -e "$link1$link2"
+link0="Here is some text, and "
+link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
+link2=" and here is some more text"
+echo -e "$link0$link1$link2"
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
 
