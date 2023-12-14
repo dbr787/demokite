@@ -49,7 +49,10 @@ echokite "hello this is my colored text" bright_blue blink
 echokite "hello this is my colored text" bright_red strike
 echokite "hello this is my colored text" blue italic
 
-
+test1=$(echokite "hello this is my colored text" yellow normal)
+test2=$(echokite "hello this is my colored text" bright_green italic)
+test3=$(echokite "hello this is my colored text" bright_blue blink)
+echo -e "$test1$test2$test3"
 
 # ansi_prefix="\033["
 # black='30'
