@@ -11,7 +11,26 @@ str2=", "
 str3="\033[35msometimes magenta\033[0m"
 str4=", and on rare occassions "
 str5="\033[36ma refreshing cyan\033[0m"
-echo -e "$str1$str2$str3$str4$str5"
+str6="."
+echo -e "$str1$str2$str3$str4$str5$str6"
+
+str1="\033[30;42mI like to use a green background to show success\033[0m"
+str2=", "
+str3="\033[41ma red background to show failure\033[0m"
+str4=", "
+str5="\033[40mand a gray background for other highlights\033[0m"
+str6="."
+echo -e "$str1$str2$str3$str4$str5$str6"
+
+echo -e "\033[30;41m   01. black (FG30) on red (BG41)   \033[0m"
+echo -e "\033[31;42m   02. red (FG31) on green (BG42)   \033[0m"
+echo -e "\033[32;43m   03. green (FG32) on yellow (BG43)   \033[0m"
+echo -e "\033[33;44m   04. yellow (FG33) on blue (BG44)   \033[0m"
+echo -e "\033[34;45m   05. blue (FG34) on magenta (BG45)   \033[0m"
+echo -e "\033[35;46m   06. magenta (FG35) on cyan (BG46)   \033[0m"
+echo -e "\033[36;47m   07. cyan (FG36) on white (BG47)   \033[0m"
+echo -e "\033[37;40m   08. white (FG37) on black (BG40)   \033[0m"
+
 
 link0="Here is some text, and "
 link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
