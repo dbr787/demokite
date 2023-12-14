@@ -21,7 +21,7 @@ echo -e "\033[31;42mrepository pre-exit hook here, hai! 👋\033[0m"
 # conceal (8) doesn't work
 # background colors 43-47 don't work
 # background colors 100-107 don't work
-# 90,95,96,97 are the same as 30,35,36,37
+# 95,96,97 are the same as 35,36,37
 
 # so we're left with...
 # 3 italic

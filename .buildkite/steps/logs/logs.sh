@@ -4,17 +4,35 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+# We can use 16 different foreground colors...
+echo -e "\033[30m   01. black (FG30)   \033[0m"
+echo -e "\033[31m   02. red (FG31)   \033[0m"
+echo -e "\033[32m   03. green (FG32) on yellow (BG43)   \033[0m"
+echo -e "\033[33m   04. yellow (FG33) on blue (BG44)   \033[0m"
+echo -e "\033[34m   05. blue (FG34) on magenta (BG45)   \033[0m"
+echo -e "\033[35m   06. magenta (FG35) on cyan (BG46)   \033[0m"
+echo -e "\033[95m   14. bright magenta (FG95) on bright cyan (BG106)  \033[0m"
+echo -e "\033[36m   07. cyan (FG36) on white (BG47)   \033[0m"
+echo -e "\033[96m   15. bright cyan (FG96) on bright white (BG107)  \033[0m"
+echo -e "\033[37m   08. white (FG37) on black (BG40)   \033[0m"
+echo -e "\033[97m   16. bright white (FG97) on bright black (BG108)  \033[0m"
+echo -e "\033[90m   09. bright black (FG90) on bright red (BG101)   \033[0m"
+echo -e "\033[91m   10. bright red (FG91) on bright green (BG102)  \033[0m"
+echo -e "\033[92m   11. bright green (FG92) on bright yellow (BG103)  \033[0m"
+echo -e "\033[93m   12. bright yellow (FG93) on bright blue (BG104)   \033[0m"
+echo -e "\033[94m   13. bright blue (FG94) on bright magenta (BG105)  \033[0m"
+
 echo -e "--- \033[93mI wrote a song for you\033[0m :yellow_heart: :guitar:";
 echo -e "\033[33m... and it was called yellow\033[0m"
 str1="\033[93mbut i prefer bright yellow\033[0m"
 str2=", "
 str3="\033[35msometimes magenta\033[0m"
-str4="\033[30;3m, and on rare occassions \033[0m"
+str4="\033[90;3m, and on rare occassions \033[0m"
 str5="\033[36ma refreshing cyan\033[0m"
 str6="."
 echo -e "$str1$str2$str3$str4$str5$str6"
-echo -e "\033[90mbut let's see bright black too\033[0m"
-echo -e "\033[30mbut let's see dark   black too\033[0m"
+# echo -e "\033[90mbut let's see bright black too\033[0m"
+# echo -e "\033[30mbut let's see dark   black too\033[0m"
 
 
 str1="\033[30;42mI like to use a green background to show success\033[0m"
@@ -31,11 +49,9 @@ echo -e "$str1$str2$str3$str4$str5$str6"
 link0="Here is some text, and "
 link1='\033]1339;url='"https://www.buildkite.com/"';content='"here is a link to the Buildkite website"'\a'
 link2=" and here is some more text"
-echo -e "$link0$link1$link2"
+echo -e "--- $link0$link1$link2"
 
 echo -e ":buildkite: The current working directory is:\n$(pwd)";
-
-echo -e "\033[33m... and it was called yellow\033[0m"
 
 ls -la;
 
