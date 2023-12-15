@@ -15,7 +15,7 @@ cur_dir_contents=$(ls -lah $cur_dir)
 
 # print directory and contents
 echo ""
-echokite "  The default job working directory is:" white none normal
+echokite "  The current job working directory is:" white none normal
 echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
