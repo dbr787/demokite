@@ -78,7 +78,7 @@ echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like
 printf '  \033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
 echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:"
 echo ""
-echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
+echo -e "  You can also use unicode emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
