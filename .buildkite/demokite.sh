@@ -1,6 +1,24 @@
 #!/bin/bash
 
-# set -euxo pipefail
+# set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+# set -euxo pipefail # print executed commands to the terminal
+set -euo pipefail # don't print executed commands to the terminal
+
+# source shared functions
+. .buildkite/assets/functions.sh;
+
+# capture directory and contents
+cur_dir=$(pwd)
+cur_dir_contents=$(ls -lah $cur_dir)
+
+# print directory and contents
+echo ""
+echokite "  The current job working directory is:" white none normal
+echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
+echokite "  The contents of that directory is:" white none normal
+echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
+echo ""
+
 
 # to use emojis
 # :thisisfine: for failing build intentionally
@@ -83,17 +101,28 @@ pupload () {
     local output_dir="$3"
     local output_file="$4"
     local current_dir=$(pwd)
-
     cd "$source_dir"
-    buildkite-agent pipeline upload "$source_file" --dry-run --format json > "$output_dir\\$output_file"
-    # buildkite-agent pipeline upload .buildkite/steps/logs/logs.yml --dry-run --format json > step_logs.json
+    buildkite-agent artifact upload "$source_file" --log-level error
+    buildkite-agent pipeline upload "$source_file" --dry-run --format json > "$output_dir\\$output_file" --log-level error
     cd "$output_dir"
     buildkite-agent artifact upload "$output_file" --log-level error
     cd "$current_dir"
-
 }
 
 pupload ".buildkite/steps/logs" "logs.yml" "." "logs.json"
+pupload ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
+
+# capture directory and contents
+cur_dir=$(pwd)
+cur_dir_contents=$(ls -lah $cur_dir)
+
+# print directory and contents
+echo ""
+echokite "  The current job working directory is:" white none normal
+echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
+echokite "  The contents of that directory is:" white none normal
+echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
+echo ""
 
 
 
