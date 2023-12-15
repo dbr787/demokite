@@ -94,7 +94,6 @@ STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 
 # touch pipeline_upload.yml
 
-
 p_prepare () {
     local source_dir="$1"
     local source_file="$2"
@@ -105,6 +104,7 @@ p_prepare () {
     buildkite-agent artifact upload "$source_file" --log-level error
     # buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
     buildkite-agent pipeline upload "$source_file" --dry-run --format json > "$output_dir/$output_file"
+    echo "$output_dir"
     cd "$output_dir"
     pwd
     ls -la .
