@@ -7,19 +7,6 @@ set -euo pipefail # don't print executed commands to the terminal
 # source shared functions
 . .buildkite/assets/functions.sh;
 
-# capture directory and contents
-cur_dir=$(pwd)
-cur_dir_contents=$(ls -lah $cur_dir)
-
-# print directory and contents
-echo ""
-echokite "  The current job working directory is:" white none normal
-echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
-echokite "  The contents of that directory is:" white none normal
-echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
-echo ""
-
-
 # to use emojis
 # :thisisfine: for failing build intentionally
 # :perfection: for succeeding build intentionally
@@ -55,7 +42,6 @@ CHOICE_LOGS=""
 CHOICE_PARALLELISM=""
 CHOICE_BUILD_PASS=""
 CHOICE_BUILD_FAIL=""
-
 CHOICES=""
 
 # STEP_OUTPUT=$(cat <<EOF
@@ -72,27 +58,6 @@ STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 # STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
 
 # sed -e '/---/d' -e '/steps:/d' -e '/^$/d' .buildkite/steps/wait.yml
-
-# echo $STEP_OUTPUT > new_file.txt
-# echo $HELLO_STEP > new_file.txt
-# cat $HELLO_STEP > new_file.txt
-
-# cat $SCRIPT_DIR/steps/hello.yml > new_file2.txt
-
-# printf "%s\n" "$STEP_OUTPUT" > new_file3.txt
-# TESTVAR=$(printf "%s\n" "$STEP_OUTPUT")
-
-# printf "%s\n" "$TESTVAR"
-# sed -e '/---/d' -e '/steps:/d' -e '/^$/d' 
-
-# printf "$STEP_OUTPUT"
-
-# output to file, add as artifact, then upload
-
-# echo "$HELLO_STEP" | buildkite-agent pipeline upload
-# echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
-
-# touch pipeline_upload.yml
 
 p_prepare () {
     local source_dir="$1"
@@ -117,10 +82,16 @@ p_upload() {
     buildkite-agent pipeline upload "$pipeline" --log-level error
 }
 
+a_upload() {
+    local artifact="$1"
+    buildkite-agent artifact upload "$artifact" --log-level error
+}
+
 cur_dir=$(pwd)
 p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" $cur_dir "annotations.json"
 p_merge "logs.json" "annotations.json" > "merged.json"
+a_upload "merged.json"
 p_upload "merged.json"
 ls -la $cur_dir
 
