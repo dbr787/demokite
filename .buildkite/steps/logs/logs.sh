@@ -46,17 +46,17 @@ echokite "    11. We have bright green text" bright_green none normal
 echokite "    12. We have bright yellow text" bright_yellow none normal
 echokite "    13. We have bright blue text" bright_blue none normal
 echo ""
-echokite "There are also 3 different background colors..." white none normal
-echo -e "  $(echokite "01. We have red background" white red normal)"
-echo -e "  $(echokite "02. We have green background" black green normal)"
-echo -e "  $(echokite "03. We have gray background" white gray normal)"
+echokite "  There are also 3 different background colors..." white none normal
+echo -e "    $(echokite "01. We have red background" white red normal)"
+echo -e "    $(echokite "02. We have green background" black green normal)"
+echo -e "    $(echokite "03. We have gray background" white gray normal)"
 echo ""
-echokite "And we can style text with 5 different variations..." white none normal
-echo -e "  $(echokite "01. We have normal style" white none normal)"
-echo -e "  $(echokite "02. We have italic style" white none italic)"
-echo -e "  $(echokite "03. We have underlined style" white none underline)"
-echo -e "  $(echokite "04. We have blinking style" white none blink)"
-echo -e "  $(echokite "05. We have striked style" white none strike)"
+echokite "  And we can style text with 5 different variations..." white none normal
+echo -e "    $(echokite "01. We have normal style" white none normal)"
+echo -e "    $(echokite "02. We have italic style" white none italic)"
+echo -e "    $(echokite "03. We have underlined style" white none underline)"
+echo -e "    $(echokite "04. We have blinking style" white none blink)"
+echo -e "    $(echokite "05. We have striked style" white none strike)"
 echo ""
 str01=$(echokite "All of these" bright_green red normal)
 str02=$(echokite "options and styles" magenta gray italic)
@@ -75,19 +75,20 @@ link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
-printf '\033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
+printf '  \033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
 echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:"
 echo ""
-echokite "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄" white none normal
+echo -e "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
-echokite "The current working directory is:" white none normal
-echokite "$cur_dir" blue none italic
-echokite "The contents of that directory is:" white none normal
-echokite "$cur_dir_contents" blue none italic
+echokite "  The current working directory is:" white none normal
+echokite "    $cur_dir" blue none italic
+echokite "  The contents of that directory is:" white none normal
+echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
+
 
 # echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt
 # echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
