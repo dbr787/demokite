@@ -90,12 +90,11 @@ mv pipeline_upload.yml pipeline_upload_original.yml
 
 buildkite-agent artifact upload "pipeline_upload_original.yml" --log-level error;
 
-sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload_original.yml > pipeline_upload_sanitised.yml
-
 # sanitises pipeline upload file
+# just remove '---' and 'steps:' lines for now, might need to adjust this later to allow env: and agents: properties
 # remove all but first occurence of '---' and 'steps:'
-# sed -i '1!{/^---/d}' pipeline_upload.yml
-# sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload.yml
+# sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload_original.yml > pipeline_upload_sanitised.yml
+sed '/^[[:space:]]*---[[:space:]]*/d; /^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload_original.yml > pipeline_upload_sanitised.yml
 
 # upload pipeline_upload.yml as artifact
 buildkite-agent artifact upload "pipeline_upload_sanitised.yml" --log-level error;
