@@ -117,13 +117,6 @@ p_merge() {
 p_prepare ".buildkite/steps/logs" "logs.yml" "." "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
 
-p_merge logs.json annotations.json > merged.json
-
-
-
-
-
-
 # capture directory and contents
 cur_dir=$(pwd)
 cur_dir_contents=$(ls -lah $cur_dir)
@@ -135,6 +128,15 @@ echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
+
+p_merge ./logs.json ./annotations.json > merged.json
+
+
+
+
+
+
+
 
 
 
