@@ -86,6 +86,9 @@ echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
 cat pipeline_upload.yml
 # echo "$STEP_ANNOTATIONS" | buildkite-agent pipeline upload
 
+# clean file
+sed '1!{/^---/d}' pipeline_upload.yml
+
 # upload pipeline_upload.yml as artifact
 buildkite-agent artifact upload "pipeline_upload.yml" --log-level error;
 
