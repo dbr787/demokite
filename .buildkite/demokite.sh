@@ -103,7 +103,7 @@ p_prepare () {
     local current_dir=$(pwd)
     cd "$source_dir"
     buildkite-agent artifact upload "$source_file" --log-level error
-    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error
+    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
     cd "$output_dir"
     buildkite-agent artifact upload "$output_file" --log-level error
     cd "$current_dir"
