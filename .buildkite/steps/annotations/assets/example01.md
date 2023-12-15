@@ -18,7 +18,7 @@
 
 <!-- --- -->
 
-## Typographic replacements
+<!-- ## Typographic replacements
 
 Enable typographer option to see result.
 
@@ -28,21 +28,17 @@ test.. test... test..... test?..... test!....
 
 !!!!!! ???? ,, -- ---
 
-"Smartypants, double quotes" and 'single quotes'
+"Smartypants, double quotes" and 'single quotes' -->
 
-## Emphasis
-
-**This is bold text**
+### Emphasis
 
 **This is bold text**
 
 _This is italic text_
 
-_This is italic text_
+~~This is strikethrough text~~
 
-~~Strikethrough~~
-
-## Blockquotes
+### Blockquotes
 
 > Blockquotes can also be nested...
 >
@@ -50,7 +46,7 @@ _This is italic text_
 > >
 > > > ...or with spaces between arrows.
 
-## Lists
+### Lists
 
 Unordered
 
