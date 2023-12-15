@@ -4,13 +4,15 @@
 
 <!-- Normal text -->
 
-### h3 Heading
+### Primary Heading
 
-h3 headings are a good size for big headings
+h3 is a good size for primary headings
 
-#### h4 Heading
+#### Secondary Heading
 
-h4 headings are good for secondary headings
+h4 is a good size for secondary headings
+
+---
 
 <!-- ##### h5 Heading -->
 
@@ -21,34 +23,38 @@ h4 headings are good for secondary headings
 <!-- Normal text -->
 
 <details>
-  <summary>Click me</summary>
+  <summary>Click here to see a GIF</summary>
 
 <img src="artifact://assets/man.gif" alt="man" height=250 >
 
 </details>
 
-Read the <a href="artifact://assets/example01.md">uploaded coverage report</a>
+---
 
-#### Horizontal Rule
+Read the <a href="artifact://assets/example01.md">uploaded coverage report</a>
 
 ---
 
 <details>
-  <summary>Click me</summary>
+  <summary>Click here to see some code</summary>
 
-### Heading
-
-1. Foo
-2. Bar
-   - Baz
-   - Qux
-
-### Some Javascript
+#### A traditional code block
 
 ```js
 function logSomething(something) {
   console.log("Something", something);
 }
+```
+
+#### A fancy terminal code block
+
+```term
+\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
+
+\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
+\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
+
+\x1b[31m  (compared using eql?)\x1b[0m
 ```
 
 </details>
@@ -71,7 +77,7 @@ test.. test... test..... test?..... test!....
 
 "Smartypants, double quotes" and 'single quotes' -->
 
-#### Emphasis
+<!-- #### Emphasis -->
 
 **This is bold text**
 
@@ -134,17 +140,6 @@ Alerts?
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
-
-Colored console output
-
-```term
-\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
-
-\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
-\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
-
-\x1b[31m  (compared using eql?)\x1b[0m
-```
 
 Start numbering with offset:
 
