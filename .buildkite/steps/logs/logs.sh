@@ -67,7 +67,7 @@ echo -e "  $str01 $str02 $str03 $str04 $str05"
 echo ""
 echo -e "--- :link: $(echokite "Expand this group to see some example links" bright_green none underline)"
 echo ""
-printf '  \033]1339;url='"https://www.buildkite.com/"';content='"  Links will always be this color, and will show an underline on hover"'\a\n'
+printf '  \033]1339;url='"https://www.buildkite.com/"';content='"Links will always be this color, and will show an underline on hover"'\a\n'
 printf '  \033]1339;url='"https://www.buildkite.com/"'\a\n'
 link01="We can also include a link"
 link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain words"'\a'
@@ -78,17 +78,16 @@ echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like
 printf '  \033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
 echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:"
 echo ""
-echo -e "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
+echo -e "  You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
-echokite "  The current working directory is:" white none normal
+echokite "  The default job working directory is:" white none normal
 echokite "    $cur_dir" blue none italic
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
-
 
 # echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt
 # echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
