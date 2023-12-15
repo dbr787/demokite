@@ -95,7 +95,7 @@ STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 # touch pipeline_upload.yml
 
 
-pupload () {
+p_prepare () {
     local source_dir="$1"
     local source_file="$2"
     local output_dir="$3"
@@ -103,14 +103,26 @@ pupload () {
     local current_dir=$(pwd)
     cd "$source_dir"
     buildkite-agent artifact upload "$source_file" --log-level error
-    buildkite-agent pipeline upload "$source_file" --dry-run --format json > "$output_dir\\$output_file" --log-level error
+    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error
     cd "$output_dir"
     buildkite-agent artifact upload "$output_file" --log-level error
     cd "$current_dir"
 }
 
-pupload ".buildkite/steps/logs" "logs.yml" "." "logs.json"
-pupload ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
+p_merge() {
+    local files=("$@")
+    jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
+}
+
+p_prepare ".buildkite/steps/logs" "logs.yml" "." "logs.json"
+p_prepare ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
+
+p_merge logs.json annotations.json > merged.json
+
+
+
+
+
 
 # capture directory and contents
 cur_dir=$(pwd)
