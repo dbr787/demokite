@@ -23,7 +23,7 @@ cd .buildkite/steps/annotations/;
 buildkite-agent artifact upload "assets/*" --log-level error;
 
 # annotate
-cat ./assets/example01.md | buildkite-agent annotate --style 'success' --context 'example01'
+printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
