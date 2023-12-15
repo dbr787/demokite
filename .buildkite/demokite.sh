@@ -80,8 +80,9 @@ touch pipeline_upload.yml
 echo "$STEP_LOGS" >> pipeline_upload.yml
 # cat pipeline_upload.yml
 # echo "$STEP_LOGS" | buildkite-agent pipeline upload
+buildkite-agent pipeline upload --dry-run --format json > step_logs.json
+buildkite-agent artifact upload step_logs.json --log-level error;
 
-buildkite-agent pipeline upload --dry-run --format json
 
 
 
