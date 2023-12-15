@@ -110,7 +110,8 @@ p_prepare () {
 
 p_merge() {
     local files=("$@")
-    jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
+    # jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
+    jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "${files[@]}"
 }
 
 cur_dir=$(pwd)
