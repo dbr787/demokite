@@ -76,23 +76,29 @@ STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 
 touch pipeline_upload.yml
 
-echo "$STEP_LOGS"
+# echo "$STEP_LOGS"
 echo "$STEP_LOGS" >> pipeline_upload.yml
-cat pipeline_upload.yml
+# cat pipeline_upload.yml
 # echo "$STEP_LOGS" | buildkite-agent pipeline upload
 
-echo "$STEP_ANNOTATIONS"
+# echo "$STEP_ANNOTATIONS"
 echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
-cat pipeline_upload.yml
+# cat pipeline_upload.yml
 # echo "$STEP_ANNOTATIONS" | buildkite-agent pipeline upload
+
+mv pipeline_upload.yml pipeline_upload_original.yml
+
+buildkite-agent artifact upload "pipeline_upload_original.yml" --log-level error;
+
+sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload_original.yml > pipeline_upload_sanitised.yml
 
 # sanitises pipeline upload file
 # remove all but first occurence of '---' and 'steps:'
 # sed -i '1!{/^---/d}' pipeline_upload.yml
-sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload.yml
+# sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload.yml
 
 # upload pipeline_upload.yml as artifact
-buildkite-agent artifact upload "pipeline_upload.yml" --log-level error;
+buildkite-agent artifact upload "pipeline_upload_sanitised.yml" --log-level error;
 
 # pipeline upload
 cat pipeline_upload.yml | buildkite-agent pipeline upload
