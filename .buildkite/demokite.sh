@@ -81,6 +81,10 @@ echo "$STEP_LOGS" >> pipeline_upload.yml
 # cat pipeline_upload.yml
 # echo "$STEP_LOGS" | buildkite-agent pipeline upload
 
+buildkite-agent pipeline upload --dry-run --format json
+
+
+
 # echo "$STEP_ANNOTATIONS"
 echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
 # cat pipeline_upload.yml
