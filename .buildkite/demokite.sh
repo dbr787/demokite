@@ -87,7 +87,9 @@ cat pipeline_upload.yml
 # echo "$STEP_ANNOTATIONS" | buildkite-agent pipeline upload
 
 # sanitises pipeline upload file
-sed -i '1!{/^---/d}' pipeline_upload.yml
+# remove all but first occurence of '---' and 'steps:'
+# sed -i '1!{/^---/d}' pipeline_upload.yml
+sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload.yml
 
 # upload pipeline_upload.yml as artifact
 buildkite-agent artifact upload "pipeline_upload.yml" --log-level error;
