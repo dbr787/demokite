@@ -23,9 +23,10 @@ cd .buildkite/steps/annotations/;
 buildkite-agent artifact upload "assets/*" --log-level error;
 
 # annotate
-buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
-buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
-buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
-buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
-buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
-buildkite-agent annotate 'Example `info` style annotation with multiline text\n\nThis is the second line\n\nThis is the third line' --style 'info' --context 'ctx-info-multiline'
+cat .assets/example01.md | buildkite-agent annotate --style 'success' --context 'example01'
+
+# buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
+# buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
+# buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
+# buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
+# buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
