@@ -16,12 +16,13 @@ set -euo pipefail # don't print executed commands to the terminal
 cur_dir=$(pwd)
 cur_dir_contents=$(ls -lah $cur_dir)
 
-# change into steps/logs/ directory
+# change into steps/annotations/ directory
 cd .buildkite/steps/annotations/;
 
 # upload assets as artifacts
 buildkite-agent artifact upload "assets/*" --log-level error;
 
+# annotate
 buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'

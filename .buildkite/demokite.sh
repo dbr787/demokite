@@ -76,13 +76,12 @@ STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 
 touch pipeline_upload.yml
 
-
 echo "$STEP_LOGS"
-echo "$STEP_LOGS" > pipeline_upload.yml
+echo "$STEP_LOGS" >> pipeline_upload.yml
 cat pipeline_upload.yml
 echo "$STEP_LOGS" | buildkite-agent pipeline upload
 
 echo "$STEP_ANNOTATIONS"
-echo "$STEP_ANNOTATIONS" > pipeline_upload.yml
+echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
 cat pipeline_upload.yml
 echo "$STEP_ANNOTATIONS" | buildkite-agent pipeline upload
