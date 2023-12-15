@@ -86,11 +86,11 @@ buildkite-agent artifact upload step_logs.json --log-level error;
 
 
 # echo "$STEP_ANNOTATIONS"
-echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
+# echo "$STEP_ANNOTATIONS" >> pipeline_upload.yml
 # cat pipeline_upload.yml
 # echo "$STEP_ANNOTATIONS" | buildkite-agent pipeline upload
-buildkite-agent pipeline upload --dry-run --format json > step_logs.json
-buildkite-agent artifact upload step_logs.json --log-level error;
+buildkite-agent pipeline upload .buildkite/steps/annotations/annotations.yml --dry-run --format json > step_annotations.json
+buildkite-agent artifact upload step_annotations.json --log-level error;
 
 
 
