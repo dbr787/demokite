@@ -120,8 +120,9 @@ p_merge() {
 pwd
 ls -la .
 
-p_prepare ".buildkite/steps/logs" "logs.yml" "." "logs.json"
-p_prepare ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
+cur_dir=$(pwd)
+p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
+p_prepare ".buildkite/steps/annotations" "annotations.yml" $cur_dir "annotations.json"
 
 p_merge "logs.json" "annotations.json" > "merged.json"
 
