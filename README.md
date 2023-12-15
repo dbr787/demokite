@@ -6,6 +6,9 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
 
 ## To Do
 
+- Provide a link to connect to the agent that ran the job?
+- Provide a link to stop/pause the agent that ran the job?
+- concurrency gates
 - Fix indenting
   - Current method wouldn't work with GIFs or hooks, just on the command step
   - Either do it at the bash/OS level

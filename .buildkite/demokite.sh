@@ -46,10 +46,10 @@ CHOICES=""
 # EOF
 # )
 
-WAIT_STEP=$(cat .buildkite/steps/wait.yml)
-HELLO_STEP=$(cat .buildkite/steps/hello.yml)
-ANNOTATIONS_STEP=$(cat .buildkite/steps/annotations.yml)
-LOGS_STEP=$(cat .buildkite/steps/logs/logs.yml)
+STEP_WAIT=$(cat .buildkite/steps/wait.yml)
+STEP_HELLO=$(cat .buildkite/steps/hello.yml)
+STEP_ANNOTATIONS=$(cat .buildkite/steps/annotations.yml)
+STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 
 # STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
 
@@ -64,7 +64,6 @@ LOGS_STEP=$(cat .buildkite/steps/logs/logs.yml)
 # printf "%s\n" "$STEP_OUTPUT" > new_file3.txt
 # TESTVAR=$(printf "%s\n" "$STEP_OUTPUT")
 
-
 # printf "%s\n" "$TESTVAR"
 # sed -e '/---/d' -e '/steps:/d' -e '/^$/d' 
 
@@ -74,6 +73,6 @@ LOGS_STEP=$(cat .buildkite/steps/logs/logs.yml)
 
 # echo "$HELLO_STEP" | buildkite-agent pipeline upload
 # echo "$ANNOTATIONS_STEP" | buildkite-agent pipeline upload
-echo "$LOGS_STEP"
-echo "$LOGS_STEP" | buildkite-agent pipeline upload
+echo "$STEP_LOGS"
+echo "$STEP_LOGS" | buildkite-agent pipeline upload
 # echo "$ANNOTATIONS_STEP"
