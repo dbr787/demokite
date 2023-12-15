@@ -114,7 +114,7 @@ p_merge() {
 
 p_upload() {
     local pipeline="$1"
-    buildkite-agent artifact upload "$pipeline" --log-level error
+    buildkite-agent pipeline upload "$pipeline" --log-level error
 }
 
 cur_dir=$(pwd)
