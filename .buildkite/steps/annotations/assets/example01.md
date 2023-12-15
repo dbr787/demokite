@@ -22,6 +22,8 @@ Normal text
 
 <img src="artifact://assets/man.gif" alt="man" height=250 >
 
+Read the <a href="artifact://assets/example01.md">uploaded coverage report</a>
+
 #### Horizontal Rule
 
 ---
