@@ -106,7 +106,7 @@ p_prepare () {
     buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
     cd "$output_dir"
     pwd
-    ls -la
+    ls -la .
     buildkite-agent artifact upload "$output_file" --log-level error
     cd "$current_dir"
 }
@@ -115,6 +115,9 @@ p_merge() {
     local files=("$@")
     jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
 }
+
+pwd
+ls -la .
 
 p_prepare ".buildkite/steps/logs" "logs.yml" "." "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
