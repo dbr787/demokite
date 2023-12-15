@@ -10,7 +10,6 @@ echokite () {
     local fg_color="$2"
     local bg_color="$3"
     local style="$4"
-    local indent="$5"
 
     local ansi_text="$text" # empty
     local ansi_fg_color="37" # white
