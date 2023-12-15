@@ -112,8 +112,11 @@ p_merge() {
     # local files=("$@")
     # jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
     # jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "${files[@]}"
-    jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "$@"
+    # jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "$@"
+    jq -s '{steps: [.[].steps[]]}' "$@"
 }
+
+
 
 cur_dir=$(pwd)
 p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
