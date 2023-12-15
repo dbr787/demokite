@@ -1,0 +1,9 @@
+{
+  "steps": [
+    {
+      "command": ".buildkite/steps/annotations/annotations.sh",
+      "key": "annotations",
+      "label": ":memo: Show Annotations"
+    }
+  ]
+}

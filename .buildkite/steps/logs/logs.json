@@ -1,0 +1,9 @@
+{
+  "steps": [
+    {
+      "command": ".buildkite/steps/logs/logs.sh",
+      "key": "logs",
+      "label": ":terminal: Show Logs"
+    }
+  ]
+}
