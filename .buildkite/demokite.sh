@@ -48,7 +48,7 @@ CHOICES=""
 
 STEP_WAIT=$(cat .buildkite/steps/wait.yml)
 STEP_HELLO=$(cat .buildkite/steps/hello.yml)
-STEP_ANNOTATIONS=$(cat .buildkite/steps/annotations.yml)
+STEP_ANNOTATIONS=$(cat .buildkite/steps/annotations/annotations.yml)
 STEP_LOGS=$(cat .buildkite/steps/logs/logs.yml)
 
 # STEP_OUTPUT=$(printf "%s\n%s\n%s" "$HELLO_STEP" "$WAIT_STEP" "$HELLO_STEP")
