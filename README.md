@@ -6,6 +6,7 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
 
 ## To Do
 
+- Annotation be written to file, created as artifact, then used to create annotation
 - Provide a link to connect to the agent that ran the job?
 - Provide a link to stop/pause the agent that ran the job?
 - concurrency gates
