@@ -109,22 +109,15 @@ p_prepare () {
 }
 
 p_merge() {
-    # local files=("$@")
-    # jq -s 'reduce .[] as $file ([]; . + $file.steps)' "${files[@]}"
-    # jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "${files[@]}"
-    # jq -s '{steps: reduce .[] as $file ([]; . + $file.steps)}' "$@"
     jq -s '{steps: [.[].steps[]]}' "$@"
 }
-
-
 
 cur_dir=$(pwd)
 p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" $cur_dir "annotations.json"
-
 p_merge "logs.json" "annotations.json" > "merged.json"
 buildkite-agent artifact upload "merged.json" --log-level error
-
+ls -la $cur_dir
 
 
 
