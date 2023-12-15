@@ -101,4 +101,4 @@ sed -e '1!{/^---/d}' -e '/^[[:space:]]*steps:[[:space:]]*/d' pipeline_upload_ori
 buildkite-agent artifact upload "pipeline_upload_sanitised.yml" --log-level error;
 
 # pipeline upload
-cat pipeline_upload.yml | buildkite-agent pipeline upload
+cat pipeline_upload_sanitised.yml | buildkite-agent pipeline upload
