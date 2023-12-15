@@ -6,14 +6,8 @@ set -euo pipefail # don't print executed commands to the terminal
 
 # feedback/issues
 # log group inner content should be indented
-# buildkite emojis dont display inside log groups, only in a group header
-# links in group headers underline on hover, but are not clickable
-
-# test sed indent
-# . .buildkite/steps/logs/test.sh | sed -e '/^---\|^+++\|^~~~/!s/^/  /'
-# . .buildkite/steps/logs/test.sh | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
-# echo "--- now the next one"
-# . .buildkite/steps/logs/test.sh | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
+# buildkite emojis dont display inside log groups, only in group headers
+# links in group headers underline on hover, but are not directly clickable
 
 # source shared functions
 . .buildkite/assets/functions.sh;
@@ -87,11 +81,76 @@ echokite "    $cur_dir" blue none italic
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
+
+# Job lifecycle hooks have access to all the standard Buildkite environment variables.
+echo "  Jobs and hooks have access to all the standard Buildkite environment variables..."
+echokite "    BUILDKITE_PIPELINE_SLUG=$BUILDKITE_PIPELINE_SLUG" blue none italic
+echokite "    CI=$CI" blue none italic
+echokite "    BUILDKITE=$BUILDKITE" blue none italic
+echokite "    BUILDKITE_ORGANIZATION_SLUG=$BUILDKITE_ORGANIZATION_SLUG" blue none italic
+echokite "    BUILDKITE_PIPELINE_SLUG=$BUILDKITE_PIPELINE_SLUG" blue none italic
+echokite "    BUILDKITE_PIPELINE_NAME=$BUILDKITE_PIPELINE_NAME" blue none italic
+echokite "    BUILDKITE_PIPELINE_ID=$BUILDKITE_PIPELINE_ID" blue none italic
+echokite "    BUILDKITE_PIPELINE_PROVIDER=$BUILDKITE_PIPELINE_PROVIDER" blue none italic
+echokite "    BUILDKITE_PIPELINE_DEFAULT_BRANCH=$BUILDKITE_PIPELINE_DEFAULT_BRANCH" blue none italic
+echokite "    BUILDKITE_REPO=$BUILDKITE_REPO" blue none italic
+echokite "    BUILDKITE_BUILD_ID=$BUILDKITE_BUILD_ID" blue none italic
+echokite "    BUILDKITE_BUILD_NUMBER=$BUILDKITE_BUILD_NUMBER" blue none italic
+echokite "    BUILDKITE_BUILD_URL=$BUILDKITE_BUILD_URL" blue none italic
+echokite "    BUILDKITE_BRANCH=$BUILDKITE_BRANCH" blue none italic
+echokite "    BUILDKITE_TAG=$BUILDKITE_TAG" blue none italic
+echokite "    BUILDKITE_COMMIT=$BUILDKITE_COMMIT" blue none italic
+echokite "    BUILDKITE_MESSAGE=$BUILDKITE_MESSAGE" blue none italic
+echokite "    BUILDKITE_SOURCE=$BUILDKITE_SOURCE" blue none italic
+echokite "    BUILDKITE_BUILD_AUTHOR=$BUILDKITE_BUILD_AUTHOR" blue none italic
+echokite "    BUILDKITE_BUILD_AUTHOR_EMAIL=$BUILDKITE_BUILD_AUTHOR_EMAIL" blue none italic
+echokite "    BUILDKITE_BUILD_CREATOR=$BUILDKITE_BUILD_CREATOR" blue none italic
+echokite "    BUILDKITE_BUILD_CREATOR_EMAIL=$BUILDKITE_BUILD_CREATOR_EMAIL" blue none italic
+echokite "    BUILDKITE_REBUILT_FROM_BUILD_ID=$BUILDKITE_REBUILT_FROM_BUILD_ID" blue none italic
+echokite "    BUILDKITE_REBUILT_FROM_BUILD_NUMBER=$BUILDKITE_REBUILT_FROM_BUILD_NUMBER" blue none italic
+echokite "    BUILDKITE_PULL_REQUEST=$BUILDKITE_PULL_REQUEST" blue none italic
+echokite "    BUILDKITE_PULL_REQUEST_BASE_BRANCH=$BUILDKITE_PULL_REQUEST_BASE_BRANCH" blue none italic
+echokite "    BUILDKITE_PULL_REQUEST_REPO=$BUILDKITE_PULL_REQUEST_REPO" blue none italic
+echokite "    BUILDKITE_TRIGGERED_FROM_BUILD_ID=$BUILDKITE_TRIGGERED_FROM_BUILD_ID" blue none italic
+echokite "    BUILDKITE_TRIGGERED_FROM_BUILD_NUMBER=$BUILDKITE_TRIGGERED_FROM_BUILD_NUMBER" blue none italic
+echokite "    BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG=$BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG" blue none italic
+echokite "    BUILDKITE_JOB_ID=$BUILDKITE_JOB_ID" blue none italic
+echokite "    BUILDKITE_LABEL=$BUILDKITE_LABEL" blue none italic
+echokite "    BUILDKITE_COMMAND=$BUILDKITE_COMMAND" blue none italic
+echokite "    BUILDKITE_ARTIFACT_PATHS=$BUILDKITE_ARTIFACT_PATHS" blue none italic
+echokite "    BUILDKITE_RETRY_COUNT=$BUILDKITE_RETRY_COUNT" blue none italic
+echokite "    BUILDKITE_TIMEOUT=$BUILDKITE_TIMEOUT" blue none italic
+echokite "    BUILDKITE_STEP_KEY=$BUILDKITE_STEP_KEY" blue none italic
+echokite "    BUILDKITE_STEP_ID=$BUILDKITE_STEP_ID" blue none italic
+echokite "    BUILDKITE_PROJECT_SLUG=$BUILDKITE_PROJECT_SLUG" blue none italic
+echokite "    BUILDKITE_PROJECT_PROVIDER=$BUILDKITE_PROJECT_PROVIDER" blue none italic
+echokite "    BUILDKITE_SCRIPT_PATH=$BUILDKITE_SCRIPT_PATH" blue none italic
+echokite "    BUILDKITE_AGENT_ID=$BUILDKITE_AGENT_ID" blue none italic
+echokite "    BUILDKITE_AGENT_NAME=$BUILDKITE_AGENT_NAME" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_QUEUE=$BUILDKITE_AGENT_META_DATA_QUEUE" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_DOCKER=$BUILDKITE_AGENT_META_DATA_DOCKER" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_STACK=$BUILDKITE_AGENT_META_DATA_STACK" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_BUILDKITE_AWS_STACK=$BUILDKITE_AGENT_META_DATA_BUILDKITE_AWS_STACK" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_AVAILABILITY_ZONE=$BUILDKITE_AGENT_META_DATA_AWS_AVAILABILITY_ZONE" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_ID=$BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_ID" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_TYPE=$BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_TYPE" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_REGION=$BUILDKITE_AGENT_META_DATA_AWS_REGION" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_LIFE_CYCLE=$BUILDKITE_AGENT_META_DATA_AWS_INSTANCE_LIFE_CYCLE" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_ACCOUNT_ID=$BUILDKITE_AGENT_META_DATA_AWS_ACCOUNT_ID" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_AMI_ID=$BUILDKITE_AGENT_META_DATA_AWS_AMI_ID" blue none italic
+echokite "    BUILDKITE_AGENT_META_DATA_AWS_ARCHITECTURE=$BUILDKITE_AGENT_META_DATA_AWS_ARCHITECTURE" blue none italic
+echokite "    BUILDKITE_PIPELINE_TEAMS=$BUILDKITE_PIPELINE_TEAMS" blue none italic
+echokite "    BUILDKITE_BUILD_CREATOR_TEAMS=$BUILDKITE_BUILD_CREATOR_TEAMS" blue none italic
+
+echo ""
+
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
 
 # echo '--- This is a collapsed log group :white_check_mark:' && cat lorem-ipsum.txt
 # echo '~~~ This is a de-emphasized log group :no_entry:' && cat lorem-ipsum.txt
 # echo '+++ This is an expanded log group :star2:' && cat lorem-ipsum.txt
+
+
 
 # https://buildkite.com/docs/pipelines/managing-log-output#redacted-environment-variables
 # These variables should be redacted from logs....
