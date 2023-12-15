@@ -1,26 +1,31 @@
 <!-- # h1 Heading 8-) -->
 
-## h2 Heading
+<!-- ## h2 Heading -->
 
-Normal text
+<!-- Normal text -->
 
 ### h3 Heading
 
-Normal text
+h3 headings are a good size for big headings
 
 #### h4 Heading
 
-Normal text
+h4 headings are good for secondary headings
 
-##### h5 Heading
+<!-- ##### h5 Heading -->
 
-Normal text
+<!-- Normal text -->
 
-###### h6 Heading
+<!-- ###### h6 Heading -->
 
-Normal text
+<!-- Normal text -->
+
+<details>
+  <summary>Click me</summary>
 
 <img src="artifact://assets/man.gif" alt="man" height=250 >
+
+</details>
 
 Read the <a href="artifact://assets/example01.md">uploaded coverage report</a>
 
@@ -47,6 +52,8 @@ function logSomething(something) {
 ```
 
 </details>
+
+---
 
 <!-- --- -->
 
