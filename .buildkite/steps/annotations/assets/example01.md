@@ -2,15 +2,27 @@
 
 ## h2 Heading
 
+Normal text
+
 ### h3 Heading
+
+Normal text
 
 #### h4 Heading
 
+Normal text
+
 ##### h5 Heading
+
+Normal text
 
 ###### h6 Heading
 
-### Horizontal Rule
+Normal text
+
+<img src="artifact://assets/man.gif" alt="man" height=250 >
+
+#### Horizontal Rule
 
 ---
 
@@ -30,7 +42,7 @@ test.. test... test..... test?..... test!....
 
 "Smartypants, double quotes" and 'single quotes' -->
 
-### Emphasis
+#### Emphasis
 
 **This is bold text**
 
@@ -38,7 +50,11 @@ _This is italic text_
 
 ~~This is strikethrough text~~
 
-### Blockquotes
+This is a <sub>subscript</sub> text
+
+This is a <sup>superscript</sup> text
+
+#### Blockquotes
 
 > Blockquotes can also be nested...
 >
@@ -46,7 +62,7 @@ _This is italic text_
 > >
 > > > ...or with spaces between arrows.
 
-### Lists
+#### Lists
 
 Unordered
 
@@ -66,6 +82,40 @@ Ordered
 
 4. You can use sequential numbers...
 5. ...or keep all the numbers as `1.`
+
+Task Lists?
+
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+
+Alerts?
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+Colored console output
+
+```term
+\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
+
+\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
+\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
+
+\x1b[31m  (compared using eql?)\x1b[0m
+```
 
 Start numbering with offset:
 
