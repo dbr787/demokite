@@ -112,11 +112,16 @@ p_merge() {
     jq -s '{steps: [.[].steps[]]}' "$@"
 }
 
+p_upload() {
+    local pipeline="$1"
+    buildkite-agent artifact upload "$pipeline" --log-level error
+}
+
 cur_dir=$(pwd)
 p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" $cur_dir "annotations.json"
 p_merge "logs.json" "annotations.json" > "merged.json"
-buildkite-agent artifact upload "merged.json" --log-level error
+p_upload "merged.json"
 ls -la $cur_dir
 
 
