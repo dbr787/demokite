@@ -103,7 +103,8 @@ p_prepare () {
     local current_dir=$(pwd)
     cd "$source_dir"
     buildkite-agent artifact upload "$source_file" --log-level error
-    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
+    # buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
+    buildkite-agent pipeline upload "$source_file" --dry-run --format json > "$output_dir/$output_file"
     cd "$output_dir"
     pwd
     ls -la .
@@ -122,19 +123,7 @@ ls -la .
 p_prepare ".buildkite/steps/logs" "logs.yml" "." "logs.json"
 p_prepare ".buildkite/steps/annotations" "annotations.yml" "." "annotations.json"
 
-# capture directory and contents
-cur_dir=$(pwd)
-cur_dir_contents=$(ls -lah $cur_dir)
-
-# print directory and contents
-echo ""
-echokite "  The current job working directory is:" white none normal
-echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
-echokite "  The contents of that directory is:" white none normal
-echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
-echo ""
-
-p_merge ./logs.json ./annotations.json > merged.json
+p_merge "logs.json" "annotations.json" > "merged.json"
 
 
 
