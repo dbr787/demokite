@@ -41,5 +41,6 @@ echokite () {
     [ $bg_color == "red" ] && ansi_bg_color="41"
     [ $bg_color == "green" ] && ansi_bg_color="42"
 
-    echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m" | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
+    echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m"
+    # echo -e "\033[${ansi_style};${ansi_fg_color};${ansi_bg_color}m${ansi_text}\033[0m" | sed -e '/^---\s\|^+++\s\|^~~~\s/!s/^/  /'
 }

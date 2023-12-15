@@ -31,20 +31,20 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 # start printing cool examples
 echo -e "--- :rainbow: $(echokite "Expand this group to see text styling options" magenta none underline)"
 echo ""
-echokite "With Buildkite logs, there are 13 different text colors to choose from..." white none normal
-echokite "  01. We have black text" black none normal
-echokite "  02. We have red text" red none normal
-echokite "  03. We have green text" green none normal
-echokite "  04. We have yellow text" yellow none normal
-echokite "  05. We have blue text" blue none normal
-echokite "  06. We have magenta text" magenta none normal
-echokite "  07. We have cyan text" cyan none normal
-echokite "  08. We have white text" white none normal
-echokite "  09. We have bright black text" bright_black none normal
-echokite "  10. We have bright red text" bright_red none normal
-echokite "  11. We have bright green text" bright_green none normal
-echokite "  12. We have bright yellow text" bright_yellow none normal
-echokite "  13. We have bright blue text" bright_blue none normal
+echo "  With Buildkite logs, there are 13 different text colors to choose from..."
+echokite "    01. We have black text" black none normal
+echokite "    02. We have red text" red none normal
+echokite "    03. We have green text" green none normal
+echokite "    04. We have yellow text" yellow none normal
+echokite "    05. We have blue text" blue none normal
+echokite "    06. We have magenta text" magenta none normal
+echokite "    07. We have cyan text" cyan none normal
+echokite "    08. We have white text" white none normal
+echokite "    09. We have bright black text" bright_black none normal
+echokite "    10. We have bright red text" bright_red none normal
+echokite "    11. We have bright green text" bright_green none normal
+echokite "    12. We have bright yellow text" bright_yellow none normal
+echokite "    13. We have bright blue text" bright_blue none normal
 echo ""
 echokite "There are also 3 different background colors..." white none normal
 echo -e "  $(echokite "01. We have red background" white red normal)"
