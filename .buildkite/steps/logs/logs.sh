@@ -31,7 +31,7 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 # start printing cool examples
 echo -e "--- :rainbow: $(echokite "Expand this group to see text styling options" magenta none underline)"
 echo ""
-echo "With Buildkite logs, there are 13 different text colors to choose from..."
+echokite "With Buildkite logs, there are 13 different text colors to choose from..." white none normal
 echokite "  01. We have black text" black none normal
 echokite "  02. We have red text" red none normal
 echokite "  03. We have green text" green none normal
@@ -46,12 +46,12 @@ echokite "  11. We have bright green text" bright_green none normal
 echokite "  12. We have bright yellow text" bright_yellow none normal
 echokite "  13. We have bright blue text" bright_blue none normal
 echo ""
-echo "There are also 3 different background colors..."
+echokite "There are also 3 different background colors..." white none normal
 echo -e "  $(echokite "01. We have red background" white red normal)"
 echo -e "  $(echokite "02. We have green background" black green normal)"
 echo -e "  $(echokite "03. We have gray background" white gray normal)"
 echo ""
-echo "And we can style text with 5 different variations..."
+echokite "And we can style text with 5 different variations..." white none normal
 echo -e "  $(echokite "01. We have normal style" white none normal)"
 echo -e "  $(echokite "02. We have italic style" white none italic)"
 echo -e "  $(echokite "03. We have underlined style" white none underline)"
@@ -63,28 +63,28 @@ str02=$(echokite "options and styles" magenta gray italic)
 str03=$(echokite "can be used" bright_red green underline)
 str04=$(echokite "in any combination" bright_blue none blink)
 str05=$(echokite "you desire!" cyan none strike)
-echo -e "$str01 $str02 $str03 $str04 $str05"
+echo -e "  $str01 $str02 $str03 $str04 $str05"
 echo ""
 echo -e "--- :link: $(echokite "Expand this group to see some example links" bright_green none underline)"
 echo ""
-printf '\033]1339;url='"https://www.buildkite.com/"';content='"Links will always be this color, and will show an underline on hover"'\a\n'
-printf '\033]1339;url='"https://www.buildkite.com/"'\a\n'
+printf '  \033]1339;url='"https://www.buildkite.com/"';content='"  Links will always be this color, and will show an underline on hover"'\a\n'
+printf '  \033]1339;url='"https://www.buildkite.com/"'\a\n'
 link01="We can also include a link"
 link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain words"'\a'
 link03="in a line of text"
-echo -e "$link01 $link02 $link03"
+echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
 printf '\033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
 echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :thisisfine: :perfection: :bash: :sadpanda: :partyparrot: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :writing_hand: :index_pointing_at_the_viewer: :brain: :mage: :astronaut: :superhero: :ninja: :juggling: :shrug: :pinched_fingers:"
 echo ""
-echo -e "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
+echokite "You can also use normal emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄" white none normal
 echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
-echo "The current working directory is:"
+echokite "The current working directory is:" white none normal
 echokite "$cur_dir" blue none italic
-echo "The contents of that directory is:"
+echokite "The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic
 echo ""
 echo -e "+++ :checkered_flag: $(echokite "fin" black none underline)"
