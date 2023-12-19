@@ -34,7 +34,7 @@ printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 
 # </details>
 # ____EOF | buildkite-agent annotate --style 'warning' --context 'example02'
 
-MY_TEST_VAR="test success"
+# MY_TEST_VAR="test success"
 
 # echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | buildkite-agent annotate --style 'warning' --context 'example02'
 
@@ -52,24 +52,23 @@ MY_TEST_VAR="test success"
 # buildkite-agent artifact upload "assets/test02.md" --log-level error;
 # printf '%b\n' "$(cat ./assets/test02.md)" | buildkite-agent annotate --style 'success' --context 'test02'
 
-cat <<EOT >> ./assets/test03.md
-line 1
-\`\`\`term
-This is a $MY_TEST_VAR \033[0;31mtest\033[0m
-\`\`\`
-line 2
-EOT
-buildkite-agent artifact upload "assets/test03.md" --log-level error
-printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
+# cat <<EOT >> ./assets/test03.md
+# line 1
+# \`\`\`term
+# This is a $MY_TEST_VAR \033[0;31mtest\033[0m
+# \`\`\`
+# line 2
+# EOT
+# buildkite-agent artifact upload "assets/test03.md" --log-level error
+# printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
 
 IMAGE_NAME="my-secured-image"
 
 cat <<EOF >> ./wiz-docker-scan-annotation.md
 <details>
-
 <summary>Wiz Docker Image Scan for $IMAGE_NAME does not meet policy requirements.</summary>
-
+<summary>Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.</summary>
 line 1
 
 \`\`\`term
@@ -77,13 +76,10 @@ Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
 
 line 2  
-
 </details>
-
 EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
 printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning'
-
 
 
 # cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
