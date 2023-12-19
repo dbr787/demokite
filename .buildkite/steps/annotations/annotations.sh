@@ -38,6 +38,9 @@ MY_TEST_VAR="test success"
 
 echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | buildkite-agent annotate --style 'warning' --context 'example02'
 
+cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
+  \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
+EOF
 
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
@@ -45,3 +48,4 @@ echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | bui
 # buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
 # buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
 # buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
+
