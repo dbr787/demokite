@@ -63,7 +63,7 @@ EOT
 buildkite-agent artifact upload "assets/test03.md" --log-level error;
 printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
-$IMAGE_NAME="my-secured-image"
+IMAGE_NAME="my-secured-image"
 
 cat <<EOF >> wiz-docker-scan-annotation.md
 <details>
