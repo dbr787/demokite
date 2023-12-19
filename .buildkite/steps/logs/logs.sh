@@ -71,12 +71,24 @@ echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
 printf '  \033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
 
-
 echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
 echo ""
 echo -e "  You can also use unicode emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
 echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
+echo ""
+
+link01="Unfortunately, "
+link02='\033]1339;url='"https://www.buildkite.com/"';content='"links are not clickable"'\a'
+link03=" in group headers 😢"
+echo -e "--- :link: $(echokite "  $link01 $link02 $link03" bright_green none underline)"
+echo ""
+printf '  \033]1339;url='"https://www.buildkite.com/"';content='"But they work fine in nested log entries. They are always be this color, and will show an underline on hover"'\a\n'
+printf '  \033]1339;url='"https://www.buildkite.com/"'\a\n'
+link01="We can link"
+link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain words"'\a'
+link03="in a line of text"
+echo -e "  $link01 $link02 $link03"
 echo ""
 
 
