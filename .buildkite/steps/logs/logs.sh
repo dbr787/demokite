@@ -79,9 +79,9 @@ echo -e "  But Buildkite emojis only display in log group headers 😢: :perfect
 echo ""
 
 link01="Unfortunately, "
-link02='\033]1339;url='"https://www.buildkite.com/"';content='"links are not clickable"'\a'
+link02='\033]1339;url='"https://www.buildkite.com/"';content='"links are hoverable, but not clickable"'\a'
 link03=" in group headers 😢"
-echo -e "--- :link: $(echokite "  $link01 $link02 $link03" bright_green none underline)"
+echo -e "--- :link: $(echokite "  $link01 $link02 $link03" magenta none normal)"
 echo ""
 printf '  \033]1339;url='"https://www.buildkite.com/"';content='"But they work fine in nested log entries. They are always be this color, and will show an underline on hover"'\a\n'
 printf '  \033]1339;url='"https://www.buildkite.com/"'\a\n'
@@ -90,7 +90,6 @@ link02='\033]1339;url='"https://www.buildkite.com/"';content='"only on certain w
 link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
-
 
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
