@@ -43,7 +43,15 @@ cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
 EOF
 
 cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
+  ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
+EOF
+
+printf '%b\n' cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
   \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
+EOF
+
+printf '%b\n' cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
+  ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
 EOF
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
