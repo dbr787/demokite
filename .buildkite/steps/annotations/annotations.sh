@@ -62,7 +62,6 @@ printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 
 # buildkite-agent artifact upload "assets/test03.md" --log-level error
 # printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
-
 IMAGE_NAME="my-secured-image"
 
 cat <<EOF >> ./wiz-docker-scan-annotation.md
@@ -80,26 +79,8 @@ EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
 printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning'
 
-
-# cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
-#   \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
-# EOF
-
-# cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-#   ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
-# EOF
-
-# printf '%b\n' "$(cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-#   \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
-# EOF)"
-
-# printf '%b\n' "$(cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-#   ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
-# EOF"
-
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 # buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
 # buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
 # buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
-
