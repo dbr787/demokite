@@ -74,6 +74,8 @@ echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" br
 echo ""
 echo -e "  You can also use unicode emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
+echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :astronaut: :juggling:"
+echo ""
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
 echokite "  The current job working directory is:" white none normal
