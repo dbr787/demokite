@@ -65,7 +65,7 @@ printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'su
 
 $IMAGE_NAME="my-secured-image"
 
-cat <<EOF >> ./assets/test04.md
+cat <<EOF >> wiz-docker-scan-annotation.md
 <details>
 <summary>Wiz Docker Image Scan for $IMAGE_NAME does not meet policy requirements.</summary>
 line 1
@@ -75,8 +75,8 @@ Results of the scan go \033[0;31mhere\033[0m
 line 2  
 </details>
 EOF
-buildkite-agent artifact upload "assets/test04.md" --log-level error;
-printf '%b\n' "$(cat ./assets/test04.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' 
+buildkite-agent artifact upload "wiz-docker-scan-annotation" --log-level error;
+printf '%b\n' "$(cat wiz-docker-scan-annotation)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' 
 
 
 
