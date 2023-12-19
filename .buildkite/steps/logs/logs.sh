@@ -78,10 +78,12 @@ echo ""
 echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
 echo ""
 
+
+
 link01="Unfortunately, "
 link02='\033]1339;url='"https://www.buildkite.com/"';content='"links are hoverable, but not clickable"'\a'
 link03=" in group headers 😢"
-echo -e "--- :link: $(echokite "  $link01 $link02 $link03" magenta none normal)"
+echo -e "--- :link: $("$link01 $link02 $link03")"
 echo ""
 printf '  \033]1339;url='"https://www.buildkite.com/"';content='"But they work fine in nested log entries. They are always be this color, and will show an underline on hover"'\a\n'
 printf '  \033]1339;url='"https://www.buildkite.com/"'\a\n'
@@ -91,13 +93,16 @@ link03="in a line of text"
 echo -e "  $link01 $link02 $link03"
 echo ""
 
-echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
+echo -e "--- :nail_care: And then there's everything else..."
 echo ""
 echokite "  The current job working directory is:" white none normal
 echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
+
+
+
 
 # Job lifecycle hooks have access to all the standard Buildkite environment variables.
 echo "  Jobs and hooks have access to all the standard Buildkite environment variables..."
