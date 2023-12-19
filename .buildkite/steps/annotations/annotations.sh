@@ -63,7 +63,8 @@ EOT
 buildkite-agent artifact upload "assets/test03.md" --log-level error;
 printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
-IMAGE_NAME="my-secured-image"
+
+IMAGE_NAME="my-secured-image";
 
 cat <<EOF >> wiz-docker-scan-annotation.md
 <details>
@@ -74,9 +75,9 @@ Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
 line 2  
 </details>
-EOF
-buildkite-agent artifact upload "wiz-docker-scan-annotation" --log-level error;
-printf '%b\n' "$(cat wiz-docker-scan-annotation)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' 
+EOF;
+buildkite-agent artifact upload "wiz-docker-scan-annotation.md" --log-level error;
+printf '%b\n' "$(cat wiz-docker-scan-annotation)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' ;
 
 
 
