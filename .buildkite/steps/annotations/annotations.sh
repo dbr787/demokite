@@ -38,21 +38,29 @@ MY_TEST_VAR="test success"
 
 echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | buildkite-agent annotate --style 'warning' --context 'example02'
 
-cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
-  \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
-EOF
 
-cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-  ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
-EOF
+cat <<EOT >> ./assets/greetings.md
+line 1
+line 2
+EOT
 
-printf '%b\n' cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-  \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
-EOF
+printf '%b\n' "$(cat ./assets/greetings.md)" | buildkite-agent annotate --style 'success' --context 'example99'
 
-printf '%b\n' cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
-  ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
-EOF
+# cat << EOF | buildkite-agent annotate --style 'warning' --context 'example03'
+#   \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
+# EOF
+
+# cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
+#   ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
+# EOF
+
+# printf '%b\n' "$(cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
+#   \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
+# EOF)"
+
+# printf '%b\n' "$(cat << EOF | buildkite-agent annotate --style 'warning' --context 'example04'
+#   ```term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n```
+# EOF"
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
