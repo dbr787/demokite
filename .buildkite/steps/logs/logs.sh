@@ -70,12 +70,16 @@ echo -e "  $link01 $link02 $link03"
 echo ""
 echo -e "--- :frame_with_picture: $(echokite "But what about GIFs? I really like GIFs!" cyan none underline)"
 printf '  \033]1338;url='"artifact://assets/bean.gif"';alt='"bean"'\t\a\n'
-echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :astronaut: :juggling:"
+
+
+echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" bright_yellow none underline) :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
 echo ""
 echo -e "  You can also use unicode emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
-echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :astronaut: :juggling:"
+echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
 echo ""
+
+
 echo -e "--- :nail_care: $(echokite "And then there's everything else..." bright_blue none underline)"
 echo ""
 echokite "  The current job working directory is:" white none normal
