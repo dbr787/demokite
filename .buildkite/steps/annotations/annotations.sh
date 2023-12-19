@@ -25,6 +25,15 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 # annotate
 printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 
+cat <<-____EOF | cat
+<details>
+<summary>Wiz Docker Image Scan for $image_name does not meet policy requirements</summary>
+\`\`\`term
+Results of the scan goes here
+\`\`\`
+</details>
+____EOF | buildkite-agent annotate --style 'warning' --context 'example02'
+
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 # buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
