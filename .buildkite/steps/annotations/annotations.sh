@@ -63,21 +63,20 @@ EOT
 buildkite-agent artifact upload "assets/test03.md" --log-level error;
 printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
-cat <<EOT >> ./assets/test04.md
-<details>
-<summary>Click here to see some code</summary>
+$IMAGE_NAME="my-secured-image"
 
+cat <<EOF >> ./assets/test04.md
+<details>
+<summary>Wiz Docker Image Scan for $IMAGE_NAME does not meet policy requirements.</summary>
 line 1
 \`\`\`term
-This is a $MY_TEST_VAR \033[0;31mtest\033[0m
+Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
-line 2
-
+line 2  
 </details>
-
-EOT
+EOF
 buildkite-agent artifact upload "assets/test04.md" --log-level error;
-printf '%b\n' "$(cat ./assets/test04.md)" | buildkite-agent annotate --style 'success' --context 'test04'
+printf '%b\n' "$(cat ./assets/test04.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' 
 
 
 
