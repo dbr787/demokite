@@ -34,39 +34,38 @@ printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 
 # </details>
 # ____EOF | buildkite-agent annotate --style 'warning' --context 'example02'
 
-MY_TEST_VAR="test success"
+# MY_TEST_VAR="test success"
 
-echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | buildkite-agent annotate --style 'warning' --context 'example02'
+# echo -e "\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`" | buildkite-agent annotate --style 'warning' --context 'example02'
 
+# cat <<EOT >> ./assets/test01.md
+# line 1
+# line 2
+# EOT
+# buildkite-agent artifact upload "assets/test01.md" --log-level error;
+# printf '%b\n' "$(cat ./assets/test01.md)" | buildkite-agent annotate --style 'success' --context 'test01'
 
-cat <<EOT >> ./assets/test01.md
-line 1
-line 2
-EOT
-buildkite-agent artifact upload "assets/test01.md" --log-level error;
-printf '%b\n' "$(cat ./assets/test01.md)" | buildkite-agent annotate --style 'success' --context 'test01'
+# cat <<EOT >> ./assets/test02.md
+# \`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
+# line 2
+# EOT
+# buildkite-agent artifact upload "assets/test02.md" --log-level error;
+# printf '%b\n' "$(cat ./assets/test02.md)" | buildkite-agent annotate --style 'success' --context 'test02'
 
-cat <<EOT >> ./assets/test02.md
-\`\`\`term\nThis is a $MY_TEST_VAR \033[0;31mtest\033[0m\n\`\`\`
-line 2
-EOT
-buildkite-agent artifact upload "assets/test02.md" --log-level error;
-printf '%b\n' "$(cat ./assets/test02.md)" | buildkite-agent annotate --style 'success' --context 'test02'
-
-cat <<EOT >> ./assets/test03.md
-line 1
-\`\`\`term
-This is a $MY_TEST_VAR \033[0;31mtest\033[0m
-\`\`\`
-line 2
-EOT
-buildkite-agent artifact upload "assets/test03.md" --log-level error;
-printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
+# cat <<EOT >> ./assets/test03.md
+# line 1
+# \`\`\`term
+# This is a $MY_TEST_VAR \033[0;31mtest\033[0m
+# \`\`\`
+# line 2
+# EOT
+# buildkite-agent artifact upload "assets/test03.md" --log-level error;
+# printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
 
 IMAGE_NAME="my-secured-image";
 
-cat <<EOF >> wiz-docker-scan-annotation.md
+cat <<EOF >> "./wiz-docker-scan-annotation.md"
 <details>
 <summary>Wiz Docker Image Scan for $IMAGE_NAME does not meet policy requirements.</summary>
 line 1
@@ -76,8 +75,8 @@ Results of the scan go \033[0;31mhere\033[0m
 line 2  
 </details>
 EOF
-buildkite-agent artifact upload "wiz-docker-scan-annotation.md" --log-level error;
-printf '%b\n' "$(cat wiz-docker-scan-annotation)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' ;
+buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error;
+printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' ;
 
 
 
