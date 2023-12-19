@@ -63,8 +63,21 @@ EOT
 buildkite-agent artifact upload "assets/test03.md" --log-level error;
 printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
+cat <<EOT >> ./assets/test04.md
+<details>
+<summary>Click here to see some code</summary>
 
+line 1
+\`\`\`term
+This is a $MY_TEST_VAR \033[0;31mtest\033[0m
+\`\`\`
+line 2
 
+</details>
+
+EOT
+buildkite-agent artifact upload "assets/test04.md" --log-level error;
+printf '%b\n' "$(cat ./assets/test04.md)" | buildkite-agent annotate --style 'success' --context 'test04'
 
 
 
