@@ -75,7 +75,7 @@ Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
 line 2  
 </details>
-EOF;
+EOF
 buildkite-agent artifact upload "wiz-docker-scan-annotation.md" --log-level error;
 printf '%b\n' "$(cat wiz-docker-scan-annotation)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning' ;
 
