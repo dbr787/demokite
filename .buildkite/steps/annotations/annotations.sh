@@ -79,8 +79,7 @@ cat <<EOF >> ./wiz-docker-scan-annotation.md
 </details>
 EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
-printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan1' --style 'warning'
-
+printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context "ctx-wiz-docker-scan-01" --style "$ANNOTATION_STYLE"
 
 IMAGE_NAME="my-secured-image"
 ANNOTATION_STYLE="warning"
@@ -101,7 +100,7 @@ echo -e "
 
     line 2
 </details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan" --style "$ANNOTATION_STYLE"
+" | buildkite-agent annotate --context "ctx-wiz-docker-scan-02" --style "$ANNOTATION_STYLE"
 
 # echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
 
