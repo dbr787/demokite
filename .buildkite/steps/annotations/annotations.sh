@@ -178,9 +178,13 @@ The file used to generate this annotation was uploaded as <a href=\"artifact://w
         \`\`\`
 
   line 2
+
 &nbsp;&nbsp;hello2
+
 &nbsp;&nbsp;&nbsp;&nbsp;hello4
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello6
+
 
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan-05" --style "success"
