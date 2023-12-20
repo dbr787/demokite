@@ -75,11 +75,11 @@ echo -e "--- :partyparrot: $(echokite "Of course we support Buildkite emojis" br
 echo ""
 echo -e "  You can also use unicode emojis within log groups (nested)! 😎 🥱 🐱 🦃 🥙 🍪 🥬 🌷 🛴 🧭 🏰 ⛄"
 echo ""
+# comment/uncomment this section as required
 echo -e "  But Buildkite emojis only display in log group headers 😢: :perfection: :bash: :sadpanda: :docker: :metal: :red_button: :terminal: :speech_balloon: :ghost: :brain: :mage: :juggling:"
 echo ""
 
-
-
+# comment/uncomment this section as required
 link01="Unfortunately, "
 link02='\033]1339;url='"https://www.buildkite.com/"';content='"links are hoverable, but not clickable"'\a'
 link03=" in group headers 😢"
@@ -97,12 +97,10 @@ echo -e "--- :nail_care: And then there's everything else..."
 echo ""
 echokite "  The current job working directory is:" white none normal
 echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
+echo ""
 echokite "  The contents of that directory is:" white none normal
 echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
-
-
-
 
 # Job lifecycle hooks have access to all the standard Buildkite environment variables.
 echo "  Jobs and hooks have access to all the standard Buildkite environment variables..."

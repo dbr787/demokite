@@ -79,6 +79,22 @@ EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
 printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning'
 
+
+printf '%b\n' "$(cat <<EOF
+<details>
+<summary>Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.</summary>
+line 1
+
+\`\`\`term
+Results of the scan go \033[0;31mhere\033[0m
+\`\`\`
+
+line 2  
+</details>
+EOF
+)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan2' --style 'info'
+
+
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 # buildkite-agent annotate 'Example `success` style annotation' --style 'success' --context 'ctx-success'
