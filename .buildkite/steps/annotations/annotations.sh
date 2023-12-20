@@ -173,9 +173,9 @@ This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_
 
 The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
 
-        \`\`\`term
-        Results of the scan go \033[0;31mhere\033[0m
-        \`\`\`
+&nbsp;&nbsp;&nbsp;&nbsp;\`\`\`term
+&nbsp;&nbsp;&nbsp;&nbsp;Results of the scan go \033[0;31mhere\033[0m
+&nbsp;&nbsp;&nbsp;&nbsp;\`\`\`
 
   line 2
 
@@ -184,6 +184,7 @@ The file used to generate this annotation was uploaded as <a href=\"artifact://w
 &nbsp;&nbsp;&nbsp;&nbsp;hello4
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello6
+
 
 
 </details>
