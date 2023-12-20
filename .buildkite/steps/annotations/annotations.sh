@@ -107,6 +107,36 @@ echo -e "
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan-02" --style "$ANNOTATION_STYLE"
 
+
+# this works
+echo -e "
+<details>
+<summary>
+Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+</summary>
+
+line 1
+
+This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
+The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+
+\`\`\`term
+Results of the scan go \033[0;31mhere\033[0m
+\`\`\`
+
+line 2
+
+</details>
+" | buildkite-agent annotate --context "ctx-wiz-docker-scan-03" --style "success"
+
+
+
+
+
+
+
+
 # echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
