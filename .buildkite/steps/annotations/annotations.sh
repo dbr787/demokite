@@ -99,7 +99,7 @@ EOF
 # 
 echo -e "
 <details>
-<summary>Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.</summary>
+<summary>Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.</summary>
 line 1
 
 \`\`\`term
