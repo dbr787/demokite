@@ -63,6 +63,7 @@ printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 
 # printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
 IMAGE_NAME="my-secured-image"
+ANNOTATION_STYLE="warning"
 
 cat <<EOF >> ./wiz-docker-scan-annotation.md
 <details>
@@ -83,8 +84,6 @@ EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
 printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context "ctx-wiz-docker-scan-01" --style "$ANNOTATION_STYLE"
 
-IMAGE_NAME="my-secured-image"
-ANNOTATION_STYLE="warning"
 
 # this works
 echo -e "
