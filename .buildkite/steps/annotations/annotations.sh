@@ -106,6 +106,8 @@ echo -e "
 
 line 1
 
+This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
 \`\`\`term
 Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
@@ -114,6 +116,7 @@ line 2
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan" --style "$ANNOTATION_STYLE"
 
+echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
