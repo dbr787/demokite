@@ -151,7 +151,7 @@ Results of the scan go \033[0;31mhere\033[0m
 line 2
 
 </details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan-03" --style "success"
+" | buildkite-agent annotate --context "ctx-wiz-docker-scan-04" --style "success"
 
 
 
