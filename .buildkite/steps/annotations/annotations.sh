@@ -96,19 +96,20 @@ EOF
 )" | buildkite-agent annotate --context 'ctx-wiz-docker-scan2' --style 'info'
 
 
-# 
+IMAGE_NAME="my-secured-image"
+ANNOTATION_STYLE="warning"
+
+# this works
 echo -e "
 <details>
 <summary>Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.</summary>
 line 1
-
 \`\`\`term
 Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
-
 line 2  
 </details>
-" | buildkite-agent annotate --context 'ctx-wiz-docker-scan3' --style 'success'
+" | buildkite-agent annotate --context "ctx-wiz-docker-scan" --style "$ANNOTATION_STYLE"
 
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
