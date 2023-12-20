@@ -66,34 +66,20 @@ IMAGE_NAME="my-secured-image"
 
 cat <<EOF >> ./wiz-docker-scan-annotation.md
 <details>
-<summary>Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.</summary>
-line 1
+    <summary>
+    Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.
+    </summary>
+    line 1
 
-\`\`\`term
-Results of the scan go \033[0;31mhere\033[0m
-\`\`\`
+    \`\`\`term
+    Results of the scan go \033[0;31mhere\033[0m
+    \`\`\`
 
-line 2  
+    line 2  
 </details>
 EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
 printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan1' --style 'warning'
-
-
-# this works
-printf '%b\n' "$(cat <<EOF
-<details>
-<summary>Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.</summary>
-line 1
-
-\`\`\`term
-Results of the scan go \033[0;31mhere\033[0m
-\`\`\`
-
-line 2  
-</details>
-EOF
-)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan2' --style 'info'
 
 
 IMAGE_NAME="my-secured-image"
@@ -102,24 +88,22 @@ ANNOTATION_STYLE="warning"
 # this works
 echo -e "
 <details>
-<summary>Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.</summary>
+    <summary>
+    Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+    </summary>
+    line 1
+    This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+    The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
 
-line 1
+    \`\`\`term
+    Results of the scan go \033[0;31mhere\033[0m
+    \`\`\`
 
-This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
-
-The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
-
-\`\`\`term
-Results of the scan go \033[0;31mhere\033[0m
-\`\`\`
-
-line 2
-
+    line 2
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan" --style "$ANNOTATION_STYLE"
 
-echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
+# echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
 
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
