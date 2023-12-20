@@ -77,7 +77,7 @@ line 2
 </details>
 EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
-printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan' --style 'warning'
+printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context 'ctx-wiz-docker-scan1' --style 'warning'
 
 
 # this works
