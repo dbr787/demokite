@@ -160,6 +160,15 @@ echo -e "
 Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
 </summary>
 
+<pre>
+
+    1 
+   / \ 
+  2   2 
+ / \ / \ 
+3  4 4  3 
+</pre>
+
     line 1
 
 This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
