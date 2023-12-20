@@ -69,13 +69,15 @@ cat <<EOF >> ./wiz-docker-scan-annotation.md
     <summary>
     Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.
     </summary>
+
     line 1
 
     \`\`\`term
     Results of the scan go \033[0;31mhere\033[0m
     \`\`\`
 
-    line 2  
+    line 2
+
 </details>
 EOF
 buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
@@ -90,8 +92,11 @@ echo -e "
     <summary>
     Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
     </summary>
+
     line 1
+
     This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
     The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
 
     \`\`\`term
@@ -99,6 +104,7 @@ echo -e "
     \`\`\`
 
     line 2
+
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan-02" --style "$ANNOTATION_STYLE"
 
