@@ -103,10 +103,13 @@ ANNOTATION_STYLE="warning"
 echo -e "
 <details>
 <summary>Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.</summary>
+
 line 1
+
 \`\`\`term
 Results of the scan go \033[0;31mhere\033[0m
 \`\`\`
+
 line 2  
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan" --style "$ANNOTATION_STYLE"
