@@ -52,7 +52,10 @@ CHOICES=""
 
 # sed -e '/---/d' -e '/steps:/d' -e '/^$/d' .buildkite/steps/wait.yml
 
-p_prepare () {
+pipeline_prepare () {
+    # upload source file (original pipeline definition) as artifact
+    # convert source file (original pipeline definition) to json format and create local file
+    # upload converted pipeline definition json file as artifact
     local source_dir="$1"
     local source_file="$2"
     local output_dir="$3"
@@ -66,26 +69,26 @@ p_prepare () {
     cd "$current_dir"
 }
 
-p_merge() {
+pipeline_merge() {
     jq -s '{steps: [.[].steps[]]}' "$@"
 }
 
-p_upload() {
+pipeline_upload() {
     local pipeline="$1"
     buildkite-agent pipeline upload "$pipeline" --log-level error
 }
 
-a_upload() {
+artifact_upload() {
     local artifact="$1"
     buildkite-agent artifact upload "$artifact" --log-level error
 }
 
-cur_dir=$(pwd)
-p_prepare ".buildkite/steps/logs" "logs.yml" $cur_dir "logs.json"
-p_prepare ".buildkite/steps/annotations" "annotations.yml" $cur_dir "annotations.json"
-p_merge "logs.json" "annotations.json" > "merged.json"
-a_upload "merged.json"
-p_upload "merged.json"
+current_dir=$(pwd)
+pipeline_prepare ".buildkite/steps/logs" "logs.yml" $current_dir "logs.json"
+pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $current_dir "annotations.json"
+pipeline_merge "logs.json" "annotations.json" > "merged.json"
+artifact_upload "merged.json"
+pipeline_upload "merged.json"
 
 
 
