@@ -23,13 +23,13 @@ cd .buildkite/steps/annotations/;
 buildkite-agent artifact upload "assets/*" --log-level error;
 
 # annotate
-printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
-printf '%b\n' "$(cat ./assets/example02.html)" | buildkite-agent annotate --style 'success' --context 'example02'
+# printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
+# printf '%b\n' "$(cat ./assets/example02.html)" | buildkite-agent annotate --style 'success' --context '5'
 
 echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '1'
 echo "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '2'
 printf "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '3'
-
+printf '%b\n' "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '4'
 
 
 # cat <<-____EOF | cat
@@ -69,148 +69,148 @@ printf "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --cont
 # buildkite-agent artifact upload "assets/test03.md" --log-level error
 # printf '%b\n' "$(cat ./assets/test03.md)" | buildkite-agent annotate --style 'success' --context 'test03'
 
-IMAGE_NAME="my-secured-image"
-ANNOTATION_STYLE="warning"
+# IMAGE_NAME="my-secured-image"
+# ANNOTATION_STYLE="warning"
 
-cat <<EOF >> ./wiz-docker-scan-annotation.md
-
-
-<h2>h2 heading</h2>
-
-The above heading is h2 in html format
-
-<h2>
-h2 heading
-</h2>
-
-The above heading is h2 in html format
-
-<details>
-    <summary>
-    Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.
-    </summary>
-
-    line 1
-
-    \`\`\`term
-    Results of the scan go \033[0;31mhere\033[0m
-    \`\`\`
-
-    line 2
-
-</details>
-EOF
-buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
-printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context "ctx-wiz-docker-scan-01" --style "$ANNOTATION_STYLE"
+# cat <<EOF >> ./wiz-docker-scan-annotation.md
 
 
-# this doesn't work
-echo -e "
-<details>
-<summary>
-Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
-</summary>
+# <h2>h2 heading</h2>
 
-line 1
+# The above heading is h2 in html format
 
-This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+# <h2>
+# h2 heading
+# </h2>
 
-The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+# The above heading is h2 in html format
 
-\`\`\`term
-Results of the scan go \033[0;31mhere\033[0m
-\`\`\`
+# <details>
+#     <summary>
+#     Wiz Docker Image Scan for <a href="artifact://wiz-docker-scan-annotation.md">$IMAGE_NAME</a> does not meet policy requirements.
+#     </summary>
 
-line 2
+#     line 1
 
-</details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan-02" --style "$ANNOTATION_STYLE"
+#     \`\`\`term
+#     Results of the scan go \033[0;31mhere\033[0m
+#     \`\`\`
+
+#     line 2
+
+# </details>
+# EOF
+# buildkite-agent artifact upload "./wiz-docker-scan-annotation.md" --log-level error
+# printf '%b\n' "$(cat ./wiz-docker-scan-annotation.md)" | buildkite-agent annotate --context "ctx-wiz-docker-scan-01" --style "$ANNOTATION_STYLE"
+
+
+# # this doesn't work
+# echo -e "
+# <details>
+# <summary>
+# Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+# </summary>
+
+# line 1
+
+# This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
+# The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+
+# \`\`\`term
+# Results of the scan go \033[0;31mhere\033[0m
+# \`\`\`
+
+# line 2
+
+# </details>
+# " | buildkite-agent annotate --context "ctx-wiz-docker-scan-02" --style "$ANNOTATION_STYLE"
+
+
+# # this works
+# echo -e "
+# <details>
+#   <summary>
+#   Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+#   </summary>
+
+#   line 1
+
+#   This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
+#   The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+
+#   \`\`\`term
+#   Results of the scan go \033[0;31mhere\033[0m
+#   \`\`\`
+
+#   line 2
+
+# </details>
+# " | buildkite-agent annotate --context "ctx-wiz-docker-scan-03" --style "success"
 
 
 # this works
-echo -e "
-<details>
-  <summary>
-  Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
-  </summary>
+# echo -e "
 
-  line 1
+# <h1 class="m0">No margin</h1>
 
-  This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+# ## h2 heading
 
-  The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+# The above heading is h2 in markdown format
 
-  \`\`\`term
-  Results of the scan go \033[0;31mhere\033[0m
-  \`\`\`
+# <h2>h2 heading</h2>
 
-  line 2
+# The above heading is h2 in html format
 
-</details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan-03" --style "success"
+# <h1>
+# h1 heading
+# </h1>
 
+# <h2>
+# h2 heading
+# </h2>
 
-# this works
-echo -e "
+# <h3>
+# h3 heading
+# </h3>
 
-<h1 class="m0">No margin</h1>
+# <h4>
+# h4 heading
+# </h4>
 
-## h2 heading
+# <details>
 
-The above heading is h2 in markdown format
+# ## h2 heading
 
-<h2>h2 heading</h2>
+# The above heading is h2 in markdown format
 
-The above heading is h2 in html format
+# <h2>h2 heading</h2>
 
-<h1>
-h1 heading
-</h1>
+# The above heading is h2 in html format
 
-<h2>
-h2 heading
-</h2>
+# <h2>
+# h2 heading
+# </h2>
 
-<h3>
-h3 heading
-</h3>
+# <summary>
+# Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+# </summary>
 
-<h4>
-h4 heading
-</h4>
+# line 1
 
-<details>
+# This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
 
-## h2 heading
+# The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
 
-The above heading is h2 in markdown format
+# \`\`\`term
+# Results of the scan go \033[0;31mhere\033[0m
+# \`\`\`
 
-<h2>h2 heading</h2>
+# line 2
 
-The above heading is h2 in html format
-
-<h2>
-h2 heading
-</h2>
-
-<summary>
-Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
-</summary>
-
-line 1
-
-This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
-
-The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
-
-\`\`\`term
-Results of the scan go \033[0;31mhere\033[0m
-\`\`\`
-
-line 2
-
-</details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan-04" --style "success"
+# </details>
+# " | buildkite-agent annotate --context "ctx-wiz-docker-scan-04" --style "success"
 
 # # this works
 # echo -e "
