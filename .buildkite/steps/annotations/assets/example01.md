@@ -9,6 +9,22 @@
 <h1 class="h1 mt0">h1 no margin top</h1>
 <h1 class="h1 mb0">h1 no margin bottom</h1>
 
+<div class="p2 bg-white border rounded">
+  A simple box
+</div>
+
+<div class="overflow-hidden border rounded">
+  <div class="p2 bold white bg-blue">
+    Panel Header
+  </div>
+  <div class="p2">
+    Panel Body
+  </div>
+  <div class="p2 bg-silver">
+    Panel Footer
+  </div>
+</div>
+
 <p class="bold">Bold</p>
 <p class="regular">Regular</p>
 <p class="italic">Italic</p>
