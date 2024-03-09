@@ -146,6 +146,9 @@ echo -e "
 # this works
 echo -e "
 
+## h2 heading
+
+The above heading is h2 in markdown format
 
 <h2>h2 heading</h2>
 
@@ -155,9 +158,22 @@ The above heading is h2 in html format
 h2 heading
 </h2>
 
-The above heading is h2 in html format
+The above heading is h2 in html format with a line feed to try and make it work
 
 <details>
+
+## h2 heading
+
+The above heading is h2 in markdown format
+
+<h2>h2 heading</h2>
+
+The above heading is h2 in html format
+
+<h2>
+h2 heading
+</h2>
+
 <summary>
 Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
 </summary>
