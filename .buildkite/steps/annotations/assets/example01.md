@@ -5,26 +5,6 @@
 <p class="h5">Pastrami 5</p>
 <p class="h6">Pastrami 6</p>
 
-<h1 class="h1">class h1 override of h1</h1>
-<h2 class="h1">class h1 override of h2</h2>
-<h3 class="h1">class h1 override of h3</h3>
-<h4 class="h1">class h1 override of h4</h4>
-
-<h1 class="h2">class h2 override of h1</h1>
-<h2 class="h2">class h2 override of h2</h2>
-<h3 class="h2">class h2 override of h3</h3>
-<h4 class="h2">class h2 override of h4</h4>
-
-<h1 class="h3">class h3 override of h1</h1>
-<h2 class="h3">class h3 override of h2</h2>
-<h3 class="h3">class h3 override of h3</h3>
-<h4 class="h3">class h3 override of h4</h4>
-
-<h1 class="h4">class h4 override of h1</h1>
-<h2 class="h4">class h4 override of h2</h2>
-<h3 class="h4">class h4 override of h3</h3>
-<h4 class="h4">class h4 override of h4</h4>
-
 <h1 class="m0">h1 no margin</h1>
 <h1 class="mt0">h1 no margin top</h1>
 <h1 class="mb0">h1 no margin bottom</h1>
