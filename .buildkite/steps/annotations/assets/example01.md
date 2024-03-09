@@ -1,9 +1,48 @@
+<p class="h1">Type Scale</p>
+
 <p class="h1">Pastrami 1</p>
 <p class="h2">Pastrami 2</p>
 <p class="h3">Pastrami 3</p>
 <p class="h4">Pastrami 4</p>
 <p class="h5">Pastrami 5</p>
 <p class="h6">Pastrami 6</p>
+
+<p class="h1">Typography</p>
+
+<p class="bold">Bold</p>
+<p class="regular">Regular</p>
+<p class="italic">Italic</p>
+<p class="caps">Caps</p>
+<p class="left-align">Left align</p>
+<p class="center">Center</p>
+<p class="right-align">Right align</p>
+<p class="justify">Justify Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+<p class="nowrap">No wrap</p>
+<p class="underline">Underline</p>
+<p class="truncate">Truncate</p>
+<p class="font-family-inherit">Font Family Inherit</p>
+<p class="font-size-inherit">Font Size Inherit</p>
+<a class="text-decoration-none">Text Decoration None</a>
+
+<p class="h1">Lists</p>
+
+<p class="h3">List Reset</p>
+
+<ul class="list-reset">
+  <li>List Reset</li>
+  <li>Removes bullets</li>
+  <li>Removes numbers</li>
+  <li>Removes padding</li>
+</ul>
+
+<p class="h3">Inline List</p>
+
+<ul class="list-reset">
+  <li class="inline-block mr1">Half-Smoke</li>
+  <li class="inline-block mr1">Kielbasa</li>
+  <li class="inline-block mr1">Bologna</li>
+  <li class="inline-block mr1">Prosciutto</li>
+</ul>
 
 <h1 class="h1 m0">h1 no margin</h1>
 <h1 class="h1 mt0">h1 no margin top</h1>
@@ -45,35 +84,6 @@
   <span class="maroon">.maroon</span>
   <span class="color-inherit">.color-inherit</span>
 </h3>
-
-<p class="bold">Bold</p>
-<p class="regular">Regular</p>
-<p class="italic">Italic</p>
-<p class="caps">Caps</p>
-<p class="left-align">Left align</p>
-<p class="center">Center</p>
-<p class="right-align">Right align</p>
-<p class="justify">Justify Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
-<p class="nowrap">No wrap</p>
-<p class="underline">Underline</p>
-<p class="truncate">Truncate</p>
-<p class="font-family-inherit">Font Family Inherit</p>
-<p class="font-size-inherit">Font Size Inherit</p>
-<a class="text-decoration-none">Text Decoration None</a>
-
-<ul class="list-reset">
-  <li>List Reset</li>
-  <li>Removes bullets</li>
-  <li>Removes numbers</li>
-  <li>Removes padding</li>
-</ul>
-
-<ul class="list-reset">
-  <li class="inline-block mr1">Half-Smoke</li>
-  <li class="inline-block mr1">Kielbasa</li>
-  <li class="inline-block mr1">Bologna</li>
-  <li class="inline-block mr1">Prosciutto</li>
-</ul>
 
 ---
 
