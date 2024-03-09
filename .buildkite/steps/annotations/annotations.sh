@@ -24,7 +24,7 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 
 # annotate
 # printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
-printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '5'
+printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 
 # echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '1'
 # echo "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '2'
@@ -257,51 +257,6 @@ printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 
 
 # </details>
 # " | buildkite-agent annotate --context "ctx-wiz-docker-scan-05" --style "success"
-
-
-# this works
-echo -e "
-<h4>Definition List</h4>
-<dl class="flex flex-wrap mxn1">
-  <div class="m1">
-    <dt>New Files in PR</dt>
-    <dd>
-      <big><big>88</big></big>%<br>
-      115 of 131 lines<br>
-    </dd>
-  </div>
-  <div class="m1">
-    <dt>Files Changed in PR</dt>
-    <dd>
-      <big><big>89</big></big>%<br>
-      332 of 372 lines
-    </dd>
-  </div>
-  <div class="m1">
-    <dt>All Files</dt>
-    <dd>
-      <big><big>90</big></big>%<br>
-      22,998 of 25,484 lines
-    </dd>
-  </div>
-</dl>
-<h4>Tables</h4>
-<table>
-  <thead>
-    <tr>
-      <th>foo</th>
-      <th>bar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>baz</td>
-      <td>bim</td>
-    </tr>
-  </tbody>
-</table>
-" | buildkite-agent annotate --context "toilet" --style "success"
-
 
 
 # echo -e "This annotation was created by job: <a href="${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID">$BUILDKITE_LABEL</a>"
