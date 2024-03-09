@@ -31,6 +31,12 @@ echo "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --contex
 printf "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '3'
 printf '%b\n' "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '4'
 
+echo -e "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '5'
+echo "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '6'
+printf "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '7'
+printf '%b\n' "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '8'
+
+
 
 # cat <<-____EOF | cat
 # <details>
