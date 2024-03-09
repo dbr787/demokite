@@ -5,20 +5,20 @@
 <p class="h5">Heading 5</p>
 <p class="h6">Heading 6</p>
 
-<p class="bold">Bold</p>
-<p class="regular">Regular</p>
-<p class="italic">Italic</p>
-<p class="caps">Caps</p>
-<p class="left-align">Left align</p>
-<p class="center">Center</p>
-<p class="right-align">Right align</p>
-<p class="justify">Justify Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
-<p class="nowrap">No wrap</p>
-<p class="underline">Underline</p>
-<p class="truncate">Truncate</p>
-<p class="font-family-inherit">Font Family Inherit</p>
-<p class="font-size-inherit">Font Size Inherit</p>
-<a class="text-decoration-none">Text Decoration None</a>
+<p class="bold">Bold text</p>
+<p class="regular">Regular text</p>
+<p class="italic">Italic text</p>
+<p class="caps">All caps text</p>
+<p class="left-align">Left align text</p>
+<p class="center">Center text</p>
+<p class="right-align">Right align text</p>
+<p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+<p class="nowrap">No wrap text</p>
+<p class="underline">Underline text</p>
+<p class="truncate">Truncate text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+<!-- <p class="font-family-inherit">Font Family Inherit</p> -->
+<!-- <p class="font-size-inherit">Font Size Inherit</p> -->
+<!-- <a class="text-decoration-none">Text Decoration None</a> -->
 
 <ul class="list-reset">
   <li>List Reset</li>
