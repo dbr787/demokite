@@ -23,6 +23,20 @@
 <!-- <p class="font-size-inherit">Font Size Inherit</p> -->
 <!-- <a class="text-decoration-none">Text Decoration None</a> -->
 
+<ul class="list">
+  <li>class list</li>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+
+<ul>
+  <li>list</li>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+
 <ul class="list-reset">
   <li>List Reset</li>
   <li>Removes bullets</li>
