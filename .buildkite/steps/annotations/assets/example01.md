@@ -1,20 +1,26 @@
-<!-- # h1 Heading 8-) -->
-
-<!-- ## h2 Heading -->
-
-<!-- Normal text -->
-
 ## h2 heading
 
-The above heading is h2
+The above heading is h2 in markdown format
+
+<h2>h2 heading</h2>
+
+The above heading is h2 in html format
 
 ### h3 heading
 
-The above heading is h3
+The above heading is h3 in markdown format
+
+<h3>h3 heading</h3>
+
+The above heading is h3 in html format
 
 #### h4 Heading
 
-The above heading is h4
+The above heading is h4 in markdown format
+
+<h4>h4 heading</h4>
+
+The above heading is h4 in html format
 
 Now let's put a horizontal line
 
