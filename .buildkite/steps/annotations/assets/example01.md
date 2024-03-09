@@ -25,6 +25,27 @@
   </div>
 </div>
 
+<h3 class="center">
+  <span class="black">.black</span>
+  <span class="gray">.gray</span>
+  <span class="silver">.silver</span>
+  <span class="white">.white</span>
+  <span class="aqua">.aqua</span>
+  <span class="blue">.blue</span>
+  <span class="navy">.navy</span>
+  <span class="teal">.teal</span>
+  <span class="green">.green</span>
+  <span class="olive">.olive</span>
+  <span class="lime">.lime</span>
+  <span class="yellow">.yellow</span>
+  <span class="orange">.orange</span>
+  <span class="red">.red</span>
+  <span class="fuchsia">.fuchsia</span>
+  <span class="purple">.purple</span>
+  <span class="maroon">.maroon</span>
+  <span class="color-inherit">.color-inherit</span>
+</h3>
+
 <p class="bold">Bold</p>
 <p class="regular">Regular</p>
 <p class="italic">Italic</p>
