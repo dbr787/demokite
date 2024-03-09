@@ -24,10 +24,10 @@
 <!-- <a class="text-decoration-none">Text Decoration None</a> -->
 
 <ul class="ul">
-  <li>class list</li>
-  <li>first</li>
-  <li>second</li>
-  <li>third</li>
+  <li class="li">class list</li>
+  <li class="li">first</li>
+  <li class="li">second</li>
+  <li class="li">third</li>
 </ul>
 
 - markdown unordered list one
@@ -278,7 +278,7 @@
 <label>Error</label>
 <input type="text" class="block col-12 field is-error"> -->
 
-<div class="h5 overflow-scroll">
+<div class="h5 regular overflow-scroll">
   <table class="table">
     <thead>
       <tr>
@@ -293,7 +293,7 @@
   </table>
 </div>
 
-<div class="h6 overflow-scroll">
+<div class="h6 regular overflow-scroll">
   <table class="table-light">
     <thead>
       <tr>
