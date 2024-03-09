@@ -36,6 +36,11 @@ printf '%b\n' "$(cat ./assets/example02.html)" | buildkite-agent annotate --styl
 # printf "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '7'
 # printf '%b\n' "<h4>h4 heading</h4>" | buildkite-agent annotate --style 'warning' --context '8'
 
+echo -e "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '1'
+echo "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '2'
+printf "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '3'
+printf '%b\n' "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '4'
+
 echo -e "## h2 heading" | buildkite-agent annotate --style 'warning' --context '1'
 echo "## h2 heading>" | buildkite-agent annotate --style 'warning' --context '2'
 printf "## h2 heading" | buildkite-agent annotate --style 'warning' --context '3'
