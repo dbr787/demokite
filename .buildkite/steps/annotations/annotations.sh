@@ -41,11 +41,6 @@ echo "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning'
 printf "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '3'
 printf '%b\n' "<p class="h1">Pastrami 1</p>" | buildkite-agent annotate --style 'warning' --context '4'
 
-echo -e "## h2 heading" | buildkite-agent annotate --style 'warning' --context '1'
-echo "## h2 heading>" | buildkite-agent annotate --style 'warning' --context '2'
-printf "## h2 heading" | buildkite-agent annotate --style 'warning' --context '3'
-printf '%b\n' "## h2 heading" | buildkite-agent annotate --style 'warning' --context '4'
-
 # cat <<-____EOF | cat
 # <details>
 # <summary>Wiz Docker Image Scan for $image_name does not meet policy requirements</summary>
