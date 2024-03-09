@@ -1,38 +1,14 @@
-<h1>h1 heading</h1>
+<p class="h1">Pastrami 1</p>
+<p class="h2">Pastrami 2</p>
+<p class="h3">Pastrami 3</p>
+<p class="h4">Pastrami 4</p>
+<p class="h5">Pastrami 5</p>
+<p class="h6">Pastrami 6</p>
 
-<h2>h2 heading</h2>
-
-## h2 heading
-
-The above heading is h2 in markdown format
-
-<h2>h2 heading</h2>
-
-The above heading is h2 in html format
-
-<h2>
-h2 heading
-</h2>
-
-The above heading is h2 in html format with a line feed to try and make it work
-
-### h3 heading
-
-The above heading is h3 in markdown format
-
-<h3>h3 heading</h3>
-
-The above heading is h3 in html format
-
-#### h4 Heading
-
-The above heading is h4 in markdown format
-
-<h4>h4 heading</h4>
-
-The above heading is h4 in html format
-
-Now let's put a horizontal line
+<h1 class="h1">Same as default h1 style, but semantically correct</h1>
+<h2 class="h1">Larger than default h2 style, but semantically correct</h2>
+<h3 class="h1">Larger than default h3 style, but semantically correct</h3>
+<h4 class="h1">Larger than default h4 style, but semantically correct</h4>
 
 ---
 
