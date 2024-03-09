@@ -5,9 +5,9 @@
 <p class="h5">Pastrami 5</p>
 <p class="h6">Pastrami 6</p>
 
-<h1 class="m0">h1 no margin</h1>
-<h1 class="mt0">h1 no margin top</h1>
-<h1 class="mb0">h1 no margin bottom</h1>
+<h1 class="h1 m0">h1 no margin</h1>
+<h1 class="h1 mt0">h1 no margin top</h1>
+<h1 class="h1 mb0">h1 no margin bottom</h1>
 
 <p class="bold">Bold</p>
 <p class="regular">Regular</p>
