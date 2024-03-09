@@ -133,6 +133,18 @@ echo -e "
 
 # this works
 echo -e "
+
+
+<h2>h2 heading</h2>
+
+The above heading is h2 in html format
+
+<h2>
+h2 heading
+</h2>
+
+The above heading is h2 in html format
+
 <details>
 <summary>
 Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
