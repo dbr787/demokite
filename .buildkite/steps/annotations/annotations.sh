@@ -146,6 +146,8 @@ echo -e "
 # this works
 echo -e "
 
+<h1 class="m0">No margin</h1>
+
 ## h2 heading
 
 The above heading is h2 in markdown format
