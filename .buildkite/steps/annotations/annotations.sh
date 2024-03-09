@@ -159,7 +159,7 @@ printf '%b\n' "## h2 heading" | buildkite-agent annotate --style 'warning' --con
 # " | buildkite-agent annotate --context "ctx-wiz-docker-scan-03" --style "success"
 
 
-# this works
+# # this works
 # echo -e "
 
 # <h1 class="m0">No margin</h1>
@@ -259,7 +259,48 @@ printf '%b\n' "## h2 heading" | buildkite-agent annotate --style 'warning' --con
 # " | buildkite-agent annotate --context "ctx-wiz-docker-scan-05" --style "success"
 
 
-
+# this works
+echo -e "
+<h4>Definition List</h4>
+<dl class="flex flex-wrap mxn1">
+  <div class="m1">
+    <dt>New Files in PR</dt>
+    <dd>
+      <big><big>88</big></big>%<br>
+      115 of 131 lines<br>
+    </dd>
+  </div>
+  <div class="m1">
+    <dt>Files Changed in PR</dt>
+    <dd>
+      <big><big>89</big></big>%<br>
+      332 of 372 lines
+    </dd>
+  </div>
+  <div class="m1">
+    <dt>All Files</dt>
+    <dd>
+      <big><big>90</big></big>%<br>
+      22,998 of 25,484 lines
+    </dd>
+  </div>
+</dl>
+<h4>Tables</h4>
+<table>
+  <thead>
+    <tr>
+      <th>foo</th>
+      <th>bar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>baz</td>
+      <td>bim</td>
+    </tr>
+  </tbody>
+</table>
+" | buildkite-agent annotate --context "toilet" --style "success"
 
 
 
