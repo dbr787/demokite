@@ -13,17 +13,17 @@
 <p class="left-align">Left align text</p>
 <p class="center">Center text</p>
 <p class="right-align">Right align text</p>
- <!-- justify seems to only work up to a certain width -->
+ <!-- justify works on wrap, resize browser window to see -->
 <p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
- <!-- justify seems to only work up to a certain width -->
-<p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
  <!-- truncate works, resize browser window to see -->
 <p class="truncate">Truncate text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+ <!-- nowrap does fuck all -->
+<!-- <p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p> -->
 <!-- <p class="font-family-inherit">Font Family Inherit</p> -->
 <!-- <p class="font-size-inherit">Font Size Inherit</p> -->
 <!-- <a class="text-decoration-none">Text Decoration None</a> -->
 
-<ul class="list">
+<ul class="ul">
   <li>class list</li>
   <li>first</li>
   <li>second</li>
@@ -207,7 +207,8 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
-<div class="center p1 white bg-black">.bg-black</div>
+<!-- backgournd colors don't work -->
+<!-- <div class="center p1 white bg-black">.bg-black</div>
 <div class="center p1 bg-gray">.bg-gray</div>
 <div class="center p1 bg-silver">.bg-silver</div>
 <div class="center p1 bg-white">.bg-white</div>
@@ -233,9 +234,10 @@
   <div class="center p1 white bg-lighten-2">.bg-lighten-2</div>
   <div class="center p1 white bg-lighten-3">.bg-lighten-3</div>
   <div class="center p1 white bg-lighten-4">.bg-lighten-4</div>
-</div>
+</div> -->
 
-<label>Input</label>
+<!-- this shit doesn't work -->
+<!-- <label>Input</label>
 <input type="text" class="block col-12 field">
 <label>Select</label>
 <select class="block col-12 field">
@@ -266,7 +268,22 @@
 <label>Warning</label>
 <input type="text" class="block col-12 field is-warning">
 <label>Error</label>
-<input type="text" class="block col-12 field is-error">
+<input type="text" class="block col-12 field is-error"> -->
+
+<div class="overflow-scroll">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Artist</th> <th>Album</th> <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="overflow-scroll">
   <table class="table-light">
