@@ -10,6 +10,35 @@
 <h3 class="h1">Larger than default h3 style, but semantically correct</h3>
 <h4 class="h1">Larger than default h4 style, but semantically correct</h4>
 
+<p class="bold">Bold</p>
+<p class="regular">Regular</p>
+<p class="italic">Italic</p>
+<p class="caps">Caps</p>
+<p class="left-align">Left align</p>
+<p class="center">Center</p>
+<p class="right-align">Right align</p>
+<p class="justify">Justify Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+<p class="nowrap">No wrap</p>
+<p class="underline">Underline</p>
+<p class="truncate">Truncate</p>
+<p class="font-family-inherit">Font Family Inherit</p>
+<p class="font-size-inherit">Font Size Inherit</p>
+<a class="text-decoration-none">Text Decoration None</a>
+
+<ul class="list-reset">
+  <li>List Reset</li>
+  <li>Removes bullets</li>
+  <li>Removes numbers</li>
+  <li>Removes padding</li>
+</ul>
+
+<ul class="list-reset">
+  <li class="inline-block mr1">Half-Smoke</li>
+  <li class="inline-block mr1">Kielbasa</li>
+  <li class="inline-block mr1">Bologna</li>
+  <li class="inline-block mr1">Prosciutto</li>
+</ul>
+
 ---
 
 That's nice
