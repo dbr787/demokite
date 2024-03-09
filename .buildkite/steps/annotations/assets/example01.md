@@ -30,6 +30,14 @@
   <li>third</li>
 </ul>
 
+- markdown unordered list one
+- markdown unordered list two
+- markdown unordered list three
+
+1. markdown ordered list one
+1. markdown ordered list two
+1. markdown ordered list three
+
 <ul>
   <li>list</li>
   <li>first</li>
