@@ -6,6 +6,12 @@ The above heading is h2 in markdown format
 
 The above heading is h2 in html format
 
+<h2>
+h2 heading
+</h2>
+
+The above heading is h2 in html format with a line feed to try and make it work
+
 ### h3 heading
 
 The above heading is h3 in markdown format
