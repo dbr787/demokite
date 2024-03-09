@@ -154,11 +154,21 @@ The above heading is h2 in markdown format
 
 The above heading is h2 in html format
 
+<h1>
+h1 heading
+</h1>
+
 <h2>
 h2 heading
 </h2>
 
-The above heading is h2 in html format with a line feed to try and make it work
+<h3>
+h3 heading
+</h3>
+
+<h4>
+h4 heading
+</h4>
 
 <details>
 
