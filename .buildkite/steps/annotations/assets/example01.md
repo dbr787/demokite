@@ -345,7 +345,7 @@
 <div class="overflow-scroll">
   <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
   <table class="border rounded">
-    <thead class="h6 underline bg-darken-1">
+    <thead class="h6 underline bold">
       <tr>
         <th>Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
