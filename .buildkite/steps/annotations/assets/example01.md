@@ -278,7 +278,7 @@
 <label>Error</label>
 <input type="text" class="block col-12 field is-error"> -->
 
-<div class="overflow-scroll">
+<div class="h5 overflow-scroll">
   <table class="table">
     <thead>
       <tr>
@@ -293,7 +293,7 @@
   </table>
 </div>
 
-<div class="overflow-scroll">
+<div class="h6 overflow-scroll">
   <table class="table-light">
     <thead>
       <tr>
@@ -321,15 +321,6 @@
       <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
     </tbody>
   </table>
-</div>
-
-<div class="relative mb4">
-  <button class="btn btn-primary">Button</button>
-  <div class="absolute bg-white border rounded">
-    <a href="#" class="block btn">Dropdown Action</a>
-    <a href="#" class="block btn">Action</a>
-    <a href="#" class="block btn">Action</a>
-  </div>
 </div>
 
 ---
