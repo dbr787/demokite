@@ -342,6 +342,22 @@
   </table>
 </div>
 
+<div class="overflow-scroll">
+  <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
+  <table class="border rounded">
+    <thead class="h6 underline bg-darken-1">
+      <tr>
+        <th>Artist</th> <th>Album</th> <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody class="h6 regular">
+      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+    </tbody>
+  </table>
+</div>
+
 ---
 
 That's nice
