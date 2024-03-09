@@ -26,7 +26,11 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 printf '%b\n' "$(cat ./assets/example02.html)" | buildkite-agent annotate --style 'success' --context 'example02'
 
-echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context 'zz'
+echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '1'
+echo "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '2'
+printf "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '3'
+
+
 
 # cat <<-____EOF | cat
 # <details>
