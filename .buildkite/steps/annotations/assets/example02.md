@@ -4,26 +4,30 @@
 
 <!-- Normal text -->
 
-## h2 heading
+#### Secondary Heading
 
-The above heading is h2
+h4 is a good size for secondary headings
 
-### h3 heading
+### Primary Heading
 
-The above heading is h3
+h3 is a good size for primary headings
 
-#### h4 Heading
+#### Secondary Heading
 
-The above heading is h4
-
-Now let's put a horizontal line
+h4 is a good size for secondary headings
 
 ---
 
-That's nice
+<!-- ##### h5 Heading -->
+
+<!-- Normal text -->
+
+<!-- ###### h6 Heading -->
+
+<!-- Normal text -->
 
 <details>
-  <summary>Click here to see a GIF...</summary>
+  <summary>Click here to see a GIF</summary>
 
 <img src="artifact://assets/man.gif" alt="man" height=250 >
 
@@ -31,14 +35,14 @@ That's nice
 
 ---
 
-We can link to <a href="artifact://assets/example01.md">an artifact!</a>
+Read the <a href="artifact://assets/example01.md">uploaded coverage report</a>
 
 ---
 
 <details>
-  <summary>Click here to see some code...</summary>
+  <summary>Click here to see some code</summary>
 
-### A traditional code block
+#### A traditional code block
 
 ```js
 function logSomething(something) {
@@ -46,7 +50,7 @@ function logSomething(something) {
 }
 ```
 
-### A fancy terminal code block
+#### A fancy terminal code block
 
 ```term
 \x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
@@ -61,19 +65,35 @@ function logSomething(something) {
 
 ---
 
+<!-- --- -->
+
+<!-- --- -->
+
+<!-- ## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,, -- ---
+
+"Smartypants, double quotes" and 'single quotes' -->
+
+<!-- #### Emphasis -->
+
 **This is bold text**
 
 _This is italic text_
 
 ~~This is strikethrough text~~
 
-This is <sub>subscript</sub> text
+This is a <sub>subscript</sub> text
 
-This is <sup>superscript</sup> text
+This is a <sup>superscript</sup> text
 
----
-
-### Blockquotes
+#### Blockquotes
 
 > Blockquotes can also be nested...
 >

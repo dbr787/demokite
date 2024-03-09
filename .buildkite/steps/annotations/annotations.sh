@@ -13,8 +13,8 @@ set -euo pipefail # don't print executed commands to the terminal
 . .buildkite/assets/functions.sh;
 
 # capture original working directory
-cur_dir=$(pwd)
-cur_dir_contents=$(ls -lah $cur_dir)
+current_dir=$(pwd)
+current_dir_contents=$(ls -lah $current_dir)
 
 # change into steps/annotations/ directory
 cd .buildkite/steps/annotations/;
@@ -153,42 +153,42 @@ line 2
 </details>
 " | buildkite-agent annotate --context "ctx-wiz-docker-scan-04" --style "success"
 
-# this works
-echo -e "
-<details>
-<summary>
-Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
-</summary>
-<pre>
-    1 
-   / \ 
-  2   2 
- / \ / \ 
-3  4 4  3 
-</pre>
+# # this works
+# echo -e "
+# <details>
+# <summary>
+# Wiz Docker Image Scan for <a href=\"artifact://wiz-docker-scan-annotation.md\">$IMAGE_NAME</a> does not meet policy requirements.
+# </summary>
+# <pre>
+#     1 
+#    / \ 
+#   2   2 
+#  / \ / \ 
+# 3  4 4  3 
+# </pre>
 
-    line 1
+#     line 1
 
-This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+# This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
 
-The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
+# The file used to generate this annotation was uploaded as <a href=\"artifact://wiz-docker-scan-annotation.md\">an artifact which can be found here</a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;\`\`\`term
-&nbsp;&nbsp;&nbsp;&nbsp;Results of the scan go \033[0;31mhere\033[0m
-&nbsp;&nbsp;&nbsp;&nbsp;\`\`\`
+# &nbsp;&nbsp;&nbsp;&nbsp;\`\`\`term
+# &nbsp;&nbsp;&nbsp;&nbsp;Results of the scan go \033[0;31mhere\033[0m
+# &nbsp;&nbsp;&nbsp;&nbsp;\`\`\`
 
-  line 2
+#   line 2
 
-&nbsp;&nbsp;hello2
+# &nbsp;&nbsp;hello2
 
-&nbsp;&nbsp;&nbsp;&nbsp;hello4
+# &nbsp;&nbsp;&nbsp;&nbsp;hello4
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello6
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello6
 
 
 
-</details>
-" | buildkite-agent annotate --context "ctx-wiz-docker-scan-05" --style "success"
+# </details>
+# " | buildkite-agent annotate --context "ctx-wiz-docker-scan-05" --style "success"
 
 
 
