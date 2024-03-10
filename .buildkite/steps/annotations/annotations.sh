@@ -30,12 +30,12 @@ FILE_PATH="./assets/example01.md"
 
 # Define the old and new strings
 OLD_STRING="BUILDKITE_BUILD_URL"
-NEW_STRING="TEST"
+NEW_STRING="$BUILDKITE_BUILD_URL"
 
 # Check if the file exists
 if [ -f "$FILE_PATH" ]; then
     # Use sed to replace the string in-place
-    sed -i "s/$OLD_STRING/$NEW_STRING/g" "$FILE_PATH"
+    sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
     echo "Replacement complete."
 else
     echo "Error: File does not exist."
