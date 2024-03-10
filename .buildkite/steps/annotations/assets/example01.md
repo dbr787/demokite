@@ -91,7 +91,7 @@ We can use tables
 <div class="flex h6 overflow-scroll">
   <div class="flex-none">
     <table class="border rounded">
-      <thead class="bold underline">
+      <thead class="bold">
         <tr>
           <th>Artist</th> <th>Album</th> <th>Release Date</th>
         </tr>
@@ -107,7 +107,24 @@ We can use tables
 
 ---
 
-<p class="h3 pb1">:white_check_mark: We can expand/colllapse sections</p>
+We can display images
+
+<details class="pt1">
+  <summary class="h4"><span class="pl1">Expand this section to see image options...</span></summary>
+  <div class="pl3 mb1">
+    <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
+    <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="164" />
+  </div>
+</details>
+
+---
+
+<!-- <p class="h3 pb1">:white_check_mark: We can expand/colllapse sections</p> -->
+
+Sections can be expanded and collapsed
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
@@ -199,7 +216,7 @@ We can use tables
 <blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
 <blockquote class="py1 h4">this is a h4 blockquote</blockquote>
 <blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
-<blockquote class="py1 h4 italic">this is a h4 italic blockquote</blockquote>
+<blockquote class="py1 h4 regular italic">this is a h4 regular italic blockquote</blockquote>
 <blockquote class="py1 h5">this is a h5 blockquote</blockquote>
 <blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
