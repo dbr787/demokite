@@ -113,7 +113,9 @@
 
 ---
 
-### We can use a basic code block
+### We can use `inline code`
+
+### Or a basic code block
 
 ```
 function logSomething(something) {
