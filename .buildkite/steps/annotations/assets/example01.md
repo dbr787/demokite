@@ -140,16 +140,10 @@ block
     <blockquote>this is a html blockquote</blockquote>
     <p class="h4">h6 table with underline header and rounded border</p>
     <pre><code>or a
-      pre-code
-      block</code></pre>
+    pre-code
+    block</code></pre>
       <p class="h4">h6 table with underline header and rounded border</p>
-      <pre>or a
-      pre
-      block</pre>
-      <p class="h4">h6 table with underline header and rounded border</p>
-      <code>or a
-      pre
-      block</code>
+      We can display <code>inline code</code>
       <p class="h4">h6 table with underline header and rounded border</p>
   </div>
 </details>
@@ -157,7 +151,7 @@ block
 <blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
 <blockquote class="py1 h4">this is a h4 blockquote</blockquote>
 <blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
-<blockquote class="py1 h4 italics">this is a h4 italics blockquote</blockquote>
+<blockquote class="py1 h4 italic">this is a h4 italic blockquote</blockquote>
 <blockquote class="py1 h5">this is a h5 blockquote</blockquote>
 <blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
