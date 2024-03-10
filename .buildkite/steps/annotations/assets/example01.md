@@ -14,7 +14,7 @@
 
 <details>
   <summary class="h4"><span class="pl1">Expand this section to see typography options...</span></summary>
-  <div class="pl3">
+  <div class="pl3 mb1">
     <p class="regular">Regular text</p>
     <p class="bold">Bold text</p>
     <p class="italic">Italic text</p>
@@ -30,6 +30,9 @@
   </div>
 </details>
 
+<p></p>
+<p></p>
+<p></p>
  <!-- nowrap does fuck all -->
 <!-- <p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p> -->
 <!-- <p class="font-family-inherit">Font Family Inherit</p> -->
