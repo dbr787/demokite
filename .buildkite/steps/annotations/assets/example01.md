@@ -102,6 +102,10 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
+<div class="m4 p2 border rounded">
+  A simple box
+</div>
+
 <div class="my4">
   <p></p>
   <p></p>
@@ -226,10 +230,6 @@
 <div class="flex">
   <div class="ml-auto">Hamburger</div>
   <div>Hot Dog</div>
-</div>
-
-<div class="m4 p2 border rounded">
-  A simple box
 </div>
 
 <div class="overflow-hidden border rounded">
