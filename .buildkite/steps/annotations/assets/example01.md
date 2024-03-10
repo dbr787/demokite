@@ -111,6 +111,29 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
+---
+
+### We can use a basic code block
+
+```
+function logSomething(something) {
+  console.log("Something", something);
+}
+```
+
+### Or a fancy terminal code block
+
+```term
+\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
+
+\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
+\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
+
+\x1b[31m  (compared using eql?)\x1b[0m
+```
+
+---
+
 <!-- <div class="h4 p2 border rounded">
   This is a simple box
 </div>
@@ -134,15 +157,10 @@ block
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see options for displaying code...</span></summary>
   <div class="pl3 mb1">
-    <p class="h4">h6 table with underline header and rounded border</p>
-    <code>this is a html code block</code>
-    <p class="h4">h6 table with underline header and rounded border</p>
-    <blockquote>this is a html blockquote</blockquote>
-    <p class="h4">h6 table with underline header and rounded border</p>
-    <pre><code>or a
-pre-code
+    <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
+    <pre><code>or use a
+code
 block</code></pre>
-      <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
   </div>
 </details>
 
@@ -425,7 +443,7 @@ We can link to <a href="artifact://assets/example01.md">an artifact!</a>
 
 ### A traditional code block
 
-```js
+```
 function logSomething(something) {
   console.log("Something", something);
 }
