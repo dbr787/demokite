@@ -83,6 +83,7 @@
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
+    <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" height=128 />
   </div>
 </details>
 
@@ -113,9 +114,7 @@
 
 ---
 
-<p class="h1">:terminal: When we want to show some code</p>
 <p class="h2">:terminal: When we want to show some code</p>
-<p class="h3">:terminal: When we want to show some code</p>
 
 ### We can use `inline code`
 
@@ -139,6 +138,13 @@ function logSomething(something) {
 ```
 
 ---
+
+<blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
+<blockquote class="py1 h4">this is a h4 blockquote</blockquote>
+<blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
+<blockquote class="py1 h4 italic">this is a h4 italic blockquote</blockquote>
+<blockquote class="py1 h5">this is a h5 blockquote</blockquote>
+<blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
 <!-- <div class="h4 p2 border rounded">
   This is a simple box
@@ -174,13 +180,6 @@ function logSomething(something) {
 
   </div>
 </details>
-
-<blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
-<blockquote class="py1 h4">this is a h4 blockquote</blockquote>
-<blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
-<blockquote class="py1 h4 italic">this is a h4 italic blockquote</blockquote>
-<blockquote class="py1 h5">this is a h5 blockquote</blockquote>
-<blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
 <!-- <div class="my4">
   <p></p>
