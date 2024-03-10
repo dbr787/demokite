@@ -30,7 +30,7 @@ FILE_PATH="./assets/example01.md"
 
 # Define the old and new strings
 OLD_STRING="BUILDKITE_BUILD_URL"
-NEW_STRING="$BUILDKITE_BUILD_URL"
+NEW_STRING="TEST"
 
 # Check if the file exists
 if [ -f "$FILE_PATH" ]; then
