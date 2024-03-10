@@ -19,31 +19,35 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into steps/annotations/ directory
 cd .buildkite/steps/annotations/;
 
-# annotate
-# printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
+# upload original assets as artifacts
+buildkite-agent artifact upload "assets/*" --log-level error;
 
+# replace variables in annotation file
 FILE_PATH="./assets/example01.md"
+replace_file_var $FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
+replace_file_var $FILE_PATH "\$BUILDKITE_JOB_ID" "$BUILDKITE_JOB_ID"
+replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
 
-if [ -f "$FILE_PATH" ]; then
+# if [ -f "$FILE_PATH" ]; then
 
-  OLD_STRING="\$BUILDKITE_BUILD_URL"
-  NEW_STRING="$BUILDKITE_BUILD_URL"
-  sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
-  echo "Replaced $OLD_STRING with $NEW_STRING"
+#   OLD_STRING="\$BUILDKITE_BUILD_URL"
+#   NEW_STRING="$BUILDKITE_BUILD_URL"
+#   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
+#   echo "Replaced $OLD_STRING with $NEW_STRING"
 
-  OLD_STRING="\$BUILDKITE_JOB_ID"
-  NEW_STRING="$BUILDKITE_JOB_ID"
-  sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
-  echo "Replaced $OLD_STRING with $NEW_STRING"
+#   OLD_STRING="\$BUILDKITE_JOB_ID"
+#   NEW_STRING="$BUILDKITE_JOB_ID"
+#   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
+#   echo "Replaced $OLD_STRING with $NEW_STRING"
   
-  OLD_STRING="\$BUILDKITE_LABEL"
-  NEW_STRING="$BUILDKITE_LABEL"
-  sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
-  echo "Replaced $OLD_STRING with $NEW_STRING"
+#   OLD_STRING="\$BUILDKITE_LABEL"
+#   NEW_STRING="$BUILDKITE_LABEL"
+#   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
+#   echo "Replaced $OLD_STRING with $NEW_STRING"
 
-else
-    echo "Error: File does not exist."
-fi
+# else
+#     echo "Error: File does not exist."
+# fi
 
 # upload assets as artifacts
 buildkite-agent artifact upload "assets/*" --log-level error;

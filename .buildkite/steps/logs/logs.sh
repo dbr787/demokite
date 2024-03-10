@@ -13,13 +13,13 @@ set -euo pipefail # don't print executed commands to the terminal
 . .buildkite/assets/functions.sh;
 
 # capture original working directory
-cur_dir=$(pwd)
-cur_dir_contents=$(ls -lah $cur_dir)
+current_dir=$(pwd)
+current_dir_contents=$(ls -lah $current_dir)
 
 # change into steps/logs/ directory
 cd .buildkite/steps/logs/;
 
-# upload assets as artifacts
+# upload original assets as artifacts
 buildkite-agent artifact upload "assets/*" --log-level error;
 
 # start printing cool examples
