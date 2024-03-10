@@ -11,6 +11,9 @@
     <p class="h4">Heading 4</p>
     <p class="h5">Heading 5</p>
     <p class="h6">Heading 6</p>
+    ```
+    code block
+    ```
   </div>
 </details>
 
