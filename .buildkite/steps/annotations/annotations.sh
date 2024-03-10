@@ -24,6 +24,23 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 
 # annotate
 # printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
+
+FILE="./assets/example01.md"
+
+SEARCH="BUILDKITE_BUILD_URL"
+REPLACE="$BUILDKITE_BUILD_URL"
+sed -i "s/$SEARCH/$REPLACE/g" $FILE
+
+SEARCH="BUILDKITE_JOB_ID"
+REPLACE="$BUILDKITE_JOB_ID"
+sed -i "s/$SEARCH/$REPLACE/g" $FILE
+
+SEARCH="BUILDKITE_LABEL"
+REPLACE="$BUILDKITE_LABEL"
+sed -i "s/$SEARCH/$REPLACE/g" $FILE
+
+# This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
+
 printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 
 # echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '1'
