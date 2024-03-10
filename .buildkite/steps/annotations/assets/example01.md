@@ -77,7 +77,7 @@ Or a fancy terminal code block
 
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-<blockquote class="h4 mt1 mb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
+<blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
 <blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
 <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
 <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
@@ -316,7 +316,11 @@ Sections can be expanded and collapsed
 <a href="#" class="block">block</a> -->
 
 <div class="table border">
-  <div class="table-cell border">table-cell</div>
+  <div class="table-cell border">table-cell
+    with lots of content
+    inside
+    it
+  </div>
   <div class="table-cell border rounded">table-cell</div>
   <div class="table-cell rounded">table-cell</div>
 </div>
