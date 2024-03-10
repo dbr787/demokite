@@ -31,57 +31,64 @@
   </div>
 </details>
 
-<p class="h4">h6 table</p>
+<details class="pt1">
+  <summary class="h4"><span class="pl1">Expand this section to see table options...</span></summary>
+  <div class="pl3">
 
-<div class="h6 regular overflow-scroll">
-  <table class="table-light">
-    <thead>
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
+  <p class="h4">h6 table</p>
 
-<p class="h4">h6 table new with h5 header</p>
+  <div class="h6 regular overflow-scroll">
+    <table class="table-light">
+      <thead>
+        <tr>
+          <th>Artist</th> <th>Album</th> <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+        <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div class="h6 overflow-scroll">
-  <table class="table-light">
-    <thead class="h5 bold">
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody class="h6 regular">
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
+  <p class="h4">h6 table new with h5 header</p>
 
-<p class="h4">h6 table with underline header and rounded border</p>
+  <div class="h6 overflow-scroll">
+    <table class="table-light">
+      <thead class="h5 bold">
+        <tr>
+          <th>Artist</th> <th>Album</th> <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody class="h6 regular">
+        <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+        <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div class="overflow-scroll">
-  <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="flex-none border rounded">
-    <thead class="h6 bold underline">
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody class="h6 regular">
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
+  <p class="h4">h6 table with underline header and rounded border</p>
+
+  <div class="overflow-scroll">
+    <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
+    <table class="flex-none border rounded">
+      <thead class="h6 bold underline">
+        <tr>
+          <th>Artist</th> <th>Album</th> <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody class="h6 regular">
+        <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+        <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+      </tbody>
+    </table>
+  </div>
+
+  </div>
+</details>
 
 <div class="my4">
   <p></p>
