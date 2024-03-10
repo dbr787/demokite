@@ -4,6 +4,9 @@
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
+<p class="h6 regular">Here is a link to <a href="artifact://assets/example01.md">the file</a> the was used to generate this annotation</p>
+<p class="h6 regular">Here is a link to <a href="artifact://assets/example01.md">the job</a> the was used to generate this annotation</p>
+
 ---
 
 <p class="">
@@ -67,15 +70,6 @@ Or a fancy terminal code block
 ```
 
 ---
-
-<!-- <p class="h3 pb1">🎨 For styling fonts</p> -->
-
-<blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
-<blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-<blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
-<blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
-<blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
-<blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
 
 Blockquotes and flexbox
 
