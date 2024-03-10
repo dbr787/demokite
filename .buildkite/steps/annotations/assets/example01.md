@@ -228,7 +228,7 @@
   <div>Hot Dog</div>
 </div>
 
-<div class="p2 bg-white border rounded">
+<div class="m4 p2 border rounded">
   A simple box
 </div>
 
