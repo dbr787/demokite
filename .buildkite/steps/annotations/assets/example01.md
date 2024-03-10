@@ -80,9 +80,10 @@
   <summary class="h4"><span class="pl1">Expand this section to see image options...</span></summary>
   <div class="pl3 mb1">
     <p class="h5 mb1 regular">sup</p>
-    <div class="h4">Image with rounded corners</div>
-    <img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="128" height="128" />
+    <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
   </div>
 </details>
 
@@ -245,17 +246,17 @@ block
   </div>
 </div>
 
-<h1 class="h1 m0">h1 no margin</h1>
+<!-- <h1 class="h1 m0">h1 no margin</h1>
 <h1 class="h1 mt0">h1 no margin top</h1>
-<h1 class="h1 mb0">h1 no margin bottom</h1>
+<h1 class="h1 mb0">h1 no margin bottom</h1> -->
 
-<div class="mxn1">
+<!-- <div class="mxn1">
   <div class="m1">Hamburger spacing mxn1 m1</div>
   <div class="m1">Hamburger spacing mxn1 m1</div>
   <div class="m1">Hamburger spacing mxn1 m1</div>
-</div>
+</div> -->
 
-<img src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg"
+<!-- <img src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg"
   width="96"
   height="96"
   class="block mx-auto" />
@@ -263,9 +264,9 @@ block
 <div class="flex">
   <div class="ml-auto">Hamburger</div>
   <div>Hot Dog</div>
-</div>
+</div> -->
 
-<div class="overflow-hidden border rounded">
+<!-- <div class="overflow-hidden border rounded">
   <div class="p2 bold white bg-blue">
     Panel Header
   </div>
@@ -275,22 +276,22 @@ block
   <div class="p2 bg-silver">
     Panel Footer
   </div>
-</div>
+</div> -->
 
-<div class="fixed top-0 left-0 right-0 p2 white bg-black">
+<!-- <div class="fixed top-0 left-0 right-0 p2 white bg-black">
   Fixed bar
 </div>
 
 <div class="fixed z2 top-0 left-0 right-0 p2 white bg-black">
   Fixed bar
-</div>
+</div> -->
 
-<div class="clearfix border">
+<!-- <div class="clearfix border">
   <div class="sm-col sm-col-6 border">.sm-col.sm-col-6</div>
   <div class="sm-col sm-col-6 border">.sm-col.sm-col-6</div>
-</div>
+</div> -->
 
-<div class="clearfix mxn2 border">
+<!-- <div class="clearfix mxn2 border">
   <div class="sm-col sm-col-6 md-col-5 lg-col-4 px2"><div class="border">.px2</div></div>
   <div class="sm-col sm-col-6 md-col-7 lg-col-8 px2"><div class="border">.px2</div></div>
 </div>
@@ -310,16 +311,16 @@ block
   <div class="col-6 border">Hamburger</div>
   <div class="col-6 border">Hamburger</div>
   <div class="col-6 border">Hamburger</div>
-</div>
+</div> -->
 
-<div class="p1 m1 border">.border</div>
+<!-- <div class="p1 m1 border">.border</div>
 <div class="p1 m1 border-top">.border-top</div>
 <div class="p1 m1 border-right">.border-right</div>
 <div class="p1 m1 border-bottom">.border-bottom</div>
-<div class="p1 m1 border-left">.border-left</div>
+<div class="p1 m1 border-left">.border-left</div> -->
 
-<div class="h3">Image with rounded border radii </div>
-<img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
+<!-- <div class="h3">Image with rounded border radii </div> -->
+<!-- <img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
 <!-- the below don't work... -->
 <!-- <img class="circle" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
 <!-- <img class="rounded-top" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
