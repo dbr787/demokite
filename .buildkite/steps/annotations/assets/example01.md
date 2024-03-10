@@ -87,15 +87,15 @@ Or a fancy terminal code block
 <p class="center">centered</p>
 <p class="right-align">or right-aligned</p>
 
-<blockquote class="py1 h6 bold">We can use blockquotes</blockquote>
-<blockquote class="h6">In different sizes and styles</blockquote>
-<blockquote class="py1 h6 regular">Like this lighter one</blockquote>
-<blockquote class="py1 h6 regular italic">Or light and italic</blockquote>
-<blockquote class="h5">Or make them bigger</blockquote>
-<blockquote class="py1 h4">And bigger</blockquote>
-<blockquote class="py1 h3">And bigger</blockquote>
-<blockquote class="py1 h2">And bigger</blockquote>
-<blockquote class="py1 h1">And bigger</blockquote>
+<blockquote class="my0 h6 bold">We can use blockquotes</blockquote>
+<blockquote class="my0 h6">In different sizes and styles</blockquote>
+<blockquote class="my0 h6 regular">Like this lighter one</blockquote>
+<blockquote class="my0 h6 regular italic">Or light and italic</blockquote>
+<blockquote class="my0 h5">Or make them bigger</blockquote>
+<blockquote class="my0 h4">And bigger</blockquote>
+<blockquote class="my0 h3">And bigger</blockquote>
+<blockquote class="my0 h2">And bigger</blockquote>
+<blockquote class="my0 h1">And bigger</blockquote>
 
 ---
 
