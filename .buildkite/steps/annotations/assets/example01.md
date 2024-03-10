@@ -90,7 +90,7 @@ Or a fancy terminal code block
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
 <blockquote class="my1 py1 h5">Or make them bigger</blockquote>
-<blockquote class="h4 mb0">And bigger<blockquote class="h4 mb0">And nested<blockquote class="h4 mb0">And nested</blockquote></blockquote></blockquote>
+<blockquote class="h4 mb0">And bigger<blockquote class="h4 mb0 pb0">And nested<blockquote class="h4 mb0">And nested</blockquote></blockquote></blockquote>
 <blockquote class="my0 py1 h3">And bigger</blockquote>
 <blockquote class="my0 py1 h2">And bigger</blockquote>
 <blockquote class="my0 py1 h1">And bigger</blockquote>
