@@ -15,11 +15,11 @@
 </div>
 
 <div>
-  <span class="regular">Regular text</p>
-  <span class="bold">Bold text</p>
-  <span class="italic">Italic text</p>
-  <span class="underline">Underline text</p>
-  <span class="caps">All caps text</p>
+  <p class="regular">Regular text</p>
+  <p class="bold">Bold text</p>
+  <p class="italic">Italic text</p>
+  <p class="underline">Underline text</p>
+  <p class="caps">All caps text</p>
 </div>
 
 <div>
@@ -312,7 +312,9 @@
 <label>Error</label>
 <input type="text" class="block col-12 field is-error"> -->
 
-<div class="h5 regular overflow-scroll">
+<p class="h4">h4 table</p>
+
+<div class="h4 regular overflow-scroll">
   <table class="table">
     <thead>
       <tr>
@@ -326,6 +328,25 @@
     </tbody>
   </table>
 </div>
+
+<p class="h4">h5 table</p>
+
+<div class="h5 regular overflow-scroll">
+  <table class="table-light">
+    <thead>
+      <tr>
+        <th>Artist</th> <th>Album</th> <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="h4">h6 table</p>
 
 <div class="h6 regular overflow-scroll">
   <table class="table-light">
