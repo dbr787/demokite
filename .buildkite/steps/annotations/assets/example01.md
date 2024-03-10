@@ -116,7 +116,7 @@
 
 ---
 
-<p class="h2 mb3">:terminal: When we want to show some code</p>
+<p class="h2 mb4">:terminal: When we want to show some code</p>
 
 ### We can use `inline code`
 
