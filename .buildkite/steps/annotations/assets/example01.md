@@ -1,37 +1,29 @@
-<p class="h1">Heading 1</p>
-<p class="h2">Heading 2</p>
-<p class="h3">Heading 3</p>
-<p class="h4">Heading 4</p>
-<p class="h5">Heading 5</p>
-<p class="h6">Heading 6</p>
+<details>
+  <summary>Expand to see font-size options...</summary>
+  <p class="h1">Heading 1</p>
+  <p class="h2">Heading 2</p>
+  <p class="h3">Heading 3</p>
+  <p class="h4">Heading 4</p>
+  <p class="h5">Heading 5</p>
+  <p class="h6">Heading 6</p>
+</details>
 
-<div>
-  <span class="h1">h1 Font Size</span>
-  <span class="h2">h2 Font Size</span>
-  <span class="h3">h3 Font Size</span>
-  <span class="h4">h4 Font Size</span>
-  <span class="h5">h5 Font Size</span>
-  <span class="h6">h6 Font Size</span>
-</div>
-
-<div>
+<details>
+  <summary>Expand to see typography options...</summary>
   <p class="regular">Regular text</p>
   <p class="bold">Bold text</p>
   <p class="italic">Italic text</p>
   <p class="underline">Underline text</p>
   <p class="caps">All caps text</p>
-</div>
-
-<div>
   <p class="left-align">Left align text</p>
   <p class="center">Center text</p>
   <p class="right-align">Right align text</p>
-</div>
+  <!-- justify works on wrap, resize browser window to see -->
+  <p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <!-- truncate works, resize browser window to see -->
+  <p class="truncate">Truncate text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+</details>
 
- <!-- justify works on wrap, resize browser window to see -->
-<p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
- <!-- truncate works, resize browser window to see -->
-<p class="truncate">Truncate text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
  <!-- nowrap does fuck all -->
 <!-- <p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p> -->
 <!-- <p class="font-family-inherit">Font Family Inherit</p> -->
@@ -46,25 +38,25 @@
 </ul>
   
   
-## Is this a markdown list?  
+## Is this a markdown list?
 
 - markdown unordered list one
 - markdown unordered list two
 - markdown unordered list three
 
-## Is this a markdown list?  
+## Is this a markdown list?
 
-+ markdown unordered list one
-+ markdown unordered list two
-+ markdown unordered list three
-  
-## Is this a markdown list?  
+- markdown unordered list one
+- markdown unordered list two
+- markdown unordered list three
 
-* markdown unordered list one
-* markdown unordered list two
-* markdown unordered list three
-  
-## Or is this a markdow list?  
+## Is this a markdown list?
+
+- markdown unordered list one
+- markdown unordered list two
+- markdown unordered list three
+
+## Or is this a markdow list?
 
 1. markdown ordered list one
 1. markdown ordered list two
