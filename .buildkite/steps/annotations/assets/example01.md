@@ -134,21 +134,23 @@ block
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see options for displaying code...</span></summary>
   <div class="pl3 mb1">
+    <p class="h4">h6 table with underline header and rounded border</p>
     <code>this is a html code block</code>
+    <p class="h4">h6 table with underline header and rounded border</p>
     <blockquote>this is a html blockquote</blockquote>
-
+    <p class="h4">h6 table with underline header and rounded border</p>
     <pre><code>or a
       pre-code
       block</code></pre>
-
+      <p class="h4">h6 table with underline header and rounded border</p>
       <pre>or a
       pre
       block</pre>
-
+      <p class="h4">h6 table with underline header and rounded border</p>
       <code>or a
       pre
       block</code>
-
+      <p class="h4">h6 table with underline header and rounded border</p>
   </div>
 </details>
 
