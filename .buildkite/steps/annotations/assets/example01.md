@@ -79,6 +79,29 @@
   </div>
 </details>
 
+<h3 class="h3 center">
+  <!-- these colors work -->
+  <span class="black">.black</span>
+  <span class="gray">.gray</span>
+  <span class="blue">.blue</span>
+  <span class="green">.green</span>
+  <span class="orange">.orange</span>
+  <span class="red">.red</span>
+  <!-- these colors don't work -->
+  <!-- <span class="silver">.silver</span> -->
+  <!-- <span class="white">.white</span> -->
+  <!-- <span class="aqua">.aqua</span> -->
+  <!-- <span class="navy">.navy</span> -->
+  <!-- <span class="teal">.teal</span> -->
+  <!-- <span class="olive">.olive</span> -->
+  <!-- <span class="lime">.lime</span> -->
+  <!-- <span class="yellow">.yellow</span> -->
+  <!-- <span class="fuchsia">.fuchsia</span> -->
+  <!-- <span class="purple">.purple</span> -->
+  <!-- <span class="maroon">.maroon</span> -->
+  <!-- <span class="color-inherit">.color-inherit</span> -->
+</h3>
+
 <div class="my4">
   <p></p>
   <p></p>
@@ -147,6 +170,8 @@
 </div> -->
 
 <div class="col-3">
+  <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
+  <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
 </div>
 <!-- 
@@ -268,29 +293,6 @@
 <!-- <img class="rounded-right" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
 <!-- <img class="rounded-bottom" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
 <!-- <img class="rounded-left" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
-
-<h3 class="h3 center">
-  <!-- these colors work -->
-  <span class="black">.black</span>
-  <span class="gray">.gray</span>
-  <span class="blue">.blue</span>
-  <span class="green">.green</span>
-  <span class="orange">.orange</span>
-  <span class="red">.red</span>
-  <!-- these colors don't work -->
-  <!-- <span class="silver">.silver</span> -->
-  <!-- <span class="white">.white</span> -->
-  <!-- <span class="aqua">.aqua</span> -->
-  <!-- <span class="navy">.navy</span> -->
-  <!-- <span class="teal">.teal</span> -->
-  <!-- <span class="olive">.olive</span> -->
-  <!-- <span class="lime">.lime</span> -->
-  <!-- <span class="yellow">.yellow</span> -->
-  <!-- <span class="fuchsia">.fuchsia</span> -->
-  <!-- <span class="purple">.purple</span> -->
-  <!-- <span class="maroon">.maroon</span> -->
-  <!-- <span class="color-inherit">.color-inherit</span> -->
-</h3>
 
 <!-- backgournd colors don't work -->
 <!-- <div class="center p1 white bg-black">.bg-black</div>
