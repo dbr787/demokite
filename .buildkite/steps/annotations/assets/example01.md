@@ -82,6 +82,7 @@
     <p class="h5 mb1 regular">sup</p>
     <div class="h4">Image with rounded corners</div>
     <img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="128" height="128" />
+    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
   </div>
 </details>
 
