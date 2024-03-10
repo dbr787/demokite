@@ -386,8 +386,8 @@
 
 <div class="overflow-scroll">
   <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="border rounded black">
-    <thead class="h6">
+  <table class="flex-none border rounded">
+    <thead class="h6 bold m0 p0">
       <tr>
         <th>Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
