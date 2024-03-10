@@ -41,7 +41,7 @@
     <table class="table-light">
       <thead>
         <tr>
-          <th>Artist</th> <th>Album</th> <th>Release Date</th>
+          <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
         </tr>
       </thead>
       <tbody class="mxn2">
