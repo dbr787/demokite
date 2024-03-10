@@ -140,11 +140,9 @@ block
     <blockquote>this is a html blockquote</blockquote>
     <p class="h4">h6 table with underline header and rounded border</p>
     <pre><code>or a
-    pre-code
-    block</code></pre>
-      <p class="h4">h6 table with underline header and rounded border</p>
-      We can display <code>inline code</code>
-      <p class="h4">h6 table with underline header and rounded border</p>
+pre-code
+block</code></pre>
+      <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
   </div>
 </details>
 
