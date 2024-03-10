@@ -83,6 +83,11 @@ Or a fancy terminal code block
 
 We can use tables
 
+<div class="flex border">
+  <div class="flex-auto border">Hamburger</div>
+  <div class="flex-auto border">Hot Dog</div>
+</div>
+
 <div class="flex h6 overflow-scroll">
   <div class="flex-none">
     <table class="border rounded">
