@@ -88,11 +88,9 @@ Or a fancy terminal code block
 <p class="right-align">or right-aligned</p>
 
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
-<blockquote class="my1 py1 h6 regular italic">In different styles</blockquote>
+<blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
 <blockquote class="my1 py1 h5">Or make them bigger</blockquote>
-<blockquote class="h4">And bigger</blockquote>
-<blockquote class="h4">And nested</blockquote>
-<blockquote class="h4">And nested</blockquote>
+<blockquote class="h4">And bigger<blockquote class="h4">And nested<blockquote class="h4">And nested</blockquote></blockquote></blockquote>
 <blockquote class="my0 py1 h3">And bigger</blockquote>
 <blockquote class="my0 py1 h2">And bigger</blockquote>
 <blockquote class="my0 py1 h1">And bigger</blockquote>
