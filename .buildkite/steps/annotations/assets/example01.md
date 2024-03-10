@@ -79,6 +79,15 @@
   </div>
 </details>
 
+<details class="pt1">
+  <summary class="h4"><span class="pl1">Expand this section to see image options...</span></summary>
+  <div class="pl3 mb1">
+    <p class="h5 mb1 regular">sup</p>
+    <div class="h4">Image with rounded corners</div>
+    <img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="128" height="128" />
+  </div>
+</details>
+
 <h3 class="h3 center">
   <!-- these colors work -->
   <span class="regular">Font can be </span>
