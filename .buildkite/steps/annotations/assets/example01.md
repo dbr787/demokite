@@ -70,17 +70,17 @@ Or a fancy terminal code block
 </p>
 
 <p class="left-align">Text can be left-aligned</p>
-<p class="center">centered</p>
-<p class="right-align">or right-aligned</p>
+<p class="center">Text can be centered</p>
+<p class="right-align">Text can be right-aligned</p>
 
 ---
 
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-<blockquote class="h4 mb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
-<blockquote class="my0 py1 h3">Or make them bigger</blockquote>
-<blockquote class="my0 py1 h2">And bigger</blockquote>
-<blockquote class="my0 py1 h1">And bigger</blockquote>
+<blockquote class="h4 mt1 mb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
+<blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
+<blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
+<blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
 
 ---
 
