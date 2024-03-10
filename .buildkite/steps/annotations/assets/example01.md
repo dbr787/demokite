@@ -88,14 +88,12 @@ Or a fancy terminal code block
 <p class="right-align">or right-aligned</p>
 
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
-<blockquote class="my1 py1 h6">In different sizes and styles</blockquote>
-<blockquote class="my1 py1 h6 regular">Like this lighter one</blockquote>
-<blockquote class="my1 py1 h6 regular italic">Or light and italic</blockquote>
+<blockquote class="my1 py1 h6 regular italic">In different styles</blockquote>
 <blockquote class="my1 py1 h5">Or make them bigger</blockquote>
 <blockquote class="my1 py1 h4">And bigger</blockquote>
-<blockquote class="my1 py1 h3">And bigger</blockquote>
-<blockquote class="my1 py1 h2">And bigger</blockquote>
-<blockquote class="my1 py1 h1">And bigger</blockquote>
+<blockquote class="my0 py1 h3">And bigger</blockquote>
+<blockquote class="my0 py1 h2">And bigger</blockquote>
+<blockquote class="my0 py1 h1">And bigger</blockquote>
 
 ---
 
@@ -144,7 +142,7 @@ We can display images
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
-  <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="176" />
+  <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="174" />
 </div>
 
 ---
