@@ -364,7 +364,7 @@
   <table class="table-light">
     <thead class="bold">
       <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
+        <th class="bold">Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
     </thead>
     <tbody class="regular">
