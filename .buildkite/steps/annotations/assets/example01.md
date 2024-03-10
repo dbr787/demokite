@@ -1,3 +1,5 @@
+<!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
+
 <p class="h2">👋 Welcome to the example annotation!</p>
 
 <details class="pt1">
@@ -69,9 +71,6 @@
         </tbody>
       </table>
     </div>
-
-  </div>
-
   </div>
 </details>
 
