@@ -19,9 +19,6 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into steps/annotations/ directory
 cd .buildkite/steps/annotations/;
 
-# upload assets as artifacts
-buildkite-agent artifact upload "assets/*" --log-level error;
-
 # annotate
 # printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
 
@@ -47,6 +44,9 @@ if [ -f "$FILE_PATH" ]; then
 else
     echo "Error: File does not exist."
 fi
+
+# upload assets as artifacts
+buildkite-agent artifact upload "assets/*" --log-level error;
 
 # FILE="./assets/example01.md"
 
