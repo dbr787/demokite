@@ -139,6 +139,10 @@ block
   </div>
 </details>
 
+<blockquote class="py1 h4">this is a html blockquote</blockquote>
+<blockquote class="py1 h5">this is a html blockquote</blockquote>
+<blockquote class="py1 h6">this is a html blockquote</blockquote>
+
 <!-- <div class="my4">
   <p></p>
   <p></p>
