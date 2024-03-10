@@ -75,7 +75,7 @@ Or a fancy terminal code block
   <span class="regular">, </span>
   <span class="underline">underline</span>
   <span class="regular">, </span>
-  <span class="caps">or in all caps</span>
+  <span class="caps">or all caps</span>
 </p>
 
 <p class="left-align">Text can be left-aligned</p>
@@ -83,6 +83,29 @@ Or a fancy terminal code block
 <p class="right-align">or right-aligned</p>
 
 ---
+
+<p class="h3 pb1">:white_check_mark: We can use tables</p>
+
+<div class="flex h6 overflow-scroll">
+  <div class="flex-none">
+    <table class="border rounded">
+      <thead class="bold underline">
+        <tr>
+          <th>Artist</th> <th>Album</th> <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody class="regular">
+        <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+        <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+---
+
+<p class="h3 pb1">:white_check_mark: We can expand/colllapse sections</p>
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
