@@ -144,10 +144,12 @@ block
   </div>
 </details>
 
-<blockquote class="py1 h4">this is a h4 html blockquote</blockquote>
-<blockquote class="py1 h4 regular">this is a h4 regular html blockquote</blockquote>
-<blockquote class="py1 h5">this is a h5 html blockquote</blockquote>
-<blockquote class="py1 h6">this is a h6 html blockquote</blockquote>
+<blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
+<blockquote class="py1 h4">this is a h4 blockquote</blockquote>
+<blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
+<blockquote class="py1 h4 italics">this is a h4 italics blockquote</blockquote>
+<blockquote class="py1 h5">this is a h5 blockquote</blockquote>
+<blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
 <!-- <div class="my4">
   <p></p>
