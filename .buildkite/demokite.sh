@@ -89,10 +89,13 @@ pipeline_prepare ".buildkite/steps/logs" "logs.yml" $current_dir "logs.json"
 pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $current_dir "annotations.json"
 pipeline_merge "logs.json" "annotations.json" > "merged.json"
 artifact_upload "merged.json"
-pipeline_upload "merged.json"
+# pipeline_upload "merged.json"
 
 
-
+# here is where im working 
+pipeline_prepare ".buildkite/steps/ask" "ask.yml" $current_dir "ask.json"
+artifact_upload "ask.json"
+pipeline_upload "ask.json"
 
 
 # echo "$STEP_LOGS"
