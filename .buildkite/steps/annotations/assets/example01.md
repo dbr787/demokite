@@ -1,4 +1,4 @@
-<p class="h2 pb2">👋 Welcome to the example annotation!</p>
+<p class="h2 mb4">👋 Welcome to the example annotation!</p>
 
 <details>
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
