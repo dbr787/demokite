@@ -8,7 +8,7 @@
 
 <p class="h3 pb1">:terminal: When we want to show some code</p>
 
-We can use `inline code`
+We can use `inline code` to show code inside a sentence
 
 Or a basic code block
 
@@ -30,6 +30,54 @@ Or a fancy terminal code block
 ```
 
 ---
+
+<p class="center">
+  <!-- these colors work -->
+  <span class="regular">Font can be </span>
+  <span class="bold black">black</span>
+  <span class="bold gray">gray</span>
+  <span class="bold blue">blue</span>
+  <span class="bold green">green</span>
+  <span class="bold orange">orange</span>
+  <span class="regular">or</span>
+  <span class="bold red">red</span>
+  <!-- these colors don't work -->
+  <!-- <span class="silver">.silver</span> -->
+  <!-- <span class="white">.white</span> -->
+  <!-- <span class="aqua">.aqua</span> -->
+  <!-- <span class="navy">.navy</span> -->
+  <!-- <span class="teal">.teal</span> -->
+  <!-- <span class="olive">.olive</span> -->
+  <!-- <span class="lime">.lime</span> -->
+  <!-- <span class="yellow">.yellow</span> -->
+  <!-- <span class="fuchsia">.fuchsia</span> -->
+  <!-- <span class="purple">.purple</span> -->
+  <!-- <span class="maroon">.maroon</span> -->
+  <!-- <span class="color-inherit">.color-inherit</span> -->
+</p>
+
+<p class="">
+  <!-- these colors work -->
+  <span class="h1">It can </span>
+  <span class="h2">also be</span>
+  <span class="h3">one of</span>
+  <span class="h4">many</span>
+  <span class="h5">different</span>
+  <span class="h6">sizes</span>
+  <!-- these colors don't work -->
+  <!-- <span class="silver">.silver</span> -->
+  <!-- <span class="white">.white</span> -->
+  <!-- <span class="aqua">.aqua</span> -->
+  <!-- <span class="navy">.navy</span> -->
+  <!-- <span class="teal">.teal</span> -->
+  <!-- <span class="olive">.olive</span> -->
+  <!-- <span class="lime">.lime</span> -->
+  <!-- <span class="yellow">.yellow</span> -->
+  <!-- <span class="fuchsia">.fuchsia</span> -->
+  <!-- <span class="purple">.purple</span> -->
+  <!-- <span class="maroon">.maroon</span> -->
+  <!-- <span class="color-inherit">.color-inherit</span> -->
+</p>
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
@@ -115,31 +163,6 @@ Or a fancy terminal code block
     <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="128" height="128" />
   </div>
 </details>
-
-<h3 class="h3 center">
-  <!-- these colors work -->
-  <span class="regular">Font can be </span>
-  <span class="bold black">black</span>
-  <span class="bold gray">gray</span>
-  <span class="bold blue">blue</span>
-  <span class="bold green">green</span>
-  <span class="bold orange">orange</span>
-  <span class="regular">or</span>
-  <span class="bold red">red</span>
-  <!-- these colors don't work -->
-  <!-- <span class="silver">.silver</span> -->
-  <!-- <span class="white">.white</span> -->
-  <!-- <span class="aqua">.aqua</span> -->
-  <!-- <span class="navy">.navy</span> -->
-  <!-- <span class="teal">.teal</span> -->
-  <!-- <span class="olive">.olive</span> -->
-  <!-- <span class="lime">.lime</span> -->
-  <!-- <span class="yellow">.yellow</span> -->
-  <!-- <span class="fuchsia">.fuchsia</span> -->
-  <!-- <span class="purple">.purple</span> -->
-  <!-- <span class="maroon">.maroon</span> -->
-  <!-- <span class="color-inherit">.color-inherit</span> -->
-</h3>
 
 ---
 
