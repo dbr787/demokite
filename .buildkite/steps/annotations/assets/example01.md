@@ -113,7 +113,7 @@
 
 ---
 
-# When we want to show some code
+<p class="h1">:terminal: When we want to show some code</p>
 
 ## When we want to show some code
 
