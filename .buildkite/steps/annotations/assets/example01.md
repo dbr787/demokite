@@ -114,8 +114,8 @@
 ---
 
 <p class="h1">:terminal: When we want to show some code</p>
-
-## When we want to show some code
+<p class="h2">:terminal: When we want to show some code</p>
+<p class="h3">:terminal: When we want to show some code</p>
 
 ### We can use `inline code`
 
@@ -157,8 +157,11 @@ function logSomething(something) {
   <div class="pl3 mb1">
     <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
     <pre><code>or use a
-code
-block</code></pre>
+      code
+      block</code></pre>
+      
+    <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
+
   </div>
 </details>
 
