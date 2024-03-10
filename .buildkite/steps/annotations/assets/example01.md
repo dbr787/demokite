@@ -1,6 +1,6 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<p class="h1">👋 Welcome to the example annotation!</p>
+<p class="h1 pb1">👋 Welcome to the example annotation!</p>
 
 <p>Let's take a look at what you can do with annotations...</p>
 
@@ -116,7 +116,7 @@
 
 ---
 
-<p class="h2 mb4">:terminal: When we want to show some code</p>
+<p class="h2 pb1">:terminal: When we want to show some code</p>
 
 ### We can use `inline code`
 
