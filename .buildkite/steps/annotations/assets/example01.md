@@ -17,6 +17,7 @@
   <span class="bold orange">orange</span>
   <span class="regular">or</span>
   <span class="bold red">red</span>
+  <span class="regular">font colors</span>
 </p>
 
 <p class="">
@@ -31,15 +32,10 @@
 <p class="">
   <span class="regular">We can use </span>
   <span class="bold">bold</span>
-  <span class="regular">, </span>
   <span class="italic">italic</span>
-  <span class="regular">, </span>
   <span><sub>subscript</sub></span>
-  <span class="regular">, </span>
   <span><sup>superscript</sup></span>
-  <span class="regular">, </span>
   <span class="underline">underline</span>
-  <span class="regular">, </span>
   <span class="caps">or all caps</span>
 </p>
 
@@ -108,7 +104,7 @@ We can use tables
   </div>
 </div>
 
-<div class="flex h6 regular overflow-scroll">
+<div class="flex h6 regular overflow-auto">
   <table class="">
     <thead>
       <tr>
