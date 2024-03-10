@@ -23,6 +23,7 @@
     <p class="h5 mb0 left-align rounded">Left align text</p>
     <p class="h5 mb0 center rounded">Center text</p>
     <p class="h5 mb2 right-align rounded">Right align text</p>
+    <p class=""><span class="bold">This is a normal paragraph </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
     <!-- justify works on wrap, resize browser window to see -->
     <p class="justify"><span class="bold">This Paragraph of text will be justified, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
     <!-- truncate works, resize browser window to see -->
