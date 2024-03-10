@@ -27,22 +27,22 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 
 FILE_PATH="./assets/example01.md"
 
-OLD_STRING="BUILDKITE_BUILD_URL"
-NEW_STRING="$BUILDKITE_BUILD_URL"
-
 if [ -f "$FILE_PATH" ]; then
 
   OLD_STRING="BUILDKITE_BUILD_URL"
   NEW_STRING="$BUILDKITE_BUILD_URL"
   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
-  
+  echo "Replaced $OLD_STRING with $NEW_STRING"
+
   OLD_STRING="BUILDKITE_JOB_ID"
   NEW_STRING="$BUILDKITE_JOB_ID"
   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
+  echo "Replaced $OLD_STRING with $NEW_STRING"
   
   OLD_STRING="BUILDKITE_LABEL"
   NEW_STRING="$BUILDKITE_LABEL"
   sed -i "s|$OLD_STRING|$NEW_STRING|g" "$FILE_PATH"
+  echo "Replaced $OLD_STRING with $NEW_STRING"
 
 else
     echo "Error: File does not exist."
