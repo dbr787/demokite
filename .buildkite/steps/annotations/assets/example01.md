@@ -33,7 +33,16 @@ Or a fancy terminal code block
 
 <p class="h3 pb1">🎨 For styling fonts</p>
 
-<p class="h3">
+<p class="">
+  <span class="h6">We can </span>
+  <span class="h5">use one</span>
+  <span class="h4">of</span>
+  <span class="h3">many</span>
+  <span class="h2">different</span>
+  <span class="h1">sizes</span>
+</p>
+
+<p class="">
   <!-- these colors work -->
   <span class="regular">We can use </span>
   <span class="bold black">black</span>
@@ -43,29 +52,6 @@ Or a fancy terminal code block
   <span class="bold orange">orange</span>
   <span class="regular">or</span>
   <span class="bold red">red</span>
-  <!-- these colors don't work -->
-  <!-- <span class="silver">.silver</span> -->
-  <!-- <span class="white">.white</span> -->
-  <!-- <span class="aqua">.aqua</span> -->
-  <!-- <span class="navy">.navy</span> -->
-  <!-- <span class="teal">.teal</span> -->
-  <!-- <span class="olive">.olive</span> -->
-  <!-- <span class="lime">.lime</span> -->
-  <!-- <span class="yellow">.yellow</span> -->
-  <!-- <span class="fuchsia">.fuchsia</span> -->
-  <!-- <span class="purple">.purple</span> -->
-  <!-- <span class="maroon">.maroon</span> -->
-  <!-- <span class="color-inherit">.color-inherit</span> -->
-</p>
-
-<p class="">
-  <!-- these colors work -->
-  <span class="h1">Font can </span>
-  <span class="h2">also be</span>
-  <span class="h3">one of</span>
-  <span class="h4">many</span>
-  <span class="h5">different</span>
-  <span class="h6">sizes</span>
   <!-- these colors don't work -->
   <!-- <span class="silver">.silver</span> -->
   <!-- <span class="white">.white</span> -->
