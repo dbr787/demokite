@@ -15,11 +15,11 @@
 </div>
 
 <div>
-  <p class="regular">Regular text</p>
-  <p class="bold">Bold text</p>
-  <p class="italic">Italic text</p>
-  <p class="underline">Underline text</p>
-  <p class="caps">All caps text</p>
+  <span class="regular">Regular text</p>
+  <span class="bold">Bold text</p>
+  <span class="italic">Italic text</p>
+  <span class="underline">Underline text</p>
+  <span class="caps">All caps text</p>
 </div>
 
 <div>
