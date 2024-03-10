@@ -4,11 +4,13 @@
 
 <p>Let's take a look at what you can do with annotations...</p>
 
+---
+
 <p class="h3 pb1">:terminal: When we want to show some code</p>
 
-### We can use `inline code`
+We can use `inline code`
 
-### Or a basic code block
+Or a basic code block
 
 ```
 function logSomething(something) {
@@ -16,7 +18,7 @@ function logSomething(something) {
 }
 ```
 
-### Or a fancy terminal code block
+Or a fancy terminal code block
 
 ```term
 \x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
