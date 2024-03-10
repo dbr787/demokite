@@ -79,7 +79,6 @@
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see image options...</span></summary>
   <div class="pl3 mb1">
-    <p class="h5 mb1 regular">sup</p>
     <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
     <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
@@ -112,7 +111,7 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
-<div class="h4 p2 border rounded">
+<!-- <div class="h4 p2 border rounded">
   This is a simple box
 </div>
 
@@ -122,29 +121,25 @@
       This is another simple box
     </div>
   </div>
-</div>
+</div> -->
 
-The background color is `#ffffff` for light mode and `#000000` for dark mode.
+We can use `inline code`
 
 ```
-this is a
+or a
 code
 block
 ```
 
-<code>
-  hi
-</code>
+<code>this is a html code black</code>
 
-<blockquote>
-  also hi
-</blockquote>
+<blockquote>this is a html blockquote</blockquote>
 
-<div class="my4">
+<!-- <div class="my4">
   <p></p>
   <p></p>
   <p></p>
-</div>
+</div> -->
  <!-- nowrap does fuck all -->
 <!-- <p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p> -->
 <!-- <p class="font-family-inherit">Font Family Inherit</p> -->
@@ -197,8 +192,7 @@ block
 
 <div class="table border">
   <div class="table-cell border">table-cell</div>
-  <div class="table-cell rounded">table-cell</div>
-  <div class="table-cell rounded">table-cell</div>
+  <div class="table-cell border rounded">table-cell</div>
   <div class="table-cell rounded">table-cell</div>
 </div>
 
