@@ -7,15 +7,6 @@
 ---
 
 <p class="">
-  <span class="h6">We can </span>
-  <span class="h5">use one</span>
-  <span class="h4">of many</span>
-  <span class="h3">different</span>
-  <span class="h2">font</span>
-  <span class="h1">sizes</span>
-</p>
-
-<p class="">
   <span class="regular">We can use </span>
   <span class="bold black">black</span>
   <span class="bold gray">gray</span>
@@ -24,6 +15,15 @@
   <span class="bold orange">orange</span>
   <span class="regular">or</span>
   <span class="bold red">red</span>
+</p>
+
+<p class="">
+  <span class="h6">We can </span>
+  <span class="h5">use one</span>
+  <span class="h4">of many</span>
+  <span class="h3">different</span>
+  <span class="h2">font</span>
+  <span class="h1">sizes</span>
 </p>
 
 <p class="">
@@ -88,7 +88,7 @@ We can use tables
   <div class="flex-auto border">Hot Dog</div>
 </div>
 
-<div class="flex h6 overflow-scroll">
+<div class="flex h6 regular overflow-scroll">
   <div class="flex-none">
     <table class="border rounded">
       <thead class="bold">
@@ -96,7 +96,7 @@ We can use tables
           <th>Artist</th> <th>Album</th> <th>Release Date</th>
         </tr>
       </thead>
-      <tbody class="regular">
+      <tbody>
         <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
         <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
         <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
@@ -105,17 +105,17 @@ We can use tables
   </div>
 </div>
 
-<div class="h6 regular overflow-scroll">
-  <table class="table-light">
+<div class="flex h6 regular overflow-scroll">
+  <table class="">
     <thead>
       <tr>
-        <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
+        <th>Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
     </thead>
-    <tbody class="mxn2 px1">
-      <tr class="mxn2 px1"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td class="mxn2 px1">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td class="mxn2">So</td> <td>1986</td> </tr>
+    <tbody>
+      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
     </tbody>
   </table>
 </div>
