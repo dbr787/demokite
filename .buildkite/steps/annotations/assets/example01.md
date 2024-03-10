@@ -64,8 +64,6 @@
 * markdown unordered list two
 * markdown unordered list three
   
-
-  
 ## Or is this a markdow list?  
 
 1. markdown ordered list one
@@ -96,15 +94,15 @@
 <div class="inline">inline</div>
 <div class="inline-block">inline-block</div>
 <a href="#" class="block">block</a>
-<div class="table">
-  <div class="table-cell">table-cell</div>
-  <div class="table-cell">table-cell</div>
+<div class="table border">
+  <div class="table-cell border">table-cell</div>
+  <div class="table-cell rounded">table-cell</div>
 </div>
 
-<div class="clearfix border">
+<!-- <div class="clearfix border">
   <div class="left border">clearfix left border</div>
   <div class="right border">clearfix right border</div>
-</div>
+</div> -->
 
 <div class="col-3">
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
