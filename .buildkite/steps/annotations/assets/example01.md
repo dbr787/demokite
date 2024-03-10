@@ -156,18 +156,21 @@ function logSomething(something) {
   <summary class="h4"><span class="pl1">Expand this section to see options for displaying code...</span></summary>
   <div class="pl3 mb1">
     <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
-    <pre><code>or use a
-code
-block</code></pre>
+    <div>
+      <pre><code>or use a
+  code
+  block</code></pre>
+    </div>
 
     <p class="h4">We can display <code>inline code</code> inside a sentence.</p>
-
-    <pre class="term"><code><span class="term-fg31">Failure/Error:</span> <span class="term-fg32">expect</span>(new_item.created_at).to eql(now)
-      &nbsp;
-      <span class="term-fg31">  expected: 2018-06-20 19:42:26.290538462 +0000</span>
-      <span class="term-fg31">       got: 2018-06-20 19:42:26.290538000 +0000</span>
-      &nbsp;
-      <span class="term-fg31">  (compared using eql?)</span></code></pre>
+    <div>
+      <pre class="term"><code><span class="term-fg31">Failure/Error:</span> <span class="term-fg32">expect</span>(new_item.created_at).to eql(now)
+        &nbsp;
+        <span class="term-fg31">  expected: 2018-06-20 19:42:26.290538462 +0000</span>
+        <span class="term-fg31">       got: 2018-06-20 19:42:26.290538000 +0000</span>
+        &nbsp;
+        <span class="term-fg31">  (compared using eql?)</span></code></pre>
+    </div>
 
   </div>
 </details>
