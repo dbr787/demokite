@@ -37,42 +37,41 @@
   <summary class="h4"><span class="pl1">Expand this section to see table options...</span></summary>
   <div class="pl3">
 
-    <p class="h4">h6 table</p>
+  <p class="h4">h6 table</p>
 
-    <div class="h6 regular overflow-scroll">
-      <table class="table-light">
-        <thead>
+  <div class="h6 regular overflow-scroll">
+    <table class="table-light">
+      <thead>
+        <tr>
+          <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody class="mxn2 px1">
+        <tr class="mxn2 px1"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td class="mxn2 px1">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+        <tr> <td>Peter Gabriel</td> <td class="mxn2">So</td> <td>1986</td> </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="h4">h6 table with underline header and rounded border</p>
+
+  <div class="flex h6 overflow-scroll">
+    <div class="flex-none">
+      <table class="border rounded">
+        <thead class="bold underline">
           <tr>
-            <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
+            <th>Artist</th> <th>Album</th> <th>Release Date</th>
           </tr>
         </thead>
-        <tbody class="mxn2 px1">
-          <tr class="mxn2 px1"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-          <tr> <td class="mxn2 px1">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-          <tr> <td>Peter Gabriel</td> <td class="mxn2">So</td> <td>1986</td> </tr>
+        <tbody class="regular">
+          <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+          <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+          <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
         </tbody>
       </table>
     </div>
-
-    <p class="h4">h6 table with underline header and rounded border</p>
-
-    <div class="flex h6 overflow-scroll">
-      <div class="flex-none">
-        <table class="border rounded">
-          <thead class="bold underline">
-            <tr>
-              <th>Artist</th> <th>Album</th> <th>Release Date</th>
-            </tr>
-          </thead>
-          <tbody class="regular">
-            <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-            <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-            <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+  </div>
   </div>
 </details>
 
