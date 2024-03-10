@@ -31,7 +31,7 @@ Or a fancy terminal code block
 
 ---
 
-<p class="center">
+<p class="h3">
   <!-- these colors work -->
   <span class="regular">Font can be </span>
   <span class="bold black">black</span>
