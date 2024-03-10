@@ -73,9 +73,9 @@ Or a fancy terminal code block
   <span class="regular">, </span>
   <span class="italic">italic</span>
   <span class="regular">, </span>
-  <sub>subscript</sub>
+  <span><sub>subscript</sub></span>
   <span class="regular">, </span>
-  <sup>superscript</sup>
+  <span><sub>superscript</sub></span>
   <span class="regular">, </span>
   <span class="underline">underline</span>
   <span class="regular">, </span>
