@@ -56,7 +56,7 @@
 
   <div class="flex h6 overflow-scroll">
     <div class="flex-none">
-      <table class="rounded">
+      <table class="border rounded">
         <thead class="bold underline">
           <tr>
             <th>Artist</th> <th>Album</th> <th>Release Date</th>
