@@ -8,7 +8,7 @@
 
 <!-- <p class="h3 pb1">:terminal: When we want to show some code</p> -->
 
-We can use `inline code` to show code inside a sentence
+We can use `inline code` to show code inside a paragraph
 
 Or a basic code block
 
@@ -73,9 +73,14 @@ Or a fancy terminal code block
   <span class="regular">, </span>
   <span class="italic">italic</span>
   <span class="regular">, </span>
+  <sub>subscript</sub>
+  <span class="regular">, </span>
+  <sup>superscript</sup>
+  <span class="regular">, </span>
   <span class="underline">underline</span>
   <span class="regular">, </span>
   <span class="caps">or all caps</span>
+
 </p>
 
 <p class="left-align">Text can be left-aligned</p>
