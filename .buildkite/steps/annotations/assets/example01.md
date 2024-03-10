@@ -5,6 +5,30 @@
 <p class="h5">Heading 5</p>
 <p class="h6">Heading 6</p>
 
+<div>
+  <!-- these colors work -->
+  <span class="h1">h1 Font Size</span>
+  <span class="h2">h2 Font Size</span>
+  <span class="h3">h3 Font Size</span>
+  <span class="h4">h4 Font Size</span>
+  <span class="h5">h5 Font Size</span>
+  <span class="h6">h6 Font Size</span>
+  <!-- these colors don't work -->
+  <!-- <span class="silver">.silver</span> -->
+  <!-- <span class="white">.white</span> -->
+  <!-- <span class="aqua">.aqua</span> -->
+  <!-- <span class="navy">.navy</span> -->
+  <!-- <span class="teal">.teal</span> -->
+  <!-- <span class="olive">.olive</span> -->
+  <!-- <span class="lime">.lime</span> -->
+  <!-- <span class="yellow">.yellow</span> -->
+  <!-- <span class="fuchsia">.fuchsia</span> -->
+  <!-- <span class="purple">.purple</span> -->
+  <!-- <span class="maroon">.maroon</span> -->
+  <!-- <span class="color-inherit">.color-inherit</span> -->
+</div>
+
+
 <p class="regular">Regular text</p>
 <p class="bold">Bold text</p>
 <p class="italic">Italic text</p>
