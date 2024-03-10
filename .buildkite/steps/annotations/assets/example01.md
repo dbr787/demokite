@@ -204,12 +204,14 @@
 <div class="p1 m1 border-bottom">.border-bottom</div>
 <div class="p1 m1 border-left">.border-left</div>
 
+<div class="h3">Image with rounded border radii </div>
 <img class="rounded" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
-<img class="circle" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
-<img class="rounded-top" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
-<img class="rounded-right" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
-<img class="rounded-bottom" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
-<img class="rounded-left" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" />
+<!-- the below don't work... -->
+<!-- <img class="circle" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
+<!-- <img class="rounded-top" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
+<!-- <img class="rounded-right" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
+<!-- <img class="rounded-bottom" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
+<!-- <img class="rounded-left" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder-square.svg" width="64" height="64" /> -->
 
 <h3 class="h3 center">
   <!-- these colors work -->
@@ -360,7 +362,7 @@
 
 <div class="overflow-scroll">
   <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="border rounded">
+  <table class="border rounded black">
     <thead class="h6">
       <tr>
         <th>Artist</th> <th>Album</th> <th>Release Date</th>
