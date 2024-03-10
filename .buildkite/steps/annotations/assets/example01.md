@@ -113,6 +113,10 @@
 
 ---
 
+# When we want to show some code
+
+## When we want to show some code
+
 ### We can use `inline code`
 
 ### Or a basic code block
@@ -147,14 +151,6 @@ function logSomething(something) {
     </div>
   </div>
 </div> -->
-
-We can use `inline code`
-
-```
-or a
-code
-block
-```
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see options for displaying code...</span></summary>
