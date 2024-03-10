@@ -21,9 +21,9 @@
   <p class="center">Center text</p>
   <p class="right-align">Right align text</p>
   <!-- justify works on wrap, resize browser window to see -->
-  <p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <p class="justify"><span class="bold">This Paragraph of text will be justified on window resize: </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
   <!-- truncate works, resize browser window to see -->
-  <p class="truncate">Truncate text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <p class="truncate">This Paragraph of text will be truncated on window resize: bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 </details>
 
  <!-- nowrap does fuck all -->
