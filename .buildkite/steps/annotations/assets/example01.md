@@ -54,10 +54,9 @@
 
   <p class="h4">h6 table with underline header and rounded border</p>
 
-  <div class="flex h6">
-    <div class="flex-none h6">
-    <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-      <table class="flex-none border rounded">
+  <div class="flex h6 overflow-scroll">
+    <div class="flex-none">
+      <table class="rounded">
         <thead class="bold underline">
           <tr>
             <th>Artist</th> <th>Album</th> <th>Release Date</th>
