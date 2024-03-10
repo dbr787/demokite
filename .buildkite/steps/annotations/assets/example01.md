@@ -2,12 +2,14 @@
 
 <details class="">
   <summary class="h4">Expand this section to see font-size options...</summary>
-  <p class="h1">Heading 1</p>
-  <p class="h2">Heading 2</p>
-  <p class="h3">Heading 3</p>
-  <p class="h4">Heading 4</p>
-  <p class="h5">Heading 5</p>
-  <p class="h6">Heading 6</p>
+  <div class="pl1">
+    <p class="h1">Heading 1</p>
+    <p class="h2">Heading 2</p>
+    <p class="h3">Heading 3</p>
+    <p class="h4">Heading 4</p>
+    <p class="h5">Heading 5</p>
+    <p class="h6">Heading 6</p>
+  </div>
 </details>
 
 <details>
@@ -107,7 +109,7 @@
   </div>
 </div>
 
-<div class="clearfix mb2 border">
+<div class="mb2 border">
   <div class="left p2 mr1 border">Image</div>
   <div class="right p2 ml1 border">Image</div>
   <div class="overflow-hidden">
@@ -116,7 +118,7 @@
 </div>
 
 <div class="overflow-auto">
-  <div class="table">
+  <div class="table rounded">
     <div class="table-cell"><h1>Hamburger</h1></div>
     <div class="table-cell align-baseline">.align-baseline</div>
     <div class="table-cell align-top">.align-top</div>
