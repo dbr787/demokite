@@ -11,9 +11,6 @@
     <p class="h4">Heading 4</p>
     <p class="h5">Heading 5</p>
     <p class="h6">Heading 6</p>
-    ```
-    code block
-    ```
   </div>
 </details>
 
@@ -113,17 +110,33 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
-<div class="h3 p2 border rounded">
+<div class="h4 p2 border rounded">
   This is a simple box
 </div>
 
-<div class="flex h6 overflow-scroll">
+<div class="flex">
   <div class="flex-none">
-    <div class="h3 p2 border rounded">
+    <div class="h4 p2 border rounded">
       This is another simple box
     </div>
   </div>
 </div>
+
+The background color is `#ffffff` for light mode and `#000000` for dark mode.
+
+```
+this is a
+code
+block
+```
+
+<code>
+  hi
+</code>
+
+<blockquote>
+  also hi
+</blockquote>
 
 <div class="my4">
   <p></p>
@@ -192,12 +205,12 @@
   <div class="right border">clearfix right border</div>
 </div> -->
 
-<div class="col-3">
+<!-- <div class="col-3">
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
-</div>
-<!-- 
+</div> -->
+<!--
 <p class="max-width-1">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 <p class="max-width-2">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 <p class="max-width-3">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
@@ -375,87 +388,6 @@
 <input type="text" class="block col-12 field is-warning">
 <label>Error</label>
 <input type="text" class="block col-12 field is-error"> -->
-
-<p class="h4">h4 table</p>
-
-<div class="h4 regular overflow-scroll">
-  <table class="table-light">
-    <thead>
-      <tr class="bold">
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody class="regular">
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
-
-<p class="h4">h5 table</p>
-
-<div class="h5 regular overflow-scroll">
-  <table class="table-light">
-    <thead>
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="overflow-scroll">
-  <table class="table-light overflow-hidden bg-white border rounded">
-    <thead class="bg-darken-1">
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="overflow-scroll m0 p0">
-  <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="border rounded m0 p0">
-    <thead class="h6 underline bold m0 p0">
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody class="h6 m0 p0 regular">
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="overflow-scroll">
-  <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="flex-none border rounded">
-    <thead class="h6 bold m0 p0">
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody class="h6 m0 p0">
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
 
 ---
 
