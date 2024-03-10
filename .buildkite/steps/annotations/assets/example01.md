@@ -136,6 +136,14 @@ block
   <div class="pl3 mb1">
     <code>this is a html code block</code>
     <blockquote>this is a html blockquote</blockquote>
+
+    <pre>
+      <code>or a
+      code
+      block
+    </code>
+    </pre>
+
   </div>
 </details>
 
