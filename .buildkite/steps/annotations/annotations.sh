@@ -29,15 +29,15 @@ FILE="./assets/example01.md"
 
 SEARCH="BUILDKITE_BUILD_URL"
 REPLACE="$BUILDKITE_BUILD_URL"
-sed -i -e "s/$SEARCH/$REPLACE/g" $FILE
+sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
 
 SEARCH="BUILDKITE_JOB_ID"
 REPLACE="$BUILDKITE_JOB_ID"
-sed -i -e "s/$SEARCH/$REPLACE/g" $FILE
+sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
 
 SEARCH="BUILDKITE_LABEL"
 REPLACE="$BUILDKITE_LABEL"
-sed -i -e "s/$SEARCH/$REPLACE/g" $FILE
+sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
 
 # This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
 
