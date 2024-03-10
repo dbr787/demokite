@@ -87,6 +87,16 @@ Or a fancy terminal code block
 <p class="center">centered</p>
 <p class="right-align">or right-aligned</p>
 
+<blockquote class="py1 h6 bold">We can use blockquotes</blockquote>
+<blockquote class="py1 h6">In different sizes and styles</blockquote>
+<blockquote class="py1 h6 regular">Like this lighter one</blockquote>
+<blockquote class="py1 h6 regular italic">Or light and italic</blockquote>
+<blockquote class="py1 h5">Or make them bigger</blockquote>
+<blockquote class="py1 h4">And bigger</blockquote>
+<blockquote class="py1 h3">And bigger</blockquote>
+<blockquote class="py1 h2">And bigger</blockquote>
+<blockquote class="py1 h1">And bigger</blockquote>
+
 ---
 
 <!-- <p class="h3 pb1">:white_check_mark: We can use tables</p> -->
