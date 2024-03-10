@@ -6,7 +6,7 @@
 
 ---
 
-<p class="h3 pb1">:terminal: When we want to show some code</p>
+<!-- <p class="h3 pb1">:terminal: When we want to show some code</p> -->
 
 We can use `inline code` to show code inside a sentence
 
@@ -31,14 +31,14 @@ Or a fancy terminal code block
 
 ---
 
-<p class="h3 pb1">🎨 For styling fonts</p>
+<!-- <p class="h3 pb1">🎨 For styling fonts</p> -->
 
 <p class="">
   <span class="h6">We can </span>
   <span class="h5">use one</span>
-  <span class="h4">of</span>
-  <span class="h3">many</span>
-  <span class="h2">different</span>
+  <span class="h4">of many</span>
+  <span class="h3">different</span>
+  <span class="h2">font</span>
   <span class="h1">sizes</span>
 </p>
 
@@ -68,7 +68,7 @@ Or a fancy terminal code block
 </p>
 
 <p class="">
-  <span class="regular">We can also use </span>
+  <span class="regular">We can use </span>
   <span class="bold">bold</span>
   <span class="regular">, </span>
   <span class="italic">italic</span>
@@ -84,7 +84,9 @@ Or a fancy terminal code block
 
 ---
 
-<p class="h3 pb1">:white_check_mark: We can use tables</p>
+<!-- <p class="h3 pb1">:white_check_mark: We can use tables</p> -->
+
+We can use tables
 
 <div class="flex h6 overflow-scroll">
   <div class="flex-none">
