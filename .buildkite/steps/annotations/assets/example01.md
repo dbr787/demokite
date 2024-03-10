@@ -54,15 +54,15 @@
 
   <p class="h4">h6 table with underline header and rounded border</p>
 
-  <div class="overflow-scroll">
+  <div class="h6 overflow-scroll">
     <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
     <table class="flex-none border rounded">
-      <thead class="h6 bold underline">
+      <thead class="underline">
         <tr>
           <th>Artist</th> <th>Album</th> <th>Release Date</th>
         </tr>
       </thead>
-      <tbody class="h6 regular">
+      <tbody class="">
         <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
         <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
         <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
