@@ -114,16 +114,13 @@ We can use tables
 
 We can display images
 
-<details class="pt1">
-  <summary class="h4"><span class="pl1">Expand this section to see image options...</span></summary>
-  <div class="pl3 mb1">
-    <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
-    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
-    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
-    <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
-    <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="164" />
-  </div>
-</details>
+<div class="pl3 mb1">
+  <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="128" height="128" />
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="64" height="64" />
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" width="32" height="32" />
+  <img class="rounded" src="artifact://assets/man.gif" alt="man-nodding" width="164" />
+</div>
 
 ---
 
