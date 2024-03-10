@@ -66,12 +66,21 @@ Or a fancy terminal code block
   <span class="underline">underline</span>
   <span class="regular">, </span>
   <span class="caps">or all caps</span>
-
 </p>
 
-<p class="left-align">Text can be left-aligned</p>
-<p class="center">Text can be centered</p>
-<p class="right-align">Text can be right-aligned</p>
+<div class="flex border">
+  <div class="flex-auto border left-align">Text can be left-aligned</div>
+  <div class="flex-auto border center">Hot Dog</div>
+  <div class="flex-auto border right-align">Hot Dog</div>
+</div>
+
+<div class="flex flex-column">
+  <!-- <span>Hamburger</span> -->
+  <!-- <span>Hot Dog</span> -->
+  <p class="left-align">Text can be left-aligned</p>
+  <p class="center">Text can be centered</p>
+  <p class="right-align">Text can be right-aligned</p>
+</div>
 
 ---
 
