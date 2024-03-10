@@ -138,8 +138,16 @@ block
     <blockquote>this is a html blockquote</blockquote>
 
     <pre><code>or a
-      code
+      pre-code
       block</code></pre>
+
+      <pre>or a
+      pre
+      block</pre>
+
+      <code>or a
+      pre
+      block</code>
 
   </div>
 </details>
