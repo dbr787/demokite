@@ -69,19 +69,18 @@ Or a fancy terminal code block
 
 <p class="">
   <span class="regular">We can also use </span>
+  <span class="bold">bold</span>
+  <span class="regular">, </span>
   <span class="italic">italic</span>
   <span class="regular">, </span>
   <span class="underline">underline</span>
   <span class="regular">, </span>
-  <span class="caps">all caps</span>
-  <span class="regular">, </span>
-  <span class="left-align">left align</span>
-  <span class="regular">, </span>
-  <span class="center">center</span>
-  <span class="regular">, or </span>
-  <span class="right-align">right align</span>
-  <span class="regular"> text</span>
+  <span class="caps">or in all caps</span>
 </p>
+
+<p class="left-align">Text can be left-aligned</p>
+<p class="center">centered</p>
+<p class="right-align">or right-aligned</p>
 
 ---
 
