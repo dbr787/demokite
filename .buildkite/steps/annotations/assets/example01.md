@@ -1,6 +1,6 @@
-<p class="h2">👋 Welcome to the example annotation!</p>
+<p class="h2 pb1">👋 Welcome to the example annotation!</p>
 
-<details class="pt2">
+<details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
   <div class="pl3">
     <p class="h1">Heading 1</p>
@@ -12,7 +12,7 @@
   </div>
 </details>
 
-<details class="pt2">
+<details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see typography options...</span></summary>
   <div class="pl3 mb1">
     <p class="h5 mb1 regular">Regular text</p>
