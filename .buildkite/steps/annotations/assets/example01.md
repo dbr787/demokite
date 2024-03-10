@@ -1,6 +1,6 @@
 <p class="h2 pb2">👋 Welcome to the example annotation!</p>
 
-<details class="">
+<details>
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
   <div class="pl3">
     <p class="h1">Heading 1</p>
@@ -13,19 +13,21 @@
 </details>
 
 <details>
-  <summary class="h4">Expand this section to see typography options...</summary>
-  <p class="regular">Regular text</p>
-  <p class="bold">Bold text</p>
-  <p class="italic">Italic text</p>
-  <p class="underline">Underline text</p>
-  <p class="caps">All caps text</p>
-  <p class="left-align rounded">Left align text</p>
-  <p class="center rounded">Center text</p>
-  <p class="right-align rounded">Right align text</p>
-  <!-- justify works on wrap, resize browser window to see -->
-  <p class="justify"><span class="bold">This Paragraph of text will be justified, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
-  <!-- truncate works, resize browser window to see -->
-  <p class="truncate"><span class="bold">This Paragraph of text will be truncated, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <summary class="h4"><span class="pl1">Expand this section to see typography options...</span></summary>
+  <div class="pl3">
+    <p class="regular">Regular text</p>
+    <p class="bold">Bold text</p>
+    <p class="italic">Italic text</p>
+    <p class="underline">Underline text</p>
+    <p class="caps">All caps text</p>
+    <p class="left-align rounded">Left align text</p>
+    <p class="center rounded">Center text</p>
+    <p class="right-align rounded">Right align text</p>
+    <!-- justify works on wrap, resize browser window to see -->
+    <p class="justify"><span class="bold">This Paragraph of text will be justified, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+    <!-- truncate works, resize browser window to see -->
+    <p class="truncate"><span class="bold">This Paragraph of text will be truncated, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  </div>
 </details>
 
  <!-- nowrap does fuck all -->
