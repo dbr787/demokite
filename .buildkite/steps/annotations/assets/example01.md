@@ -1,8 +1,33 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<p class="h1 pb1">👋 Welcome to the example annotation!</p>
+<p class="h1 pb1">👋 Welcome to Buildkite Annotations</p>
 
 <p>Let's take a look at what you can do with annotations...</p>
+
+<p class="h3 pb1">:terminal: When we want to show some code</p>
+
+### We can use `inline code`
+
+### Or a basic code block
+
+```
+function logSomething(something) {
+  console.log("Something", something);
+}
+```
+
+### Or a fancy terminal code block
+
+```term
+\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
+
+\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
+\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
+
+\x1b[31m  (compared using eql?)\x1b[0m
+```
+
+---
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
@@ -113,31 +138,6 @@
   <!-- <span class="maroon">.maroon</span> -->
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
-
----
-
-<p class="h2 pb1">:terminal: When we want to show some code</p>
-
-### We can use `inline code`
-
-### Or a basic code block
-
-```
-function logSomething(something) {
-  console.log("Something", something);
-}
-```
-
-### Or a fancy terminal code block
-
-```term
-\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
-
-\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
-\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
-
-\x1b[31m  (compared using eql?)\x1b[0m
-```
 
 ---
 
