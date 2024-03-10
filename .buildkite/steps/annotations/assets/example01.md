@@ -131,9 +131,13 @@ code
 block
 ```
 
-<code>this is a html code black</code>
-
-<blockquote>this is a html blockquote</blockquote>
+<details class="pt1">
+  <summary class="h4"><span class="pl1">Expand this section to see options for displaying code...</span></summary>
+  <div class="pl3 mb1">
+    <code>this is a html code block</code>
+    <blockquote>this is a html blockquote</blockquote>
+  </div>
+</details>
 
 <!-- <div class="my4">
   <p></p>
