@@ -48,7 +48,7 @@
   </table>
 </div>
 
-<p class="h4">h6 table new</p>
+<p class="h4">h6 table new with h5 header</p>
 
 <div class="h6 overflow-scroll">
   <table class="table-light">
@@ -65,10 +65,12 @@
   </table>
 </div>
 
+<p class="h4">h6 table with underline header and rounded border</p>
+
 <div class="overflow-scroll">
   <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
   <table class="flex-none border rounded">
-    <thead class="h6 bold">
+    <thead class="h6 bold underline">
       <tr>
         <th>Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
