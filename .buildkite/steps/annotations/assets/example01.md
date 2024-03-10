@@ -6,33 +6,6 @@
 
 ---
 
-<!-- <p class="h3 pb1">:terminal: When we want to show some code</p> -->
-
-We can use `inline code` to show code inside a paragraph
-
-Or a basic code block
-
-```
-function logSomething(something) {
-  console.log("Something", something);
-}
-```
-
-Or a fancy terminal code block
-
-```term
-\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
-
-\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
-\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
-
-\x1b[31m  (compared using eql?)\x1b[0m
-```
-
----
-
-<!-- <p class="h3 pb1">🎨 For styling fonts</p> -->
-
 <p class="">
   <span class="h6">We can </span>
   <span class="h5">use one</span>
@@ -68,21 +41,34 @@ Or a fancy terminal code block
   <span class="caps">or all caps</span>
 </p>
 
-<div class="flex border">
-  <div class="flex-auto border left-align">Text can be left-aligned</div>
-  <div class="flex-auto border center">Hot Dog</div>
-  <div class="flex-auto border right-align">Hot Dog</div>
-</div>
+---
 
-<div class="flex flex-column">
-  <!-- <span>Hamburger</span> -->
-  <!-- <span>Hot Dog</span> -->
-  <p class="left-align">Text can be left-aligned</p>
-  <p class="center">Text can be centered</p>
-  <p class="right-align">Text can be right-aligned</p>
-</div>
+<!-- <p class="h3 pb1">:terminal: When we want to show some code</p> -->
+
+We can use `inline code` to show code inside a paragraph
+
+Or a basic code block
+
+```
+function logSomething(something) {
+  console.log("Something", something);
+}
+```
+
+Or a fancy terminal code block
+
+```term
+\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
+
+\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
+\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
+
+\x1b[31m  (compared using eql?)\x1b[0m
+```
 
 ---
+
+<!-- <p class="h3 pb1">🎨 For styling fonts</p> -->
 
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
