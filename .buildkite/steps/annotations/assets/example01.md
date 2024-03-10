@@ -137,19 +137,17 @@ block
     <code>this is a html code block</code>
     <blockquote>this is a html blockquote</blockquote>
 
-    <pre>
-      <code>or a
+    <pre><code>or a
       code
-      block
-    </code>
-    </pre>
+      block</code></pre>
 
   </div>
 </details>
 
-<blockquote class="py1 h4">this is a html blockquote</blockquote>
-<blockquote class="py1 h5">this is a html blockquote</blockquote>
-<blockquote class="py1 h6">this is a html blockquote</blockquote>
+<blockquote class="py1 h4">this is a h4 html blockquote</blockquote>
+<blockquote class="py1 h4 regular">this is a h4 regular html blockquote</blockquote>
+<blockquote class="py1 h5">this is a h5 html blockquote</blockquote>
+<blockquote class="py1 h6">this is a h6 html blockquote</blockquote>
 
 <!-- <div class="my4">
   <p></p>
