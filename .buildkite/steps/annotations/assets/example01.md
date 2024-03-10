@@ -15,14 +15,14 @@
 <details>
   <summary class="h4"><span class="pl1">Expand this section to see typography options...</span></summary>
   <div class="pl3 mb1">
-    <p class="regular">Regular text</p>
-    <p class="bold">Bold text</p>
-    <p class="italic">Italic text</p>
-    <p class="underline">Underline text</p>
-    <p class="caps">All caps text</p>
-    <p class="left-align rounded">Left align text</p>
-    <p class="center rounded">Center text</p>
-    <p class="right-align rounded">Right align text</p>
+    <p class="h5 mb1 regular">Regular text</p>
+    <p class="h5 mb1 bold">Bold text</p>
+    <p class="h5 mb1 italic">Italic text</p>
+    <p class="h5 mb1 underline">Underline text</p>
+    <p class="h5 mb1 caps">All caps text</p>
+    <p class="h5 mb0 left-align rounded">Left align text</p>
+    <p class="h5 mb0 center rounded">Center text</p>
+    <p class="h5 mb2 right-align rounded">Right align text</p>
     <!-- justify works on wrap, resize browser window to see -->
     <p class="justify"><span class="bold">This Paragraph of text will be justified, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
     <!-- truncate works, resize browser window to see -->
@@ -30,9 +30,11 @@
   </div>
 </details>
 
-<p></p>
-<p></p>
-<p></p>
+<div class="my4">
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
  <!-- nowrap does fuck all -->
 <!-- <p class="nowrap">No wrap text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p> -->
 <!-- <p class="font-family-inherit">Font Family Inherit</p> -->
