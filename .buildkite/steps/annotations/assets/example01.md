@@ -44,9 +44,9 @@
           <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
         </tr>
       </thead>
-      <tbody class="mxn2">
-        <tr class="mxn2"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-        <tr> <td class="mxn2">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tbody class="mxn2 px1">
+        <tr class="mxn2 px1"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+        <tr> <td class="mxn2 px1">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
         <tr> <td>Peter Gabriel</td> <td class="mxn2">So</td> <td>1986</td> </tr>
       </tbody>
     </table>
