@@ -32,15 +32,14 @@
 <!-- <p class="font-size-inherit">Font Size Inherit</p> -->
 <!-- <a class="text-decoration-none">Text Decoration None</a> -->
 
-<ul class="ul">
+<!-- <ul class="ul">
   <li class="li">class list</li>
   <li class="li">first</li>
   <li class="li">second</li>
   <li class="li">third</li>
-</ul>
-  
-  
-## Is this a markdown list?
+</ul> -->
+
+<!-- ## Is this a markdown list?
 
 - markdown unordered list one
   - markdown unordered list two
@@ -75,7 +74,8 @@
 
 <div class="inline">inline</div>
 <div class="inline-block">inline-block</div>
-<a href="#" class="block">block</a>
+<a href="#" class="block">block</a> -->
+
 <div class="table border">
   <div class="table-cell border">table-cell</div>
   <div class="table-cell rounded">table-cell</div>
