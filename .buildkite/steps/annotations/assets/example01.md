@@ -4,8 +4,8 @@
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
-<p class="h6 regular">Here is a link to <a href="artifact://assets/example01.md">the file</a> the was used to generate this annotation</p>
-<p class="h6 regular">Here is a link to <a href="artifact://assets/example01.md">the job</a> the was used to generate this annotation</p>
+<p class="h6 mb1 regular">Here is a link to <a href="artifact://assets/example01.md">the file</a> the was used to generate this annotation</p>
+<p class="h6 mb1 regular">Here is a link to <a href="artifact://assets/example01.md">the job</a> the was used to generate this annotation</p>
 
 ---
 
