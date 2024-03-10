@@ -25,19 +25,35 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 # annotate
 # printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context '4'
 
-FILE="./assets/example01.md"
+# Define the file path
+FILE_PATH="./assets/example01.md"
 
-SEARCH="BUILDKITE_BUILD_URL"
-REPLACE="$BUILDKITE_BUILD_URL"
-sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
+# Define the old and new strings
+OLD_STRING="BUILDKITE_BUILD_URL"
+NEW_STRING="$BUILDKITE_BUILD_URL"
 
-SEARCH="BUILDKITE_JOB_ID"
-REPLACE="$BUILDKITE_JOB_ID"
-sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
+# Check if the file exists
+if [ -f "$FILE_PATH" ]; then
+    # Use sed to replace the string in-place
+    sed -i "s/$OLD_STRING/$NEW_STRING/g" "$FILE_PATH"
+    echo "Replacement complete."
+else
+    echo "Error: File does not exist."
+fi
 
-SEARCH="BUILDKITE_LABEL"
-REPLACE="$BUILDKITE_LABEL"
-sed -i -e "s/$SEARCH/$REPLACE/g" "./assets/example01.md"
+# FILE="./assets/example01.md"
+
+# SEARCH="BUILDKITE_BUILD_URL"
+# REPLACE=$BUILDKITE_BUILD_URL
+# sed -i -e "s/$SEARCH/$REPLACE" "./assets/example01.md"
+
+# SEARCH="BUILDKITE_JOB_ID"
+# REPLACE="$BUILDKITE_JOB_ID"
+# sed -i -e "s/$SEARCH/$REPLACE" "./assets/example01.md"
+
+# SEARCH="BUILDKITE_LABEL"
+# REPLACE="$BUILDKITE_LABEL"
+# sed -i -e "s/$SEARCH/$REPLACE" "./assets/example01.md"
 
 # This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
 
