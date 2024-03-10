@@ -90,12 +90,12 @@ Or a fancy terminal code block
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h6">In different sizes and styles</blockquote>
 <blockquote class="my1 py1 h6 regular">Like this lighter one</blockquote>
-<blockquote class="my1 h6 regular italic">Or light and italic</blockquote>
-<blockquote class="my1 h5">Or make them bigger</blockquote>
-<blockquote class="my1 h4">And bigger</blockquote>
-<blockquote class="my0 h3">And bigger</blockquote>
-<blockquote class="my0 h2">And bigger</blockquote>
-<blockquote class="my0 h1">And bigger</blockquote>
+<blockquote class="my1 py1 h6 regular italic">Or light and italic</blockquote>
+<blockquote class="my1 py1 h5">Or make them bigger</blockquote>
+<blockquote class="my1 py1 h4">And bigger</blockquote>
+<blockquote class="my0 py1 h3">And bigger</blockquote>
+<blockquote class="my0 py1 h2">And bigger</blockquote>
+<blockquote class="my0 py1 h1">And bigger</blockquote>
 
 ---
 
@@ -118,6 +118,21 @@ We can use tables
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="h6 regular overflow-scroll">
+  <table class="table-light">
+    <thead>
+      <tr>
+        <th class="px1 py2">Artist</th> <th>Album</th> <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody class="mxn2 px1">
+      <tr class="mxn2 px1"> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
+      <tr> <td class="mxn2 px1">Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td class="mxn2">So</td> <td>1986</td> </tr>
+    </tbody>
+  </table>
 </div>
 
 ---
