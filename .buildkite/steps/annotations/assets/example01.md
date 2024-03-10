@@ -6,37 +6,28 @@
 <p class="h6">Heading 6</p>
 
 <div>
-  <!-- these colors work -->
   <span class="h1">h1 Font Size</span>
   <span class="h2">h2 Font Size</span>
   <span class="h3">h3 Font Size</span>
   <span class="h4">h4 Font Size</span>
   <span class="h5">h5 Font Size</span>
   <span class="h6">h6 Font Size</span>
-  <!-- these colors don't work -->
-  <!-- <span class="silver">.silver</span> -->
-  <!-- <span class="white">.white</span> -->
-  <!-- <span class="aqua">.aqua</span> -->
-  <!-- <span class="navy">.navy</span> -->
-  <!-- <span class="teal">.teal</span> -->
-  <!-- <span class="olive">.olive</span> -->
-  <!-- <span class="lime">.lime</span> -->
-  <!-- <span class="yellow">.yellow</span> -->
-  <!-- <span class="fuchsia">.fuchsia</span> -->
-  <!-- <span class="purple">.purple</span> -->
-  <!-- <span class="maroon">.maroon</span> -->
-  <!-- <span class="color-inherit">.color-inherit</span> -->
 </div>
 
+<div>
+  <p class="regular">Regular text</p>
+  <p class="bold">Bold text</p>
+  <p class="italic">Italic text</p>
+  <p class="underline">Underline text</p>
+  <p class="caps">All caps text</p>
+</div>
 
-<p class="regular">Regular text</p>
-<p class="bold">Bold text</p>
-<p class="italic">Italic text</p>
-<p class="underline">Underline text</p>
-<p class="caps">All caps text</p>
-<p class="left-align">Left align text</p>
-<p class="center">Center text</p>
-<p class="right-align">Right align text</p>
+<div>
+  <p class="left-align">Left align text</p>
+  <p class="center">Center text</p>
+  <p class="right-align">Right align text</p>
+</div>
+
  <!-- justify works on wrap, resize browser window to see -->
 <p class="justify">Justify text bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
  <!-- truncate works, resize browser window to see -->
