@@ -17,13 +17,13 @@
   <p class="italic">Italic text</p>
   <p class="underline">Underline text</p>
   <p class="caps">All caps text</p>
-  <p class="left-align">Left align text</p>
-  <p class="center">Center text</p>
-  <p class="right-align">Right align text</p>
+  <p class="left-align rounded">Left align text</p>
+  <p class="center rounded">Center text</p>
+  <p class="right-align rounded">Right align text</p>
   <!-- justify works on wrap, resize browser window to see -->
-  <p class="justify"><span class="bold">This Paragraph of text will be justified on window resize: </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <p class="justify"><span class="bold">This Paragraph of text will be justified, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
   <!-- truncate works, resize browser window to see -->
-  <p class="truncate">This Paragraph of text will be truncated on window resize: bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <p class="truncate"><span class="bold">This Paragraph of text will be truncated, resize the browser window to see it in action! </span>bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 </details>
 
  <!-- nowrap does fuck all -->
