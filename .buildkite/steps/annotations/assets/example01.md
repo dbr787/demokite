@@ -84,8 +84,16 @@ Or a fancy terminal code block
 We can use tables
 
 <div class="flex border">
-  <div class="flex-auto border">Hamburger</div>
-  <div class="flex-auto border">Hot Dog</div>
+  <div class="flex-auto border">
+    <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
+    <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
+    <blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
+  </div>
+  <div class="flex-auto border">
+    <blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
+    <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
+    <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
+  </div>
 </div>
 
 <div class="flex h6 regular overflow-scroll">
