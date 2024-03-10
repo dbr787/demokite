@@ -87,6 +87,7 @@
   <span class="bold blue">blue</span>
   <span class="bold green">green</span>
   <span class="bold orange">orange</span>
+  <span class="regular">or</span>
   <span class="bold red">red</span>
   <!-- these colors don't work -->
   <!-- <span class="silver">.silver</span> -->
@@ -105,6 +106,14 @@
 
 <div class="h3 p2 border rounded">
   This is a simple box
+</div>
+
+<div class="flex h6 overflow-scroll">
+  <div class="flex-none">
+    <div class="h3 p2 border rounded">
+      This is another simple box
+    </div>
+  </div>
 </div>
 
 <div class="my4">
