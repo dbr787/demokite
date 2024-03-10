@@ -79,6 +79,8 @@
 <div class="table border">
   <div class="table-cell border">table-cell</div>
   <div class="table-cell rounded">table-cell</div>
+  <div class="table-cell rounded">table-cell</div>
+  <div class="table-cell rounded">table-cell</div>
 </div>
 
 <!-- <div class="clearfix border">
@@ -89,11 +91,12 @@
 <div class="col-3">
   <img class="fit" src="http://d2v52k3cl9vedd.cloudfront.net/assets/images/placeholder.svg" />
 </div>
-
+<!-- 
 <p class="max-width-1">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 <p class="max-width-2">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 <p class="max-width-3">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
 <p class="max-width-4">Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+-->
 
 <div class="col-6 p2 border-box border">.border-box</div>
 
