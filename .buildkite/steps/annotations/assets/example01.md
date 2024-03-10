@@ -2,7 +2,7 @@
 
 <p class="h1 pb1">👋 Welcome to Buildkite Annotations</p>
 
-<p>Let's take a look at what you can do with annotations...</p>
+<p>Let's take a look at some of the things you can do with annotations...</p>
 
 ---
 
@@ -43,7 +43,6 @@ Or a fancy terminal code block
 </p>
 
 <p class="">
-  <!-- these colors work -->
   <span class="regular">We can use </span>
   <span class="bold black">black</span>
   <span class="bold gray">gray</span>
@@ -52,19 +51,6 @@ Or a fancy terminal code block
   <span class="bold orange">orange</span>
   <span class="regular">or</span>
   <span class="bold red">red</span>
-  <!-- these colors don't work -->
-  <!-- <span class="silver">.silver</span> -->
-  <!-- <span class="white">.white</span> -->
-  <!-- <span class="aqua">.aqua</span> -->
-  <!-- <span class="navy">.navy</span> -->
-  <!-- <span class="teal">.teal</span> -->
-  <!-- <span class="olive">.olive</span> -->
-  <!-- <span class="lime">.lime</span> -->
-  <!-- <span class="yellow">.yellow</span> -->
-  <!-- <span class="fuchsia">.fuchsia</span> -->
-  <!-- <span class="purple">.purple</span> -->
-  <!-- <span class="maroon">.maroon</span> -->
-  <!-- <span class="color-inherit">.color-inherit</span> -->
 </p>
 
 <p class="">
@@ -87,11 +73,12 @@ Or a fancy terminal code block
 <p class="center">centered</p>
 <p class="right-align">or right-aligned</p>
 
+---
+
 <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
 <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-<blockquote class="my1 py1 h5">Or make them bigger</blockquote>
-<blockquote class="h4 mb0">And bigger<blockquote class="h4 mb0 pb0">And nested<blockquote class="h4 mb0">And nested</blockquote></blockquote></blockquote>
-<blockquote class="my0 py1 h3">And bigger</blockquote>
+<blockquote class="h4 mb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
+<blockquote class="my0 py1 h3">Or make them bigger</blockquote>
 <blockquote class="my0 py1 h2">And bigger</blockquote>
 <blockquote class="my0 py1 h1">And bigger</blockquote>
 
@@ -237,13 +224,6 @@ Sections can be expanded and collapsed
 </details>
 
 ---
-
-<blockquote class="py1 h4 bold">this is a h4 bold blockquote</blockquote>
-<blockquote class="py1 h4">this is a h4 blockquote</blockquote>
-<blockquote class="py1 h4 regular">this is a h4 regular blockquote</blockquote>
-<blockquote class="py1 h4 regular italic">this is a h4 regular italic blockquote</blockquote>
-<blockquote class="py1 h5">this is a h5 blockquote</blockquote>
-<blockquote class="py1 h6">this is a h6 blockquote</blockquote>
 
 <!-- <div class="h4 p2 border rounded">
   This is a simple box
