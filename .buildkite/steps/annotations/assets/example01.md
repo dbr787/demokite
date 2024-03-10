@@ -54,7 +54,7 @@
 
   <p class="h4">h6 table with underline header and rounded border</p>
 
-  <div class="flex h6 overflow-auto">
+  <div class="flex h6">
     <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
     <table class="flex-none border rounded">
       <thead class="bold underline">
