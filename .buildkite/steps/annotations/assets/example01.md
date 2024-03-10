@@ -77,24 +77,24 @@ Or a fancy terminal code block
 <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
 <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
 
----
-
-<!-- <p class="h3 pb1">:white_check_mark: We can use tables</p> -->
-
-We can use tables
-
-<div class="flex border">
-  <div class="flex-auto border">
+<div class="flex">
+  <div class="flex-auto border rounded m2 p2">
     <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
     <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
     <blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
   </div>
-  <div class="flex-auto border">
+  <div class="flex-auto border rounded m2 p2">
     <blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
     <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
     <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
   </div>
 </div>
+
+---
+
+<!-- <p class="h3 pb1">:white_check_mark: We can use tables</p> -->
+
+We can use tables
 
 <div class="flex h6 regular overflow-scroll">
   <div class="flex-none">
