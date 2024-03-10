@@ -1,7 +1,7 @@
 <p class="h2 pb2">👋 Welcome to the example annotation!</p>
 
 <details class="">
-  <summary class="h4">Expand this section to see font-size options...</summary>
+  <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
   <div class="pl3">
     <p class="h1">Heading 1</p>
     <p class="h2">Heading 2</p>
