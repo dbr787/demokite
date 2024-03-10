@@ -342,10 +342,10 @@
   </table>
 </div>
 
-<div class="overflow-scroll">
+<div class="overflow-scroll m0 p0">
   <!-- <table class="table-light overflow-hidden bg-white border rounded"> -->
-  <table class="border rounded">
-    <thead class="h6 underline bold">
+  <table class="border rounded m0 p0">
+    <thead class="h6 underline bold m0 p0">
       <tr>
         <th>Artist</th> <th>Album</th> <th>Release Date</th>
       </tr>
