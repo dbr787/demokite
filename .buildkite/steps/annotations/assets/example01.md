@@ -2,7 +2,7 @@
 
 <details class="">
   <summary class="h4">Expand this section to see font-size options...</summary>
-  <div class="pl1">
+  <div class="pl2">
     <p class="h1">Heading 1</p>
     <p class="h2">Heading 2</p>
     <p class="h3">Heading 3</p>
