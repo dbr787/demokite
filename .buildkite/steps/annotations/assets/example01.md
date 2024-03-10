@@ -81,12 +81,13 @@
 
 <h3 class="h3 center">
   <!-- these colors work -->
-  <span class="black">.black</span>
-  <span class="gray">.gray</span>
-  <span class="blue">.blue</span>
-  <span class="green">.green</span>
-  <span class="orange">.orange</span>
-  <span class="red">.red</span>
+  <span class="regular">Font can be </span>
+  <span class="bold black">black</span>
+  <span class="bold gray">gray</span>
+  <span class="bold blue">blue</span>
+  <span class="bold green">green</span>
+  <span class="bold orange">orange</span>
+  <span class="bold red">red</span>
   <!-- these colors don't work -->
   <!-- <span class="silver">.silver</span> -->
   <!-- <span class="white">.white</span> -->
@@ -102,8 +103,8 @@
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </h3>
 
-<div class="m4 p2 border rounded">
-  A simple box
+<div class="h3 p2 border rounded">
+  This is a simple box
 </div>
 
 <div class="my4">
