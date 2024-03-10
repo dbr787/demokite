@@ -2,6 +2,8 @@
 
 <p class="h1">👋 Welcome to the example annotation!</p>
 
+<p>Let's take a look at what you can do with annotations...</p>
+
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
   <div class="pl3">
