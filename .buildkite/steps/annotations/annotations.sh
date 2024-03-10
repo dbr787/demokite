@@ -19,14 +19,23 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into steps/annotations/ directory
 cd .buildkite/steps/annotations/;
 
-# upload original assets as artifacts
-buildkite-agent artifact upload "assets/*" --log-level error;
-
 # replace variables in annotation file
 FILE_PATH="./assets/example01.md"
+
 replace_file_var $FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
 replace_file_var $FILE_PATH "\$BUILDKITE_JOB_ID" "$BUILDKITE_JOB_ID"
 replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
+
+# upload assets as artifacts
+buildkite-agent artifact upload "assets/*" --log-level error;
+
+buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
+buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
+buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
+buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
+
+# annotate
+printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'success' --context 'example'
 
 # if [ -f "$FILE_PATH" ]; then
 
@@ -49,9 +58,6 @@ replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
 #     echo "Error: File does not exist."
 # fi
 
-# upload assets as artifacts
-buildkite-agent artifact upload "assets/*" --log-level error;
-
 # FILE="./assets/example01.md"
 
 # SEARCH="BUILDKITE_BUILD_URL"
@@ -67,8 +73,6 @@ buildkite-agent artifact upload "assets/*" --log-level error;
 # sed -i -e "s/$SEARCH/$REPLACE" "./assets/example01.md"
 
 # This annotation was created by job: <a href=\"${BUILDKITE_BUILD_URL}#$BUILDKITE_JOB_ID\">$BUILDKITE_LABEL</a>
-
-printf '%b\n' "$(cat ./assets/example01.md)" | buildkite-agent annotate --style 'success' --context 'example01'
 
 # echo -e "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '1'
 # echo "<h2>h2 heading</h2>" | buildkite-agent annotate --style 'warning' --context '2'
