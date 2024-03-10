@@ -1,7 +1,7 @@
-<p class="h2">👋 Welcome to the example annotation!</p>
+<p class="h2 mb4">👋 Welcome to the example annotation!</p>
 
 <details>
-  <summary class="h4">Expand to see font-size options...</summary>
+  <summary class="h4">Expand this section to see font-size options...</summary>
   <p class="h1">Heading 1</p>
   <p class="h2">Heading 2</p>
   <p class="h3">Heading 3</p>
@@ -11,7 +11,7 @@
 </details>
 
 <details>
-  <summary class="h4">Expand to see typography options...</summary>
+  <summary class="h4">Expand this section to see typography options...</summary>
   <p class="regular">Regular text</p>
   <p class="bold">Bold text</p>
   <p class="italic">Italic text</p>
@@ -43,22 +43,10 @@
 ## Is this a markdown list?
 
 - markdown unordered list one
-- markdown unordered list two
-- markdown unordered list three
+  - markdown unordered list two
+    - markdown unordered list three
 
-## Is this a markdown list?
-
-- markdown unordered list one
-- markdown unordered list two
-- markdown unordered list three
-
-## Is this a markdown list?
-
-- markdown unordered list one
-- markdown unordered list two
-- markdown unordered list three
-
-## Or is this a markdow list?
+## Or is this a markdown list?
 
 1. markdown ordered list one
 1. markdown ordered list two
