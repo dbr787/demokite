@@ -96,10 +96,10 @@ echo ""
 echo -e "--- :nail_care: And then there's everything else..."
 echo ""
 echokite "  The current job working directory is:" white none normal
-echokite "$cur_dir" blue none italic | sed -e 's/^/    /'
+echokite "$current_dir" blue none italic | sed -e 's/^/    /'
 echo ""
 echokite "  The contents of that directory is:" white none normal
-echokite "$cur_dir_contents" blue none italic | sed -e 's/^/    /'
+echokite "$current_dir_contents" blue none italic | sed -e 's/^/    /'
 echo ""
 
 # Job lifecycle hooks have access to all the standard Buildkite environment variables.
