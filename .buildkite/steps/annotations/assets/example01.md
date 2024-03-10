@@ -31,9 +31,11 @@ Or a fancy terminal code block
 
 ---
 
+<p class="h3 pb1">🎨 For styling fonts</p>
+
 <p class="h3">
   <!-- these colors work -->
-  <span class="regular">Font can be </span>
+  <span class="regular">We can use </span>
   <span class="bold black">black</span>
   <span class="bold gray">gray</span>
   <span class="bold blue">blue</span>
@@ -58,7 +60,7 @@ Or a fancy terminal code block
 
 <p class="">
   <!-- these colors work -->
-  <span class="h1">It can </span>
+  <span class="h1">Font can </span>
   <span class="h2">also be</span>
   <span class="h3">one of</span>
   <span class="h4">many</span>
@@ -78,6 +80,8 @@ Or a fancy terminal code block
   <!-- <span class="maroon">.maroon</span> -->
   <!-- <span class="color-inherit">.color-inherit</span> -->
 </p>
+
+---
 
 <details class="pt1">
   <summary class="h4"><span class="pl1">Expand this section to see font-size options...</span></summary>
