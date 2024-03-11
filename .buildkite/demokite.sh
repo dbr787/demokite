@@ -59,7 +59,7 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
     pipeline_upload "fail.json"
   fi
 else
-  sleep 30
+  sleep 10
   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
   # artifact_upload "ask.json"
   pipeline_upload "ask.json"
