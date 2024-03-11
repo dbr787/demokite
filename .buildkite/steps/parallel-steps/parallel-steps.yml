@@ -1,0 +1,6 @@
+---
+steps:
+  - label: ":zap: Parallel Steps"
+    key: "parallel-steps"
+    command: "echo hello"
+    parallelism: 10
