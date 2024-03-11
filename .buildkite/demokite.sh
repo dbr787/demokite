@@ -71,6 +71,13 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
     # artifact_upload "merged.json"
     pipeline_upload "merged.json"
   fi
+  if [ $CURRENT_STATE = "parallel-steps" ]; then
+    pipeline_prepare ".buildkite/steps/parallel-steps" "parallel-steps.yml" $CURRENT_DIR "parallel-steps.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "parallel-steps.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
 else
   echo "not current state"
   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
