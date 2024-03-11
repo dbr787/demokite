@@ -44,6 +44,17 @@ CHOICE_BUILD_PASS=""
 CHOICE_BUILD_FAIL=""
 CHOICES=""
 
+# this bit is an ugly hack to avoid checking metadata on first run of the script
+CURRENT_STATE=""
+FIRST_STEP_KEY="begin"
+if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
+  CURRENT_STATE=$(buildkite-agent meta-data get "choice")
+  echo $CURRENT_STATE
+else
+  echo "not current state"
+fi
+
+
 # STEP_OUTPUT=$(cat <<EOF
 #   - label: ":thumbsup: Pass build"
 #     command: "echo 'Exiting build with status 0' && exit 0"

@@ -16,6 +16,6 @@ steps:
             value: "build-pass"
           - label: ":thumbsdown: Finish the build red"
             value: "build-fail"
-  - label: "Process input"
+  - label: ":robot_face: Process Input"
     key: "process-input"
     command: ".buildkite/ask/ask.sh"
