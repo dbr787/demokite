@@ -18,3 +18,35 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
 - Start on annotation demo and examples
   - Include link to step, image, hyperlinks, link to artifact etc.
 - Demo for redacted environment variables
+
+<!-- 
+# to use emojis
+# :thisisfine: for failing build intentionally
+# :perfection: for succeeding build intentionally
+# :bash:
+# :sadpanda:
+# :partyparrot:
+# :docker:
+# :metal:
+# :red_button:
+# :terminal:
+# :speech_balloon:
+# :ghost:
+# :writing_hand:
+# :index_pointing_at_the_viewer:
+# :brain:
+# :mage:
+# :astronaut:
+# :scientist:
+# :technologist:
+# :teacher:
+# :artist:
+# :cook:
+# :supervillain:
+# :superhero:
+# :ninja:
+# :juggling:
+# :shrug:
+# :pinched_fingers:
+# :nail_care:
+-->

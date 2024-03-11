@@ -4,43 +4,8 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-# feedback/issues
-# tbc
-# tbc
-# tbc
-
 # source shared functions
 . .buildkite/assets/functions.sh;
-
-# to use emojis
-# :thisisfine: for failing build intentionally
-# :perfection: for succeeding build intentionally
-# :bash:
-# :sadpanda:
-# :partyparrot:
-# :docker:
-# :metal:
-# :red_button:
-# :terminal:
-# :speech_balloon:
-# :ghost:
-# :writing_hand:
-# :index_pointing_at_the_viewer:
-# :brain:
-# :mage:
-# :astronaut:
-# :scientist:
-# :technologist:
-# :teacher:
-# :artist:
-# :cook:
-# :supervillain:
-# :superhero:
-# :ninja:
-# :juggling:
-# :shrug:
-# :pinched_fingers:
-# :nail_care:
 
 CHOICE_ANNOTATIONS=""
 CHOICE_LOGS=""

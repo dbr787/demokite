@@ -4,11 +4,6 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-# feedback/issues
-# log group inner content should be indented
-# buildkite emojis dont display inside log groups, only in group headers
-# links in group headers underline on hover, but are not directly clickable
-
 # source shared functions
 . .buildkite/assets/functions.sh;
 

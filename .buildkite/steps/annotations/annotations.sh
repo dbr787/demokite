@@ -4,11 +4,6 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
-# feedback/issues
-# tbc
-# tbc
-# tbc
-
 # source shared functions
 . .buildkite/assets/functions.sh;
 
