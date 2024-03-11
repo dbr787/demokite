@@ -91,7 +91,7 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
   fi
   if [ $CURRENT_STATE = "fail" ]; then
     pipeline_prepare ".buildkite/steps/fail" "fail.yml" $CURRENT_DIR "fail.json"
-    pipeline_upload "pass.json"
+    pipeline_upload "fail.json"
   fi
 else
   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
