@@ -1,6 +1,5 @@
 ---
 steps:
   - label: ":zap: Parallel Steps"
-    key: "parallel-steps"
-    command: "echo hello"
+    command: ".buildkite/steps/parallel-steps/parallel-steps.sh"
     parallelism: 10

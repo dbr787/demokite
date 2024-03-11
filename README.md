@@ -6,7 +6,7 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
 
 ## To Do
 
-- Creat multiple annotation example styles
+- Update build metadata to allow only choices that haven't already been made
 - Re-add dynamic pipelines choice step
 - Provide a link to connect to the agent that ran the job?
 - Provide a link to stop/pause the agent that ran the job?
