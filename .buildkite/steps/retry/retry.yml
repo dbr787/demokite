@@ -1,0 +1,8 @@
+---
+steps:
+  - label: ":zap: Parallel Steps"
+    command: "exit $((RANDOM % 2))"
+    parallelism: 5
+    retry:
+      automatic: true
+      limit: 3

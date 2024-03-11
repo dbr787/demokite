@@ -16,8 +16,8 @@ set -euo pipefail # don't print executed commands to the terminal
 current_dir=$(pwd)
 current_dir_contents=$(ls -lah $current_dir)
 
-# change into steps/parallel-steps/ directory
-cd .buildkite/steps/parallel-steps/;
+# change into steps/retry/ directory
+cd .buildkite/steps/retry/;
 
 # upload original assets as artifacts
 # buildkite-agent artifact upload "assets/*" --log-level error;
