@@ -78,6 +78,13 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
     # artifact_upload "merged.json"
     pipeline_upload "merged.json"
   fi
+  if [ $CURRENT_STATE = "retry" ]; then
+    pipeline_prepare ".buildkite/steps/retry" "retry.yml" $CURRENT_DIR "retry.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "retry.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
   if [ $CURRENT_STATE = "pass" ]; then
     pipeline_prepare ".buildkite/steps/pass" "pass.yml" $CURRENT_DIR "pass.json"
     pipeline_upload "pass.json"

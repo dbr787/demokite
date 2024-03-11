@@ -21,7 +21,11 @@ cd .buildkite/steps/retry/;
 
 # upload original assets as artifacts
 # buildkite-agent artifact upload "assets/*" --log-level error;
-RANDOM_DURATION=$(shuf -i 5-20 -n 1)
+
+exit $((RANDOM % 2))
+
+RANDOM_FAILURE=$((RANDOM % 2))
+echo $RANDOM_FAILURE
 
 echo -e "\033[1;35mThis is parallel job $((BUILDKITE_PARALLEL_JOB+1)) of $BUILDKITE_PARALLEL_JOB_COUNT and has been randomly set to run for $RANDOM_DURATION seconds.\033[0m"
 sleep $RANDOM_DURATION

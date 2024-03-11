@@ -1,6 +1,6 @@
 ---
 steps:
-  - label: ":zap: Parallel Steps"
+  - label: ":bird: Automatic Retry"
     command: "exit $((RANDOM % 2))"
     parallelism: 5
     retry:
