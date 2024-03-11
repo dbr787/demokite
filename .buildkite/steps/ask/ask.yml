@@ -18,4 +18,4 @@ steps:
             value: "build-fail"
   - label: ":robot_face: Process Input"
     key: "process-input"
-    command: ".buildkite/ask/ask.sh"
+    command: ".buildkite/demokite.sh"
