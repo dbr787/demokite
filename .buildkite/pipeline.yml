@@ -1,5 +1,0 @@
----
-steps:
-  - label: ":feelsgood: Let's Begin"
-    key: "begin"
-    command: ".buildkite/demokite.sh"
