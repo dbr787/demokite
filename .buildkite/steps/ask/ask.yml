@@ -17,5 +17,4 @@ steps:
           - label: ":thumbsdown: Finish the build red"
             value: "build-fail"
   - label: ":robot_face: Process Input"
-    key: "process-input"
     command: ".buildkite/demokite.sh"
