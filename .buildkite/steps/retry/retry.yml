@@ -4,6 +4,6 @@ steps:
     command: "exit $((RANDOM % 2))"
     parallelism: 5
     retry:
-      automatic: true
+      automatic:
         - exit_status: 0
           limit: 3
