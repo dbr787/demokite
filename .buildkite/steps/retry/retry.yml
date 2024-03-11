@@ -5,4 +5,5 @@ steps:
     parallelism: 5
     retry:
       automatic: true
-      limit: 3
+        - exit_status: 0
+          limit: 3
