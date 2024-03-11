@@ -21,7 +21,7 @@ cd .buildkite/steps/parallel-steps/;
 
 # upload original assets as artifacts
 # buildkite-agent artifact upload "assets/*" --log-level error;
-RANDOM_DURATION=$(shuf -i 5-10 -n 1)
+RANDOM_DURATION=$(shuf -i 5-20 -n 1)
 
 echo -e "\033[1;35mThis is parallel job $((BUILDKITE_PARALLEL_JOB+1)) of $BUILDKITE_PARALLEL_JOB_COUNT and has been randomly set to run for $RANDOM_DURATION seconds.\033[0m"
 sleep $RANDOM_DURATION
