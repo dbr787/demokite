@@ -49,7 +49,6 @@ CHOICE_BUILD_PASS=""
 CHOICE_BUILD_FAIL=""
 CHOICES=""
 
-# this bit is an ugly hack to avoid checking metadata on first run of the script
 CURRENT_STATE=""
 FIRST_STEP_KEY="begin"
 CURRENT_DIR=$(pwd)
@@ -57,6 +56,7 @@ CURRENT_DIR=$(pwd)
 if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
   echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY"
+  echo "CHOICE: $CURRENT_STATE"
   if [ $CURRENT_STATE = "logs" ]; then
     pipeline_prepare ".buildkite/steps/logs" "logs.yml" $CURRENT_DIR "logs.json"
     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
@@ -79,7 +79,6 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
     pipeline_upload "merged.json"
   fi
 else
-  echo "not current state"
   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
   # artifact_upload "ask.json"
   pipeline_upload "ask.json"
