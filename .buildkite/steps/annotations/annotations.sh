@@ -26,16 +26,16 @@ replace_file_var $FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
 replace_file_var $FILE_PATH "\$BUILDKITE_JOB_ID" "$BUILDKITE_JOB_ID"
 replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
 
-# upload assets as artifacts
-buildkite-agent artifact upload "assets/*" --log-level error;
-
+# annotate
 buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'
 buildkite-agent annotate 'Example `warning` style annotation' --style 'warning' --context 'ctx-warning'
 buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 
-# annotate
 printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'success' --context 'example'
+
+# upload assets as artifacts
+buildkite-agent artifact upload "assets/*" --log-level error;
 
 # if [ -f "$FILE_PATH" ]; then
 
