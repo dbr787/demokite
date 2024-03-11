@@ -4,6 +4,11 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+# feedback/issues
+# tbc
+# tbc
+# tbc
+
 # source shared functions
 . .buildkite/assets/functions.sh;
 
@@ -50,9 +55,20 @@ FIRST_STEP_KEY="begin"
 if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
   echo $CURRENT_STATE
+
+  if [ $CURRENT_STATE = "logs" ]; then
+    current_dir=$(pwd)
+    pipeline_prepare ".buildkite/steps/logs" "logs.yml" $current_dir "logs.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $current_dir "ask.json"
+    pipeline_merge "logs.json" "ask.json" > "merged.json"
+    artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+
 else
   echo "not current state"
 fi
+
 
 
 # STEP_OUTPUT=$(cat <<EOF
@@ -63,36 +79,7 @@ fi
 
 # sed -e '/---/d' -e '/steps:/d' -e '/^$/d' .buildkite/steps/wait.yml
 
-pipeline_prepare () {
-    # upload source file (original pipeline definition) as artifact
-    # convert source file (original pipeline definition) to json format and create local file
-    # upload converted pipeline definition json file as artifact
-    local source_dir="$1"
-    local source_file="$2"
-    local output_dir="$3"
-    local output_file="$4"
-    local current_dir=$(pwd)
-    cd "$source_dir"
-    buildkite-agent artifact upload "$source_file" --log-level error
-    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
-    cd "$output_dir"
-    buildkite-agent artifact upload "$output_file" --log-level error
-    cd "$current_dir"
-}
 
-pipeline_merge() {
-    jq -s '{steps: [.[].steps[]]}' "$@"
-}
-
-pipeline_upload() {
-    local pipeline="$1"
-    buildkite-agent pipeline upload "$pipeline" --log-level error
-}
-
-artifact_upload() {
-    local artifact="$1"
-    buildkite-agent artifact upload "$artifact" --log-level error
-}
 
 # merge multiple json pipeline definitions into one and upload
 current_dir=$(pwd)
@@ -104,9 +91,9 @@ artifact_upload "merged.json"
 
 
 # here is where im working 
-pipeline_prepare ".buildkite/steps/ask" "ask.yml" $current_dir "ask.json"
-artifact_upload "ask.json"
-pipeline_upload "ask.json"
+# pipeline_prepare ".buildkite/steps/ask" "ask.yml" $current_dir "ask.json"
+# artifact_upload "ask.json"
+# pipeline_upload "ask.json"
 
 
 # echo "$STEP_LOGS"

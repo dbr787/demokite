@@ -4,6 +4,37 @@
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
 
+pipeline_prepare () {
+    # upload source file (original pipeline definition) as artifact
+    # convert source file (original pipeline definition) to json format and create local file
+    # upload converted pipeline definition json file as artifact
+    local source_dir="$1"
+    local source_file="$2"
+    local output_dir="$3"
+    local output_file="$4"
+    local current_dir=$(pwd)
+    cd "$source_dir"
+    buildkite-agent artifact upload "$source_file" --log-level error
+    buildkite-agent pipeline upload "$source_file" --dry-run --format json --log-level error > "$output_dir/$output_file"
+    cd "$output_dir"
+    buildkite-agent artifact upload "$output_file" --log-level error
+    cd "$current_dir"
+}
+
+pipeline_merge() {
+    jq -s '{steps: [.[].steps[]]}' "$@"
+}
+
+pipeline_upload() {
+    local pipeline="$1"
+    buildkite-agent pipeline upload "$pipeline" --log-level error
+}
+
+artifact_upload() {
+    local artifact="$1"
+    buildkite-agent artifact upload "$artifact" --log-level error
+}
+
 # echokite function to print text colors and styles
 echokite () {
     local text="$1"
