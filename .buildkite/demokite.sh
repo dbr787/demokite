@@ -49,12 +49,14 @@ CHOICE_BUILD_PASS=""
 CHOICE_BUILD_FAIL=""
 CHOICES=""
 
+
+
 # this bit is an ugly hack to avoid checking metadata on first run of the script
 CURRENT_STATE=""
 FIRST_STEP_KEY="begin"
 if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
-  echo $CURRENT_STATE
+  echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY is $FIRST_STEP_KEY"
 
   if [ $CURRENT_STATE = "logs" ]; then
     current_dir=$(pwd)
@@ -67,6 +69,9 @@ if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
 
 else
   echo "not current state"
+  pipeline_prepare ".buildkite/steps/ask" "ask.yml" $current_dir "ask.json"
+  artifact_upload "ask.json"
+  pipeline_upload "ask.json"
 fi
 
 
