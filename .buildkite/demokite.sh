@@ -56,21 +56,25 @@ CURRENT_DIR=$(pwd)
 
 if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
-  echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY is $FIRST_STEP_KEY"
-
+  echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY"
   if [ $CURRENT_STATE = "logs" ]; then
-    
     pipeline_prepare ".buildkite/steps/logs" "logs.yml" $CURRENT_DIR "logs.json"
     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
     pipeline_merge "logs.json" "ask.json" > "merged.json"
-    artifact_upload "merged.json"
+    # artifact_upload "merged.json"
     pipeline_upload "merged.json"
   fi
-
+  if [ $CURRENT_STATE = "annotations" ]; then
+    pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $CURRENT_DIR "annotations.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "annotations.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
 else
   echo "not current state"
   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-  artifact_upload "ask.json"
+  # artifact_upload "ask.json"
   pipeline_upload "ask.json"
 fi
 
@@ -87,11 +91,11 @@ fi
 
 
 # merge multiple json pipeline definitions into one and upload
-current_dir=$(pwd)
-pipeline_prepare ".buildkite/steps/logs" "logs.yml" $current_dir "logs.json"
-pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $current_dir "annotations.json"
-pipeline_merge "logs.json" "annotations.json" > "merged.json"
-artifact_upload "merged.json"
+# current_dir=$(pwd)
+# pipeline_prepare ".buildkite/steps/logs" "logs.yml" $current_dir "logs.json"
+# pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $current_dir "annotations.json"
+# pipeline_merge "logs.json" "annotations.json" > "merged.json"
+# artifact_upload "merged.json"
 # pipeline_upload "merged.json"
 
 
