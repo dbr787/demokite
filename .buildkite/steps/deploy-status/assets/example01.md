@@ -1,13 +1,27 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<p class="h3 pb1">🐥 Buildkite Deployment Status Demo</p>
+<p class="h4 pb1">🐥 Buildkite Deployment Status Demo</p>
 
-<p class="h6 m0 regular">This paragraph should have no margins.</p>
+<p>This annotation will show the status of a deployment</p>
+<p>This annotation will show the status of a deployment</p>
 
-<p>Let's take a look at some of the things you can do with annotations...</p>
+<div class="flex h6 regular overflow-auto">
+  <table class="">
+    <thead>
+      <tr>
+        <th></th> <th>Album</th> <th>Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> <td>Deployment Status</td> <td>In Progress...</td> <td>$TIMESTAMP</td> </tr>
+      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
+      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+    </tbody>
+  </table>
+</div>
 
 <ul class="h6 list-reset">
-  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the $BUILDKITE_LABEL job and logs in real time</a></li>
+  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the job and logs in real time ($BUILDKITE_LABEL)</a></li>
   <li class="mb1 regular"><a href="https://argoproj.github.io/" target="_blank">:argocd: View the deployment in ArgoCD</a></li>
 </ul>
 
