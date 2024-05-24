@@ -26,7 +26,7 @@
 </ul>
 
 <ul class="h6 list-reset py1">
-  <li>Coffee</li>
+  <li class="mb1">Coffee</li>
   <li>Tea</li>
   <li>Milk</li>
 </ul>
