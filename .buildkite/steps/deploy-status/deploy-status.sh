@@ -64,7 +64,7 @@ cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
 TIMESTAMP=$(date +"%y-%m-%d %H:%M:%S:%3N %Z")
-ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">:bk-status-passed:Successful</td> <td>$TIMESTAMP</td> </tr>"
+ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">:bk-status-passed: Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">:bk-status-running: In Progress</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">:bk-status-pending:Waiting</td> <td>$TIMESTAMP</td> </tr>"
 replace_file_var $TEMP_FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
