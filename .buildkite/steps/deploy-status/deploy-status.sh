@@ -76,5 +76,7 @@ replace_file_var $TEMP_FILE_PATH "<!--\$ROW_3-->\$" "$ROW_3"
 
 printf '%b\n' "$(cat $TEMP_FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
 
+buildkite-agent annotate --style 'success' --context 'example'
+
 # upload assets as artifacts
 # buildkite-agent artifact upload "assets/*" --log-level error;
