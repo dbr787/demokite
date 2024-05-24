@@ -6,8 +6,8 @@
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
-<p class="h6 my0 py1 regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
-<p class="h6 my0 py1 regular italic"><a href="https://argoproj.github.io/">View the deployment in ArgoCD</a></p>
+<p class="h6 my0 py0 regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
+<p class="h6 my0 py0 regular italic"><a href="https://argoproj.github.io/">View the deployment in ArgoCD</a></p>
 
 ---
 
