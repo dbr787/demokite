@@ -11,29 +11,15 @@
   <p class="flex flex-column h6 m0 my0 mb0 py0 border-none regular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
 </div>
 
-<div class="h6">
-  <ul class="h6 list-reset m0 p0">
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Milk</li>
-  </ul>
-</div>
-
-<ul class="h6 list-reset m0 p0">
-  <li>Coffee</li>
+<ul class="h6 list-reset">
+  <li class="mb1 regular">Coffee</li>
   <li>Tea</li>
   <li>Milk</li>
 </ul>
 
-<ul class="h6 list-reset py1">
-  <li class="mb1">Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ul>
-
-<ul class="h6 list-style-none my1">
-  <li>Coffee</li>
-  <li>Tea</li>
+<ul class="h6 list-reset">
+  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></li>
+  <li><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></li>
   <li>Milk</li>
 </ul>
 
