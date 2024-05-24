@@ -12,7 +12,7 @@ current_dir=$(pwd)
 current_dir_contents=$(ls -lah $current_dir)
 
 # change into steps/annotations/ directory
-cd .buildkite/steps/annotations/;
+cd .buildkite/steps/deploy-status/;
 
 # replace variables in annotation file
 FILE_PATH="./assets/example01.md"
