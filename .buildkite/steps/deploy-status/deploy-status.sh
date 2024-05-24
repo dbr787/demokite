@@ -22,7 +22,7 @@ TEMP_FILE_PATH="./assets/example01-$EPOCH.md"
 cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
-ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">In Progress</td> <td>$TIMESTAMP</td> </tr>"
+ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">:party_parrot: In Progress</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 
@@ -42,7 +42,7 @@ TEMP_FILE_PATH="./assets/example01-$EPOCH.md"
 cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
-ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
+ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">:white_check_mark: Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 replace_file_var $TEMP_FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
