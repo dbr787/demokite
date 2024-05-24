@@ -1,27 +1,25 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<p class="h4 pb1">🐥 Buildkite Deployment Status Demo</p>
+<p class="h3 pb1">🐥 Buildkite Deployment Status Demo</p>
 
-<p>This annotation will show the status of a deployment</p>
 <p>This annotation will show the status of a deployment</p>
 
 <div class="flex h6 regular overflow-auto">
   <table class="">
     <thead>
       <tr>
-        <th></th> <th>Album</th> <th>Last Updated</th>
+        <th>Application</th> <th>Environment</th> <th>Deployment Status</th> <th>Last Updated</th>
       </tr>
     </thead>
     <tbody>
-      <tr> <td>Deployment Status</td> <td>In Progress...</td> <td>$TIMESTAMP</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
+      <tr> <td>Bison</td> <td>Development</td> <td class="bold orange">In Progress</td> <td>$TIMESTAMP</td> </tr>
+      <tr> <td>Octopus</td> <td>Development</td> <td class="bold green">Successful</td> <td>$TIMESTAMP</td> </tr>
     </tbody>
   </table>
 </div>
 
 <ul class="h6 list-reset">
-  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the job and logs in real time ($BUILDKITE_LABEL)</a></li>
+  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the job in Buildkite ($BUILDKITE_LABEL)</a></li>
   <li class="mb1 regular"><a href="https://argoproj.github.io/" target="_blank">:argocd: View the deployment in ArgoCD</a></li>
 </ul>
 
