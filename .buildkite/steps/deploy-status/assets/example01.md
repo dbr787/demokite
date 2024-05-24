@@ -2,18 +2,18 @@
 
 <p class="h3 pb1">🐥 Buildkite Deployment Status Demo</p>
 
-<p>This annotation will show the status of a deployment</p>
+<p>This annotation can be used to view the status of deployments</p>
 
 <div class="flex h6 regular overflow-auto">
   <table class="">
     <thead>
       <tr>
-        <th>Application</th> <th>Environment</th> <th>Deployment Status</th> <th>Last Updated</th>
+        <th>Application</th> <th>Environment</th> <th>Reference</th> <th>Deployment Status</th> <th>Last Updated</th>
       </tr>
     </thead>
     <tbody>
-      <tr> <td>Bison</td> <td>Development</td> <td class="bold orange">In Progress</td> <td>$TIMESTAMP</td> </tr>
-      <tr> <td>Octopus</td> <td>Development</td> <td class="bold green">Successful</td> <td>$TIMESTAMP</td> </tr>
+      <tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td class="bold orange">In Progress</td> <td>$TIMESTAMP</td> </tr>
+      <tr> <td>Octopus</td> <td>Development</td> <td>1a1e395</td> <td class="bold green">Successful</td> <td>$TIMESTAMP</td> </tr>
     </tbody>
   </table>
 </div>
