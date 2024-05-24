@@ -16,6 +16,7 @@ cd .buildkite/steps/deploy-status/;
 
 # replace variables in annotation file
 FILE_PATH="./assets/example01.md"
+TIMESTAMP=$(date)
 
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
