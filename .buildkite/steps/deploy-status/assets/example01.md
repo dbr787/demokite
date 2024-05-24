@@ -6,9 +6,9 @@
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
-<div class="flex flex-column mn2 myn2 p0 border-none">
-  <p class="flex flex-column h6 mn2 myn2 py0 regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
-  <p class="flex flex-column h6 mn2 myn2 py0 regular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
+<div class="flex flex-column m0 my0 mb0 p0 border-none">
+  <p class="flex flex-column h6 m0 my0 mb0 py0 border-noneregular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
+  <p class="flex flex-column h6 m0 my0 mb0 py0 border-noneegular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
 </div>
 
 <!-- <div class="flex flex-column m0 p0 border-none">
