@@ -27,7 +27,7 @@ replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
 # buildkite-agent annotate 'Example `default` style annotation' --context 'ctx-default'
 # buildkite-agent annotate 'Example `info` style annotation' --style 'info' --context 'ctx-info'
 
-printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'success' --context 'example'
+printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
 
 # upload assets as artifacts
 buildkite-agent artifact upload "assets/*" --log-level error;
