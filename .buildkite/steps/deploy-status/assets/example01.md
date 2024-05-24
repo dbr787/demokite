@@ -1,8 +1,8 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<p class="h6 m0 regular">This paragraph should have no margins.</p>
-
 <p class="h1 pb1">👋 Welcome to Buildkite Annotations</p>
+
+<p class="h6 m0 regular">This paragraph should have no margins.</p>
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
@@ -125,10 +125,10 @@ We can use tables
 
 We can display, resize, and round images
 
-<div class="m0">
-  <img class="rounded m0" src="artifact://assets/man.gif" alt="man-nodding" title="this will be displayed as a tooltip" width="174" />
+<div class="m0 p0">
+  <img class="rounded m0 p0" src="artifact://assets/man.gif" alt="man-nodding" title="this will be displayed as a tooltip" width="174" />
   <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
-  <img class="rounded m0" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
+  <img class="rounded m0 p0" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="64" height="64" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="32" height="32" />
 </div>
