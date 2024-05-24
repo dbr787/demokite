@@ -6,21 +6,9 @@
 
 <p>Let's take a look at some of the things you can do with annotations...</p>
 
-<div class="flex flex-column m0 my0 mb0 p0 border-none">
-  <p class="flex flex-column h6 m0 my0 mb0 py0 border-none regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
-  <p class="flex flex-column h6 m0 my0 mb0 py0 border-none regular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
-</div>
-
 <ul class="h6 list-reset">
-  <li class="mb1 regular">Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ul>
-
-<ul class="h6 list-reset">
-  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></li>
-  <li><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></li>
-  <li>Milk</li>
+  <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the $BUILDKITE_LABEL job and logs in real time</a></li>
+  <li class="mb1 regular"><a href="https://argoproj.github.io/" target="_blank">:argocd: View the deployment in ArgoCD</a></li>
 </ul>
 
 <!-- <div class="flex flex-column m0 p0 border-none">
