@@ -14,6 +14,8 @@ steps:
             value: "parallel-steps"
           - label: ":bird: Simulate automatic retries"
             value: "retry"
+          - label: ":rocket: Demonstrate deployment status"
+            value: "deploy-status"
           - label: ":thumbsup: Pass the build"
             value: "pass"
           - label: ":thumbsdown: Fail the build"
