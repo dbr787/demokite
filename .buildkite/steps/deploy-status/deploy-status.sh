@@ -37,6 +37,9 @@ TIMESTAMP=$(date)
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
+replace_file_var $FILE_PATH "<!--\$ROW_1-->\$" "$ROW_1"
+replace_file_var $FILE_PATH "<!--\$ROW_2-->\$" "$ROW_2"
+replace_file_var $FILE_PATH "<!--\$ROW_3-->\$" "$ROW_3"
 
 printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
 
@@ -46,6 +49,9 @@ TIMESTAMP=$(date)
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">In Progress</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
+replace_file_var $FILE_PATH "<!--\$ROW_1-->\$" "$ROW_1"
+replace_file_var $FILE_PATH "<!--\$ROW_2-->\$" "$ROW_2"
+replace_file_var $FILE_PATH "<!--\$ROW_3-->\$" "$ROW_3"
 
 printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
 
