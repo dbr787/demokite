@@ -1,8 +1,6 @@
 <!-- TODO: Better nested alignment by removing margin next to details chevron '::marker' -->
 
-<h1 class="h1 m0">h1 no margin</h1>
-<h1 class="h1 mt0">h1 no margin top</h1>
-<h1 class="h1 mb0">h1 no margin bottom</h1>
+<p class="h6 m0 regular">This paragraph should have no margins.</p>
 
 <p class="h1 pb1">👋 Welcome to Buildkite Annotations</p>
 
