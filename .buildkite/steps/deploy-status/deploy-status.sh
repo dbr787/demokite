@@ -25,7 +25,7 @@ ROW_3="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td
 replace_file_var $FILE_PATH "\$BUILDKITE_BUILD_URL" "$BUILDKITE_BUILD_URL"
 replace_file_var $FILE_PATH "\$BUILDKITE_JOB_ID" "$BUILDKITE_JOB_ID"
 replace_file_var $FILE_PATH "\$BUILDKITE_LABEL" "$BUILDKITE_LABEL"
-replace_file_var $FILE_PATH "\$ROW_1" "$ROW_1"
+replace_file_var $FILE_PATH "<!--\$ROW_1-->\$" "$ROW_1"
 
 # annotate
 # buildkite-agent annotate 'Example `error` style annotation' --style 'error' --context 'ctx-error'

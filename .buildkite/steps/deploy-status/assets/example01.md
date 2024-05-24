@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      $ROW_1
+      <!--$ROW_1-->
       <tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class="bold orange">In Progress</td> <td>$TIMESTAMP</td> </tr>
       <tr> <td>Octopus</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class="bold green">Successful</td> <td>$TIMESTAMP</td> </tr>
     </tbody>
