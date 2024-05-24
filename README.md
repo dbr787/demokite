@@ -6,6 +6,7 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
 
 ## To Do
 
+- Upload artifact and use metadata to point to current artifact
 - Change for demo again
 - Have a way to update step yaml definitions before upload (i.e. to dynamically randomise or assign step attributes)
 - Update build metadata to allow only choices that haven't already been made
@@ -20,7 +21,7 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
   - Include link to step, image, hyperlinks, link to artifact etc.
 - Demo for redacted environment variables
 
-<!-- 
+<!--
 # to use emojis
 # :thisisfine: for failing build intentionally
 # :perfection: for succeeding build intentionally
