@@ -19,157 +19,19 @@
   </table>
 </div>
 
+---
+
 <ul class="h6 list-reset">
   <li class="mb1 regular"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">:buildkite: View the job in Buildkite ($BUILDKITE_LABEL)</a></li>
   <li class="mb1 regular"><a href="https://argoproj.github.io/" target="_blank">:argocd: View the deployment in ArgoCD</a></li>
 </ul>
 
-<!-- <div class="flex flex-column m0 p0 border-none">
-  <p class="flex flex-column mn2 py0 regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
-  <p class="flex flex-column mn2 py0 regular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
-</div>
-
-<div class="flex flex-column m0 p0 border-none">
-  <p class="flex flex-column my0 py0 regular italic"><a href="$BUILDKITE_BUILD_URL#$BUILDKITE_JOB_ID">View the $BUILDKITE_LABEL job and logs in real time</a></p>
-  <p class="flex flex-column my0 py0 regular italic"><a href="https://argoproj.github.io/" target="_blank">>View the deployment in ArgoCD</a></p>
-</div> -->
-
 ---
 
-<p class="">
-  <span class="regular">We can use </span>
-  <span class="bold black">black</span>
-  <span class="bold gray">gray</span>
-  <span class="bold blue">blue</span>
-  <span class="bold green">green</span>
-  <span class="bold orange">orange</span>
-  <span class="regular">or</span>
-  <span class="bold red">red</span>
-  <span class="regular">font colors</span>
-</p>
-
-<p class="">
-  <span class="h6">We can </span>
-  <span class="h5">use one</span>
-  <span class="h4">of many</span>
-  <span class="h3">different</span>
-  <span class="h2">font</span>
-  <span class="h1">sizes</span>
-</p>
-
-<p class="">
-  <span class="regular">We can use </span>
-  <span class="bold">bold</span>
-  <span class="italic">italic</span>
-  <span><sub>subscript</sub></span>
-  <span><sup>superscript</sup></span>
-  <span class="underline">underline</span>
-  <span class="caps">or all caps</span>
-</p>
-
----
-
-<!-- <p class="h3 pb1">:terminal: When we want to show some code</p> -->
-
-We can use `inline code` to show code inside a paragraph
-
-Or a basic code block
-
-```
-function logSomething(something) {
-  console.log("Something", something);
-}
-```
-
-Or a fancy terminal code block
-
-```term
-\x1b[31mFailure/Error:\x1b[0m \x1b[32mexpect\x1b[0m(new_item.created_at).to eql(now)
-
-\x1b[31m  expected: 2018-06-20 19:42:26.290538462 +0000\x1b[0m
-\x1b[31m       got: 2018-06-20 19:42:26.290538000 +0000\x1b[0m
-
-\x1b[31m  (compared using eql?)\x1b[0m
-```
-
----
-
-Blockquotes and flexbox
-
-<div class="flex">
-  <div class="flex-auto border rounded p2">
-    <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
-    <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-    <blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
-  </div>
-  <div class="flex-auto border rounded p2">
-    <blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
-    <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
-    <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
-  </div>
-</div>
-
-<div class="flex">
-  <div class="flex-auto border p2">
-    <blockquote class="my1 py1 h6 bold">We can use blockquotes</blockquote>
-    <blockquote class="my1 py1 h5 regular italic">In different styles</blockquote>
-    <blockquote class="h4 mt1 mb0 pb0">Or make them nested<blockquote class="h4 mb0 pb0">Deeper<blockquote class="h4 mb0">And deeper</blockquote></blockquote></blockquote>
-  </div>
-  <div class="flex-auto border p2">
-    <blockquote class="mb0 mt1 py1 h3">Or make them bigger</blockquote>
-    <blockquote class="mb0 mt1 py1 h2">And bigger</blockquote>
-    <blockquote class="mb0 mt1 py1 h1">And bigger</blockquote>
-  </div>
-</div>
-
----
-
-<!-- <p class="h3 pb1">:white_check_mark: We can use tables</p> -->
-
-We can use tables
-
-<div class="flex h6 regular overflow-scroll">
-  <div class="flex-none">
-    <table class="border rounded">
-      <thead class="bold">
-        <tr>
-          <th>Artist</th> <th>Album</th> <th>Release Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-        <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-        <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="flex h6 regular overflow-auto">
-  <table class="">
-    <thead>
-      <tr>
-        <th>Artist</th> <th>Album</th> <th>Release Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr> <td>Huey Lewis and the News</td> <td>Sports</td> <td>1983</td> </tr>
-      <tr> <td>Phil Collins</td> <td>No Jacket Required</td> <td>1985</td> </tr>
-      <tr> <td>Peter Gabriel</td> <td>So</td> <td>1986</td> </tr>
-    </tbody>
-  </table>
-</div>
-
----
-
-We can display, resize, and round images
-
-<div class="flex m0 p0 border-none">
-  <img class="flex m0 p0 border-none" src="artifact://assets/man.gif" alt="man-nodding" title="this will be displayed as a tooltip" width="174" />
-  <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
-  <img class="flex m0 p0 border-none" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
-  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="64" height="64" />
-  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="32" height="32" />
+<div class="flex m0 p0 px1 border-none">
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
+  <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
 </div>
 
 ---
