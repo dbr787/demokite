@@ -125,10 +125,10 @@ We can use tables
 
 We can display, resize, and round images
 
-<div class="m0 p0 border-none">
-  <img class="m0 p0 border-none" src="artifact://assets/man.gif" alt="man-nodding" title="this will be displayed as a tooltip" width="174" />
+<div class="flex m0 p0 border-none">
+  <img class="flex m0 p0 border-none" src="artifact://assets/man.gif" alt="man-nodding" title="this will be displayed as a tooltip" width="174" />
   <img class="" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
-  <img class="m0 p0 border-none" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
+  <img class="flex m0 p0 border-none" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="128" height="128" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="64" height="64" />
   <img class="rounded" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="32" height="32" />
 </div>
