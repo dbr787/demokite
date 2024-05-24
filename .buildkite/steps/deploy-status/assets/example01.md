@@ -36,7 +36,7 @@
 
 ---
 
-<details class="pt1">
+<details class="">
   <summary class="h5"><span class="pl1">Expand this section to see font-size options...</span></summary>
   <div class="pl3">
     <p class="h1">Heading 1</p>
