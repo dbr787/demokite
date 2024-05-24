@@ -22,6 +22,7 @@ TEMP_FILE_PATH="./assets/example01-$EPOCH.md"
 cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
+TIMESTAMP=$(date +"%y-%m-%d %H:%M:%S:%3N %Z")
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">:partyparrot: In Progress</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
@@ -35,13 +36,14 @@ replace_file_var $TEMP_FILE_PATH "<!--\$ROW_3-->\$" "$ROW_3"
 
 printf '%b\n' "$(cat $TEMP_FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
 
-sleep 5;
+sleep 10;
 
 EPOCH=$(date +%s)
 TEMP_FILE_PATH="./assets/example01-$EPOCH.md"
 cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
+TIMESTAMP=$(date +"%y-%m-%d %H:%M:%S:%3N %Z")
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">:white_check_mark: Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
@@ -61,6 +63,7 @@ TEMP_FILE_PATH="./assets/example01-$EPOCH.md"
 cp "$FILE_PATH" "$TEMP_FILE_PATH"
 
 TIMESTAMP=$(date)
+TIMESTAMP=$(date +"%y-%m-%d %H:%M:%S:%3N %Z")
 ROW_1="<tr> <td>Bison</td> <td>Development</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold green\">Successful</td> <td>$TIMESTAMP</td> </tr>"
 ROW_2="<tr> <td>Bison</td> <td>Test</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold orange\">In Progress</td> <td>$TIMESTAMP</td> </tr>"
 ROW_3="<tr> <td>Bison</td> <td>Production</td> <td>1a1e395</td> <td>1a1e395</td> <td class=\"bold gray\">Waiting</td> <td>$TIMESTAMP</td> </tr>"
