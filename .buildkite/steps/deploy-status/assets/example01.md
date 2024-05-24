@@ -28,10 +28,10 @@
 
 ---
 
-<div class="flex my0 py0 px1 mx1 border-none">
-  <img class="rounded px1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
-  <img class="rounded px1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
-  <img class="rounded px1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
+<div class="flex m0 p0 border-none">
+  <img class="rounded ml1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
+  <img class="rounded ml1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
+  <img class="rounded ml1" src="https://pbs.twimg.com/profile_images/1709434079639404544/yqsDuoQp_400x400.png" title="this will be displayed as a tooltip" width="24" height="32" />
 </div>
 
 ---
