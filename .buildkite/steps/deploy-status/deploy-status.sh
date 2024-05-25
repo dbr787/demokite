@@ -16,8 +16,8 @@ cd .buildkite/steps/deploy-status/;
 
 # Function to update file content
 update_file() {
-    local template_file="template.html"
-    local output_file="annotation.html"
+    local template_file="./assets/template.html"
+    local output_file="./assets/annotation.html"
     local new_title="$1"
     local new_subtitle="$2"
     local application="$3"
