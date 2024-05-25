@@ -14,8 +14,6 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-#!/bin/bash
-
 update_html_file() {
   local title=""
   local subtitle=""
@@ -102,7 +100,7 @@ update_html_file() {
   escaped_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
   escaped_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
 
-  # Update title and subtitle in HTML content
+  # Update title and subtitle in HTML content using different delimiter
   html_content=$(echo "$html_content" | sed "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$escaped_title</p>|")
   html_content=$(echo "$html_content" | sed "s|<p>{{subtitle}}</p>|<p>$escaped_subtitle</p>|")
 
