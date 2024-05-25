@@ -16,7 +16,7 @@ cd .buildkite/steps/deploy-status/
 
 # Function to escape special characters for sed
 escape_string() {
-    printf '%s\n' "$1" | sed -e 's/[\/&]/\\&/g' -e 's/$/\\/' -e 's/"/\\"/g'
+    printf '%s\n' "$1" | sed -e 's/[\/&]/\\&/g' -e 's/"/\\"/g'
 }
 
 # Function to update file content
@@ -74,18 +74,15 @@ update_file() {
 
     new_table_row=$(escape_string "$new_table_row")
 
+    # Debug: Echo the replacements to ensure correctness
+    echo "Replacing {{title}} with ${new_title}"
+    echo "Replacing {{subtitle}} with ${new_subtitle}"
+    echo "Replacing {{table_rows}} with ${new_table_row}"
+
     # Update the contents of the annotation.html file one placeholder at a time
-    sed_command="sed -i 's/{{title}}/${new_title}/g' ${output_file}"
-    echo "$sed_command"
-    eval "$sed_command"
-
-    sed_command="sed -i 's/{{subtitle}}/${new_subtitle}/g' ${output_file}"
-    echo "$sed_command"
-    eval "$sed_command"
-
-    sed_command="sed -i 's/{{table_rows}}/${new_table_row}/g' ${output_file}"
-    echo "$sed_command"
-    eval "$sed_command"
+    sed -i "s/{{title}}/${new_title}/g" "$output_file"
+    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
