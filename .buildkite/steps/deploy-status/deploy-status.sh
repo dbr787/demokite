@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
-# set -euxo pipefail # print executed commands to the terminal
-set -euo pipefail # don't print executed commands to the terminal
+# set -euo pipefail # don't print executed commands to the terminal
+set -euo pipefail
 
 # source shared functions
-. .buildkite/assets/functions.sh;
+. .buildkite/assets/functions.sh
 
 # capture original working directory
 current_dir=$(pwd)
 current_dir_contents=$(ls -lah "$current_dir")
 
 # change into step directory
-cd .buildkite/steps/deploy-status/;
+cd .buildkite/steps/deploy-status/
 
 # Function to escape special characters for sed
 escape_string() {
@@ -74,10 +74,18 @@ update_file() {
 
     new_table_row=$(escape_string "$new_table_row")
 
+    # Create a temporary file for sed commands
+    temp_file=$(mktemp)
+    cp "$output_file" "$temp_file"
+
     # Update the contents of the annotation.html file
-    sed -i "s/{{title}}/${new_title}/g" "$output_file"
-    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
-    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
+    sed -e "s/{{title}}/${new_title}/g" \
+        -e "s/{{subtitle}}/${new_subtitle}/g" \
+        -e "s/{{table_rows}}/${new_table_row}/g" \
+        "$temp_file" > "$output_file"
+
+    # Remove the temporary file
+    rm "$temp_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
