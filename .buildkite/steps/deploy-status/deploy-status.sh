@@ -14,22 +14,40 @@ current_dir_contents=$(ls -lah "$current_dir")
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
+# Function to escape special characters for sed
+escape_string() {
+    printf '%s\n' "$1" | sed -e 's/[\/&]/\\&/g'
+}
+
 # Function to update file content
 update_file() {
     local template_file="./assets/template.html"
     local output_file="./assets/annotation.html"
-    local new_title="$1"
-    local new_subtitle="$2"
-    local application="$3"
-    local environment="$4"
-    local deployed_version="$5"
-    local new_version="$6"
-    local deployment_status="$7"
-    local deployment_progress="$8"
-    local last_updated="$9"
-    local buildkite_job="${10}"
-    local application_link="${11}"
-    
+    local new_title
+    local new_subtitle
+    local application
+    local environment
+    local deployed_version
+    local new_version
+    local deployment_status
+    local deployment_progress
+    local last_updated
+    local buildkite_job
+    local application_link
+
+    # Assign escaped arguments to variables
+    new_title=$(escape_string "$1")
+    new_subtitle=$(escape_string "$2")
+    application=$(escape_string "$3")
+    environment=$(escape_string "$4")
+    deployed_version=$(escape_string "$5")
+    new_version=$(escape_string "$6")
+    deployment_status=$(escape_string "$7")
+    deployment_progress=$(escape_string "$8")
+    last_updated=$(escape_string "$9")
+    buildkite_job=$(escape_string "${10}")
+    application_link=$(escape_string "${11}")
+
     # Check if the template file exists
     if [[ ! -f "$template_file" ]]; then
         echo "Template file not found!"
@@ -54,13 +72,12 @@ update_file() {
         <td><a href=\"${application_link}\">Link</a></td>
     </tr>"
 
-    # Use a unique delimiter for sed to avoid conflicts with special characters
-    local delimiter="@"
+    new_table_row=$(escape_string "$new_table_row")
 
     # Update the contents of the annotation.html file
-    sed -i "s${delimiter}{{title}}${delimiter}${new_title}${delimiter}g" "$output_file"
-    sed -i "s${delimiter}{{subtitle}}${delimiter}${new_subtitle}${delimiter}g" "$output_file"
-    sed -i "s${delimiter}{{table_rows}}${delimiter}${new_table_row}${delimiter}g" "$output_file"
+    sed -i "s/{{title}}/${new_title}/g" "$output_file"
+    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
