@@ -54,15 +54,13 @@ update_file() {
         <td><a href=\"${application_link}\">Link</a></td>
     </tr>"
 
-    # Escape slashes and ampersands in the replacements
-    local esc_new_title=$(printf '%s\n' "$new_title" | sed 's:[\\/&]:\\&:g')
-    local esc_new_subtitle=$(printf '%s\n' "$new_subtitle" | sed 's:[\\/&]:\\&:g')
-    local esc_new_table_row=$(printf '%s\n' "$new_table_row" | sed 's:[\\/&]:\\&:g')
+    # Use a unique delimiter for sed to avoid conflicts with special characters
+    local delimiter="@"
 
     # Update the contents of the annotation.html file
-    sed -i "s|{{title}}|${esc_new_title}|g" "$output_file"
-    sed -i "s|{{subtitle}}|${esc_new_subtitle}|g" "$output_file"
-    sed -i "s|{{table_rows}}|${esc_new_table_row}|g" "$output_file"
+    sed -i "s${delimiter}{{title}}${delimiter}${new_title}${delimiter}g" "$output_file"
+    sed -i "s${delimiter}{{subtitle}}${delimiter}${new_subtitle}${delimiter}g" "$output_file"
+    sed -i "s${delimiter}{{table_rows}}${delimiter}${new_table_row}${delimiter}g" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
