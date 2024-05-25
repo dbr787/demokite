@@ -14,8 +14,6 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-#!/bin/bash
-
 update_html_table() {
   local application=""
   local environment=""
@@ -140,8 +138,8 @@ update_html_table() {
   html_content=$(cat "$original_html_file")
 
   # Escape variables for sed
-  escaped_title=$(printf '%s\n' "$title" | sed 's/[&/\]/\\&/g')
-  escaped_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[&/\]/\\&/g')
+  escaped_title=$(printf '%s\n' "$title" | sed -e 's/[\/&]/\\&/g')
+  escaped_subtitle=$(printf '%s\n' "$subtitle" | sed -e 's/[\/&]/\\&/g')
 
   # Update title and subtitle if provided
   if [[ -n "$title" ]]; then
@@ -187,6 +185,7 @@ update_html_table \
   --subtitle "This annotation can be used to view the status of deployments" \
   --annotation-style "info" \
   --annotation-context "example"
+
 
 
 
