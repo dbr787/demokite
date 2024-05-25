@@ -79,6 +79,11 @@ update_html_table() {
         shift
         shift
         ;;
+      --html-file)
+        original_html_file="$2"
+        shift
+        shift
+        ;;
       --title)
         title="$2"
         shift
@@ -104,9 +109,6 @@ update_html_table() {
         ;;
     esac
   done
-
-  # Define the main HTML file
-  original_html_file="annotation.html"
 
   # Generate a unique HTML file name using a timestamp suffix
   timestamp=$(date +%Y%m%d%H%M%S)
@@ -156,10 +158,10 @@ EOF
 
   # Update title and subtitle if provided
   if [[ -n "$title" ]]; then
-    html_content=$(echo "$html_content" | sed -e "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$title</p>|")
+    html_content=$(echo "$html_content" | sed "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$title</p>|")
   fi
   if [[ -n "$subtitle" ]]; then
-    html_content=$(echo "$html_content" | sed -e "s|<p>.*</p>|<p>$subtitle</p>|")
+    html_content=$(echo "$html_content" | sed "s|<p>{{subtitle}}</p>|<p>$subtitle</p>|")
   fi
 
   # Check if the row exists
