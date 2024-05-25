@@ -79,10 +79,7 @@ update_file() {
     cp "$output_file" "$temp_file"
 
     # Update the contents of the annotation.html file
-    sed -e "s/{{title}}/${new_title}/g" \
-        -e "s/{{subtitle}}/${new_subtitle}/g" \
-        -e "s/{{table_rows}}/${new_table_row}/g" \
-        "$temp_file" > "$output_file"
+    sed "s/{{title}}/${new_title}/g; s/{{subtitle}}/${new_subtitle}/g; s/{{table_rows}}/${new_table_row}/g" "$temp_file" > "$output_file"
 
     # Remove the temporary file
     rm "$temp_file"
