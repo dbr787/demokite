@@ -14,135 +14,68 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-update_html_file() {
-  local title=""
-  local subtitle=""
-  local application=""
-  local environment=""
-  local deployed_version=""
-  local new_version=""
-  local deployment_status=""
-  local deployment_progress=""
-  local last_updated=""
-  local buildkite_job=""
-  local application_link=""
+# Function to update file content
+update_file() {
+    local template_file="template.html"
+    local output_file="annotation.html"
+    local new_title="$1"
+    local new_subtitle="$2"
+    local application="$3"
+    local environment="$4"
+    local deployed_version="$5"
+    local new_version="$6"
+    local deployment_status="$7"
+    local deployment_progress="$8"
+    local last_updated="$9"
+    local buildkite_job="${10}"
+    local application_link="${11}"
+    
+    # Check if the template file exists
+    if [[ ! -f "$template_file" ]]; then
+        echo "Template file not found!"
+        return 1
+    fi
 
-  while [[ $# -gt 0 ]]; do
-    key="$1"
+    # If annotation.html does not exist, create it from the template
+    if [[ ! -f "$output_file" ]]; then
+        cp "$template_file" "$output_file"
+    fi
 
-    case $key in
-      --title)
-        title="$2"
-        shift
-        shift
-        ;;
-      --subtitle)
-        subtitle="$2"
-        shift
-        shift
-        ;;
-      --application)
-        application="$2"
-        shift
-        shift
-        ;;
-      --environment)
-        environment="$2"
-        shift
-        shift
-        ;;
-      --deployed-version)
-        deployed_version="$2"
-        shift
-        shift
-        ;;
-      --new-version)
-        new_version="$2"
-        shift
-        shift
-        ;;
-      --deployment-status)
-        deployment_status="$2"
-        shift
-        shift
-        ;;
-      --deployment-progress)
-        deployment_progress="$2"
-        shift
-        shift
-        ;;
-      --last-updated)
-        last_updated="$2"
-        shift
-        shift
-        ;;
-      --buildkite-job)
-        buildkite_job="$2"
-        shift
-        shift
-        ;;
-      --application-link)
-        application_link="$2"
-        shift
-        shift
-        ;;
-      *)
-        shift
-        ;;
-    esac
-  done
+    # Create the new table row
+    local new_table_row="<tr>
+        <td>${application}</td>
+        <td>${environment}</td>
+        <td>${deployed_version}</td>
+        <td>${new_version}</td>
+        <td>${deployment_status}</td>
+        <td>${deployment_progress}</td>
+        <td>${last_updated}</td>
+        <td>${buildkite_job}</td>
+        <td><a href=\"${application_link}\">Link</a></td>
+    </tr>"
 
-  # Read the existing HTML template
-  html_file="./assets/template.html"
-  html_content=$(cat "$html_file")
+    # Update the contents of the annotation.html file
+    sed -i "s/{{title}}/${new_title}/g" "$output_file"
+    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
 
-  # Escape variables for sed
-  escaped_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
-  escaped_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
-
-  # Update title and subtitle in HTML content using different delimiter
-  html_content=$(echo "$html_content" | sed "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$escaped_title</p>|")
-  html_content=$(echo "$html_content" | sed "s|<p>{{subtitle}}</p>|<p>$escaped_subtitle</p>|")
-
-  # Generate the new table row
-  new_row=$(cat <<EOF
-    <tr>
-      <td>$application</td>
-      <td>$environment</td>
-      <td>$deployed_version</td>
-      <td>$new_version</td>
-      <td>$deployment_status</td>
-      <td>$deployment_progress</td>
-      <td>$last_updated</td>
-      <td>$buildkite_job</td>
-      <td>$application_link</td>
-    </tr>
-EOF
-)
-
-  # Insert the new row before the </table> tag
-  html_content=$(echo "$html_content" | sed "s|{{table_rows}}|$new_row\n    {{table_rows}}|")
-
-  # Remove the {{table_rows}} placeholder
-  html_content=$(echo "$html_content" | sed "s|{{table_rows}}||")
-
-  # Save the updated HTML content back to the file
-  echo "$html_content" > "$html_file"
+    # Create the timestamped backup of the updated annotation.html
+    local dir_path
+    local file_name
+    dir_path=$(dirname "$output_file")
+    file_name=$(basename "$output_file" .html)
+    local timestamp
+    timestamp=$(date +%Y%m%d%H%M%S)
+    local timestamped_file="${dir_path}/${file_name}_${timestamp}.html"
+    cp "$output_file" "$timestamped_file"
+    
+    echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-# Example usage within a script
-update_html_file \
-  --title "🐥 Buildkite Deployment Status Demo" \
-  --subtitle "This annotation can be used to view the status of deployments" \
-  --application ":bison: Bison" \
-  --environment "Development" \
-  --deployed-version ":github: 1a1e395" \
-  --new-version ":github: c1fcce1" \
-  --deployment-status "In Progress" \
-  --deployment-progress "10" \
-  --last-updated "" \
-  --buildkite-job "Buildkite Job" \
-  --application-link "Application Link"
+# Example usage
+# Uncomment the following line to run the function with arguments
+update_file "New Title" "New Subtitle" "App1" "Env1" "1.0" "1.1" "Success" "100%" "2024-05-25" "Job1" "http://example.com"
+
 
 
 
