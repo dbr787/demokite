@@ -145,14 +145,17 @@ update_file() {
     echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-update_file --title "New Title" \
-            --subtitle "New Subtitle" \
-            --application "App1" \
-            --environment "Env1" \
-            --deployed-version "1.0" \
-            --new-version "1.1" \
-            --deployment-status "Success" \
-            --deployment-progress "100%" \
-            --last-updated "2024-05-25" \
-            --buildkite-job "Job1" \
-            --application-link "http://example.com"
+update_file \
+  --title "🐥 Buildkite Deployment Status Demo" \
+  --subtitle "This annotation can be used to view the status of deployments" \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status "In Progress" \
+  --deployment-progress "10" \
+  --last-updated "" \
+  --buildkite-job "Buildkite Job" \
+  --application-link "Application Link"
+
+printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
