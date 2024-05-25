@@ -11,16 +11,59 @@ set -euo pipefail # don't print executed commands to the terminal
 current_dir=$(pwd)
 current_dir_contents=$(ls -lah $current_dir)
 
-# change into steps/annotations/ directory
+# change into step directory
 cd .buildkite/steps/deploy-status/;
 
-FILE_PATH="./assets/template.html"
-printf '%b\n' "$(cat $FILE_PATH)" | buildkite-agent annotate --style 'info' --context 'example'
+update_html() {
+  json_input=$1
+  html_template=$2
+  html_output=$3
 
+  title=$(jq -r '.annotation.title' "$json_input")
+  subtitle=$(jq -r '.annotation.subtitle' "$json_input")
 
+  # Function to generate table rows
+  generate_rows() {
+    jq -c '.annotation.deployments[]' "$json_input" | while read -r deployment; do
+      application=$(echo "$deployment" | jq -r '.application')
+      environment=$(echo "$deployment" | jq -r '.environment')
+      deployed_version=$(echo "$deployment" | jq -r '.deployed_version')
+      new_version=$(echo "$deployment" | jq -r '.new_version')
+      deployment_status=$(echo "$deployment" | jq -r '.deployment_status')
+      deployment_progress=$(echo "$deployment" | jq -r '.deployment_progress')
+      last_updated=$(echo "$deployment" | jq -r '.last_updated')
+      buildkite_job=$(echo "$deployment" | jq -r '.buildkite_job')
+      application_link=$(echo "$deployment" | jq -r '.application_link')
 
+      echo "    <tr>
+      <td>$application</td>
+      <td>$environment</td>
+      <td>$deployed_version</td>
+      <td>$new_version</td>
+      <td>$deployment_status</td>
+      <td>$deployment_progress</td>
+      <td>$last_updated</td>
+      <td>$buildkite_job</td>
+      <td>$application_link</td>
+    </tr>"
+    done
+  }
 
+  # Generate the table rows
+  table_rows=$(generate_rows)
 
+  # Read the template and replace placeholders
+  sed -e "s|{{title}}|$title|g" \
+      -e "s|{{subtitle}}|$subtitle|g" \
+      -e "/{{table_rows}}/ {
+            r /dev/stdin
+            d
+          }" "$html_template" <<< "$table_rows" > "$html_output"
+}
+
+update_html "./assets/deploy-status.json" "./assets/template.html" "./assets/output.html"
+
+printf '%b\n' "$(cat ./assets/output.html)" | buildkite-agent annotate --style 'info' --context 'example'
 
 
 
