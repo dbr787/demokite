@@ -29,6 +29,7 @@ update_html_table() {
   local subtitle=""
   local annotation_style="info"
   local annotation_context="example"
+  local original_html_file="annotation.html"  # Default value
 
   while [[ $# -gt 0 ]]; do
     key="$1"
