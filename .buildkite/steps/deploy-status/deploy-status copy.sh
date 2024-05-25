@@ -72,8 +72,6 @@ update_file() {
     echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-# Example usage
-# Uncomment the following line to run the function with arguments
 update_file "New Title" "New Subtitle" "App1" "Env1" "1.0" "1.1" "Success" "100%" "2024-05-25" "Job1" "http://example.com"
 
 

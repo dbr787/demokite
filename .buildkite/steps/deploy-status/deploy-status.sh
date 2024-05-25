@@ -9,7 +9,7 @@ set -euo pipefail # don't print executed commands to the terminal
 
 # capture original working directory
 current_dir=$(pwd)
-current_dir_contents=$(ls -lah $current_dir)
+current_dir_contents=$(ls -lah "$current_dir")
 
 # change into step directory
 cd .buildkite/steps/deploy-status/;
@@ -54,10 +54,15 @@ update_file() {
         <td><a href=\"${application_link}\">Link</a></td>
     </tr>"
 
+    # Escape slashes and ampersands in the replacements
+    local esc_new_title=$(printf '%s\n' "$new_title" | sed 's:[\\/&]:\\&:g')
+    local esc_new_subtitle=$(printf '%s\n' "$new_subtitle" | sed 's:[\\/&]:\\&:g')
+    local esc_new_table_row=$(printf '%s\n' "$new_table_row" | sed 's:[\\/&]:\\&:g')
+
     # Update the contents of the annotation.html file
-    sed -i "s/{{title}}/${new_title}/g" "$output_file"
-    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
-    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
+    sed -i "s|{{title}}|${esc_new_title}|g" "$output_file"
+    sed -i "s|{{subtitle}}|${esc_new_subtitle}|g" "$output_file"
+    sed -i "s|{{table_rows}}|${esc_new_table_row}|g" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
