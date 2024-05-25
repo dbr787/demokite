@@ -74,15 +74,10 @@ update_file() {
 
     new_table_row=$(escape_string "$new_table_row")
 
-    # Create a temporary file for sed commands
-    temp_file=$(mktemp)
-    cp "$output_file" "$temp_file"
-
-    # Update the contents of the annotation.html file
-    sed "s/{{title}}/${new_title}/g; s/{{subtitle}}/${new_subtitle}/g; s/{{table_rows}}/${new_table_row}/g" "$temp_file" > "$output_file"
-
-    # Remove the temporary file
-    rm "$temp_file"
+    # Update the contents of the annotation.html file one placeholder at a time
+    sed -i "s/{{title}}/${new_title}/g" "$output_file"
+    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    sed -i "s/{{table_rows}}/${new_table_row}/g" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
