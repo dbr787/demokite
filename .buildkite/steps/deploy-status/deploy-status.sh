@@ -14,7 +14,11 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-update_html_table() {
+#!/bin/bash
+
+update_html_file() {
+  local title=""
+  local subtitle=""
   local application=""
   local environment=""
   local deployed_version=""
@@ -24,16 +28,21 @@ update_html_table() {
   local last_updated=""
   local buildkite_job=""
   local application_link=""
-  local title=""
-  local subtitle=""
-  local annotation_style="info"
-  local annotation_context="example"
-  local original_html_file="annotation.html"  # Default value
 
   while [[ $# -gt 0 ]]; do
     key="$1"
 
     case $key in
+      --title)
+        title="$2"
+        shift
+        shift
+        ;;
+      --subtitle)
+        subtitle="$2"
+        shift
+        shift
+        ;;
       --application)
         application="$2"
         shift
@@ -79,49 +88,27 @@ update_html_table() {
         shift
         shift
         ;;
-      --html-file)
-        original_html_file="$2"
-        shift
-        shift
-        ;;
-      --title)
-        title="$2"
-        shift
-        shift
-        ;;
-      --subtitle)
-        subtitle="$2"
-        shift
-        shift
-        ;;
-      --annotation-style)
-        annotation_style="$2"
-        shift
-        shift
-        ;;
-      --annotation-context)
-        annotation_context="$2"
-        shift
-        shift
-        ;;
       *)
         shift
         ;;
     esac
   done
 
-  # Generate a unique HTML file name using a timestamp suffix
-  timestamp=$(date +%Y%m%d%H%M%S)
-  html_file="${original_html_file%.html}_$timestamp.html"
+  # Read the existing HTML template
+  html_file="./assets/template.html"
+  html_content=$(cat "$html_file")
 
-  # Check if the original HTML file exists, use template if not
-  if [ ! -f "$original_html_file" ]; then
-    cp ./assets/template.html "$original_html_file"
-  fi
+  # Escape variables for sed
+  escaped_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
+  escaped_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
 
-  # Function to generate table row
-  generate_row() {
-    echo "    <tr>
+  # Update title and subtitle in HTML content
+  html_content=$(echo "$html_content" | sed "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$escaped_title</p>|")
+  html_content=$(echo "$html_content" | sed "s|<p>{{subtitle}}</p>|<p>$escaped_subtitle</p>|")
+
+  # Generate the new table row
+  new_row=$(cat <<EOF
+    <tr>
       <td>$application</td>
       <td>$environment</td>
       <td>$deployed_version</td>
@@ -131,60 +118,34 @@ update_html_table() {
       <td>$last_updated</td>
       <td>$buildkite_job</td>
       <td>$application_link</td>
-    </tr>"
-  }
+    </tr>
+EOF
+)
 
-  # Read existing HTML content
-  html_content=$(cat "$original_html_file")
+  # Insert the new row before the </table> tag
+  html_content=$(echo "$html_content" | sed "s|{{table_rows}}|$new_row\n    {{table_rows}}|")
 
-  # Escape variables for sed
-  escaped_title=$(printf '%s\n' "$title" | sed -e 's/[\/&]/\\&/g')
-  escaped_subtitle=$(printf '%s\n' "$subtitle" | sed -e 's/[\/&]/\\&/g')
+  # Remove the {{table_rows}} placeholder
+  html_content=$(echo "$html_content" | sed "s|{{table_rows}}||")
 
-  # Update title and subtitle if provided
-  if [[ -n "$title" ]]; then
-    html_content=$(echo "$html_content" | sed "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$escaped_title</p>|")
-  fi
-  if [[ -n "$subtitle" ]]; then
-    html_content=$(echo "$html_content" | sed "s|<p>{{subtitle}}</p>|<p>$escaped_subtitle</p>|")
-  fi
-
-  # Check if the row exists
-  if grep -q "<td>$application</td><td>$environment</td>" <<< "$html_content"; then
-    # Update existing row
-    updated_row=$(generate_row)
-    html_content=$(echo "$html_content" | sed -z "s|<tr>\n.*<td>$application</td><td>$environment</td>.*\n</tr>|$updated_row|")
-  else
-    # Add new row
-    new_row=$(generate_row)
-    html_content=$(echo "$html_content" | sed "s|</table>|$new_row\n</table>|")
-  fi
-
-  # Save the updated HTML content to the new file
+  # Save the updated HTML content back to the file
   echo "$html_content" > "$html_file"
-
-  # Also update the original HTML file
-  echo "$html_content" > "$original_html_file"
-
-  # Run the buildkite-agent annotate command
-  printf '%b\n' "$(cat "$html_file")" | buildkite-agent annotate --style "$annotation_style" --context "$annotation_context"
 }
 
 # Example usage within a script
-update_html_table \
-  --application "Bison" \
+update_html_file \
+  --title "🐥 Buildkite Deployment Status Demo" \
+  --subtitle "This annotation can be used to view the status of deployments" \
+  --application ":bison: Bison" \
   --environment "Development" \
-  --deployed-version " 1a1e395" \
-  --new-version " c1fcce1" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
   --deployment-status "In Progress" \
   --deployment-progress "10" \
   --last-updated "" \
   --buildkite-job "Buildkite Job" \
-  --application-link "Application Link" \
-  --title "🐥 Buildkite Deployment Status Demo" \
-  --subtitle "This annotation can be used to view the status of deployments" \
-  --annotation-style "info" \
-  --annotation-context "example"
+  --application-link "Application Link"
+
 
 
 
