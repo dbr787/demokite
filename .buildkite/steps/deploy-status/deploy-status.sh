@@ -172,10 +172,10 @@ update_html_table() {
 
 # Example usage within a script
 update_html_table \
-  --application ":bison: Bison" \
+  --application "Bison" \
   --environment "Development" \
-  --deployed-version ":github: 1a1e395" \
-  --new-version ":github: c1fcce1" \
+  --deployed-version " 1a1e395" \
+  --new-version " c1fcce1" \
   --deployment-status "In Progress" \
   --deployment-progress "10" \
   --last-updated "" \
