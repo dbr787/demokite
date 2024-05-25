@@ -18,73 +18,17 @@ cd .buildkite/steps/deploy-status/
 update_file() {
     local template_file="./assets/template.html"
     local output_file="./assets/annotation.html"
-
-    # Named parameters
-    local new_title
-    local new_subtitle
-    local application
-    local environment
-    local deployed_version
-    local new_version
-    local deployment_status
-    local deployment_progress
-    local last_updated
-    local buildkite_job
-    local application_link
-
-    # Parsing named parameters
-    while [[ $# -gt 0 ]]; do
-        case "$1" in
-            --title)
-                new_title="$2"
-                shift 2
-                ;;
-            --subtitle)
-                new_subtitle="$2"
-                shift 2
-                ;;
-            --application)
-                application="$2"
-                shift 2
-                ;;
-            --environment)
-                environment="$2"
-                shift 2
-                ;;
-            --deployed-version)
-                deployed_version="$2"
-                shift 2
-                ;;
-            --new-version)
-                new_version="$2"
-                shift 2
-                ;;
-            --deployment-status)
-                deployment_status="$2"
-                shift 2
-                ;;
-            --deployment-progress)
-                deployment_progress="$2"
-                shift 2
-                ;;
-            --last-updated)
-                last_updated="$2"
-                shift 2
-                ;;
-            --buildkite-job)
-                buildkite_job="$2"
-                shift 2
-                ;;
-            --application-link)
-                application_link="$2"
-                shift 2
-                ;;
-            *)
-                echo "Unknown parameter: $1"
-                exit 1
-                ;;
-        esac
-    done
+    local new_title="$1"
+    local new_subtitle="$2"
+    local application="$3"
+    local environment="$4"
+    local deployed_version="$5"
+    local new_version="$6"
+    local deployment_status="$7"
+    local deployment_progress="$8"
+    local last_updated="$9"
+    local buildkite_job="${10}"
+    local application_link="${11}"
 
     # Check if the template file exists
     if [[ ! -f "$template_file" ]]; then
@@ -110,27 +54,21 @@ update_file() {
         <td><a href=\"${application_link}\">Link</a></td>
     </tr>"
 
-    # Read the content of the annotation.html file and update or add the row
-    awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" -v title="$new_title" -v subtitle="$new_subtitle" '
-    BEGIN { row_exists = 0 }
-    /<tr>/ {
-        if ($0 ~ "<td>" app "</td>" && $0 ~ "<td>" env "</td>") {
-            print new_row
-            row_exists = 1
-            next
-        }
-    }
-    { print }
-    END {
-        if (row_exists == 0) {
-            gsub(/{{table_rows}}/, new_row)
-        }
-    }
-    ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
+    # Debug: Echo the replacements to ensure correctness
+    echo "Replacing {{title}} with ${new_title}"
+    echo "Replacing {{subtitle}} with ${new_subtitle}"
+    echo "Replacing {{table_rows}} with ${new_table_row}"
 
-    # Update the title and subtitle
-    sed -i "s/{{title}}/${new_title}/g" "$output_file"
-    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    # Use awk to update the contents of the annotation.html file
+    awk -v title="$new_title" \
+        -v subtitle="$new_subtitle" \
+        -v table_rows="$new_table_row" \
+        '{
+            gsub(/{{title}}/, title);
+            gsub(/{{subtitle}}/, subtitle);
+            gsub(/{{table_rows}}/, table_rows);
+            print
+        }' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
@@ -145,30 +83,9 @@ update_file() {
     echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-update_file \
-  --title "New Title" \
-  --subtitle "New Subtitle" \
-  --application "App1" \
-  --environment "Env1" \
-  --deployed-version "1.0" \
-  --new-version "1.1" \
-  --deployment-status "Success" \
-  --deployment-progress "100%" \
-  --last-updated "2024-05-25" \
-  --buildkite-job "Job1" \
-  --application-link "http://example.com"
+update_file "New Title" "New Subtitle" "App1" "Env1" "1.0" "1.1" "Success" "100%" "2024-05-25" "Job1" "http://example.com"
 
-# update_file \
-#   --title "🐥 Buildkite Deployment Status Demo" \
-#   --subtitle "This annotation can be used to view the status of deployments" \
-#   --application ":bison: Bison" \
-#   --environment "Development" \
-#   --deployed-version ":github: 1a1e395" \
-#   --new-version ":github: c1fcce1" \
-#   --deployment-status "In Progress" \
-#   --deployment-progress "10" \
-#   --last-updated "" \
-#   --buildkite-job "Buildkite Job" \
-#   --application-link "Application Link"
+ls -lah .
+ls -lah ./assets
 
 printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
