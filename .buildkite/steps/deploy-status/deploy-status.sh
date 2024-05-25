@@ -14,7 +14,6 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-
 update_html_table() {
   local application=""
   local environment=""
@@ -115,28 +114,9 @@ update_html_table() {
   timestamp=$(date +%Y%m%d%H%M%S)
   html_file="${original_html_file%.html}_$timestamp.html"
 
-  # Check if the original HTML file exists, create if not
+  # Check if the original HTML file exists, use template if not
   if [ ! -f "$original_html_file" ]; then
-    cat <<EOF > "$original_html_file"
-<p class="h3 pb1">{{title}}</p>
-<p>{{subtitle}}</p>
-<div class="flex h6 regular overflow-auto">
-  <table>
-    <tr>
-      <th>Application</th>
-      <th>Environment</th>
-      <th>Deployed Version</th>
-      <th>New Version</th>
-      <th>Deployment Status</th>
-      <th>Deployment Progress</th>
-      <th>Last Updated</th>
-      <th>Buildkite Job</th>
-      <th>Application Link</th>
-    </tr>
-    {{table_rows}}
-  </table>
-</div>
-EOF
+    cp ./assets/template.html "$original_html_file"
   fi
 
   # Function to generate table row
@@ -201,6 +181,7 @@ update_html_table \
   --subtitle "This annotation can be used to view the status of deployments" \
   --annotation-style "info" \
   --annotation-context "example"
+
 
 
 
