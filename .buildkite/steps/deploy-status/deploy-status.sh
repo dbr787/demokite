@@ -14,28 +14,131 @@ current_dir_contents=$(ls -lah $current_dir)
 # change into step directory
 cd .buildkite/steps/deploy-status/;
 
-update_html() {
-  json_input=$1
-  html_template=$2
-  html_output=$3
 
-  title=$(jq -r '.annotation.title' "$json_input")
-  subtitle=$(jq -r '.annotation.subtitle' "$json_input")
+update_html_table() {
+  local application=""
+  local environment=""
+  local deployed_version=""
+  local new_version=""
+  local deployment_status=""
+  local deployment_progress=""
+  local last_updated=""
+  local buildkite_job=""
+  local application_link=""
+  local title=""
+  local subtitle=""
+  local annotation_style="info"
+  local annotation_context="example"
 
-  # Function to generate table rows
-  generate_rows() {
-    jq -c '.annotation.deployments[]' "$json_input" | while read -r deployment; do
-      application=$(echo "$deployment" | jq -r '.application')
-      environment=$(echo "$deployment" | jq -r '.environment')
-      deployed_version=$(echo "$deployment" | jq -r '.deployed_version')
-      new_version=$(echo "$deployment" | jq -r '.new_version')
-      deployment_status=$(echo "$deployment" | jq -r '.deployment_status')
-      deployment_progress=$(echo "$deployment" | jq -r '.deployment_progress')
-      last_updated=$(echo "$deployment" | jq -r '.last_updated')
-      buildkite_job=$(echo "$deployment" | jq -r '.buildkite_job')
-      application_link=$(echo "$deployment" | jq -r '.application_link')
+  while [[ $# -gt 0 ]]; do
+    key="$1"
 
-      echo "    <tr>
+    case $key in
+      --application)
+        application="$2"
+        shift
+        shift
+        ;;
+      --environment)
+        environment="$2"
+        shift
+        shift
+        ;;
+      --deployed-version)
+        deployed_version="$2"
+        shift
+        shift
+        ;;
+      --new-version)
+        new_version="$2"
+        shift
+        shift
+        ;;
+      --deployment-status)
+        deployment_status="$2"
+        shift
+        shift
+        ;;
+      --deployment-progress)
+        deployment_progress="$2"
+        shift
+        shift
+        ;;
+      --last-updated)
+        last_updated="$2"
+        shift
+        shift
+        ;;
+      --buildkite-job)
+        buildkite_job="$2"
+        shift
+        shift
+        ;;
+      --application-link)
+        application_link="$2"
+        shift
+        shift
+        ;;
+      --title)
+        title="$2"
+        shift
+        shift
+        ;;
+      --subtitle)
+        subtitle="$2"
+        shift
+        shift
+        ;;
+      --annotation-style)
+        annotation_style="$2"
+        shift
+        shift
+        ;;
+      --annotation-context)
+        annotation_context="$2"
+        shift
+        shift
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
+
+  # Define the main HTML file
+  original_html_file="annotation.html"
+
+  # Generate a unique HTML file name using a timestamp suffix
+  timestamp=$(date +%Y%m%d%H%M%S)
+  html_file="${original_html_file%.html}_$timestamp.html"
+
+  # Check if the original HTML file exists, create if not
+  if [ ! -f "$original_html_file" ]; then
+    cat <<EOF > "$original_html_file"
+<p class="h3 pb1">{{title}}</p>
+<p>{{subtitle}}</p>
+<div class="flex h6 regular overflow-auto">
+  <table>
+    <tr>
+      <th>Application</th>
+      <th>Environment</th>
+      <th>Deployed Version</th>
+      <th>New Version</th>
+      <th>Deployment Status</th>
+      <th>Deployment Progress</th>
+      <th>Last Updated</th>
+      <th>Buildkite Job</th>
+      <th>Application Link</th>
+    </tr>
+    {{table_rows}}
+  </table>
+</div>
+EOF
+  fi
+
+  # Function to generate table row
+  generate_row() {
+    echo "    <tr>
       <td>$application</td>
       <td>$environment</td>
       <td>$deployed_version</td>
@@ -46,24 +149,132 @@ update_html() {
       <td>$buildkite_job</td>
       <td>$application_link</td>
     </tr>"
-    done
   }
 
-  # Generate the table rows
-  table_rows=$(generate_rows)
+  # Read existing HTML content
+  html_content=$(cat "$original_html_file")
 
-  # Read the template and replace placeholders
-  sed -e "s|{{title}}|$title|g" \
-      -e "s|{{subtitle}}|$subtitle|g" \
-      -e "/{{table_rows}}/ {
-            r /dev/stdin
-            d
-          }" "$html_template" <<< "$table_rows" > "$html_output"
+  # Update title and subtitle if provided
+  if [[ -n "$title" ]]; then
+    html_content=$(echo "$html_content" | sed -e "s|<p class=\"h3 pb1\">.*</p>|<p class=\"h3 pb1\">$title</p>|")
+  fi
+  if [[ -n "$subtitle" ]]; then
+    html_content=$(echo "$html_content" | sed -e "s|<p>.*</p>|<p>$subtitle</p>|")
+  fi
+
+  # Check if the row exists
+  if grep -q "<td>$application</td><td>$environment</td>" <<< "$html_content"; then
+    # Update existing row
+    updated_row=$(generate_row)
+    html_content=$(echo "$html_content" | sed -z "s|<tr>\n.*<td>$application</td><td>$environment</td>.*\n</tr>|$updated_row|")
+  else
+    # Add new row
+    new_row=$(generate_row)
+    html_content=$(echo "$html_content" | sed "s|</table>|$new_row\n</table>|")
+  fi
+
+  # Save the updated HTML content to the new file
+  echo "$html_content" > "$html_file"
+
+  # Also update the original HTML file
+  echo "$html_content" > "$original_html_file"
+
+  # Run the buildkite-agent annotate command
+  printf '%b\n' "$(cat "$html_file")" | buildkite-agent annotate --style "$annotation_style" --context "$annotation_context"
 }
 
-update_html "./assets/deploy-status.json" "./assets/template.html" "./assets/output.html"
+# Example usage within a script
+update_html_table \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status "In Progress" \
+  --deployment-progress "10" \
+  --last-updated "" \
+  --buildkite-job "Buildkite Job" \
+  --application-link "Application Link" \
+  --title "🐥 Buildkite Deployment Status Demo" \
+  --subtitle "This annotation can be used to view the status of deployments" \
+  --annotation-style "info" \
+  --annotation-context "example"
 
-printf '%b\n' "$(cat ./assets/output.html)" | buildkite-agent annotate --style 'info' --context 'example'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# update_html() {
+#   json_input=$1
+#   html_template=$2
+#   html_output=$3
+
+#   title=$(jq -r '.annotation.title' "$json_input")
+#   subtitle=$(jq -r '.annotation.subtitle' "$json_input")
+
+#   # Function to generate table rows
+#   generate_rows() {
+#     jq -c '.annotation.deployments[]' "$json_input" | while read -r deployment; do
+#       application=$(echo "$deployment" | jq -r '.application')
+#       environment=$(echo "$deployment" | jq -r '.environment')
+#       deployed_version=$(echo "$deployment" | jq -r '.deployed_version')
+#       new_version=$(echo "$deployment" | jq -r '.new_version')
+#       deployment_status=$(echo "$deployment" | jq -r '.deployment_status')
+#       deployment_progress=$(echo "$deployment" | jq -r '.deployment_progress')
+#       last_updated=$(echo "$deployment" | jq -r '.last_updated')
+#       buildkite_job=$(echo "$deployment" | jq -r '.buildkite_job')
+#       application_link=$(echo "$deployment" | jq -r '.application_link')
+
+#       echo "    <tr>
+#       <td>$application</td>
+#       <td>$environment</td>
+#       <td>$deployed_version</td>
+#       <td>$new_version</td>
+#       <td>$deployment_status</td>
+#       <td>$deployment_progress</td>
+#       <td>$last_updated</td>
+#       <td>$buildkite_job</td>
+#       <td>$application_link</td>
+#     </tr>"
+#     done
+#   }
+
+#   # Generate the table rows
+#   table_rows=$(generate_rows)
+
+#   # Read the template and replace placeholders
+#   sed -e "s|{{title}}|$title|g" \
+#       -e "s|{{subtitle}}|$subtitle|g" \
+#       -e "/{{table_rows}}/ {
+#             r /dev/stdin
+#             d
+#           }" "$html_template" <<< "$table_rows" > "$html_output"
+# }
+
+# HTML_TEMPLATE="./assets/template.html"
+# HTML_OUTPUT="./assets/output.html"
+# JSON_INPUT="./assets/deploy-status.json"
+
+# update_html "./assets/deploy-status.json" "./assets/template.html" "./assets/output.html"
+
+# printf '%b\n' "$(cat ./assets/output.html)" | buildkite-agent annotate --style 'info' --context 'example'
 
 
 
