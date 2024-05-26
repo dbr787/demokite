@@ -249,9 +249,11 @@ update_files() {
 }
 
 update_files \
+
+
+update_files \
   --title "New Title" \
   --subtitle "New Subtitle" \
-  --style "success" \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: BLAH" \
@@ -264,15 +266,16 @@ update_files \
 
 sleep 5
 update_files \
-  --title "Another New Title"
+  --title "Updated Title"
 
 sleep 5
 update_files \
-  --title "Another Another New Title"
+  --title "Another Updated Title" \
+  --style "success" \
 
 sleep 5
 update_files \
-  --subtitle "Another New Subtitle"
+  --subtitle "Updated Subtitle"
 
 sleep 5
 update_files \

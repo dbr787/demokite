@@ -27,7 +27,7 @@
       "application_link": "Application Link"
     },
     {
-      "application": ":hippopotamus: Hippopotamus",
+      "application": ":orangutan: Orangutan",
       "environment": "Production",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
