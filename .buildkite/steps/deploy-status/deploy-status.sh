@@ -111,9 +111,10 @@ update_file() {
     </tr>"
 
     # Read the content of the annotation.html file and update or add the row
-    awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" -v title="$new_title" -v subtitle="$new_subtitle" '
+    local table_rows_content
+    table_rows_content=$(awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" '
     BEGIN { row_exists = 0 }
-    {
+    /<tr>/ {
         if ($0 ~ "<td>" app "</td>" && $0 ~ "<td>" env "</td>") {
             if (!row_exists) {
                 print new_row
@@ -125,8 +126,18 @@ update_file() {
     }
     END {
         if (!row_exists) {
-            sub(/{{table_rows}}/, new_row "\n{{table_rows}}")
+            print new_row
         }
+    }
+    ' "$output_file")
+
+    # Replace {{table_rows}} with the new content
+    awk -v new_table_rows="$table_rows_content" '
+    {
+        if ($0 ~ /{{table_rows}}/) {
+            gsub(/{{table_rows}}/, new_table_rows)
+        }
+        print
     }
     ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
 
