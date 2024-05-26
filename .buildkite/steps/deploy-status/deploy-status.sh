@@ -101,6 +101,23 @@ update_json() {
     echo "Contents of the original JSON file:"
     cat "$json_file"
 
+    # Check if at least one meaningful parameter is provided
+    if [[ -z "$new_title" && -z "$new_subtitle" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
+        echo "No parameters provided. No updates will be made to the JSON file."
+        return
+    fi
+
+    # Ensure at least application and environment are provided for deployment updates
+    if [[ -n "$application" && -z "$environment" ]]; then
+        echo "Environment parameter is missing. No updates will be made to the JSON file."
+        return
+    fi
+
+    if [[ -z "$application" && -n "$environment" ]]; then
+        echo "Application parameter is missing. No updates will be made to the JSON file."
+        return
+    fi
+
     # Update the JSON file
     updated_json=$(jq 'if $new_title != "" then .title = $new_title else . end |
         if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
@@ -187,22 +204,6 @@ update_json \
 sleep 5
 update_json \
   --environment "MyNewEnv"
-
-sleep 5
-update_json \
-  --application "BothApp" \
-  --environment "BothEnv"
-
-sleep 5
-update_json \
-  --application "BothApp" \
-  --environment "BothEnv" \
-  --deployed-version "BothDeployed" \
-
-sleep 5
-update_json \
-  --application ":bison: Bison" \
-  --deployed-version "POOP" \
 
 # List the contents of the directory to verify
 ls -lah ./assets/
