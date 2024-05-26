@@ -216,9 +216,14 @@ update_html() {
         return 1
     fi
 
+    # If annotation.html does not exist, create it from the template
+    if [[ ! -f "$html_output_file" ]]; then
+        cp "$html_template_file" "$html_output_file"
+    fi
+
     # Display contents of the original HTML file for troubleshooting
     echo "Contents of the original HTML file:"
-    cat "$html_template_file"
+    cat "$html_output_file"
 
     # Read values from the JSON file
     local title
@@ -244,7 +249,18 @@ update_html() {
     # Save the updated HTML content to the output file
     echo "$html_content" > "$html_output_file"
 
+    # Create the timestamped backup of the updated HTML file
+    local dir_path
+    local file_name
+    dir_path=$(dirname "$html_output_file")
+    file_name=$(basename "$html_output_file" .html)
+    local timestamp
+    timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
+    local timestamped_file="${dir_path}/${file_name}-${timestamp}.html"
+    cp "$html_output_file" "$timestamped_file"
+
     echokite "HTML file updated successfully: $html_output_file" green none normal
+    echokite "Timestamped backup created at: $timestamped_file" green none normal
 }
 
 update_json \
