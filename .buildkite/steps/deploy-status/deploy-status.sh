@@ -172,21 +172,26 @@ update_json \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
 
-sleep 5;
+sleep 5
 update_json \
   --title "Another New Title"
 
-sleep 5;
+sleep 5
 update_json \
   --subtitle "Another New Subtitle"
 
-sleep 5;
+sleep 5
 update_json \
   --application "MyNewApp"
 
-sleep 5;
+sleep 5
 update_json \
   --environment "MyNewEnv"
+
+sleep 5
+update_json \
+  --application "BothApp" \
+  --environment "BothEnv"
 
 # List the contents of the directory to verify
 ls -lah ./assets/
