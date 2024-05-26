@@ -254,7 +254,6 @@ update_files \
   --title "New Title" \
   --subtitle "New Subtitle" \
   --style "success" \
-  --context "deploy-01" \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: BLAH" \
@@ -264,9 +263,6 @@ update_files \
   --last-updated "" \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
-
-# ANNOTATION_FILE="./assets/annotation.html"
-# printf '%b\n' "$(cat $ANNOTATION_FILE)" | buildkite-agent annotate --style 'info' --context 'example'
 
 sleep 5
 update_files \
@@ -284,19 +280,15 @@ sleep 5
 update_files \
   --style "warning"
 
+# shouldn't work
 sleep 5
 update_files \
-  --style "success"
+  --application "MyNewApp"
 
-# # shouldn't work
-# sleep 5
-# update_files \
-#   --application "MyNewApp"
-
-# # shouldn't work
-# sleep 5
-# update_files \
-#   --environment "MyNewEnv"
+# shouldn't work
+sleep 5
+update_files \
+  --environment "MyNewEnv"
 
 # create new row (kind of blank)
 sleep 5
@@ -304,15 +296,15 @@ update_files \
   --application "MyNewApp" \
   --environment "MyNewEnv"
 
-# # shouldn't work
-# sleep 5
-# update_files \
-#   --deployed-version "MyNewEnv"
+# shouldn't work
+sleep 5
+update_files \
+  --deployed-version "MyNewEnv"
 
-# # shouldn't work
-# sleep 5
-# update_files \
-#   --last-updated "ages ago"
+# shouldn't work
+sleep 5
+update_files \
+  --last-updated "ages ago"
 
 # List the contents of the directory to verify
 ls -lah ./assets/
