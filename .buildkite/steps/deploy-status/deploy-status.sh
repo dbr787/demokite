@@ -20,10 +20,10 @@ update_json() {
     local json_file="./assets/deployment.json"
 
     # Named parameters with default values
-    local new_title=""
-    local new_subtitle=""
-    local new_style=""
-    local new_context=""
+    local title=""
+    local subtitle=""
+    local style=""
+    local context=""
     local application=""
     local environment=""
     local deployed_version=""
@@ -38,19 +38,19 @@ update_json() {
     while [[ $# -gt 0 ]]; do
         case "$1" in
             --title)
-                new_title="$2"
+                title="$2"
                 shift 2
                 ;;
             --subtitle)
-                new_subtitle="$2"
+                subtitle="$2"
                 shift 2
                 ;;
             --style)
-                new_style="$2"
+                style="$2"
                 shift 2
                 ;;
             --context)
-                new_context="$2"
+                context="$2"
                 shift 2
                 ;;
             --application)
@@ -112,7 +112,7 @@ update_json() {
     cat "$json_file"
 
     # Check if any meaningful parameter is provided
-    if [[ -z "$new_title" && -z "$new_subtitle" && -z "$new_style" && -z "$new_context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
+    if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
         echokite "No parameters provided. No updates will be made to the JSON file." red none normal
         return
     fi
@@ -137,10 +137,10 @@ update_json() {
     fi
 
     # Update the JSON file
-    updated_json=$(jq 'if $new_title != "" then .title = $new_title else . end |
-        if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
-        if $new_style != "" then .style = $new_style else . end |
-        if $new_context != "" then .context = $new_context else . end |
+    updated_json=$(jq 'if $title != "" then .title = $title else . end |
+        if $subtitle != "" then .subtitle = $subtitle else . end |
+        if $style != "" then .style = $style else . end |
+        if $context != "" then .context = $context else . end |
         if $application != "" and $environment != "" then 
             .deployments |= (map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
@@ -162,10 +162,10 @@ update_json() {
                 "buildkite_job": $buildkite_job,
                 "application_link": $application_link
             }] end)
-        else . end' --arg new_title "$new_title" \
-                    --arg new_subtitle "$new_subtitle" \
-                    --arg new_style "$new_style" \
-                    --arg new_context "$new_context" \
+        else . end' --arg title "$title" \
+                    --arg subtitle "$subtitle" \
+                    --arg style "$style" \
+                    --arg context "$context" \
                     --arg application "$application" \
                     --arg environment "$environment" \
                     --arg deployed_version "$deployed_version" \
@@ -268,7 +268,6 @@ update_html() {
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 }
 
-sleep 1
 update_json \
   --title "New Title" \
   --subtitle "New Subtitle" \
@@ -283,6 +282,7 @@ update_json \
   --last-updated "" \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
+
 sleep 1
 update_html
 
