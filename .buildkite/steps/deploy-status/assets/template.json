@@ -15,7 +15,7 @@
     },
     {
       "application": ":bison: Bison",
-      "environment": "Development",
+      "environment": "Test",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
       "deployment_status": "In Progress",
@@ -25,8 +25,8 @@
       "application_link": "Application Link"
     },
     {
-      "application": ":bison: Bison",
-      "environment": "Development",
+      "application": ":hippopotamus: Hippopotamus",
+      "environment": "Production",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
       "deployment_status": "In Progress",
