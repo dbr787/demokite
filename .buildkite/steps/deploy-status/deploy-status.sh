@@ -14,10 +14,12 @@ current_dir_contents=$(ls -lah "$current_dir")
 # change into step directory
 cd .buildkite/steps/deploy-status/
 
-# Function to update the JSON file
-update_json() {
-    local template_file="./assets/template.json"
-    local json_file="./assets/deployment.json"
+# Function to update the JSON and HTML files
+update_files() {
+    local json_template_file="./assets/template.json"
+    local json_output_file="./assets/annotation.json"
+    local html_template_file="./assets/template.html"
+    local html_output_file="./assets/annotation.html"
 
     # Named parameters with default values
     local title=""
@@ -96,20 +98,20 @@ update_json() {
         esac
     done
 
-    # Check if the template file exists
-    if [[ ! -f "$template_file" ]]; then
-        echokite "Template file not found!" red none normal
+    # Check if the template JSON file exists
+    if [[ ! -f "$json_template_file" ]]; then
+        echokite "Template JSON file not found!" red none normal
         return 1
     fi
 
-    # If deployment.json does not exist, create it from the template
-    if [[ ! -f "$json_file" ]]; then
-        cp "$template_file" "$json_file"
+    # If annotation.json does not exist, create it from the template
+    if [[ ! -f "$json_output_file" ]]; then
+        cp "$json_template_file" "$json_output_file"
     fi
 
     # Display contents of the original JSON file for troubleshooting
     echo "Contents of the original JSON file:"
-    cat "$json_file"
+    cat "$json_output_file"
 
     # Check if any meaningful parameter is provided
     if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
@@ -175,40 +177,33 @@ update_json() {
                     --arg last_updated "$last_updated" \
                     --arg buildkite_job "$buildkite_job" \
                     --arg application_link "$application_link" \
-        "$json_file")
+        "$json_output_file")
+
+    # Check if there are updates to be made
+    if [[ "$updated_json" == "$(cat "$json_output_file")" ]]; then
+        echokite "No updates to be made to the JSON file." yellow none normal
+        return
+    fi
 
     # Save updated JSON to file
-    echo "$updated_json" > "$json_file"
+    echo "$updated_json" > "$json_output_file"
 
     # Display contents of the updated JSON file for troubleshooting
     echo "Contents of the updated JSON file:"
-    cat "$json_file"
+    cat "$json_output_file"
 
     # Create the timestamped backup of the updated JSON file
     local dir_path
     local file_name
-    dir_path=$(dirname "$json_file")
-    file_name=$(basename "$json_file" .json)
+    dir_path=$(dirname "$json_output_file")
+    file_name=$(basename "$json_output_file" .json)
     local timestamp
     timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
     local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
-    cp "$json_file" "$timestamped_file"
+    cp "$json_output_file" "$timestamped_file"
 
-    echokite "JSON file updated successfully: $json_file" green none normal
+    echokite "JSON file updated successfully: $json_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_file" green none normal
-}
-
-# Function to update the HTML file from the JSON file
-update_html() {
-    local json_file="./assets/deployment.json"
-    local html_template_file="./assets/template.html"
-    local html_output_file="./assets/annotation.html"
-
-    # Check if the JSON file exists
-    if [[ ! -f "$json_file" ]]; then
-        echokite "JSON file not found!" red none normal
-        return 1
-    fi
 
     # Check if the HTML template file exists
     if [[ ! -f "$html_template_file" ]]; then
@@ -227,13 +222,13 @@ update_html() {
 
     # Read values from the JSON file
     local title
-    title=$(jq -r '.title' "$json_file")
+    title=$(jq -r '.title' "$json_output_file")
     local subtitle
-    subtitle=$(jq -r '.subtitle' "$json_file")
+    subtitle=$(jq -r '.subtitle' "$json_output_file")
 
     # Generate table rows from deployments
     local table_rows
-    table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_file")
+    table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_output_file")
 
     # Escape slashes and other special characters for sed
     title=$(echo "$title" | sed 's/[\/&]/\\&/g')
@@ -255,20 +250,14 @@ update_html() {
     echo "$html_content" > "$html_output_file"
 
     # Create the timestamped backup of the updated HTML file
-    local dir_path
-    local file_name
-    dir_path=$(dirname "$html_output_file")
-    file_name=$(basename "$html_output_file" .html)
-    local timestamp
-    timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
-    local timestamped_file="${dir_path}/${file_name}-${timestamp}.html"
-    cp "$html_output_file" "$timestamped_file"
+    local timestamped_html_file="${dir_path}/$(basename "$html_output_file" .html)-${timestamp}.html"
+    cp "$html_output_file" "$timestamped_html_file"
 
     echokite "HTML file updated successfully: $html_output_file" green none normal
-    echokite "Timestamped backup created at: $timestamped_file" green none normal
+    echokite "Timestamped backup created at: $timestamped_html_file" green none normal
 }
 
-update_json \
+update_files \
   --title "New Title" \
   --subtitle "New Subtitle" \
   --style "success" \
@@ -283,67 +272,46 @@ update_json \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
 
-sleep 1
-update_html
-
-sleep 1
-update_json \
+sleep 5
+update_files \
   --title "Another New Title"
-sleep 1
-update_html
 
-sleep 1
-update_json \
+sleep 5
+update_files \
   --subtitle "Another New Subtitle"
-sleep 1
-update_html
 
-sleep 1
-update_json \
+sleep 5
+update_files \
   --style "warning"
-sleep 1
-update_html
 
-sleep 1
-update_json \
+sleep 5
+update_files \
   --context "deploy-03"
-sleep 1
-update_html
 
-sleep 1
-update_json \
+sleep 5
+update_files \
   --application "MyNewApp"
-sleep 1
-update_html
 
 # shouldn't work
-sleep 1
-update_json \
+sleep 5
+update_files \
   --environment "MyNewEnv"
-sleep 1
-update_html
 
 # create new row
-sleep 1
-update_json \
+sleep 5
+update_files \
   --application "MyNewApp" \
   --environment "MyNewEnv"
-sleep 1
-update_html
 
 # shouldn't work
-sleep 1
-update_json \
+sleep 5
+update_files \
   --deployed-version "MyNewEnv"
-sleep 1
-update_html
 
 # shouldn't work
-sleep 1
-update_json \
+sleep 5
+update_files \
   --last-updated "ages ago"
-sleep 1
-update_html
 
 # List the contents of the directory to verify
 ls -lah ./assets/
