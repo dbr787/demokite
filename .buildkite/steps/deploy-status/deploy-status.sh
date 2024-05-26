@@ -135,6 +135,12 @@ update_files() {
     # Read the context from the template JSON file
     local context=$(jq -r '.context' "$json_template_file")
 
+    # Read the current style from the output JSON file, if it exists
+    local current_style=""
+    if [[ -f "$json_output_file" ]]; then
+        current_style=$(jq -r '.style' "$json_output_file")
+    fi
+
     # Update the JSON file
     updated_json=$(jq 'if $title != "" then .title = $title else . end |
         if $subtitle != "" then .subtitle = $subtitle else . end |
