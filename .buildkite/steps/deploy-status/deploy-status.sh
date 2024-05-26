@@ -235,12 +235,17 @@ update_html() {
     local table_rows
     table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_file")
 
+    # Escape slashes and other special characters for sed
+    title=$(echo "$title" | sed 's/[\/&]/\\&/g')
+    subtitle=$(echo "$subtitle" | sed 's/[\/&]/\\&/g')
+    table_rows=$(echo "$table_rows" | sed 's/[\/&]/\\&/g')
+
     # Read the HTML template content
     local html_content
     html_content=$(<"$html_template_file")
 
     # Replace placeholders with values
-    html_content=$(echo "$html_content" | sed "s/{{title}}/$title/" | sed "s/{{subtitle}}/$subtitle/" | sed "s/{{table_rows}}/$table_rows/")
+    html_content=$(echo "$html_content" | sed "s/\[\[title\]\]/$title/" | sed "s/\[\[subtitle\]\]/$subtitle/" | sed "s/\[\[table_rows\]\]/$table_rows/")
 
     # Display contents of the updated HTML file for troubleshooting
     echo "Contents of the updated HTML file:"
