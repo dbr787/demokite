@@ -182,8 +182,11 @@ update_json \
 
 sleep 5;
 update_json \
-  --subtitle "Another New Subtitle"
+  --application "MyNewApp"
 
+sleep 5;
+update_json \
+  --environment "MyNewEnv"
 
 # List the contents of the directory to verify
 ls -lah ./assets/
