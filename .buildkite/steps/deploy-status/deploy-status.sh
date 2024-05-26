@@ -166,9 +166,9 @@ update_json --title "New Title" \
             --subtitle "New Subtitle" \
             --application ":bison: Bison" \
             --environment "Development" \
-            --deployed-version ":github: 1a1e395" \
-            --new-version ":github: c1fcce1" \
-            --deployment-status "In Progress" \
+            --deployed-version ":github: BLAH" \
+            --new-version ":github: BLOO" \
+            --deployment-status "Success" \
             --deployment-progress 10 \
             --last-updated "" \
             --buildkite-job "Buildkite Job" \
