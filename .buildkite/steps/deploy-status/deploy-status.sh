@@ -123,33 +123,19 @@ update_files() {
         echokite "Template JSON file not found!" red none normal
         return 1
     fi
-
-    # Read the context and style from the template JSON file
-    local context=$(jq -r '.context' "$json_template_file")
-    local template_style=$(jq -r '.style' "$json_template_file")
-
-    # Create the JSON output file if it does not exist
+    # Create the JSON output file from the template if it does not exist
     if [[ ! -f "$json_output_file" ]]; then
         cp "$json_template_file" "$json_output_file"
-        local initial_style="$style"
-        if [[ -z "$initial_style" ]]; then
-            initial_style="$template_style"
-        fi
-    else
-        local initial_style=$(jq -r '.style' "$json_output_file")
     fi
 
-    # Read the current style from the output JSON file, if it exists
-    local current_style=""
-    if [[ -f "$json_output_file" ]]; then
-        current_style=$(jq -r '.style' "$json_output_file")
-    fi
+    # Read current style before making any updates
+    local current_style=$(jq -r '.style' "$json_output_file")
 
     # Update the JSON file
     updated_json=$(jq 'if $title != "" then .title = $title else . end |
         if $subtitle != "" then .subtitle = $subtitle else . end |
         if $style != "" then .style = $style else . end |
-        .context = $context |
+        .context = .context |
         if $application != "" and $environment != "" then 
             .deployments |= (map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
@@ -174,7 +160,6 @@ update_files() {
         else . end' --arg title "$title" \
                     --arg subtitle "$subtitle" \
                     --arg style "$style" \
-                    --arg context "$context" \
                     --arg application "$application" \
                     --arg environment "$environment" \
                     --arg deployed_version "$deployed_version" \
@@ -186,33 +171,21 @@ update_files() {
                     --arg application_link "$application_link" \
         "$json_output_file")
 
-    # Check if there are updates to be made
-    if [[ "$updated_json" == "$(cat "$json_output_file")" ]]; then
+    # Save updated JSON to file only if there are changes
+    if [[ "$updated_json" != "$(cat "$json_output_file")" ]]; then
+        echo "$updated_json" > "$json_output_file"
+
+        # Create the timestamped backup of the updated JSON file
+        local dir_path=$(dirname "$json_output_file")
+        local file_name=$(basename "$json_output_file" .json)
+        local timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
+        local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
+        cp "$json_output_file" "$timestamped_file"
+
+        echokite "JSON file updated successfully: $json_output_file" green none normal
+        echokite "Timestamped backup created at: $timestamped_file" green none normal
+    else
         echokite "No updates to be made." yellow none normal
-        return
-    fi
-
-    # Save updated JSON to file
-    echo "$updated_json" > "$json_output_file"
-
-    # Display contents of the updated JSON file for troubleshooting
-    echo "Updated JSON:"
-    cat "$json_output_file"
-
-    # Create the timestamped backup of the updated JSON file
-    local dir_path=$(dirname "$json_output_file")
-    local file_name=$(basename "$json_output_file" .json)
-    local timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
-    local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
-    cp "$json_output_file" "$timestamped_file"
-
-    echokite "JSON file updated successfully: $json_output_file" green none normal
-    echokite "Timestamped backup created at: $timestamped_file" green none normal
-
-    # Check if the template HTML file exists
-    if [[ ! -f "$html_template_file" ]]; then
-        echokite "Template HTML file not found!" red none normal
-        return 1
     fi
 
     # Create the HTML output file if it does not exist
@@ -223,6 +196,7 @@ update_files() {
     # Read values from the JSON file
     local title=$(jq -r '.title' "$json_output_file")
     local subtitle=$(jq -r '.subtitle' "$json_output_file")
+    local context=$(jq -r '.context' "$json_output_file")
     local table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_output_file")
 
     # Escape slashes and other special characters for sed
@@ -250,7 +224,7 @@ update_files() {
     echokite "Timestamped backup created at: $timestamped_html_file" green none normal
 
     # Use provided style or initial style if not provided
-    local final_style="${style:-$initial_style}"
+    local final_style="${style:-$current_style}"
 
     # Pipe the contents of the final HTML file to the buildkite-agent annotate command
     echo "$html_content" | buildkite-agent annotate --style "$final_style" --context "$context"
