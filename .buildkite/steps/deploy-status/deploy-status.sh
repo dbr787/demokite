@@ -185,8 +185,7 @@ cat ./assets/annotation.html
 
 sleep 10
 
-update_file \
-  --subtitle "Another New Subtitle" \
+update_file --subtitle "Another New Subtitle" \
   --application "App2" \
   --environment "Env1" \
   --deployed-version "1.0" \
