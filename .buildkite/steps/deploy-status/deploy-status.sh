@@ -133,35 +133,7 @@ update_json() {
     echo "JSON file updated successfully: $json_file"
 }
 
-# Function to generate HTML from the JSON file
-generate_html() {
-    echo "Running generate_html function..."
-
-    local json_file="./assets/deploy-status.json"
-    local template_file="./assets/template.html"
-    local output_file="./assets/annotation.html"
-
-    # Check if the JSON file exists
-    if [[ ! -f "$json_file" ]]; then
-        echo "JSON file not found!"
-        return 1
-    fi
-
-    # Read values from the JSON file
-    local title=$(jq -r '.title' "$json_file")
-    local subtitle=$(jq -r '.subtitle' "$json_file")
-    local table_rows=$(jq -r '.deployments[] | "<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "%</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>"' "$json_file" | paste -sd "" -)
-
-    # Create the HTML file from the template
-    cp "$template_file" "$output_file"
-    sed -i "s/{{title}}/${title}/g" "$output_file"
-    sed -i "s/{{subtitle}}/${subtitle}/g" "$output_file"
-    sed -i "s/{{table_rows}}/${table_rows}/g" "$output_file"
-
-    echo "HTML file generated successfully: $output_file"
-}
-
-# Update JSON file with parameters
+# Example usage to update the JSON file
 update_json --title "New Title" \
             --subtitle "New Subtitle" \
             --application ":bison: Bison" \
@@ -174,9 +146,8 @@ update_json --title "New Title" \
             --buildkite-job "Buildkite Job" \
             --application-link "Application Link"
 
-# Generate HTML from updated JSON
-generate_html
-
+# List the contents of the directory to verify
 ls -lah ./assets/
 
-printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
+# Cat the json file to verify
+cat ./assets/deploy-status.json
