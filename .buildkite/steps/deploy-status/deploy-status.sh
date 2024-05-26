@@ -93,11 +93,15 @@ update_json() {
         return 1
     fi
 
+    # Display contents of the original JSON file for troubleshooting
+    echo "Contents of the original JSON file:"
+    cat "$json_file"
+
     # Update the JSON file
     jq 'if $new_title != "" then .title = $new_title else . end |
         if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
         if $application != "" and $environment != "" then 
-            .deployments |= map(if .application == $application and .environment == $environment then 
+            .deployments |= (map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
                 .new_version = $new_version | 
                 .deployment_status = $deployment_status | 
@@ -106,7 +110,7 @@ update_json() {
                 .buildkite_job = $buildkite_job | 
                 .application_link = $application_link 
             else . end) 
-            | if map(.application == $application and .environment == $environment) | any then . else .deployments += [{
+            + if map(.application == $application and .environment == $environment) | any then [] else [{
                 "application": $application,
                 "environment": $environment,
                 "deployed_version": $deployed_version,
@@ -116,7 +120,7 @@ update_json() {
                 "last_updated": $last_updated,
                 "buildkite_job": $buildkite_job,
                 "application_link": $application_link
-            }] end
+            }] end)
         else . end' --arg new_title "$new_title" \
                     --arg new_subtitle "$new_subtitle" \
                     --arg application "$application" \
@@ -130,12 +134,10 @@ update_json() {
                     --arg application_link "$application_link" \
         "$json_file" > "${json_file}.tmp"
 
-    echo "Contents of the original JSON file:"
-    cat "$json_file"
-    
+    # Display contents of the temporary JSON file for troubleshooting
     echo "Contents of the temporary JSON file:"
     cat "${json_file}.tmp"
-    
+
     mv "${json_file}.tmp" "$json_file"
 
     echo "JSON file updated successfully: $json_file"
