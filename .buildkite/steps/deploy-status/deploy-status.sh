@@ -156,3 +156,5 @@ update_file --title "New Title" \
             --last-updated "2024-05-25" \
             --buildkite-job "Job1" \
             --application-link "http://example.com"
+
+printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
