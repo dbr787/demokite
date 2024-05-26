@@ -157,4 +157,8 @@ update_file --title "New Title" \
             --buildkite-job "Job1" \
             --application-link "http://example.com"
 
+ls -la ./assets
+cat ./assets/template.html
+cat ./assets/annotation.html
+
 printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
