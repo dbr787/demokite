@@ -19,18 +19,18 @@ update_file() {
     local template_file="./assets/template.html"
     local output_file="./assets/annotation.html"
 
-    # Named parameters
-    local new_title
-    local new_subtitle
-    local application
-    local environment
-    local deployed_version
-    local new_version
-    local deployment_status
-    local deployment_progress
-    local last_updated
-    local buildkite_job
-    local application_link
+    # Named parameters with default values
+    local new_title=""
+    local new_subtitle=""
+    local application=""
+    local environment=""
+    local deployed_version=""
+    local new_version=""
+    local deployment_status=""
+    local deployment_progress=""
+    local last_updated=""
+    local buildkite_job=""
+    local application_link=""
 
     # Parsing named parameters
     while [[ $# -gt 0 ]]; do
@@ -141,9 +141,13 @@ update_file() {
     }
     ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
 
-    # Update the title and subtitle
-    sed -i "s/{{title}}/${new_title}/g" "$output_file"
-    sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    # Update the title and subtitle if provided
+    if [[ -n "$new_title" ]]; then
+        sed -i "s/{{title}}/${new_title}/g" "$output_file"
+    fi
+    if [[ -n "$new_subtitle" ]]; then
+        sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
+    fi
 
     # Create the timestamped backup of the updated annotation.html
     local dir_path
@@ -158,18 +162,17 @@ update_file() {
     echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-update_file \
-  --title "New Title" \
-  --subtitle "New Subtitle" \
-  --application "App1" \
-  --environment "Env1" \
-  --deployed-version "1.0" \
-  --new-version "1.1" \
-  --deployment-status "Success" \
-  --deployment-progress "100%" \
-  --last-updated "2024-05-25" \
-  --buildkite-job "Job1" \
-  --application-link "http://example.com"
+update_file --title "New Title" \
+            --subtitle "New Subtitle" \
+            --application "App1" \
+            --environment "Env1" \
+            --deployed-version "1.0" \
+            --new-version "1.1" \
+            --deployment-status "Success" \
+            --deployment-progress "100%" \
+            --last-updated "2024-05-25" \
+            --buildkite-job "Job1" \
+            --application-link "http://example.com"
 
 ls -la ./assets
 cat ./assets/template.html
