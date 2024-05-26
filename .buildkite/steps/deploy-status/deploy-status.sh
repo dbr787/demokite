@@ -104,14 +104,14 @@ update_files() {
         return 1
     fi
 
-    # If annotation.json does not exist, create it from the template
+    # Create the JSON output file if it does not exist
     if [[ ! -f "$json_output_file" ]]; then
         cp "$json_template_file" "$json_output_file"
     fi
 
     # Display contents of the original JSON file for troubleshooting
-    echo "Contents of the original JSON file:"
-    cat "$json_output_file"
+    # echo "Contents of the original JSON file:"
+    # cat "$json_output_file"
 
     # Check if any meaningful parameter is provided
     if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
@@ -181,7 +181,7 @@ update_files() {
 
     # Check if there are updates to be made
     if [[ "$updated_json" == "$(cat "$json_output_file")" ]]; then
-        echokite "No updates to be made to the JSON file." yellow none normal
+        echokite "No updates to be made." yellow none normal
         return
     fi
 
@@ -189,7 +189,7 @@ update_files() {
     echo "$updated_json" > "$json_output_file"
 
     # Display contents of the updated JSON file for troubleshooting
-    echo "Contents of the updated JSON file:"
+    echo "Updated JSON:"
     cat "$json_output_file"
 
     # Create the timestamped backup of the updated JSON file
@@ -205,19 +205,19 @@ update_files() {
     echokite "JSON file updated successfully: $json_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 
-    # Check if the HTML template file exists
+    # Check if the template HTML file exists
     if [[ ! -f "$html_template_file" ]]; then
-        echokite "HTML template file not found!" red none normal
+        echokite "Template HTML file not found!" red none normal
         return 1
     fi
 
-    # If annotation.html does not exist, create it from the template
+    # Create the HTML output file if it does not exist
     if [[ ! -f "$html_output_file" ]]; then
         cp "$html_template_file" "$html_output_file"
     fi
 
     # Display contents of the original HTML file for troubleshooting
-    echo "Contents of the original HTML file:"
+    echo "Updated JSON:"
     cat "$html_output_file"
 
     # Read values from the JSON file
