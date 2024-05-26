@@ -132,6 +132,9 @@ update_files() {
     # Read the context from the template JSON file
     local context=$(jq -r '.context' "$json_template_file")
 
+    # Read the current style from the output JSON file
+    local current_style=$(jq -r '.style' "$json_output_file")
+
     # Update the JSON file
     updated_json=$(jq 'if $title != "" then .title = $title else . end |
         if $subtitle != "" then .subtitle = $subtitle else . end |
@@ -196,8 +199,8 @@ update_files() {
     echokite "JSON file updated successfully: $json_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 
-    # Run the buildkite-agent annotate command with style and context if style is provided
-    if [[ -n "$style" ]]; then
+    # Run the buildkite-agent annotate command with style and context if style is different
+    if [[ -n "$style" && "$style" != "$current_style" ]]; then
         buildkite-agent annotate --style "$style" --context "$context"
     fi
 
