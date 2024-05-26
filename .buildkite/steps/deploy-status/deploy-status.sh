@@ -1,23 +1,10 @@
 #!/bin/bash
 
-# set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
-# set -euo pipefail # don't print executed commands to the terminal
 set -euo pipefail
 
-# source shared functions
-. .buildkite/assets/functions.sh
-
-# capture original working directory
-current_dir=$(pwd)
-current_dir_contents=$(ls -lah "$current_dir")
-
-# change into step directory
-cd .buildkite/steps/deploy-status/
-
-# Function to update file content
-update_file() {
-    local template_file="./assets/template.html"
-    local output_file="./assets/annotation.html"
+# Function to update the JSON file
+update_json() {
+    local json_file="./assets/deploy-status.json"
 
     # Named parameters with default values
     local new_title=""
@@ -86,88 +73,80 @@ update_file() {
         esac
     done
 
-    # Check if the template file exists
-    if [[ ! -f "$template_file" ]]; then
-        echo "Template file not found!"
+    # Check if the JSON file exists
+    if [[ ! -f "$json_file" ]]; then
+        echo "JSON file not found!"
         return 1
     fi
 
-    # If annotation.html does not exist, create it from the template
-    if [[ ! -f "$output_file" ]]; then
-        cp "$template_file" "$output_file"
-    fi
+    # Update the JSON file
+    jq 'if $new_title != "" then .title = $new_title else . end |
+        if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
+        if $application != "" and $environment != "" then 
+            .table_rows |= map(if .application == $application and .environment == $environment then 
+                .deployed_version = $deployed_version | 
+                .new_version = $new_version | 
+                .deployment_status = $deployment_status | 
+                .deployment_progress = $deployment_progress | 
+                .last_updated = $last_updated | 
+                .buildkite_job = $buildkite_job | 
+                .application_link = $application_link 
+            else . end) 
+            | if map(.application == $application and .environment == $environment) | any then . else .table_rows += [{
+                "application": $application,
+                "environment": $environment,
+                "deployed_version": $deployed_version,
+                "new_version": $new_version,
+                "deployment_status": $deployment_status,
+                "deployment_progress": $deployment_progress,
+                "last_updated": $last_updated,
+                "buildkite_job": $buildkite_job,
+                "application_link": $application_link
+            }] end
+        else . end' --arg new_title "$new_title" \
+                    --arg new_subtitle "$new_subtitle" \
+                    --arg application "$application" \
+                    --arg environment "$environment" \
+                    --arg deployed_version "$deployed_version" \
+                    --arg new_version "$new_version" \
+                    --arg deployment_status "$deployment_status" \
+                    --arg deployment_progress "$deployment_progress" \
+                    --arg last_updated "$last_updated" \
+                    --arg buildkite_job "$buildkite_job" \
+                    --arg application_link "$application_link" \
+        "$json_file" > "${json_file}.tmp" && mv "${json_file}.tmp" "$json_file"
 
-    # Create the new table row if application and environment are provided
-    local new_table_row=""
-    if [[ -n "$application" && -n "$environment" ]]; then
-        new_table_row="<tr>
-            <td>${application}</td>
-            <td>${environment}</td>
-            <td>${deployed_version}</td>
-            <td>${new_version}</td>
-            <td>${deployment_status}</td>
-            <td>${deployment_progress}</td>
-            <td>${last_updated}</td>
-            <td>${buildkite_job}</td>
-            <td><a href=\"${application_link}\">Link</a></td>
-        </tr>"
-    fi
-
-    # Read the content of the annotation.html file and update or add the row
-    if [[ -n "$new_table_row" ]]; then
-        local table_rows_content
-        table_rows_content=$(awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" '
-        BEGIN { row_exists = 0 }
-        /<tr>/ {
-            if ($0 ~ "<td>" app "</td>" && $0 ~ "<td>" env "</td>") {
-                if (!row_exists) {
-                    print new_row
-                    row_exists = 1
-                }
-            } else {
-                print
-            }
-        }
-        END {
-            if (!row_exists) {
-                print new_row
-            }
-        }
-        ' "$output_file")
-
-        # Replace {{table_rows}} with the new content
-        awk -v new_table_rows="$table_rows_content" '
-        {
-            if ($0 ~ /{{table_rows}}/) {
-                gsub(/{{table_rows}}/, new_table_rows)
-            }
-            print
-        }
-        ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
-    fi
-
-    # Update the title and subtitle if provided
-    if [[ -n "$new_title" ]]; then
-        sed -i "s/{{title}}/${new_title}/g" "$output_file"
-    fi
-    if [[ -n "$new_subtitle" ]]; then
-        sed -i "s/{{subtitle}}/${new_subtitle}/g" "$output_file"
-    fi
-
-    # Create the timestamped backup of the updated annotation.html
-    local dir_path
-    local file_name
-    dir_path=$(dirname "$output_file")
-    file_name=$(basename "$output_file" .html)
-    local timestamp
-    timestamp=$(date +%Y%m%d%H%M%S)
-    local timestamped_file="${dir_path}/${file_name}_${timestamp}.html"
-    cp "$output_file" "$timestamped_file"
-    
-    echo "Output file updated successfully. Timestamped file created at $timestamped_file"
+    echo "JSON file updated successfully: $json_file"
 }
 
-update_file --title "New Title" \
+# Function to generate HTML from the JSON file
+generate_html() {
+    local json_file="./assets/.json"
+    local template_file="./assets/template.html"
+    local output_file="./assets/annotation.html"
+
+    # Check if the JSON file exists
+    if [[ ! -f "$json_file" ]]; then
+        echo "JSON file not found!"
+        return 1
+    fi
+
+    # Read values from the JSON file
+    local title=$(jq -r '.title' "$json_file")
+    local subtitle=$(jq -r '.subtitle' "$json_file")
+    local table_rows=$(jq -r '.table_rows[] | "<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + .deployment_progress + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>"' "$json_file" | paste -sd "" -)
+
+    # Create the HTML file from the template
+    cp "$template_file" "$output_file"
+    sed -i "s/{{title}}/${title}/g" "$output_file"
+    sed -i "s/{{subtitle}}/${subtitle}/g" "$output_file"
+    sed -i "s/{{table_rows}}/${table_rows}/g" "$output_file"
+
+    echo "HTML file generated successfully: $output_file"
+}
+
+# Update JSON file with parameters
+update_json --title "New Title" \
             --subtitle "New Subtitle" \
             --application "App1" \
             --environment "Env1" \
@@ -179,25 +158,7 @@ update_file --title "New Title" \
             --buildkite-job "Job1" \
             --application-link "http://example.com"
 
-ls -la ./assets
-cat ./assets/template.html
-cat ./assets/annotation.html
-
-sleep 10
-
-update_file --subtitle "Another New Subtitle" \
-  --application "App2" \
-  --environment "Env1" \
-  --deployed-version "1.0" \
-  --new-version "1.1" \
-  --deployment-status "Success" \
-  --deployment-progress "100%" \
-  --last-updated "2024-05-25" \
-  --buildkite-job "Job1" \
-  --application-link "http://example.com"
-
-ls -la ./assets
-cat ./assets/template.html
-cat ./assets/annotation.html
+# Generate HTML from updated JSON
+generate_html
 
 printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
