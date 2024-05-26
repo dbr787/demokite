@@ -268,6 +268,7 @@ update_html() {
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 }
 
+sleep 1
 update_json \
   --title "New Title" \
   --subtitle "New Subtitle" \
@@ -282,62 +283,67 @@ update_json \
   --last-updated "" \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
-
-sleep 5
+sleep 1
 update_html
 
-sleep 5
+sleep 1
 update_json \
   --title "Another New Title"
-
-sleep 5
+sleep 1
 update_html
 
-sleep 5
+sleep 1
 update_json \
   --subtitle "Another New Subtitle"
-
-sleep 5
+sleep 1
 update_html
 
-sleep 5
+sleep 1
 update_json \
   --style "warning"
-
-sleep 5
+sleep 1
 update_html
 
-sleep 5
+sleep 1
 update_json \
   --context "deploy-03"
-
-sleep 5
+sleep 1
 update_html
 
-sleep 5
+sleep 1
 update_json \
   --application "MyNewApp"
+sleep 1
+update_html
 
 # shouldn't work
-sleep 5
+sleep 1
 update_json \
   --environment "MyNewEnv"
+sleep 1
+update_html
 
 # create new row
-sleep 5
+sleep 1
 update_json \
   --application "MyNewApp" \
   --environment "MyNewEnv"
+sleep 1
+update_html
 
 # shouldn't work
-sleep 5
+sleep 1
 update_json \
   --deployed-version "MyNewEnv"
+sleep 1
+update_html
 
 # shouldn't work
-sleep 5
+sleep 1
 update_json \
   --last-updated "ages ago"
+sleep 1
+update_html
 
 # List the contents of the directory to verify
 ls -lah ./assets/
