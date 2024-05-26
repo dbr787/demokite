@@ -190,7 +190,7 @@ update_json() {
     dir_path=$(dirname "$json_file")
     file_name=$(basename "$json_file" .json)
     local timestamp
-    timestamp=$(date +%Y%m%d%H%M%S)
+    timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
     local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
     cp "$json_file" "$timestamped_file"
 
