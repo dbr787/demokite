@@ -24,8 +24,8 @@ update_files() {
     # Named parameters with default values
     local title=""
     local subtitle=""
-    local style="info"
-    local context="example"
+    local style=""
+    local context=""
     local application=""
     local environment=""
     local deployed_version=""
@@ -98,21 +98,6 @@ update_files() {
         esac
     done
 
-    # Check if the template JSON file exists
-    if [[ ! -f "$json_template_file" ]]; then
-        echokite "Template JSON file not found!" red none normal
-        return 1
-    fi
-
-    # Create the JSON output file if it does not exist
-    if [[ ! -f "$json_output_file" ]]; then
-        cp "$json_template_file" "$json_output_file"
-    fi
-
-    # # Display contents of the original JSON file for troubleshooting
-    # echo "Contents of the original JSON file:"
-    # cat "$json_output_file"
-
     # Check if any meaningful parameter is provided
     if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
         echokite "No parameters provided. No updates will be made to the JSON file." red none normal
@@ -137,6 +122,21 @@ update_files() {
             return
         fi
     fi
+
+    # Check if the template JSON file exists
+    if [[ ! -f "$json_template_file" ]]; then
+        echokite "Template JSON file not found!" red none normal
+        return 1
+    fi
+
+    # Create the JSON output file if it does not exist
+    if [[ ! -f "$json_output_file" ]]; then
+        cp "$json_template_file" "$json_output_file"
+    fi
+
+    # # Display contents of the original JSON file for troubleshooting
+    # echo "Original JSON:"
+    # cat "$json_output_file"
 
     # Update the JSON file
     updated_json=$(jq 'if $title != "" then .title = $title else . end |
@@ -193,12 +193,9 @@ update_files() {
     cat "$json_output_file"
 
     # Create the timestamped backup of the updated JSON file
-    local dir_path
-    local file_name
-    dir_path=$(dirname "$json_output_file")
-    file_name=$(basename "$json_output_file" .json)
-    local timestamp
-    timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
+    local dir_path=$(dirname "$json_output_file")
+    local file_name=$(basename "$json_output_file" .json)
+    local timestamp=$(date -u +"%Y%m%d%H%M%S%3N")
     local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
     cp "$json_output_file" "$timestamped_file"
 
@@ -216,19 +213,14 @@ update_files() {
         cp "$html_template_file" "$html_output_file"
     fi
 
-    # Display contents of the original HTML file for troubleshooting
-    echo "Updated JSON:"
-    cat "$html_output_file"
+    # # Display contents of the original HTML file for troubleshooting
+    # echo "Original HTML:"
+    # cat "$html_output_file"
 
     # Read values from the JSON file
-    local title
-    title=$(jq -r '.title' "$json_output_file")
-    local subtitle
-    subtitle=$(jq -r '.subtitle' "$json_output_file")
-
-    # Generate table rows from deployments
-    local table_rows
-    table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_output_file")
+    local title=$(jq -r '.title' "$json_output_file")
+    local subtitle=$(jq -r '.subtitle' "$json_output_file")
+    local table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_output_file")
 
     # Escape slashes and other special characters for sed
     title=$(echo "$title" | sed 's/[\/&]/\\&/g')
@@ -236,9 +228,7 @@ update_files() {
     table_rows=$(echo "$table_rows" | sed 's/[\/&]/\\&/g')
 
     # Read the HTML template content
-    local html_content
-    html_content=$(<"$html_template_file")
-
+    local html_content=$(<"$html_template_file")
     # Replace placeholders with values
     html_content=$(echo "$html_content" | sed "s/\[\[title\]\]/$title/" | sed "s/\[\[subtitle\]\]/$subtitle/" | sed "s/\[\[table_rows\]\]/$table_rows/")
 
@@ -275,7 +265,6 @@ update_files \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
 
-
 # ANNOTATION_FILE="./assets/annotation.html"
 # printf '%b\n' "$(cat $ANNOTATION_FILE)" | buildkite-agent annotate --style 'info' --context 'example'
 
@@ -290,10 +279,6 @@ update_files \
 sleep 5
 update_files \
   --style "warning"
-
-sleep 5
-update_files \
-  --context "deploy-03"
 
 sleep 5
 update_files \
