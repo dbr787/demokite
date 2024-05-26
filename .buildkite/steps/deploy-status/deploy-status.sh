@@ -128,7 +128,15 @@ update_json() {
                     --arg last_updated "$last_updated" \
                     --arg buildkite_job "$buildkite_job" \
                     --arg application_link "$application_link" \
-        "$json_file" > "${json_file}.tmp" && mv "${json_file}.tmp" "$json_file"
+        "$json_file" > "${json_file}.tmp"
+
+    echo "Contents of the original JSON file:"
+    cat "$json_file"
+    
+    echo "Contents of the temporary JSON file:"
+    cat "${json_file}.tmp"
+    
+    mv "${json_file}.tmp" "$json_file"
 
     echo "JSON file updated successfully: $json_file"
 }
@@ -148,6 +156,3 @@ update_json --title "New Title" \
 
 # List the contents of the directory to verify
 ls -lah ./assets/
-
-# Cat the json file to verify
-cat ./assets/deploy-status.json
