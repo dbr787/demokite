@@ -193,5 +193,16 @@ update_json \
   --application "BothApp" \
   --environment "BothEnv"
 
+sleep 5
+update_json \
+  --application "BothApp" \
+  --environment "BothEnv" \
+  --deployed-version "BothDeployed" \
+
+sleep 5
+update_json \
+  --application ":bison: Bison" \
+  --deployed-version "POOP" \
+
 # List the contents of the directory to verify
 ls -lah ./assets/
