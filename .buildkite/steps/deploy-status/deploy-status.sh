@@ -1,22 +1,21 @@
 #!/bin/bash
 
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
-# set -euxo pipefail # print executed commands to the terminal
-set -euo pipefail # don't print executed commands to the terminal
+# set -euo pipefail # don't print executed commands to the terminal
+set -euo pipefail
 
 # source shared functions
-. .buildkite/assets/functions.sh;
+. .buildkite/assets/functions.sh
 
 # capture original working directory
 current_dir=$(pwd)
-current_dir_contents=$(ls -lah $current_dir)
+current_dir_contents=$(ls -lah "$current_dir")
 
 # change into step directory
-cd .buildkite/steps/deploy-status/;
+cd .buildkite/steps/deploy-status/
 
 # Function to update the JSON file
 update_json() {
-
     echo "Running update_json function..."
 
     local json_file="./assets/deploy-status.json"
@@ -98,7 +97,7 @@ update_json() {
     jq 'if $new_title != "" then .title = $new_title else . end |
         if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
         if $application != "" and $environment != "" then 
-            .table_rows |= map(if .application == $application and .environment == $environment then 
+            .deployments |= map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
                 .new_version = $new_version | 
                 .deployment_status = $deployment_status | 
@@ -107,7 +106,7 @@ update_json() {
                 .buildkite_job = $buildkite_job | 
                 .application_link = $application_link 
             else . end) 
-            | if map(.application == $application and .environment == $environment) | any then . else .table_rows += [{
+            | if map(.application == $application and .environment == $environment) | any then . else .deployments += [{
                 "application": $application,
                 "environment": $environment,
                 "deployed_version": $deployed_version,
@@ -136,7 +135,6 @@ update_json() {
 
 # Function to generate HTML from the JSON file
 generate_html() {
-
     echo "Running generate_html function..."
 
     local json_file="./assets/deploy-status.json"
@@ -152,7 +150,7 @@ generate_html() {
     # Read values from the JSON file
     local title=$(jq -r '.title' "$json_file")
     local subtitle=$(jq -r '.subtitle' "$json_file")
-    local table_rows=$(jq -r '.table_rows[] | "<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + .deployment_progress + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>"' "$json_file" | paste -sd "" -)
+    local table_rows=$(jq -r '.deployments[] | "<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "%</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>"' "$json_file" | paste -sd "" -)
 
     # Create the HTML file from the template
     cp "$template_file" "$output_file"
@@ -166,17 +164,19 @@ generate_html() {
 # Update JSON file with parameters
 update_json --title "New Title" \
             --subtitle "New Subtitle" \
-            --application "App1" \
-            --environment "Env1" \
-            --deployed-version "1.0" \
-            --new-version "1.1" \
-            --deployment-status "Success" \
-            --deployment-progress "100%" \
-            --last-updated "2024-05-25" \
-            --buildkite-job "Job1" \
-            --application-link "http://example.com"
+            --application ":bison: Bison" \
+            --environment "Development" \
+            --deployed-version ":github: 1a1e395" \
+            --new-version ":github: c1fcce1" \
+            --deployment-status "In Progress" \
+            --deployment-progress 10 \
+            --last-updated "" \
+            --buildkite-job "Buildkite Job" \
+            --application-link "Application Link"
 
 # Generate HTML from updated JSON
 generate_html
+
+ls -lah ./assets/
 
 printf '%b\n' "$(cat ./assets/annotation.html)" | buildkite-agent annotate --style 'info' --context 'example'
