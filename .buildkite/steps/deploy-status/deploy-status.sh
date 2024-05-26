@@ -124,16 +124,20 @@ update_files() {
         return 1
     fi
 
+    # Read the context and style from the template JSON file
+    local context=$(jq -r '.context' "$json_template_file")
+    local template_style=$(jq -r '.style' "$json_template_file")
+
     # Create the JSON output file if it does not exist
     if [[ ! -f "$json_output_file" ]]; then
         cp "$json_template_file" "$json_output_file"
         local initial_style="$style"
+        if [[ -z "$initial_style" ]]; then
+            initial_style="$template_style"
+        fi
     else
         local initial_style=$(jq -r '.style' "$json_output_file")
     fi
-
-    # Read the context from the template JSON file
-    local context=$(jq -r '.context' "$json_template_file")
 
     # Read the current style from the output JSON file, if it exists
     local current_style=""
@@ -245,7 +249,7 @@ update_files() {
     echokite "HTML file updated successfully: $html_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_html_file" green none normal
 
-    # Use provided style or default style if not provided
+    # Use provided style or initial style if not provided
     local final_style="${style:-$initial_style}"
 
     # Pipe the contents of the final HTML file to the buildkite-agent annotate command
