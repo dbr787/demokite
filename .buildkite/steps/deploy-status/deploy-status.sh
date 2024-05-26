@@ -261,6 +261,12 @@ update_files() {
     fi
 }
 
+sleep 5
+update_files \
+  --application ":bison: Bison" \
+  --environment "Development" \
+
+sleep 5
 update_files \
   --title "New Title" \
   --subtitle "New Subtitle" \
