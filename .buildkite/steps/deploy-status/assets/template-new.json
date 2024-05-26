@@ -1,0 +1,70 @@
+{
+  "title": "Default Title",
+  "subtitle": "Default Subtitle",
+  "style": "info",
+  "context": "deploy-01",
+  "deployments": [
+    {
+      "application": {
+        "emoji": ":bison:",
+        "text": "Bison",
+        "link": "",
+        "class": ""
+      },
+      "environment": {
+        "emoji": "",
+        "text": "Development",
+        "link": "",
+        "class": ""
+      },
+      "deployed_version": {
+        "emoji": ":github:",
+        "text": "",
+        "link": "https://github.com/",
+        "class": ""
+      },
+      "new_version": {
+        "emoji": ":github:",
+        "text": "",
+        "link": "https://github.com/",
+        "class": ""
+      },
+      "deployment_strategy": {
+        "emoji": ":k8s:",
+        "text": "Rolling",
+        "link": "",
+        "class": ""
+      },
+      "deployment_status": {
+        "emoji": ":bk-status-running:",
+        "text": "In Progress",
+        "link": "",
+        "class": "bold orange"
+      },
+      "started": {
+        "emoji": ":bk-status-running:",
+        "text": "In Progress",
+        "link": "",
+        "class": "bold orange"
+      },
+      "last_updated": {
+        "emoji": ":bk-status-running:",
+        "text": "In Progress",
+        "link": "",
+        "class": "bold orange"
+      },
+      "job": {
+        "emoji": ":buildkite:",
+        "text": "Buildkite Job",
+        "link": "https://buildkite.com/",
+        "class": ""
+      },
+      "deployment": {
+        "emoji": ":argo-cd:",
+        "text": "ArgoCD Deployment",
+        "link": "https://argoproj.github.io/",
+        "class": ""
+      }
+    }
+  ]
+}
