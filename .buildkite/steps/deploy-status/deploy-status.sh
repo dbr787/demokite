@@ -4,6 +4,9 @@ set -euo pipefail
 
 # Function to update the JSON file
 update_json() {
+
+    echo "Running update_json function..."
+
     local json_file="./assets/deploy-status.json"
 
     # Named parameters with default values
@@ -121,6 +124,9 @@ update_json() {
 
 # Function to generate HTML from the JSON file
 generate_html() {
+
+    echo "Running generate_html function..."
+
     local json_file="./assets/deploy-status.json"
     local template_file="./assets/template.html"
     local output_file="./assets/annotation.html"
