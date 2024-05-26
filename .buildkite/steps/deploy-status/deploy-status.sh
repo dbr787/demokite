@@ -121,7 +121,7 @@ update_json() {
 
 # Function to generate HTML from the JSON file
 generate_html() {
-    local json_file="./assets/.json"
+    local json_file="./assets/deploy-status.json"
     local template_file="./assets/template.html"
     local output_file="./assets/annotation.html"
 
