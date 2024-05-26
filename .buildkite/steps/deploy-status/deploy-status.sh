@@ -198,6 +198,69 @@ update_json() {
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 }
 
+# Function to update the HTML file from the JSON file
+update_html() {
+    local json_file="./assets/deployment.json"
+    local html_template_file="./assets/template.html"
+    local html_output_file="./assets/annotation.html"
+
+    # Check if the JSON file exists
+    if [[ ! -f "$json_file" ]]; then
+        echokite "JSON file not found!" red none normal
+        return 1
+    fi
+
+    # Check if the HTML template file exists
+    if [[ ! -f "$html_template_file" ]]; then
+        echokite "HTML template file not found!" red none normal
+        return 1
+    fi
+
+    # Read values from the JSON file
+    local title=$(jq -r '.title' "$json_file")
+    local subtitle=$(jq -r '.subtitle' "$json_file")
+    local deployments=$(jq -r '.deployments' "$json_file")
+
+    # Generate table rows from deployments
+    local table_rows=""
+    for row in $(echo "$deployments" | jq -c '.[]'); do
+        local application=$(echo "$row" | jq -r '.application')
+        local environment=$(echo "$row" | jq -r '.environment')
+        local deployed_version=$(echo "$row" | jq -r '.deployed_version')
+        local new_version=$(echo "$row" | jq -r '.new_version')
+        local deployment_status=$(echo "$row" | jq -r '.deployment_status')
+        local deployment_progress=$(echo "$row" | jq -r '.deployment_progress')
+        local last_updated=$(echo "$row" | jq -r '.last_updated')
+        local buildkite_job=$(echo "$row" | jq -r '.buildkite_job')
+        local application_link=$(echo "$row" | jq -r '.application_link')
+
+        table_rows+="<tr>
+            <td>${application}</td>
+            <td>${environment}</td>
+            <td>${deployed_version}</td>
+            <td>${new_version}</td>
+            <td>${deployment_status}</td>
+            <td>${deployment_progress}</td>
+            <td>${last_updated}</td>
+            <td>${buildkite_job}</td>
+            <td><a href=\"${application_link}\">Link</a></td>
+        </tr>"
+    done
+
+    # Read the HTML template content
+    local html_content=$(<"$html_template_file")
+
+    # Replace placeholders with values
+    html_content=${html_content//\{\{title\}\}/$title}
+    html_content=${html_content//\{\{subtitle\}\}/$subtitle}
+    html_content=${html_content//\{\{table_rows\}\}/$table_rows}
+
+    # Save the updated HTML content to the output file
+    echo "$html_content" > "$html_output_file"
+
+    echokite "HTML file updated successfully: $html_output_file" green none normal
+}
+
 update_json \
   --title "New Title" \
   --subtitle "New Subtitle" \
@@ -214,20 +277,35 @@ update_json \
   --application-link "Application Link"
 
 sleep 5
+update_html
+
+sleep 5
 update_json \
   --title "Another New Title"
+
+sleep 5
+update_html
 
 sleep 5
 update_json \
   --subtitle "Another New Subtitle"
 
 sleep 5
+update_html
+
+sleep 5
 update_json \
   --style "warning"
 
 sleep 5
+update_html
+
+sleep 5
 update_json \
   --context "deploy-03"
+
+sleep 5
+update_html
 
 sleep 5
 update_json \
