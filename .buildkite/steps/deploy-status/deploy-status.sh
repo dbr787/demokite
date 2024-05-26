@@ -24,8 +24,8 @@ update_files() {
     # Named parameters with default values
     local title=""
     local subtitle=""
-    local style=""
-    local context=""
+    local style="info"
+    local context="example"
     local application=""
     local environment=""
     local deployed_version=""
@@ -109,7 +109,7 @@ update_files() {
         cp "$json_template_file" "$json_output_file"
     fi
 
-    # Display contents of the original JSON file for troubleshooting
+    # # Display contents of the original JSON file for troubleshooting
     # echo "Contents of the original JSON file:"
     # cat "$json_output_file"
 
@@ -255,6 +255,9 @@ update_files() {
 
     echokite "HTML file updated successfully: $html_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_html_file" green none normal
+
+    # Pipe the contents of the final HTML file to the buildkite-agent annotate command
+    echo "$html_content" | buildkite-agent annotate --style "$style" --context "$context"
 }
 
 update_files \
@@ -273,8 +276,8 @@ update_files \
   --application-link "Application Link"
 
 
-ANNOTATION_FILE="./assets/annotation.html"
-printf '%b\n' "$(cat $ANNOTATION_FILE)" | buildkite-agent annotate --style 'info' --context 'example'
+# ANNOTATION_FILE="./assets/annotation.html"
+# printf '%b\n' "$(cat $ANNOTATION_FILE)" | buildkite-agent annotate --style 'info' --context 'example'
 
 sleep 5
 update_files \
