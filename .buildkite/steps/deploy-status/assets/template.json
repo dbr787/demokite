@@ -2,6 +2,7 @@
   "title": "Default Title",
   "subtitle": "Default Subtitle",
   "style": "info",
+  "context": "deploy-01",
   "deployments": [
     {
       "application": ":bison: Bison",
