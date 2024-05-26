@@ -258,6 +258,10 @@ update_html() {
     # Save the updated HTML content to the output file
     echo "$html_content" > "$html_output_file"
 
+    # Display contents of the generated HTML file for troubleshooting
+    echo "Contents of the generated HTML file:"
+    cat "$html_output_file"
+
     echokite "HTML file updated successfully: $html_output_file" green none normal
 }
 
