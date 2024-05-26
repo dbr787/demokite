@@ -101,7 +101,7 @@ update_json() {
     echo "Contents of the original JSON file:"
     cat "$json_file"
 
-    # Check if at least one meaningful parameter is provided
+    # Check if any meaningful parameter is provided
     if [[ -z "$new_title" && -z "$new_subtitle" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
         echo "No parameters provided. No updates will be made to the JSON file."
         return
@@ -116,6 +116,14 @@ update_json() {
     if [[ -z "$application" && -n "$environment" ]]; then
         echo "Application parameter is missing. No updates will be made to the JSON file."
         return
+    fi
+
+    # Ensure that if any deployment-specific parameter is provided, both application and environment are provided
+    if [[ -z "$application" || -z "$environment" ]]; then
+        if [[ -n "$deployed_version" || -n "$new_version" || -n "$deployment_status" || -n "$deployment_progress" || -n "$last_updated" || -n "$buildkite_job" || -n "$application_link" ]]; then
+            echo "Deployment-specific parameter provided without application and environment. No updates will be made to the JSON file."
+            return
+        fi
     fi
 
     # Update the JSON file
