@@ -159,26 +159,30 @@ update_json() {
     echo "Timestamped backup created at: $timestamped_file"
 }
 
-update_json --title "New Title" \
-            --subtitle "New Subtitle" \
-            --application ":bison: Bison" \
-            --environment "Development" \
-            --deployed-version ":github: BLAH" \
-            --new-version ":github: BLOO" \
-            --deployment-status "Success" \
-            --deployment-progress 10 \
-            --last-updated "" \
-            --buildkite-job "Buildkite Job" \
-            --application-link "Application Link"
+update_json \
+  --title "New Title" \
+  --subtitle "New Subtitle" \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: BLAH" \
+  --new-version ":github: BLOO" \
+  --deployment-status "Success" \
+  --deployment-progress 10 \
+  --last-updated "" \
+  --buildkite-job "Buildkite Job" \
+  --application-link "Application Link"
 
 sleep 5;
-update_json --title "Another New Title"
+update_json \
+  --title "Another New Title"
 
 sleep 5;
-update_json --subtitle "Another New Subtitle"
+update_json \
+  --subtitle "Another New Subtitle"
 
 sleep 5;
-update_json --subtitle "Another New Subtitle"
+update_json \
+  --subtitle "Another New Subtitle"
 
 
 # List the contents of the directory to verify
