@@ -97,49 +97,54 @@ update_file() {
         cp "$template_file" "$output_file"
     fi
 
-    # Create the new table row
-    local new_table_row="<tr>
-        <td>${application}</td>
-        <td>${environment}</td>
-        <td>${deployed_version}</td>
-        <td>${new_version}</td>
-        <td>${deployment_status}</td>
-        <td>${deployment_progress}</td>
-        <td>${last_updated}</td>
-        <td>${buildkite_job}</td>
-        <td><a href=\"${application_link}\">Link</a></td>
-    </tr>"
+    # Create the new table row if application and environment are provided
+    local new_table_row=""
+    if [[ -n "$application" && -n "$environment" ]]; then
+        new_table_row="<tr>
+            <td>${application}</td>
+            <td>${environment}</td>
+            <td>${deployed_version}</td>
+            <td>${new_version}</td>
+            <td>${deployment_status}</td>
+            <td>${deployment_progress}</td>
+            <td>${last_updated}</td>
+            <td>${buildkite_job}</td>
+            <td><a href=\"${application_link}\">Link</a></td>
+        </tr>"
+    fi
 
     # Read the content of the annotation.html file and update or add the row
-    local table_rows_content
-    table_rows_content=$(awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" '
-    BEGIN { row_exists = 0 }
-    /<tr>/ {
-        if ($0 ~ "<td>" app "</td>" && $0 ~ "<td>" env "</td>") {
+    if [[ -n "$new_table_row" ]]; then
+        local table_rows_content
+        table_rows_content=$(awk -v app="$application" -v env="$environment" -v new_row="$new_table_row" '
+        BEGIN { row_exists = 0 }
+        /<tr>/ {
+            if ($0 ~ "<td>" app "</td>" && $0 ~ "<td>" env "</td>") {
+                if (!row_exists) {
+                    print new_row
+                    row_exists = 1
+                }
+            } else {
+                print
+            }
+        }
+        END {
             if (!row_exists) {
                 print new_row
-                row_exists = 1
             }
-        } else {
+        }
+        ' "$output_file")
+
+        # Replace {{table_rows}} with the new content
+        awk -v new_table_rows="$table_rows_content" '
+        {
+            if ($0 ~ /{{table_rows}}/) {
+                gsub(/{{table_rows}}/, new_table_rows)
+            }
             print
         }
-    }
-    END {
-        if (!row_exists) {
-            print new_row
-        }
-    }
-    ' "$output_file")
-
-    # Replace {{table_rows}} with the new content
-    awk -v new_table_rows="$table_rows_content" '
-    {
-        if ($0 ~ /{{table_rows}}/) {
-            gsub(/{{table_rows}}/, new_table_rows)
-        }
-        print
-    }
-    ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
+        ' "$output_file" > "${output_file}.tmp" && mv "${output_file}.tmp" "$output_file"
+    fi
 
     # Update the title and subtitle if provided
     if [[ -n "$new_title" ]]; then
