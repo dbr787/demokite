@@ -16,8 +16,6 @@ cd .buildkite/steps/deploy-status/
 
 # Function to update the JSON file
 update_json() {
-    echo "Running update_json function..."
-
     local template_file="./assets/template.json"
     local json_file="./assets/deployment.json"
 
@@ -147,7 +145,7 @@ update_json() {
     echo "Contents of the updated JSON file:"
     cat "$json_file"
 
-    # Create the timestamped backup of the updated deployment.json
+    # Create the timestamped backup of the updated JSON file
     local dir_path
     local file_name
     dir_path=$(dirname "$json_file")
@@ -161,7 +159,6 @@ update_json() {
     echo "Timestamped backup created at: $timestamped_file"
 }
 
-# Example usage to update the JSON file
 update_json --title "New Title" \
             --subtitle "New Subtitle" \
             --application ":bison: Bison" \
@@ -173,6 +170,16 @@ update_json --title "New Title" \
             --last-updated "" \
             --buildkite-job "Buildkite Job" \
             --application-link "Application Link"
+
+sleep 5;
+update_json --title "Another New Title"
+
+sleep 5;
+update_json --subtitle "Another New Subtitle"
+
+sleep 5;
+update_json --subtitle "Another New Subtitle"
+
 
 # List the contents of the directory to verify
 ls -lah ./assets/
