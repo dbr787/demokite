@@ -205,5 +205,14 @@ sleep 5
 update_json \
   --environment "MyNewEnv"
 
+sleep 5
+update_json \
+  --deployed-version "MyNewEnv"
+
+sleep 5
+update_json \
+  --last-updated "ages ago"
+
+
 # List the contents of the directory to verify
 ls -lah ./assets/
