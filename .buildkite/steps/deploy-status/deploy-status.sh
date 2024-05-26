@@ -199,10 +199,10 @@ update_files() {
     echokite "JSON file updated successfully: $json_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 
-    # Run the buildkite-agent annotate command with style and context if style is different
-    if [[ -n "$style" && "$style" != "$current_style" ]]; then
-        buildkite-agent annotate --style "$style" --context "$context"
-    fi
+    # # Run the buildkite-agent annotate command with style and context if style is different
+    # if [[ -n "$style" && "$style" != "$current_style" ]]; then
+    #     buildkite-agent annotate --style "$style" --context "$context"
+    # fi
 
     # Check if the template HTML file exists
     if [[ ! -f "$html_template_file" ]]; then
