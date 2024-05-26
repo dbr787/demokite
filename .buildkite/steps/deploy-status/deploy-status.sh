@@ -22,6 +22,7 @@ update_json() {
     # Named parameters with default values
     local new_title=""
     local new_subtitle=""
+    local new_style=""
     local application=""
     local environment=""
     local deployed_version=""
@@ -41,6 +42,10 @@ update_json() {
                 ;;
             --subtitle)
                 new_subtitle="$2"
+                shift 2
+                ;;
+            --style)
+                new_style="$2"
                 shift 2
                 ;;
             --application)
@@ -102,7 +107,7 @@ update_json() {
     cat "$json_file"
 
     # Check if any meaningful parameter is provided
-    if [[ -z "$new_title" && -z "$new_subtitle" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
+    if [[ -z "$new_title" && -z "$new_subtitle" && -z "$new_style" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
         echo "No parameters provided. No updates will be made to the JSON file."
         return
     fi
@@ -129,6 +134,7 @@ update_json() {
     # Update the JSON file
     updated_json=$(jq 'if $new_title != "" then .title = $new_title else . end |
         if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
+        if $new_style != "" then .style = $new_style else . end |
         if $application != "" and $environment != "" then 
             .deployments |= (map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
@@ -152,6 +158,7 @@ update_json() {
             }] end)
         else . end' --arg new_title "$new_title" \
                     --arg new_subtitle "$new_subtitle" \
+                    --arg new_style "$new_style" \
                     --arg application "$application" \
                     --arg environment "$environment" \
                     --arg deployed_version "$deployed_version" \
@@ -187,6 +194,7 @@ update_json() {
 update_json \
   --title "New Title" \
   --subtitle "New Subtitle" \
+  --style "success" \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: BLAH" \
@@ -204,6 +212,10 @@ update_json \
 sleep 5
 update_json \
   --subtitle "Another New Subtitle"
+
+sleep 5
+update_json \
+  --style "warning"
 
 sleep 5
 update_json \
