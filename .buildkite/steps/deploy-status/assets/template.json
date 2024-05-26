@@ -1,0 +1,39 @@
+{
+  "title": "Default Title",
+  "subtitle": "Default Subtitle",
+  "deployments": [
+    {
+      "application": ":bison: Bison",
+      "environment": "Development",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": "In Progress",
+      "deployment_progress": 10,
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    },
+    {
+      "application": ":bison: Bison",
+      "environment": "Development",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": "In Progress",
+      "deployment_progress": 10,
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    },
+    {
+      "application": ":bison: Bison",
+      "environment": "Development",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": "In Progress",
+      "deployment_progress": 10,
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    }
+  ]
+}

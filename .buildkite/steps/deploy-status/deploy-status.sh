@@ -18,7 +18,8 @@ cd .buildkite/steps/deploy-status/
 update_json() {
     echo "Running update_json function..."
 
-    local json_file="./assets/deploy-status.json"
+    local template_file="./assets/template.json"
+    local json_file="./assets/deployment.json"
 
     # Named parameters with default values
     local new_title=""
@@ -87,10 +88,15 @@ update_json() {
         esac
     done
 
-    # Check if the JSON file exists
-    if [[ ! -f "$json_file" ]]; then
-        echo "JSON file not found!"
+    # Check if the template file exists
+    if [[ ! -f "$template_file" ]]; then
+        echo "Template file not found!"
         return 1
+    fi
+
+    # If deployment.json does not exist, create it from the template
+    if [[ ! -f "$json_file" ]]; then
+        cp "$template_file" "$json_file"
     fi
 
     # Display contents of the original JSON file for troubleshooting
@@ -98,7 +104,7 @@ update_json() {
     cat "$json_file"
 
     # Update the JSON file
-    jq 'if $new_title != "" then .title = $new_title else . end |
+    updated_json=$(jq 'if $new_title != "" then .title = $new_title else . end |
         if $new_subtitle != "" then .subtitle = $new_subtitle else . end |
         if $application != "" and $environment != "" then 
             .deployments |= (map(if .application == $application and .environment == $environment then 
@@ -132,15 +138,27 @@ update_json() {
                     --arg last_updated "$last_updated" \
                     --arg buildkite_job "$buildkite_job" \
                     --arg application_link "$application_link" \
-        "$json_file" > "${json_file}.tmp"
+        "$json_file")
 
-    # Display contents of the temporary JSON file for troubleshooting
-    echo "Contents of the temporary JSON file:"
-    cat "${json_file}.tmp"
+    # Save updated JSON to file
+    echo "$updated_json" > "$json_file"
 
-    mv "${json_file}.tmp" "$json_file"
+    # Display contents of the updated JSON file for troubleshooting
+    echo "Contents of the updated JSON file:"
+    cat "$json_file"
+
+    # Create the timestamped backup of the updated deployment.json
+    local dir_path
+    local file_name
+    dir_path=$(dirname "$json_file")
+    file_name=$(basename "$json_file" .json)
+    local timestamp
+    timestamp=$(date +%Y%m%d%H%M%S)
+    local timestamped_file="${dir_path}/${file_name}-${timestamp}.json"
+    cp "$json_file" "$timestamped_file"
 
     echo "JSON file updated successfully: $json_file"
+    echo "Timestamped backup created at: $timestamped_file"
 }
 
 # Example usage to update the JSON file
