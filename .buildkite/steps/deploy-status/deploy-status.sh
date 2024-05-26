@@ -272,6 +272,10 @@ update_files \
   --buildkite-job "Buildkite Job" \
   --application-link "Application Link"
 
+
+ANNOTATION_FILE="./assets/annotation.html"
+printf '%b\n' "$(cat $ANNOTATION_FILE)" | buildkite-agent annotate --style 'info' --context 'example'
+
 sleep 5
 update_files \
   --title "Another New Title"
