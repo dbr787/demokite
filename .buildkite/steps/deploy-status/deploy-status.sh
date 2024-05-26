@@ -108,25 +108,29 @@ update_json() {
 
     # Check if any meaningful parameter is provided
     if [[ -z "$new_title" && -z "$new_subtitle" && -z "$new_style" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
-        echo "No parameters provided. No updates will be made to the JSON file."
+        # echo "No parameters provided. No updates will be made to the JSON file."
+        echokite "No parameters provided. No updates will be made to the JSON file." red none normal
         return
     fi
 
     # Ensure at least application and environment are provided for deployment updates
     if [[ -n "$application" && -z "$environment" ]]; then
-        echo "Environment parameter is missing. No updates will be made to the JSON file."
+        # echo "Environment parameter is missing. No updates will be made to the JSON file."
+        echokite "Environment parameter is missing. No updates will be made to the JSON file." red none normal
         return
     fi
 
     if [[ -z "$application" && -n "$environment" ]]; then
-        echo "Application parameter is missing. No updates will be made to the JSON file."
+        # echo "Application parameter is missing. No updates will be made to the JSON file."
+        echokite "Application parameter is missing. No updates will be made to the JSON file." red none normal
         return
     fi
 
     # Ensure that if any deployment-specific parameter is provided, both application and environment are provided
     if [[ -z "$application" || -z "$environment" ]]; then
         if [[ -n "$deployed_version" || -n "$new_version" || -n "$deployment_status" || -n "$deployment_progress" || -n "$last_updated" || -n "$buildkite_job" || -n "$application_link" ]]; then
-            echo "Deployment-specific parameter provided without application and environment. No updates will be made to the JSON file."
+            # echo "Deployment-specific parameter provided without application and environment. No updates will be made to the JSON file."
+            echokite "Deployment-specific parameter provided without application and environment. No updates will be made to the JSON file." red none normal
             return
         fi
     fi
@@ -221,19 +225,23 @@ sleep 5
 update_json \
   --application "MyNewApp"
 
+# shouldn't work
 sleep 5
 update_json \
   --environment "MyNewEnv"
 
+# create new row
 sleep 5
 update_json \
   --application "MyNewApp" \
   --environment "MyNewEnv"
 
+# shouldn't work
 sleep 5
 update_json \
   --deployed-version "MyNewEnv"
 
+# shouldn't work
 sleep 5
 update_json \
   --last-updated "ages ago"
