@@ -25,7 +25,6 @@ update_files() {
     local title=""
     local subtitle=""
     local style=""
-    local context=""
     local application=""
     local environment=""
     local deployed_version=""
@@ -49,10 +48,6 @@ update_files() {
                 ;;
             --style)
                 style="$2"
-                shift 2
-                ;;
-            --context)
-                context="$2"
                 shift 2
                 ;;
             --application)
@@ -99,7 +94,7 @@ update_files() {
     done
 
     # Check if any meaningful parameter is provided
-    if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$context" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
+    if [[ -z "$title" && -z "$subtitle" && -z "$style" && -z "$application" && -z "$environment" && -z "$deployed_version" && -z "$new_version" && -z "$deployment_status" && -z "$deployment_progress" && -z "$last_updated" && -z "$buildkite_job" && -z "$application_link" ]]; then
         echokite "No parameters provided. No updates will be made to the JSON file." red none normal
         return
     fi
@@ -134,15 +129,14 @@ update_files() {
         cp "$json_template_file" "$json_output_file"
     fi
 
-    # # Display contents of the original JSON file for troubleshooting
-    # echo "Original JSON:"
-    # cat "$json_output_file"
+    # Read the context from the template JSON file
+    local context=$(jq -r '.context' "$json_template_file")
 
     # Update the JSON file
     updated_json=$(jq 'if $title != "" then .title = $title else . end |
         if $subtitle != "" then .subtitle = $subtitle else . end |
         if $style != "" then .style = $style else . end |
-        if $context != "" then .context = $context else . end |
+        .context = $context |
         if $application != "" and $environment != "" then 
             .deployments |= (map(if .application == $application and .environment == $environment then 
                 .deployed_version = $deployed_version | 
@@ -202,6 +196,11 @@ update_files() {
     echokite "JSON file updated successfully: $json_output_file" green none normal
     echokite "Timestamped backup created at: $timestamped_file" green none normal
 
+    # Run the buildkite-agent annotate command with style and context if style is provided
+    if [[ -n "$style" ]]; then
+        buildkite-agent annotate --style "$style" --context "$context"
+    fi
+
     # Check if the template HTML file exists
     if [[ ! -f "$html_template_file" ]]; then
         echokite "Template HTML file not found!" red none normal
@@ -212,10 +211,6 @@ update_files() {
     if [[ ! -f "$html_output_file" ]]; then
         cp "$html_template_file" "$html_output_file"
     fi
-
-    # # Display contents of the original HTML file for troubleshooting
-    # echo "Original HTML:"
-    # cat "$html_output_file"
 
     # Read values from the JSON file
     local title=$(jq -r '.title' "$json_output_file")
@@ -280,15 +275,15 @@ sleep 5
 update_files \
   --style "warning"
 
-# shouldn't work
-sleep 5
-update_files \
-  --application "MyNewApp"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --application "MyNewApp"
 
-# shouldn't work
-sleep 5
-update_files \
-  --environment "MyNewEnv"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --environment "MyNewEnv"
 
 # create new row (kind of blank)
 sleep 5
@@ -296,15 +291,15 @@ update_files \
   --application "MyNewApp" \
   --environment "MyNewEnv"
 
-# shouldn't work
-sleep 5
-update_files \
-  --deployed-version "MyNewEnv"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --deployed-version "MyNewEnv"
 
-# shouldn't work
-sleep 5
-update_files \
-  --last-updated "ages ago"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --last-updated "ages ago"
 
 # List the contents of the directory to verify
 ls -lah ./assets/
