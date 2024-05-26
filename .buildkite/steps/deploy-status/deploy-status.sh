@@ -158,17 +158,36 @@ update_file() {
     echo "Output file updated successfully. Timestamped file created at $timestamped_file"
 }
 
-update_file --title "New Title" \
-            --subtitle "New Subtitle" \
-            --application "App1" \
-            --environment "Env1" \
-            --deployed-version "1.0" \
-            --new-version "1.1" \
-            --deployment-status "Success" \
-            --deployment-progress "100%" \
-            --last-updated "2024-05-25" \
-            --buildkite-job "Job1" \
-            --application-link "http://example.com"
+update_file \
+  --title "New Title" \
+  --subtitle "New Subtitle" \
+  --application "App1" \
+  --environment "Env1" \
+  --deployed-version "1.0" \
+  --new-version "1.1" \
+  --deployment-status "Success" \
+  --deployment-progress "100%" \
+  --last-updated "2024-05-25" \
+  --buildkite-job "Job1" \
+  --application-link "http://example.com"
+
+ls -la ./assets
+cat ./assets/template.html
+cat ./assets/annotation.html
+
+sleep 10
+
+update_file \
+  --subtitle "Another New Subtitle" \
+  --application "App2" \
+  --environment "Env1" \
+  --deployed-version "1.0" \
+  --new-version "1.1" \
+  --deployment-status "Success" \
+  --deployment-progress "100%" \
+  --last-updated "2024-05-25" \
+  --buildkite-job "Job1" \
+  --application-link "http://example.com"
 
 ls -la ./assets
 cat ./assets/template.html
