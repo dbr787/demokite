@@ -254,7 +254,7 @@ update_files \
   --title "New Title" \
   --subtitle "New Subtitle" \
   --style "success" \
-  --context "deploy-02" \
+  --context "deploy-01" \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: BLAH" \
@@ -274,6 +274,10 @@ update_files \
 
 sleep 5
 update_files \
+  --title "Another Another New Title"
+
+sleep 5
+update_files \
   --subtitle "Another New Subtitle"
 
 sleep 5
@@ -282,28 +286,33 @@ update_files \
 
 sleep 5
 update_files \
-  --application "MyNewApp"
+  --style "success"
 
-# shouldn't work
-sleep 5
-update_files \
-  --environment "MyNewEnv"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --application "MyNewApp"
 
-# create new row
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --environment "MyNewEnv"
+
+# create new row (kind of blank)
 sleep 5
 update_files \
   --application "MyNewApp" \
   --environment "MyNewEnv"
 
-# shouldn't work
-sleep 5
-update_files \
-  --deployed-version "MyNewEnv"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --deployed-version "MyNewEnv"
 
-# shouldn't work
-sleep 5
-update_files \
-  --last-updated "ages ago"
+# # shouldn't work
+# sleep 5
+# update_files \
+#   --last-updated "ages ago"
 
 # List the contents of the directory to verify
 ls -lah ./assets/
