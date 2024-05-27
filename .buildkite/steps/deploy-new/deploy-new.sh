@@ -20,7 +20,7 @@ source ./assets/functions.sh
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
 
-# update the annotation in buildkite
+# create the annotation from the original json file
 update_annotation --debug "debug";
 sleep 5;
 
@@ -32,6 +32,6 @@ update_deployment --key "$deployment_key.deployment_strategy.text" --value "Cana
 update_deployment --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:";
 update_deployment --key "$deployment_key.deployment_status.text" --value "Updated Status Text" ;
 
-# update the annotation in buildkite
+# update the annotation
 update_annotation --debug "debug";
 sleep 5;

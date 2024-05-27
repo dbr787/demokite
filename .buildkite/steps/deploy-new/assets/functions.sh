@@ -11,6 +11,7 @@ update_json() {
     case $1 in
       --key) key="$2"; shift ;;
       --value) value="$2"; shift ;;
+      --json_file) json_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -23,16 +24,15 @@ update_json() {
   fi
 
   if [[ -z $key || -z $value ]]; then
-    echo "Usage: update_json --key <key> --value <value> [--debug debug]"
+    echo "Usage: update_json --key <key> --value <value> [--json_file <json_file>] [--debug debug]"
     return 1
   fi
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $json_file before update:"
     cat $json_file
-    echo "Updating key: $key with value: $value"
   fi
-
+  
   # Update the JSON file using jq
   jq --arg key "$key" --arg value "$value" '
     setpath($key | split("."); $value)
@@ -48,11 +48,14 @@ update_json() {
 update_html() {
   local json_file="./assets/annotation.json"
   local html_file=""
+  local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
       --html_file) html_file="$2"; shift ;;
+      --html_template) html_template="$2"; shift ;;
+      --json_file) json_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -70,14 +73,14 @@ update_html() {
     return 1
   fi
 
-  if [[ ! -f "./assets/annotation.html" ]]; then
-    echo "HTML template file not found!"
+  if [[ ! -f $html_template ]]; then
+    echo "Template HTML file not found!"
     return 1
   fi
 
   if [[ $debug == "debug" ]]; then
-    echo "Contents of ./assets/annotation.html before update:"
-    cat "./assets/annotation.html"
+    echo "Contents of $html_template before update:"
+    cat $html_template
   fi
 
   # Extract values from JSON
@@ -185,7 +188,7 @@ update_html() {
       gsub(/\[\[table_caption\]\]/, table_caption);
     }
     {print}
-  ' "./assets/annotation.html" > "$html_file"
+  ' "$html_template" > "$html_file"
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $html_file after update:"
@@ -195,47 +198,49 @@ update_html() {
   echo "Updated HTML file: $html_file"
 }
 
-
-
 # Function to update both JSON and HTML
 update_deployment() {
   local key=""
   local value=""
+  local json_file="./assets/annotation.json"
+  local html_file=""
+  local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
       --key) key="$2"; shift ;;
       --value) value="$2"; shift ;;
+      --json_file) json_file="$2"; shift ;;
+      --html_file) html_file="$2"; shift ;;
+      --html_template) html_template="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
     shift
   done
 
-  update_json --key "$key" --value "$value" --debug "$debug"
+  update_json --key "$key" --value "$value" --json_file "$json_file" --debug "$debug"
+  update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
 }
 
 # Function to annotate using buildkite-agent
 update_annotation() {
   local json_file="./assets/annotation.json"
-  local html_file="./assets/annotation.html"
+  local html_file=""
+  local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
+      --html_file) html_file="$2"; shift ;;
+      --html_template) html_template="$2"; shift ;;
+      --json_file) json_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
     shift
   done
-
-  # Generate a timestamped HTML file name with milliseconds
-  local timestamp=$(date -u +"%Y%m%dT%H%M%S.%3NZ")
-  local temp_html_file="./assets/annotation_$timestamp.html"
-
-  # Update the HTML using the temporary HTML file
-  update_html --html_file "$temp_html_file" --debug "$debug"
 
   # Check if the required files exist
   if [[ ! -f $json_file ]]; then
@@ -243,8 +248,8 @@ update_annotation() {
     return 1
   fi
 
-  if [[ ! -f $temp_html_file ]]; then
-    echo "Temporary HTML file not found!"
+  if [[ ! -f $html_template ]]; then
+    echo "Template HTML file not found!"
     return 1
   fi
 
@@ -252,20 +257,20 @@ update_annotation() {
   local style=$(jq -r '.style // "info"' $json_file)
   local context=$(jq -r '.context // "deploy-01"' $json_file)
 
+  if [[ -z $html_file ]]; then
+    # Generate a timestamped HTML file
+    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+    html_file="./assets/annotation_$timestamp.html"
+    update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
+  fi
+
   if [[ $debug == "debug" ]]; then
     echo "Style: $style"
     echo "Context: $context"
   fi
 
-  cat "$temp_html_file" | buildkite-agent annotate --style "$style" --context "$context"
-
-  if [[ $debug == "debug" ]]; then
-    echo "Contents of $temp_html_file after update:"
-    cat $temp_html_file
-  fi
+  cat $html_file | buildkite-agent annotate --style "$style" --context "$context"
 }
-
-
 
 # Export the functions so they can be used in other scripts
 export -f update_json
