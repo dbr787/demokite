@@ -170,16 +170,22 @@ update_html() {
     printf '%s\n' "$table_rows"
   fi
 
+  # Escape slashes and quotes in table rows for gsub in awk
+  local escaped_table_rows=$(echo "$table_rows" | sed -e 's/[\/&]/\\&/g' -e 's/"/\\"/g')
+
   # Replace placeholders in HTML template using awk
-  awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$table_rows" -v table_caption="Last updated: $last_updated" '
+  awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$escaped_table_rows" -v table_caption="Last updated: $last_updated" '
+    BEGIN {
+      RS = ORS = "\n"
+    }
     {
       gsub(/\[\[title\]\]/, title);
       gsub(/\[\[subtitle\]\]/, subtitle);
       gsub(/\[\[table_rows\]\]/, table_rows);
       gsub(/\[\[table_caption\]\]/, table_caption);
+      print
     }
-    {print}
-  ' $html_file > tmp.html && mv tmp.html $html_file
+  ' "$html_file" > tmp.html && mv tmp.html "$html_file"
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $html_file after update:"
@@ -206,7 +212,6 @@ update_deployment() {
   done
 
   update_json --key "$key" --value "$value" --debug "$debug"
-  update_html --debug "$debug"
 }
 
 # Function to annotate using buildkite-agent
@@ -222,6 +227,9 @@ update_annotation() {
     esac
     shift
   done
+
+  # Update the HTML before annotating
+  update_html --debug "$debug"
 
   # Check if the required files exist
   if [[ ! -f $json_file ]]; then
