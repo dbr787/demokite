@@ -60,19 +60,8 @@ update_html() {
     printf '%s\n' "$table_rows"
   fi
 
-  # Escape special characters for awk
-  local esc_title=$(printf '%s\n' "$title" | awk '{gsub(/[\&]/, "\\&"); print}')
-  local esc_subtitle=$(printf '%s\n' "$subtitle" | awk '{gsub(/[\&]/, "\\&"); print}')
-  local esc_last_updated=$(printf '%s\n' "$last_updated" | awk '{gsub(/[\&]/, "\\&"); print}')
-  local esc_table_rows=$(printf '%s\n' "$table_rows" | awk '{gsub(/[\&]/, "\\&"); print}')
-
-  if [[ $debug == "debug" ]]; then
-    echo "Contents of esc_table_rows:"
-    printf '%s\n' "$esc_table_rows"
-  fi
-
   # Replace placeholders in HTML template using awk
-  awk -v title="$esc_title" -v subtitle="$esc_subtitle" -v table_rows="$esc_table_rows" -v table_caption="Last updated: $esc_last_updated" '
+  awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$table_rows" -v table_caption="Last updated: $last_updated" '
     {
       gsub(/\[\[title\]\]/, title);
       gsub(/\[\[subtitle\]\]/, subtitle);
