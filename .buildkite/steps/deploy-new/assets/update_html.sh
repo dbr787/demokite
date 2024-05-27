@@ -43,9 +43,12 @@ update_html() {
         <td class=\"\(.value.environment.class)\"><a href=\"\(.value.environment.link)\">\(.value.environment.text)</a></td>
         <td class=\"\(.value.old_version.class)\"><a href=\"\(.value.old_version.link)\">\(.value.old_version.text)</a></td>
         <td class=\"\(.value.new_version.class)\"><a href=\"\(.value.new_version.link)\">\(.value.new_version.text)</a></td>
+        <td class=\"\(.value.deployment_strategy.class)\"><a href=\"\(.value.deployment_strategy.link)\">\(.value.deployment_strategy.text)</a></td>
         <td class=\"\(.value.deployment_status.class)\"><a href=\"\(.value.deployment_status.link)\">\(.value.deployment_status.text)</a></td>
         <td class=\"\(.value.deployment_progress.class)\"><a href=\"\(.value.deployment_progress.link)\">\(.value.deployment_progress.text)</a></td>
-        <td class=\"\(.value.last_updated.class)\"><a href=\"\(.value.last_updated.link)\">\(.value.last_updated.text)</a></td>
+        <td class=\"\(.value.started.class)\"><a href=\"\(.value.started.link)\">\(.value.started.text)</a></td>
+        <td class=\"\(.value.finished.class)\"><a href=\"\(.value.finished.link)\">\(.value.finished.text)</a></td>
+        <td class=\"\(.value.duration.class)\"><a href=\"\(.value.duration.link)\">\(.value.duration.text)</a></td>
         <td class=\"\(.value.job.class)\"><a href=\"\(.value.job.link)\">\(.value.job.text)</a></td>
         <td class=\"\(.value.deployment.class)\"><a href=\"\(.value.deployment.link)\">\(.value.deployment.text)</a></td>
       </tr>"
