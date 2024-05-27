@@ -88,7 +88,7 @@ update_html() {
   local subtitle=$(jq -r '.subtitle // ""' $json_file)
 
   # Get current time with milliseconds in UTC
-  local last_updated=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  local last_updated=$(date +"%Y-%m-%d %H:%M:%S")
 
   # Function to generate table rows from JSON
   generate_table_rows() {
