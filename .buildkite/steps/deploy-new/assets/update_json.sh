@@ -33,7 +33,7 @@ update_json() {
   
   # Update the JSON file using jq
   jq --arg key "$key" --arg value "$value" '
-    setpath(([$key] | split(".")); $value)
+    setpath($key | split("."); $value)
   ' $json_file > tmp.$$.json && mv tmp.$$.json $json_file
 
   if [[ $debug == "debug" ]]; then
