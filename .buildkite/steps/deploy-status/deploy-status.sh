@@ -240,30 +240,53 @@ update_files \
   --title ":hatched_chick: Deployment Progress" \
   --subtitle "Monitor the progress of your deployments in Buildkite" \
 
-sleep 5
+sleep 3
 update_files \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: 1a1e395" \
   --new-version ":github: c1fcce1" \
-  --deployment-status ":bk-status-pending: Waiting" \
+  --deployment-status ":bk-status-running: In Progress" \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
   --buildkite-job ":buildkite: Buildkite Job" \
   --application-link ":argo-cd: View Deployment"
 
-sleep 5
+sleep 3
 update_files \
   --application ":orangutan: Orangutan" \
   --environment "Development" \
   --deployed-version ":github: 1a1e395" \
   --new-version ":github: c1fcce1" \
-  --deployment-status ":bk-status-pending: Waiting" \
+  --deployment-status ":bk-status-running: In Progress" \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
   --buildkite-job ":buildkite: Buildkite Job" \
   --application-link ":argo-cd: View Deployment"
 
+sleep 3
+update_files \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
+
+sleep 3
+update_files \
+  --application ":orangutan: Orangutan" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
 
 
 
