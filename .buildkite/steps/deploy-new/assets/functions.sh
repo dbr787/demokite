@@ -47,13 +47,13 @@ update_json() {
 # Function to update HTML
 update_html() {
   local json_file="./assets/annotation.json"
-  local html_file=""
+  local html_output_file=""
   local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      --html_file) html_file="$2"; shift ;;
+      --html_output_file) html_output_file="$2"; shift ;;
       --html_template) html_template="$2"; shift ;;
       --json_file) json_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
@@ -68,8 +68,8 @@ update_html() {
     return 1
   fi
 
-  if [[ -z $html_file ]]; then
-    echo "HTML file not specified!"
+  if [[ -z $html_output_file ]]; then
+    echo "HTML output file not specified!"
     return 1
   fi
 
@@ -188,14 +188,14 @@ update_html() {
       gsub(/\[\[table_caption\]\]/, table_caption);
     }
     {print}
-  ' "$html_template" > "$html_file"
+  ' "$html_template" > "$html_output_file"
 
   if [[ $debug == "debug" ]]; then
-    echo "Contents of $html_file after update:"
-    cat $html_file
+    echo "Contents of $html_output_file after update:"
+    cat $html_output_file
   fi
 
-  echo "Updated HTML file: $html_file"
+  echo "Updated HTML file: $html_output_file"
 }
 
 # Function to annotate using buildkite-agent
@@ -231,18 +231,17 @@ update_annotation() {
 
   # Generate a timestamped HTML file
   local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
-  local html_file="./assets/annotation_$timestamp.html"
-  update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
+  local html_output_file="./assets/annotation_$timestamp.html"
+  update_html --json_file "$json_file" --html_output_file "$html_output_file" --html_template "$html_template" --debug "$debug"
 
   if [[ $debug == "debug" ]]; then
     echo "Style: $style"
     echo "Context: $context"
-    echo "Generated HTML file: $html_file"
+    echo "Generated HTML file: $html_output_file"
   fi
 
-  cat $html_file | buildkite-agent annotate --style "$style" --context "$context"
+  cat $html_output_file | buildkite-agent annotate --style "$style" --context "$context"
 }
-
 
 # Export the functions so they can be used in other scripts
 export -f update_json
