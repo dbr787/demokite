@@ -35,9 +35,9 @@ update_html() {
   local last_updated=$(jq -r '.last_updated' $json_file)
 
   # Escape special characters for sed
-  local esc_title=$(printf '%s\n' "$title" | sed -e 's/[\/&]/\\&/g')
-  local esc_subtitle=$(printf '%s\n' "$subtitle" | sed -e 's/[\/&]/\\&/g')
-  local esc_last_updated=$(printf '%s\n' "$last_updated" | sed -e 's/[\/&]/\\&/g')
+  local esc_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
+  local esc_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
+  local esc_last_updated=$(printf '%s\n' "$last_updated" | sed 's/[\/&]/\\&/g')
 
   # Function to generate table rows from JSON
   generate_table_rows() {
@@ -65,8 +65,8 @@ update_html() {
     printf '%s\n' "$table_rows"
   fi
 
-  # Escape special characters for sed and handle newlines
-  local esc_table_rows=$(printf '%s\n' "$table_rows" | sed -e ':a;N;$!ba;s/\n/\\n/g' -e 's/[\/&]/\\&/g')
+  # Escape special characters for sed
+  local esc_table_rows=$(printf '%s' "$table_rows" | sed 's/[\/&]/\\&/g')
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of esc_table_rows:"
