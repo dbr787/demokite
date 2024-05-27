@@ -137,6 +137,12 @@ update_html() {
           else 
             "\(.value.deployment_progress.emoji // "") \(.value.deployment_progress.text // "")" 
           end + "</td>
+        <td class=\"\(.value.duration.class // "")\">" + 
+          if .value.duration.link != "" then 
+            "<a href=\"\(.value.duration.link)\">\(.value.duration.emoji // "") \(.value.duration.text // "")</a>" 
+          else 
+            "\(.value.duration.emoji // "") \(.value.duration.text // "")" 
+          end + "</td>
         <td class=\"\(.value.started.class // "")\">" + 
           if .value.started.link != "" then 
             "<a href=\"\(.value.started.link)\">\(.value.started.emoji // "") \(.value.started.text // "")</a>" 
@@ -148,12 +154,6 @@ update_html() {
             "<a href=\"\(.value.finished.link)\">\(.value.finished.emoji // "") \(.value.finished.text // "")</a>" 
           else 
             "\(.value.finished.emoji // "") \(.value.finished.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.duration.class // "")\">" + 
-          if .value.duration.link != "" then 
-            "<a href=\"\(.value.duration.link)\">\(.value.duration.emoji // "") \(.value.duration.text // "")</a>" 
-          else 
-            "\(.value.duration.emoji // "") \(.value.duration.text // "")" 
           end + "</td>
         <td class=\"\(.value.job.class // "")\">" + 
           if .value.job.link != "" then 
