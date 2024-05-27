@@ -19,12 +19,6 @@ source ./assets/functions.sh
 
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
-start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
-start_time_epoch=$(date -u +"%s")
-calculate_duration() {
-  local current_time_epoch=$(date -u +"%s")
-  echo "$((current_time_epoch - start_time_epoch))s"
-}
 
 deployment_key="deployments.llama-prod"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
@@ -34,6 +28,13 @@ update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
 update_json --key "$deployment_key.new_version.text" --value "$current_commit"
 update_annotation --debug "debug";
 sleep 5;
+
+start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
+start_time_epoch=$(date -u +"%s")
+calculate_duration() {
+  local current_time_epoch=$(date -u +"%s")
+  echo "$((current_time_epoch - start_time_epoch))s"
+}
 
 update_json --key "$deployment_key.started.text" --value "$start_time"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
