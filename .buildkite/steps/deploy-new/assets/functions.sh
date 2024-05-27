@@ -198,27 +198,6 @@ update_html() {
   echo "Updated HTML file: $html_file"
 }
 
-# Function to update both JSON and HTML
-update_deployment() {
-  local key=""
-  local value=""
-  local json_file="./assets/annotation.json"
-  local debug=""
-
-  while [[ "$#" -gt 0 ]]; do
-    case $1 in
-      --key) key="$2"; shift ;;
-      --value) value="$2"; shift ;;
-      --json_file) json_file="$2"; shift ;;
-      --debug) debug="$2"; shift ;;
-      *) echo "Unknown parameter passed: $1"; return 1 ;;
-    esac
-    shift
-  done
-
-  update_json --key "$key" --value "$value" --json_file "$json_file" --debug "$debug"
-}
-
 # Function to annotate using buildkite-agent
 update_annotation() {
   local json_file="./assets/annotation.json"
@@ -270,5 +249,4 @@ update_annotation() {
 # Export the functions so they can be used in other scripts
 export -f update_json
 export -f update_html
-export -f update_deployment
 export -f update_annotation
