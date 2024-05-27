@@ -162,7 +162,7 @@ update_html() {
     ' $json_file
   }
 
-  # Generate table rows
+    # Generate table rows
   local table_rows=$(generate_table_rows)
 
   if [[ $debug == "debug" ]]; then
@@ -170,22 +170,16 @@ update_html() {
     printf '%s\n' "$table_rows"
   fi
 
-  # Escape slashes and quotes in table rows for gsub in awk
-  local escaped_table_rows=$(echo "$table_rows" | sed -e 's/[\/&]/\\&/g' -e 's/"/\\"/g')
-
   # Replace placeholders in HTML template using awk
-  awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$escaped_table_rows" -v table_caption="Last updated: $last_updated" '
-    BEGIN {
-      RS = ORS = "\n"
-    }
+  awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$table_rows" -v table_caption="Last updated: $last_updated" '
     {
       gsub(/\[\[title\]\]/, title);
       gsub(/\[\[subtitle\]\]/, subtitle);
       gsub(/\[\[table_rows\]\]/, table_rows);
       gsub(/\[\[table_caption\]\]/, table_caption);
-      print
     }
-  ' "$html_file" > tmp.html && mv tmp.html "$html_file"
+    {print}
+  ' $html_file > tmp.html && mv tmp.html $html_file
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $html_file after update:"
@@ -194,6 +188,7 @@ update_html() {
 
   echo "Updated HTML file: $html_file"
 }
+
 
 # Function to update both JSON and HTML
 update_deployment() {
