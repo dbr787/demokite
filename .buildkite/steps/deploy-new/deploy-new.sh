@@ -17,9 +17,11 @@ cd .buildkite/steps/deploy-new/
 # Source local update functions
 source ./assets/update_json.sh
 source ./assets/update_html.sh
+source ./assets/annotate_buildkite.sh
 
 # update_json --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
 update_json --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text"
 update_html --debug "debug"
+annotate_buildkite --debug "debug"
 
-cat ./assets/annotation.html | buildkite-agent annotate --style "info" --context "deploy-01"
+# cat ./assets/annotation.html | buildkite-agent annotate --style "info" --context "deploy-01"
