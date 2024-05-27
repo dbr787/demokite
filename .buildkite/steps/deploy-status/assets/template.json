@@ -12,8 +12,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     },
     {
       "application": ":bison: Bison",
@@ -23,8 +23,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     },
     {
       "application": ":bison: Bison",
@@ -34,8 +34,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     },
     {
       "application": ":orangutan: Orangutan",
@@ -45,8 +45,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     },
     {
       "application": ":orangutan: Orangutan",
@@ -56,8 +56,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     },
     {
       "application": ":orangutan: Orangutan",
@@ -67,8 +67,8 @@
       "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
-      "buildkite_job": "Buildkite Job",
-      "application_link": "Application Link"
+      "buildkite_job": ":buildkite: TBC",
+      "application_link": ":argo-cd: TBC"
     }
   ]
 }

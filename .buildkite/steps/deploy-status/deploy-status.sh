@@ -250,7 +250,7 @@ update_files \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
   --buildkite-job ":buildkite: Buildkite Job" \
-  --application-link ":arco-cd: View Deployment"
+  --application-link ":argo-cd: View Deployment"
 
 sleep 5
 update_files \
@@ -262,7 +262,7 @@ update_files \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
   --buildkite-job ":buildkite: Buildkite Job" \
-  --application-link ":arco-cd: View Deployment"
+  --application-link ":argo-cd: View Deployment"
 
 
 
