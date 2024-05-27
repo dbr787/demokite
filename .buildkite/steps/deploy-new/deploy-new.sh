@@ -35,3 +35,5 @@ update_json --key "$deployment_key.deployment_status.text" --value "Updated Stat
 # update the annotation
 update_annotation --debug "debug";
 sleep 5;
+
+ls -lah ./assets/;

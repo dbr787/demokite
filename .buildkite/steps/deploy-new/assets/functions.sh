@@ -47,15 +47,15 @@ update_json() {
 # Function to update HTML
 update_html() {
   local json_file="./assets/annotation.json"
-  local html_output_file=""
   local html_template="./assets/annotation.html"
+  local html_output_file=""
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      --html_output_file) html_output_file="$2"; shift ;;
-      --html_template) html_template="$2"; shift ;;
       --json_file) json_file="$2"; shift ;;
+      --html_template) html_template="$2"; shift ;;
+      --html_output_file) html_output_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -68,13 +68,13 @@ update_html() {
     return 1
   fi
 
-  if [[ -z $html_output_file ]]; then
-    echo "HTML output file not specified!"
+  if [[ ! -f $html_template ]]; then
+    echo "Template HTML file not found!"
     return 1
   fi
 
-  if [[ ! -f $html_template ]]; then
-    echo "Template HTML file not found!"
+  if [[ -z $html_output_file ]]; then
+    echo "HTML output file not specified!"
     return 1
   fi
 
@@ -206,8 +206,8 @@ update_annotation() {
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      --html_template) html_template="$2"; shift ;;
       --json_file) json_file="$2"; shift ;;
+      --html_template) html_template="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
