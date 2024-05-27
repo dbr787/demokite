@@ -43,75 +43,75 @@ update_html() {
       "<tr>
         <td class=\"\(.value.application.class)\">" + 
           if .value.application.link != "" then 
-            "<a href=\"\(.value.application.link)\">\(.value.application.text)</a>" 
+            "<a href=\"\(.value.application.link)\">\(.value.application.emoji) \(.value.application.text)</a>" 
           else 
-            "\(.value.application.text)" 
+            "\(.value.application.emoji) \(.value.application.text)" 
           end + "</td>
         <td class=\"\(.value.environment.class)\">" + 
           if .value.environment.link != "" then 
-            "<a href=\"\(.value.environment.link)\">\(.value.environment.text)</a>" 
+            "<a href=\"\(.value.environment.link)\">\(.value.environment.emoji) \(.value.environment.text)</a>" 
           else 
-            "\(.value.environment.text)" 
+            "\(.value.environment.emoji) \(.value.environment.text)" 
           end + "</td>
         <td class=\"\(.value.old_version.class)\">" + 
           if .value.old_version.link != "" then 
-            "<a href=\"\(.value.old_version.link)\">\(.value.old_version.text)</a>" 
+            "<a href=\"\(.value.old_version.link)\">\(.value.old_version.emoji) \(.value.old_version.text)</a>" 
           else 
-            "\(.value.old_version.text)" 
+            "\(.value.old_version.emoji) \(.value.old_version.text)" 
           end + "</td>
         <td class=\"\(.value.new_version.class)\">" + 
           if .value.new_version.link != "" then 
-            "<a href=\"\(.value.new_version.link)\">\(.value.new_version.text)</a>" 
+            "<a href=\"\(.value.new_version.link)\">\(.value.new_version.emoji) \(.value.new_version.text)</a>" 
           else 
-            "\(.value.new_version.text)" 
+            "\(.value.new_version.emoji) \(.value.new_version.text)" 
           end + "</td>
         <td class=\"\(.value.deployment_strategy.class)\">" + 
           if .value.deployment_strategy.link != "" then 
-            "<a href=\"\(.value.deployment_strategy.link)\">\(.value.deployment_strategy.text)</a>" 
+            "<a href=\"\(.value.deployment_strategy.link)\">\(.value.deployment_strategy.emoji) \(.value.deployment_strategy.text)</a>" 
           else 
-            "\(.value.deployment_strategy.text)" 
+            "\(.value.deployment_strategy.emoji) \(.value.deployment_strategy.text)" 
           end + "</td>
         <td class=\"\(.value.deployment_status.class)\">" + 
           if .value.deployment_status.link != "" then 
-            "<a href=\"\(.value.deployment_status.link)\">\(.value.deployment_status.text)</a>" 
+            "<a href=\"\(.value.deployment_status.link)\">\(.value.deployment_status.emoji) \(.value.deployment_status.text)</a>" 
           else 
-            "\(.value.deployment_status.text)" 
+            "\(.value.deployment_status.emoji) \(.value.deployment_status.text)" 
           end + "</td>
         <td class=\"\(.value.deployment_progress.class)\">" + 
           if .value.deployment_progress.link != "" then 
-            "<a href=\"\(.value.deployment_progress.link)\">\(.value.deployment_progress.text)</a>" 
+            "<a href=\"\(.value.deployment_progress.link)\">\(.value.deployment_progress.emoji) \(.value.deployment_progress.text)</a>" 
           else 
-            "\(.value.deployment_progress.text)" 
+            "\(.value.deployment_progress.emoji) \(.value.deployment_progress.text)" 
           end + "</td>
         <td class=\"\(.value.started.class)\">" + 
           if .value.started.link != "" then 
-            "<a href=\"\(.value.started.link)\">\(.value.started.text)</a>" 
+            "<a href=\"\(.value.started.link)\">\(.value.started.emoji) \(.value.started.text)</a>" 
           else 
-            "\(.value.started.text)" 
+            "\(.value.started.emoji) \(.value.started.text)" 
           end + "</td>
         <td class=\"\(.value.finished.class)\">" + 
           if .value.finished.link != "" then 
-            "<a href=\"\(.value.finished.link)\">\(.value.finished.text)</a>" 
+            "<a href=\"\(.value.finished.link)\">\(.value.finished.emoji) \(.value.finished.text)</a>" 
           else 
-            "\(.value.finished.text)" 
+            "\(.value.finished.emoji) \(.value.finished.text)" 
           end + "</td>
         <td class=\"\(.value.duration.class)\">" + 
           if .value.duration.link != "" then 
-            "<a href=\"\(.value.duration.link)\">\(.value.duration.text)</a>" 
+            "<a href=\"\(.value.duration.link)\">\(.value.duration.emoji) \(.value.duration.text)</a>" 
           else 
-            "\(.value.duration.text)" 
+            "\(.value.duration.emoji) \(.value.duration.text)" 
           end + "</td>
         <td class=\"\(.value.job.class)\">" + 
           if .value.job.link != "" then 
-            "<a href=\"\(.value.job.link)\">\(.value.job.text)</a>" 
+            "<a href=\"\(.value.job.link)\">\(.value.job.emoji) \(.value.job.text)</a>" 
           else 
-            "\(.value.job.text)" 
+            "\(.value.job.emoji) \(.value.job.text)" 
           end + "</td>
         <td class=\"\(.value.deployment.class)\">" + 
           if .value.deployment.link != "" then 
-            "<a href=\"\(.value.deployment.link)\">\(.value.deployment.text)</a>" 
+            "<a href=\"\(.value.deployment.link)\">\(.value.deployment.emoji) \(.value.deployment.text)</a>" 
           else 
-            "\(.value.deployment.text)" 
+            "\(.value.deployment.emoji) \(.value.deployment.text)" 
           end + "</td>
       </tr>"
     ' $json_file
