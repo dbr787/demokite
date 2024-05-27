@@ -35,9 +35,9 @@ update_html() {
   local last_updated=$(jq -r '.last_updated' $json_file)
 
   # Escape special characters for sed
-  local esc_title=$(printf '%s\n' "$title" | sed 's/[&/\]/\\&/g')
-  local esc_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[&/\]/\\&/g')
-  local esc_last_updated=$(printf '%s\n' "$last_updated" | sed 's/[&/\]/\\&/g')
+  local esc_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
+  local esc_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
+  local esc_last_updated=$(printf '%s\n' "$last_updated" | sed 's/[\/&]/\\&/g')
 
   # Function to generate table rows from JSON
   generate_table_rows() {
@@ -62,22 +62,22 @@ update_html() {
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of table_rows:"
-    echo $table_rows
+    printf '%s\n' "$table_rows"
   fi
 
   # Escape special characters for sed
-  local esc_table_rows=$(printf '%s\n' "$table_rows" | sed 's/[&/\]/\\&/g')
+  local esc_table_rows=$(printf '%s\n' "$table_rows" | sed 's/[\/&]/\\&/g')
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of esc_table_rows:"
-    echo $esc_table_rows
+    printf '%s\n' "$esc_table_rows"
   fi
 
   # Replace placeholders in HTML template
-  sed -i -e "s/\[\[title\]\]/$esc_title/" \
-         -e "s/\[\[subtitle\]\]/$esc_subtitle/" \
-         -e "s/\[\[table_rows\]\]/$esc_table_rows/" \
-         -e "s/\[\[table_caption\]\]/Last updated: $esc_last_updated/" \
+  sed -i -e "s|\[\[title\]\]|$esc_title|g" \
+         -e "s|\[\[subtitle\]\]|$esc_subtitle|g" \
+         -e "s|\[\[table_rows\]\]|$esc_table_rows|g" \
+         -e "s|\[\[table_caption\]\]|Last updated: $esc_last_updated|g" \
          $html_file
 
   if [[ $debug == "debug" ]]; then
