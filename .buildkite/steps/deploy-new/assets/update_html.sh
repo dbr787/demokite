@@ -39,16 +39,15 @@ update_html() {
   # Function to generate table rows from JSON
   generate_table_rows() {
     jq -r '
-      def generate_td(deployment; field):
-        "<td class=\"" + (deployment[field].class // "") + "\">" +
-        if (deployment[field].link // "") != "" then
-          "<a href=\"" + (deployment[field].link // "") + "\">" + (deployment[field].emoji // "") + " " + (deployment[field].text // "") + "</a>"
+      def generate_td(field):
+        "<td class=\"" + (.value[field].class // "") + "\">" +
+        if (.value[field].link // "") != "" then
+          "<a href=\"" + (.value[field].link // "") + "\">" + (.value[field].emoji // "") + " " + (.value[field].text // "") + "</a>"
         else
-          (deployment[field].emoji // "") + " " + (deployment[field].text // "")
+          (.value[field].emoji // "") + " " + (.value[field].text // "")
         end + "</td>";
 
       .deployments | to_entries[] |
-      .value |
       "<tr>" +
       (["application", "environment", "old_version", "new_version", "deployment_strategy", "deployment_status", "deployment_progress", "started", "finished", "duration", "job", "deployment"]
       | map(generate_td(.))) | join("") +
