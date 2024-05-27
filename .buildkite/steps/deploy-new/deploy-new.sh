@@ -17,7 +17,8 @@ cd .buildkite/steps/deploy-new/
 # source local functions
 source ./assets/functions.sh
 
+# update values in the json file
 update_deployment --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
 
-# Annotate using buildkite-agent
+# update the annotation in buildkite
 update_annotation --debug "debug"

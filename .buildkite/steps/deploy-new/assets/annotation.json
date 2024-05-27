@@ -40,7 +40,7 @@
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "bold orange"
+        "class": "normal gray"
       },
       "deployment_progress": {
         "emoji": "",
@@ -87,9 +87,9 @@
         "class": ""
       },
       "environment": {
-        "emoji": "",
-        "text": "Production",
-        "link": "",
+        "emoji": ":aws:",
+        "text": "Development",
+        "link": "https://console.aws.amazon.com/",
         "class": ""
       },
       "old_version": {
@@ -111,20 +111,32 @@
         "class": ""
       },
       "deployment_status": {
-        "emoji": ":bk-status-running:",
-        "text": "",
+        "emoji": ":bk-status-pending:",
+        "text": "Pending",
+        "link": "",
+        "class": "normal gray"
+      },
+      "deployment_progress": {
+        "emoji": "",
+        "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
         "class": ""
       },
       "started": {
         "emoji": "",
-        "text": "",
+        "text": "-",
         "link": "",
         "class": ""
       },
-      "last_updated": {
+      "finished": {
         "emoji": "",
-        "text": "",
+        "text": "-",
+        "link": "",
+        "class": ""
+      },
+      "duration": {
+        "emoji": "",
+        "text": "-",
         "link": "",
         "class": ""
       },
