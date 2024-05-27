@@ -22,13 +22,11 @@ current_commit=$(git log -1 --pretty=format:%h)
 start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
 calculate_duration() {
   local start_time="$1"
-  local current_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  local current_time=$(date -u +"%Y-%m-%d %H:%M:%S")
   local start_seconds=$(date -u -d "$start_time" +"%s")
   local current_seconds=$(date -u -d "$current_time" +"%s")
   echo $((current_seconds - start_seconds))
 }
-
-
 
 deployment_key="deployments.llama-prod"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
