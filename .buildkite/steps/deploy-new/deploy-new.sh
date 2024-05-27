@@ -14,8 +14,8 @@ current_dir_contents=$(ls -lah "$current_dir")
 # change into step directory
 cd .buildkite/steps/deploy-new/
 
-# Source the combined update functions
-source ./assets/update_script.sh
+# source local functions
+source ./assets/functions.sh
 
 update_deployment --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
 
