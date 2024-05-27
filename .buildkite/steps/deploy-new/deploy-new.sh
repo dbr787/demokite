@@ -19,7 +19,8 @@ source ./assets/update_json.sh
 source ./assets/update_html.sh
 
 # Example usage of update_json with named parameters and debug
-update_json --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
+# update_json --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
+update_json --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text"
 
 # Example usage of update_html with named parameters and debug
 update_html --debug "debug"

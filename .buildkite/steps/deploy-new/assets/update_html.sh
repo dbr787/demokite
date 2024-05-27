@@ -34,11 +34,6 @@ update_html() {
   local subtitle=$(jq -r '.subtitle' $json_file)
   local last_updated=$(jq -r '.last_updated' $json_file)
 
-  # Escape special characters for sed
-  local esc_title=$(printf '%s\n' "$title" | sed 's/[\/&]/\\&/g')
-  local esc_subtitle=$(printf '%s\n' "$subtitle" | sed 's/[\/&]/\\&/g')
-  local esc_last_updated=$(printf '%s\n' "$last_updated" | sed 's/[\/&]/\\&/g')
-
   # Function to generate table rows from JSON
   generate_table_rows() {
     jq -r '
@@ -65,20 +60,27 @@ update_html() {
     printf '%s\n' "$table_rows"
   fi
 
-  # Escape special characters for sed
-  local esc_table_rows=$(printf '%s\n' "$table_rows" | sed 's/[\/&]/\\&/g')
+  # Escape special characters for awk
+  local esc_title=$(printf '%s\n' "$title" | awk '{gsub(/[\&]/, "\\&"); print}')
+  local esc_subtitle=$(printf '%s\n' "$subtitle" | awk '{gsub(/[\&]/, "\\&"); print}')
+  local esc_last_updated=$(printf '%s\n' "$last_updated" | awk '{gsub(/[\&]/, "\\&"); print}')
+  local esc_table_rows=$(printf '%s\n' "$table_rows" | awk '{gsub(/[\&]/, "\\&"); print}')
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of esc_table_rows:"
     printf '%s\n' "$esc_table_rows"
   fi
 
-  # Replace placeholders in HTML template using a different delimiter
-  sed -i -e "s|[[title]]|$esc_title|g" \
-         -e "s|[[subtitle]]|$esc_subtitle|g" \
-         -e "s|[[table_rows]]|$esc_table_rows|g" \
-         -e "s|[[table_caption]]|Last updated: $esc_last_updated|g" \
-         $html_file
+  # Replace placeholders in HTML template using awk
+  awk -v title="$esc_title" -v subtitle="$esc_subtitle" -v table_rows="$esc_table_rows" -v table_caption="Last updated: $esc_last_updated" '
+    {
+      gsub(/\[\[title\]\]/, title);
+      gsub(/\[\[subtitle\]\]/, subtitle);
+      gsub(/\[\[table_rows\]\]/, table_rows);
+      gsub(/\[\[table_caption\]\]/, table_caption);
+    }
+    {print}
+  ' $html_file > tmp.html && mv tmp.html $html_file
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $html_file after update:"
