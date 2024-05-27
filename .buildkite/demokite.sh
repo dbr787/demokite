@@ -18,11 +18,20 @@ CURRENT_STATE=""
 FIRST_STEP_KEY="begin"
 CURRENT_DIR=$(pwd)
 
+
+
 pipeline_prepare ".buildkite/steps/deploy-status" "deploy-status.yml" $CURRENT_DIR "deploy-status.json"
-pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-pipeline_merge "deploy-status.json" "ask.json" > "merged.json"
-# artifact_upload "merged.json"
-pipeline_upload "merged.json"
+pipeline_upload "deploy-status.json"
+
+
+
+# pipeline_prepare ".buildkite/steps/deploy-status" "deploy-status.yml" $CURRENT_DIR "deploy-status.json"
+# pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+# pipeline_merge "deploy-status.json" "ask.json" > "merged.json"
+# # artifact_upload "merged.json"
+# pipeline_upload "merged.json"
+
+
 
 # if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
 #   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
