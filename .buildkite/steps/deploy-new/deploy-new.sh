@@ -20,7 +20,8 @@ source ./assets/functions.sh
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
 
-echo $previous_commit
+echo "previous commit: $previous_commit"
+echo "current commit: $previous_commit"
 
 # update values in the json file
 deployment_key="deployments.bison-dev"
