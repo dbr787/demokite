@@ -24,3 +24,5 @@ update_json --key "deployments.bison-dev.deployment_status.text" --value "Update
 
 # Example usage of update_html with named parameters and debug
 update_html --debug "debug"
+
+cat ./assets/annotation.html | buildkite-agent annotate --style "info" --context "deploy-01"
