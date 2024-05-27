@@ -19,10 +19,10 @@ source ./assets/functions.sh
 
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
-start_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
 calculate_duration() {
   local start_time="$1"
-  local current_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  local current_time=$(date -u +"%Y-%m-%d %H:%M:%S")
   local start_seconds=$(date -u -d "$start_time" +"%s")
   local current_seconds=$(date -u -d "$current_time" +"%s")
   echo $((current_seconds - start_seconds))
@@ -63,7 +63,7 @@ update_json --key "$deployment_key.duration.text" --value "$(calculate_duration 
 update_annotation
 sleep 2
 
-end_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+end_time=$(date -u +"%Y-%m-%d %H:%M:%S")
 update_json --key "$deployment_key.finished.text" --value "$end_time"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
