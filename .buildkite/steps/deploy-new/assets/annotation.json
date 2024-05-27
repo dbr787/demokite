@@ -84,73 +84,73 @@
         "emoji": ":llama:",
         "text": "Llama",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "environment": {
         "emoji": ":aws:",
         "text": "Production",
         "link": "https://console.aws.amazon.com/",
-        "class": ""
+        "class": "center"
       },
       "old_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": ""
+        "class": "center"
       },
       "new_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": ""
+        "class": "center"
       },
       "deployment_strategy": {
         "emoji": ":k8s:",
         "text": "Rolling",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "deployment_status": {
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "normal gray"
+        "class": "center normal gray"
       },
       "deployment_progress": {
         "emoji": "",
         "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "started": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "finished": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": ""
+        "class": "center"
       },
       "job": {
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": ""
+        "class": "center"
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": ""
+        "class": "center"
       }
     }
   }
