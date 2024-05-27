@@ -20,18 +20,11 @@ source ./assets/functions.sh
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
 start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
+start_time_epoch=$(date -u +"%s")
 calculate_duration() {
-  local start_time="$1"
-  local current_time=$(date -u +"%Y-%m-%d %H:%M:%S")
-  echo "Start time: $start_time"
-  echo "Current time: $current_time"
-  local start_seconds=$(date -u -d "$start_time" +"%s")
-  local current_seconds=$(date -u -d "$current_time" +"%s")
-  echo "Start seconds: $start_seconds"
-  echo "Current seconds: $current_seconds"
-  echo $((current_seconds - start_seconds))
+  local current_time_epoch=$(date -u +"%s")
+  echo $((start_time_epoch - start_time_epoch))
 }
-
 
 deployment_key="deployments.llama-prod"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
@@ -47,17 +40,17 @@ update_json --key "$deployment_key.deployment_progress.text" --value ":large_gre
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time) seconds"
+update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time_epoch) seconds"
 update_annotation
 sleep 2
 
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time) seconds"
+update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time_epoch) seconds"
 update_annotation
 sleep 2
 
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time) seconds"
+update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time_epoch) seconds"
 update_annotation
 sleep 2
 
