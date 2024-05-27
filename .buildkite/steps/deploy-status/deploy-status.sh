@@ -288,7 +288,77 @@ update_files \
   --buildkite-job ":buildkite: Buildkite Job" \
   --application-link ":argo-cd: View Deployment"
 
+sleep 3
+update_files \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
 
+sleep 3
+update_files \
+  --application ":orangutan: Orangutan" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
+
+sleep 3
+update_files \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
+
+sleep 3
+update_files \
+  --application ":orangutan: Orangutan" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
+
+sleep 3
+update_files \
+  --application ":bison: Bison" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
+
+sleep 3
+update_files \
+  --application ":orangutan: Orangutan" \
+  --environment "Development" \
+  --deployed-version ":github: 1a1e395" \
+  --new-version ":github: c1fcce1" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --deployment-progress ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":argo-cd: View Deployment"
 
 
   # --deployment-status ":bk-status-running: In Progress" \
