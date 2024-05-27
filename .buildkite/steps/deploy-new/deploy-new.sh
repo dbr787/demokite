@@ -23,10 +23,15 @@ start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
 calculate_duration() {
   local start_time="$1"
   local current_time=$(date -u +"%Y-%m-%d %H:%M:%S")
+  echo "Start time: $start_time"
+  echo "Current time: $current_time"
   local start_seconds=$(date -u -d "$start_time" +"%s")
   local current_seconds=$(date -u -d "$current_time" +"%s")
+  echo "Start seconds: $start_seconds"
+  echo "Current seconds: $current_seconds"
   echo $((current_seconds - start_seconds))
 }
+
 
 deployment_key="deployments.llama-prod"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
