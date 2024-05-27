@@ -70,13 +70,13 @@
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": ""
+        "class": "center"
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": ""
+        "class": "center"
       }
     },
     "llama-prod": {
