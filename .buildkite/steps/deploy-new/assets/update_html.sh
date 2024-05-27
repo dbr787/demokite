@@ -41,13 +41,14 @@ update_html() {
     jq -r '
       def generate_td(deployment; field):
         "<td class=\"" + (deployment[field].class // "") + "\">" +
-        if deployment[field].link != "" then
+        if (deployment[field].link // "") != "" then
           "<a href=\"" + (deployment[field].link // "") + "\">" + (deployment[field].emoji // "") + " " + (deployment[field].text // "") + "</a>"
         else
           (deployment[field].emoji // "") + " " + (deployment[field].text // "")
         end + "</td>";
 
       .deployments | to_entries[] |
+      .[] |
       "<tr>" +
       (["application", "environment", "old_version", "new_version", "deployment_strategy", "deployment_status", "deployment_progress", "started", "finished", "duration", "job", "deployment"]
       | map(generate_td(.value; .))) | join("") +
