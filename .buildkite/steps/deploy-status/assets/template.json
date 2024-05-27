@@ -1,6 +1,6 @@
 {
-  "title": "Default Title",
-  "subtitle": "Default Subtitle",
+  "title": ":hatched_chick: Deployment",
+  "subtitle": "Monitor the progress of your deployments in Buildkite",
   "style": "info",
   "context": "deploy-01",
   "deployments": [
@@ -9,8 +9,8 @@
       "environment": "Development",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
-      "deployment_status": "In Progress",
-      "deployment_progress": 10,
+      "deployment_status": ":bk-status-running: In Progress",
+      "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
       "buildkite_job": "Buildkite Job",
       "application_link": "Application Link"
@@ -20,8 +20,8 @@
       "environment": "Test",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
-      "deployment_status": "In Progress",
-      "deployment_progress": 10,
+      "deployment_status": ":bk-status-pending: Waiting",
+      "deployment_progress": "",
       "last_updated": "",
       "buildkite_job": "Buildkite Job",
       "application_link": "Application Link"
@@ -31,8 +31,8 @@
       "environment": "Production",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
-      "deployment_status": "In Progress",
-      "deployment_progress": 10,
+      "deployment_status": ":bk-status-pending: Waiting",
+      "deployment_progress": "",
       "last_updated": "",
       "buildkite_job": "Buildkite Job",
       "application_link": "Application Link"
