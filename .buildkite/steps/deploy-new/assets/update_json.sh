@@ -2,16 +2,14 @@
 
 update_json() {
   local json_file="./assets/annotation.json"
-  local deployment_key=""
   local key=""
-  local new_value=""
+  local value=""
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      --deployment_key) deployment_key="$2"; shift ;;
       --key) key="$2"; shift ;;
-      --new_value) new_value="$2"; shift ;;
+      --value) value="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -23,8 +21,8 @@ update_json() {
     return 1
   fi
 
-  if [[ -z $deployment_key || -z $key || -z $new_value ]]; then
-    echo "Usage: update_json --deployment_key <deployment_key> --key <key> --new_value <new_value> [--debug debug]"
+  if [[ -z $key || -z $value ]]; then
+    echo "Usage: update_json --key <key> --value <value> [--debug debug]"
     return 1
   fi
 
@@ -34,8 +32,8 @@ update_json() {
   fi
   
   # Update the JSON file using jq
-  jq --arg deployment_key "$deployment_key" --arg key "$key" --arg new_value "$new_value" '
-    (.deployments[$deployment_key] | .[$key]) = $new_value
+  jq --arg key "$key" --arg value "$value" '
+    setpath(([$key] | split(".")); $value)
   ' $json_file > tmp.$$.json && mv tmp.$$.json $json_file
 
   if [[ $debug == "debug" ]]; then
