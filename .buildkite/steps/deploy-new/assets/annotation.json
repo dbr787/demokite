@@ -88,7 +88,7 @@
       },
       "environment": {
         "emoji": ":aws:",
-        "text": "Development",
+        "text": "Production",
         "link": "https://console.aws.amazon.com/",
         "class": ""
       },

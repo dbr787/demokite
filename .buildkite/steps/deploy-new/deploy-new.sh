@@ -17,8 +17,13 @@ cd .buildkite/steps/deploy-new/
 # source local functions
 source ./assets/functions.sh
 
+previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
+current_commit=$(git log -1 --pretty=format:%h)
+
 # update values in the json file
 update_deployment --key "deployments.bison-dev.deployment_status.text" --value "Updated Status Text" --debug "debug"
+update_deployment --key "deployments.bison-dev.old_version.text" --value "$previous_commit" --debug "debug"
+update_deployment --key "deployments.bison-dev.new_version.text" --value "$current_commit" --debug "debug"
 
 # update the annotation in buildkite
 update_annotation --debug "debug"
