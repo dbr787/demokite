@@ -14,7 +14,7 @@ current_dir_contents=$(ls -lah "$current_dir")
 # change into step directory
 cd .buildkite/steps/deploy-new/
 
-# Source the update functions
+# Source local update functions
 source ./assets/update_json.sh
 source ./assets/update_html.sh
 
