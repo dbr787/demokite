@@ -201,13 +201,11 @@ update_html() {
 # Function to annotate using buildkite-agent
 update_annotation() {
   local json_file="./assets/annotation.json"
-  local html_file=""
   local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      --html_file) html_file="$2"; shift ;;
       --html_template) html_template="$2"; shift ;;
       --json_file) json_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
@@ -231,20 +229,20 @@ update_annotation() {
   local style=$(jq -r '.style // "info"' $json_file)
   local context=$(jq -r '.context // "deploy-01"' $json_file)
 
-  if [[ -z $html_file ]]; then
-    # Generate a timestamped HTML file
-    local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
-    html_file="./assets/annotation_$timestamp.html"
-    update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
-  fi
+  # Generate a timestamped HTML file
+  local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  local html_file="./assets/annotation_$timestamp.html"
+  update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
 
   if [[ $debug == "debug" ]]; then
     echo "Style: $style"
     echo "Context: $context"
+    echo "Generated HTML file: $html_file"
   fi
 
   cat $html_file | buildkite-agent annotate --style "$style" --context "$context"
 }
+
 
 # Export the functions so they can be used in other scripts
 export -f update_json
