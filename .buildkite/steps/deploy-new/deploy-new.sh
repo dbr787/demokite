@@ -23,7 +23,7 @@ start_time=$(date -u +"%Y-%m-%d %H:%M:%S")
 start_time_epoch=$(date -u +"%s")
 calculate_duration() {
   local current_time_epoch=$(date -u +"%s")
-  echo $((start_time_epoch - start_time_epoch))
+  echo $((current_time_epoch - start_time_epoch))
 }
 
 deployment_key="deployments.llama-prod"
