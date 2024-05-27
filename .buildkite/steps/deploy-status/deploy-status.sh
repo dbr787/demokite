@@ -244,25 +244,25 @@ sleep 5
 update_files \
   --application ":bison: Bison" \
   --environment "Development" \
-  --deployed_version ":github: 1a1e395" \
+  --deployed-version ":github: 1a1e395" \
   --new_version ":github: c1fcce1" \
-  --deployment_status ":bk-status-pending: Waiting" \
-  --deployment_progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --deployment-status ":bk-status-pending: Waiting" \
+  --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
-  --buildkite_job ":buildkite: Buildkite Job" \
-  --application_link ":arco-cd: View Deployment"
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":arco-cd: View Deployment"
 
 sleep 5
 update_files \
   --application "::orangutan: Orangutan" \
   --environment "Development" \
-  --deployed_version ":github: 1a1e395" \
+  --deployed-version ":github: 1a1e395" \
   --new_version ":github: c1fcce1" \
-  --deployment_status ":bk-status-pending: Waiting" \
-  --deployment_progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
+  --deployment-status ":bk-status-pending: Waiting" \
+  --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
-  --buildkite_job ":buildkite: Buildkite Job" \
-  --application_link ":arco-cd: View Deployment"
+  --buildkite-job ":buildkite: Buildkite Job" \
+  --application-link ":arco-cd: View Deployment"
 
 
 
