@@ -197,7 +197,7 @@ update_files() {
     local title=$(jq -r '.title' "$json_output_file")
     local subtitle=$(jq -r '.subtitle' "$json_output_file")
     local context=$(jq -r '.context' "$json_output_file")
-    local table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td><a href=\"" + .application_link + "\">Link</a></td></tr>") | join("")' "$json_output_file")
+    local table_rows=$(jq -r '.deployments | map("<tr><td>" + .application + "</td><td>" + .environment + "</td><td>" + .deployed_version + "</td><td>" + .new_version + "</td><td>" + .deployment_status + "</td><td>" + (.deployment_progress|tostring) + "</td><td>" + .last_updated + "</td><td>" + .buildkite_job + "</td><td>" + .application_link + "</td></tr>") | join("")' "$json_output_file")
 
     # Escape slashes and other special characters for sed
     title=$(echo "$title" | sed 's/[\/&]/\\&/g')
@@ -254,7 +254,7 @@ update_files \
 
 sleep 5
 update_files \
-  --application "::orangutan: Orangutan" \
+  --application ":orangutan: Orangutan" \
   --environment "Development" \
   --deployed-version ":github: 1a1e395" \
   --new-version ":github: c1fcce1" \
