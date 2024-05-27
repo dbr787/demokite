@@ -223,8 +223,15 @@ update_annotation() {
     shift
   done
 
+  # Generate a timestamped HTML file name with milliseconds
+  local timestamp=$(date -u +"%Y%m%dT%H%M%S.%3NZ")
+  local temp_html_file="./assets/annotation_$timestamp.html"
+
   # Update the HTML before annotating
   update_html --debug "$debug"
+
+  # Copy the updated HTML to the new timestamped file
+  cp "$html_file" "$temp_html_file"
 
   # Check if the required files exist
   if [[ ! -f $json_file ]]; then
@@ -232,8 +239,8 @@ update_annotation() {
     return 1
   fi
 
-  if [[ ! -f $html_file ]]; then
-    echo "HTML file not found!"
+  if [[ ! -f $temp_html_file ]]; then
+    echo "Temporary HTML file not found!"
     return 1
   fi
 
@@ -246,8 +253,14 @@ update_annotation() {
     echo "Context: $context"
   fi
 
-  cat $html_file | buildkite-agent annotate --style "$style" --context "$context"
+  cat "$temp_html_file" | buildkite-agent annotate --style "$style" --context "$context"
+
+  if [[ $debug == "debug" ]]; then
+    echo "Contents of $temp_html_file after update:"
+    cat $temp_html_file
+  fi
 }
+
 
 # Export the functions so they can be used in other scripts
 export -f update_json

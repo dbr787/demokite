@@ -35,6 +35,3 @@ update_deployment --key "$deployment_key.deployment_status.text" --value "Update
 # update the annotation in buildkite
 update_annotation;
 sleep 5;
-
-
-
