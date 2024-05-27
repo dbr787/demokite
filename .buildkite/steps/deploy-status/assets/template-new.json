@@ -37,21 +37,21 @@
       },
       "deployment_status": {
         "emoji": ":bk-status-running:",
-        "text": "In Progress",
+        "text": "",
         "link": "",
-        "class": "bold orange"
+        "class": ""
       },
       "started": {
-        "emoji": ":bk-status-running:",
-        "text": "In Progress",
+        "emoji": "",
+        "text": "",
         "link": "",
-        "class": "bold orange"
+        "class": ""
       },
       "last_updated": {
-        "emoji": ":bk-status-running:",
-        "text": "In Progress",
+        "emoji": "",
+        "text": "",
         "link": "",
-        "class": "bold orange"
+        "class": ""
       },
       "job": {
         "emoji": ":buildkite:",

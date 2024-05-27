@@ -9,7 +9,7 @@
       "environment": "Development",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
-      "deployment_status": ":bk-status-running: In Progress",
+      "deployment_status": ":bk-status-pending: Waiting",
       "deployment_progress": ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:",
       "last_updated": "",
       "buildkite_job": "Buildkite Job",
@@ -17,6 +17,39 @@
     },
     {
       "application": ":bison: Bison",
+      "environment": "Test",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": ":bk-status-pending: Waiting",
+      "deployment_progress": "",
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    },
+    {
+      "application": ":bison: Bison",
+      "environment": "Production",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": ":bk-status-pending: Waiting",
+      "deployment_progress": "",
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    },
+    {
+      "application": ":orangutan: Orangutan",
+      "environment": "Development",
+      "deployed_version": ":github: 1a1e395",
+      "new_version": ":github: c1fcce1",
+      "deployment_status": ":bk-status-pending: Waiting",
+      "deployment_progress": "",
+      "last_updated": "",
+      "buildkite_job": "Buildkite Job",
+      "application_link": "Application Link"
+    },
+    {
+      "application": ":orangutan: Orangutan",
       "environment": "Test",
       "deployed_version": ":github: 1a1e395",
       "new_version": ":github: c1fcce1",
