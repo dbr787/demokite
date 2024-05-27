@@ -1,8 +1,8 @@
 #!/bin/bash
 
 update_html() {
-  local json_file="deployment.json"
-  local html_file="template.html"
+  local json_file="./assets/annotation.json"
+  local html_file="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do

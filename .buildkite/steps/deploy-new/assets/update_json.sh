@@ -1,7 +1,7 @@
 #!/bin/bash
 
 update_json() {
-  local json_file="deployment.json"
+  local json_file="./assets/annotation.json"
   local deployment_key=""
   local key=""
   local new_value=""
