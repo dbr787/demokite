@@ -239,20 +239,23 @@ sleep 5
 update_files \
   --application ":bison: Bison" \
   --environment "Development" \
+  --deployment-status ":bk-status-running: In Progress" \
+  --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
+  
 
-sleep 5
-update_files \
-  --title "New Title" \
-  --subtitle "New Subtitle" \
-  --application ":bison: Bison" \
-  --environment "Development" \
-  --deployed-version ":github: BLAH" \
-  --new-version ":github: BLOO" \
-  --deployment-status "Success" \
-  --deployment-progress 10 \
-  --last-updated "" \
-  --buildkite-job "Buildkite Job" \
-  --application-link "Application Link"
+# sleep 5
+# update_files \
+#   --title "New Title" \
+#   --subtitle "New Subtitle" \
+#   --application ":bison: Bison" \
+#   --environment "Development" \
+#   --deployed-version ":github: BLAH" \
+#   --new-version ":github: BLOO" \
+#   --deployment-status "Success" \
+#   --deployment-progress 10 \
+#   --last-updated "" \
+#   --buildkite-job "Buildkite Job" \
+#   --application-link "Application Link"
 
 sleep 5
 update_files \
