@@ -28,6 +28,11 @@ calculate_duration() {
   echo $((current_seconds - start_seconds))
 }
 
+
+
+deployment_key="deployments.llama-prod"
+update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
+update_json --key "$deployment_key.new_version.text" --value "$current_commit"
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
 update_json --key "$deployment_key.new_version.text" --value "$current_commit"
