@@ -5,10 +5,10 @@
   "style": "info",
   "context": "deploy-01",
   "deployments": {
-    "bison-dev": {
+    "llama-dev": {
       "application": {
-        "emoji": ":bison:",
-        "text": "Bison",
+        "emoji": ":llama:",
+        "text": "Llama",
         "link": "",
         "class": ""
       },
@@ -79,10 +79,10 @@
         "class": ""
       }
     },
-    "bison-prod": {
+    "llama-prod": {
       "application": {
-        "emoji": ":bison:",
-        "text": "Bison",
+        "emoji": ":llama:",
+        "text": "Llama",
         "link": "",
         "class": ""
       },
