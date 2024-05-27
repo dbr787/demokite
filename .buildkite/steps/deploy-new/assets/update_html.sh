@@ -60,8 +60,18 @@ update_html() {
   # Generate table rows
   local table_rows=$(generate_table_rows)
 
+  if [[ $debug == "debug" ]]; then
+    echo "Contents of table_rows:"
+    cat $table_rows
+  fi
+
   # Escape special characters for sed
   local esc_table_rows=$(printf '%s\n' "$table_rows" | sed 's/[&/\]/\\&/g')
+
+  if [[ $debug == "debug" ]]; then
+    echo "Contents of esc_table_rows:"
+    cat $esc_table_rows
+  fi
 
   # Replace placeholders in HTML template
   sed -i -e "s/\[\[title\]\]/$esc_title/" \
