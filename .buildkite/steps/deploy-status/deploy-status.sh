@@ -257,22 +257,22 @@ update_files \
 #   --buildkite-job "Buildkite Job" \
 #   --application-link "Application Link"
 
-sleep 5
-update_files \
-  --title "Updated Title"
+# sleep 5
+# update_files \
+#   --title "Updated Title"
 
-sleep 5
-update_files \
-  --title "Another Updated Title" \
-  --style "success" \
+# sleep 5
+# update_files \
+#   --title "Another Updated Title" \
+#   --style "success" \
 
-sleep 5
-update_files \
-  --subtitle "Updated Subtitle"
+# sleep 5
+# update_files \
+#   --subtitle "Updated Subtitle"
 
-sleep 5
-update_files \
-  --style "warning"
+# sleep 5
+# update_files \
+#   --style "warning"
 
 # # shouldn't work
 # sleep 5
@@ -284,11 +284,11 @@ update_files \
 # update_files \
 #   --environment "MyNewEnv"
 
-# create new row (kind of blank)
-sleep 5
-update_files \
-  --application "MyNewApp" \
-  --environment "MyNewEnv"
+# # create new row (kind of blank)
+# sleep 5
+# update_files \
+#   --application "MyNewApp" \
+#   --environment "MyNewEnv"
 
 # # shouldn't work
 # sleep 5
