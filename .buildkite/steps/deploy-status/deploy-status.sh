@@ -235,6 +235,11 @@ update_files() {
     fi
 }
 
+# sleep 5
+update_files \
+  --title ":hatched_chick: Deployment Progress" \
+  --subtitle "Monitor the progress of your deployments in Buildkite" \
+
 sleep 5
 update_files \
   --application ":bison: Bison" \
