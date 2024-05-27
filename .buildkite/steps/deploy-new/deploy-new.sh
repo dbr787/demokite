@@ -36,7 +36,7 @@ update_annotation --debug "debug";
 sleep 5;
 
 update_json --key "$deployment_key.started.text" --value "$start_time"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_orange_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
@@ -44,17 +44,17 @@ update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)
 update_annotation
 sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_orange_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_orange_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_orange_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
