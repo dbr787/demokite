@@ -25,9 +25,11 @@ echo "current commit: $current_commit"
 
 # update values in the json file
 deployment_key="deployments.bison-dev"
-update_deployment --key "$deployment_key.deployment_status.text" --value "Updated Status Text" --debug "debug"
-update_deployment --key "$deployment_key.old_version.text" --value "$previous_commit" --debug "debug"
-update_deployment --key "$deployment_key.new_version.text" --value "$current_commit" --debug "debug"
+update_deployment --key "$deployment_key.old_version.text" --value "$previous_commit" --debug "debug";
+update_deployment --key "$deployment_key.new_version.text" --value "$current_commit" --debug "debug";
+update_deployment --key "$deployment_key.deployment_strategy.text" --value "canary" --debug "debug";
+update_deployment --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:" --debug "debug";
+update_deployment --key "$deployment_key.deployment_status.text" --value "Updated Status Text" --debug "debug";
 
 # update the annotation in buildkite
 update_annotation --debug "debug"
