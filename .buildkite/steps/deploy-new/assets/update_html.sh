@@ -48,10 +48,10 @@ update_html() {
         end + "</td>";
 
       .deployments | to_entries[] |
-      .[] |
+      .value |
       "<tr>" +
       (["application", "environment", "old_version", "new_version", "deployment_strategy", "deployment_status", "deployment_progress", "started", "finished", "duration", "job", "deployment"]
-      | map(generate_td(.value; .))) | join("") +
+      | map(generate_td(.))) | join("") +
       "</tr>"
     ' $json_file
   }
