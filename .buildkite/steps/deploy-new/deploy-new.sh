@@ -19,6 +19,14 @@ source ./assets/functions.sh
 
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
+start_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+calculate_duration() {
+  local start_time="$1"
+  local current_time=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  local start_seconds=$(date -u -d "$start_time" +"%s")
+  local current_seconds=$(date -u -d "$current_time" +"%s")
+  echo $((current_seconds - start_seconds))
+}
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
@@ -30,6 +38,7 @@ update_json --key "$deployment_key.deployment_progress.text" --value ":large_gre
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "bold orange"
+update_json --key "$deployment_key.duration.text" --value "$(calculate_duration $start_time) seconds"
 update_annotation
 sleep 2
 
