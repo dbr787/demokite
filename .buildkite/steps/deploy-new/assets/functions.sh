@@ -47,11 +47,12 @@ update_json() {
 # Function to update HTML
 update_html() {
   local json_file="./assets/annotation.json"
-  local html_file="./assets/annotation.html"
+  local html_file=""
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
     case $1 in
+      --html_file) html_file="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -64,14 +65,19 @@ update_html() {
     return 1
   fi
 
-  if [[ ! -f $html_file ]]; then
-    echo "HTML file not found!"
+  if [[ -z $html_file ]]; then
+    echo "HTML file not specified!"
+    return 1
+  fi
+
+  if [[ ! -f "./assets/annotation.html" ]]; then
+    echo "HTML template file not found!"
     return 1
   fi
 
   if [[ $debug == "debug" ]]; then
-    echo "Contents of $html_file before update:"
-    cat $html_file
+    echo "Contents of ./assets/annotation.html before update:"
+    cat "./assets/annotation.html"
   fi
 
   # Extract values from JSON
@@ -162,7 +168,7 @@ update_html() {
     ' $json_file
   }
 
-    # Generate table rows
+  # Generate table rows
   local table_rows=$(generate_table_rows)
 
   if [[ $debug == "debug" ]]; then
@@ -179,7 +185,7 @@ update_html() {
       gsub(/\[\[table_caption\]\]/, table_caption);
     }
     {print}
-  ' $html_file > tmp.html && mv tmp.html $html_file
+  ' "./assets/annotation.html" > "$html_file"
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of $html_file after update:"
@@ -188,6 +194,7 @@ update_html() {
 
   echo "Updated HTML file: $html_file"
 }
+
 
 
 # Function to update both JSON and HTML
@@ -227,11 +234,8 @@ update_annotation() {
   local timestamp=$(date -u +"%Y%m%dT%H%M%S.%3NZ")
   local temp_html_file="./assets/annotation_$timestamp.html"
 
-  # Update the HTML before annotating
-  update_html --debug "$debug"
-
-  # Copy the updated HTML to the new timestamped file
-  cp "$html_file" "$temp_html_file"
+  # Update the HTML using the temporary HTML file
+  update_html --html_file "$temp_html_file" --debug "$debug"
 
   # Check if the required files exist
   if [[ ! -f $json_file ]]; then
@@ -260,6 +264,7 @@ update_annotation() {
     cat $temp_html_file
   fi
 }
+
 
 
 # Export the functions so they can be used in other scripts
