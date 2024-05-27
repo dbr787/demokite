@@ -32,7 +32,9 @@ update_html() {
   # Extract values from JSON
   local title=$(jq -r '.title' $json_file)
   local subtitle=$(jq -r '.subtitle' $json_file)
-  local last_updated=$(jq -r '.last_updated' $json_file)
+
+  # Get current time with milliseconds in UTC
+  local last_updated=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
 
   # Function to generate table rows from JSON
   generate_table_rows() {
