@@ -48,6 +48,12 @@
         "link": "",
         "class": "center"
       },
+      "duration": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center"
+      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -55,12 +61,6 @@
         "class": "center"
       },
       "finished": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center"
-      },
-      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
@@ -122,6 +122,12 @@
         "link": "",
         "class": "center"
       },
+      "duration": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center"
+      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -129,12 +135,6 @@
         "class": "center"
       },
       "finished": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center"
-      },
-      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
