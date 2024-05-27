@@ -62,7 +62,7 @@ update_html() {
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of table_rows:"
-    cat $table_rows
+    echo $table_rows
   fi
 
   # Escape special characters for sed
@@ -70,7 +70,7 @@ update_html() {
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of esc_table_rows:"
-    cat $esc_table_rows
+    echo $esc_table_rows
   fi
 
   # Replace placeholders in HTML template
