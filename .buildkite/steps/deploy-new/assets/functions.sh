@@ -31,7 +31,7 @@ update_json() {
     echo "Contents of $json_file before update:"
     cat $json_file
   fi
-  
+
   # Update the JSON file using jq
   jq --arg key "$key" --arg value "$value" '
     setpath($key | split("."); $value)
