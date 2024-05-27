@@ -203,8 +203,6 @@ update_deployment() {
   local key=""
   local value=""
   local json_file="./assets/annotation.json"
-  local html_file=""
-  local html_template="./assets/annotation.html"
   local debug=""
 
   while [[ "$#" -gt 0 ]]; do
@@ -212,8 +210,6 @@ update_deployment() {
       --key) key="$2"; shift ;;
       --value) value="$2"; shift ;;
       --json_file) json_file="$2"; shift ;;
-      --html_file) html_file="$2"; shift ;;
-      --html_template) html_template="$2"; shift ;;
       --debug) debug="$2"; shift ;;
       *) echo "Unknown parameter passed: $1"; return 1 ;;
     esac
@@ -221,7 +217,6 @@ update_deployment() {
   done
 
   update_json --key "$key" --value "$value" --json_file "$json_file" --debug "$debug"
-  update_html --json_file "$json_file" --html_file "$html_file" --html_template "$html_template" --debug "$debug"
 }
 
 # Function to annotate using buildkite-agent
