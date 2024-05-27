@@ -245,7 +245,7 @@ update_files \
   --application ":bison: Bison" \
   --environment "Development" \
   --deployed-version ":github: 1a1e395" \
-  --new_version ":github: c1fcce1" \
+  --new-version ":github: c1fcce1" \
   --deployment-status ":bk-status-pending: Waiting" \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
@@ -257,7 +257,7 @@ update_files \
   --application "::orangutan: Orangutan" \
   --environment "Development" \
   --deployed-version ":github: 1a1e395" \
-  --new_version ":github: c1fcce1" \
+  --new-version ":github: c1fcce1" \
   --deployment-status ":bk-status-pending: Waiting" \
   --deployment-progress ":white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle::white_circle:" \
   --last-updated "$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")" \
