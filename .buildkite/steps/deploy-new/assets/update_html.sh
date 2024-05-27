@@ -66,7 +66,7 @@ update_html() {
   fi
 
   # Escape special characters for sed
-  local esc_table_rows=$(printf '%s' "$table_rows" | sed 's/[\/&]/\\&/g; s/$/\\n/')
+  local esc_table_rows=$(printf '%s\n' "$table_rows" | sed 's/[\/&]/\\&/g')
 
   if [[ $debug == "debug" ]]; then
     echo "Contents of esc_table_rows:"
