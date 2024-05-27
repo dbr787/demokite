@@ -26,15 +26,33 @@ sleep 5;
 
 # update values in the json file
 deployment_key="deployments.bison-dev"
-debug=""
-update_json --key "$deployment_key.old_version.text" --value "$previous_commit" --debug "$debug";
-update_json --key "$deployment_key.new_version.text" --value "$current_commit" --debug "$debug";
-update_json --key "$deployment_key.deployment_strategy.text" --value "Canary" --debug "$debug";
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:" --debug "$debug";
-update_json --key "$deployment_key.deployment_status.text" --value "Updated Status Text" --debug "$debug";
+update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
+update_json --key "$deployment_key.new_version.text" --value "$current_commit"
+update_annotation
+sleep 5
 
-# update the annotation
-update_annotation --debug "$debug";
-sleep 5;
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
+update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
+update_annotation
+sleep 2
+
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+update_annotation
+sleep 2
+
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+update_annotation
+sleep 2
+
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+update_annotation
+sleep 2
+
+update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
+update_json --key "$deployment_key.deployment_status.text" --value "Completed"
+update_annotation
+# sleep 2
 
 ls -lah ./assets/;
