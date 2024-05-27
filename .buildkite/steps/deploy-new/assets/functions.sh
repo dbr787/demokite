@@ -30,6 +30,7 @@ update_json() {
   if [[ $debug == "debug" ]]; then
     echo "Contents of $json_file before update:"
     cat $json_file
+    echo "Updating key: $key with value: $value"
   fi
 
   # Update the JSON file using jq
