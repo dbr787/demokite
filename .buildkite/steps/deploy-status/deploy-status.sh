@@ -36,61 +36,24 @@ update_files() {
     local application_link=""
 
     # Parsing named parameters
+
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --title)
-                title="$2"
-                shift 2
-                ;;
-            --subtitle)
-                subtitle="$2"
-                shift 2
-                ;;
-            --style)
-                style="$2"
-                shift 2
-                ;;
-            --application)
-                application="$2"
-                shift 2
-                ;;
-            --environment)
-                environment="$2"
-                shift 2
-                ;;
-            --deployed-version)
-                deployed_version="$2"
-                shift 2
-                ;;
-            --new-version)
-                new_version="$2"
-                shift 2
-                ;;
-            --deployment-status)
-                deployment_status="$2"
-                shift 2
-                ;;
-            --deployment-progress)
-                deployment_progress="$2"
-                shift 2
-                ;;
-            --last-updated)
-                last_updated="$2"
-                shift 2
-                ;;
-            --buildkite-job)
-                buildkite_job="$2"
-                shift 2
-                ;;
-            --application-link)
-                application_link="$2"
-                shift 2
-                ;;
-            *)
-                echokite "Unknown parameter: $1" red none normal
-                exit 1
-                ;;
+            --title) title="$2" ;;
+            --subtitle) subtitle="$2" ;;
+            --style) style="$2" ;;
+            --application) application="$2" ;;
+            --environment) environment="$2" ;;
+            --deployed-version) deployed_version="$2" ;;
+            --new-version) new_version="$2" ;;
+            --deployment-status) deployment_status="$2" ;;
+            --deployment-progress) deployment_progress="$2" ;;
+            --last-updated) last_updated="$2" ;;
+            --buildkite-job) buildkite_job="$2" ;;
+            --application-link) application_link="$2" ;;
+            *) echo "Unknown parameter: $1"; exit 1 ;;
         esac
+        shift 2
     done
 
     # Check if any meaningful parameter is provided
