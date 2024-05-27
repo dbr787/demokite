@@ -39,19 +39,21 @@ update_html() {
   # Function to generate table rows from JSON
   generate_table_rows() {
     jq -r '
-      def generate_td(deployment; field):
-        "<td class=\"" + (deployment[field].class // "") + "\">" +
-        if deployment[field].link != "" then
-          "<a href=\"" + (deployment[field].link // "") + "\">" + (deployment[field].emoji // "") + " " + (deployment[field].text // "") + "</a>"
-        else
-          (deployment[field].emoji // "") + " " + (deployment[field].text // "")
-        end + "</td>";
-
-      .deployments | to_entries[] |
-      "<tr>" +
-      (["application", "environment", "old_version", "new_version", "deployment_strategy", "deployment_status", "deployment_progress", "started", "finished", "duration", "job", "deployment"]
-      | map(generate_td(.value; .))) | join("") +
-      "</tr>"
+      .deployments | to_entries[] | 
+      "<tr>
+        <td class=\"" + (.value.application.class // "") + "\"><a href=\"" + (.value.application.link // "") + "\">" + (.value.application.emoji // "") + " " + (.value.application.text // "") + "</a></td>
+        <td class=\"" + (.value.environment.class // "") + "\"><a href=\"" + (.value.environment.link // "") + "\">" + (.value.environment.emoji // "") + " " + (.value.environment.text // "") + "</a></td>
+        <td class=\"" + (.value.old_version.class // "") + "\"><a href=\"" + (.value.old_version.link // "") + "\">" + (.value.old_version.emoji // "") + " " + (.value.old_version.text // "") + "</a></td>
+        <td class=\"" + (.value.new_version.class // "") + "\"><a href=\"" + (.value.new_version.link // "") + "\">" + (.value.new_version.emoji // "") + " " + (.value.new_version.text // "") + "</a></td>
+        <td class=\"" + (.value.deployment_strategy.class // "") + "\"><a href=\"" + (.value.deployment_strategy.link // "") + "\">" + (.value.deployment_strategy.emoji // "") + " " + (.value.deployment_strategy.text // "") + "</a></td>
+        <td class=\"" + (.value.deployment_status.class // "") + "\"><a href=\"" + (.value.deployment_status.link // "") + "\">" + (.value.deployment_status.emoji // "") + " " + (.value.deployment_status.text // "") + "</a></td>
+        <td class=\"" + (.value.deployment_progress.class // "") + "\"><a href=\"" + (.value.deployment_progress.link // "") + "\">" + (.value.deployment_progress.emoji // "") + " " + (.value.deployment_progress.text // "") + "</a></td>
+        <td class=\"" + (.value.started.class // "") + "\"><a href=\"" + (.value.started.link // "") + "\">" + (.value.started.emoji // "") + " " + (.value.started.text // "") + "</a></td>
+        <td class=\"" + (.value.finished.class // "") + "\"><a href=\"" + (.value.finished.link // "") + "\">" + (.value.finished.emoji // "") + " " + (.value.finished.text // "") + "</a></td>
+        <td class=\"" + (.value.duration.class // "") + "\"><a href=\"" + (.value.duration.link // "") + "\">" + (.value.duration.emoji // "") + " " + (.value.duration.text // "") + "</a></td>
+        <td class=\"" + (.value.job.class // "") + "\"><a href=\"" + (.value.job.link // "") + "\">" + (.value.job.emoji // "") + " " + (.value.job.text // "") + "</a></td>
+        <td class=\"" + (.value.deployment.class // "") + "\"><a href=\"" + (.value.deployment.link // "") + "\">" + (.value.deployment.emoji // "") + " " + (.value.deployment.text // "") + "</a></td>
+      </tr>"
     ' $json_file
   }
 
