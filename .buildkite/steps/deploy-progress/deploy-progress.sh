@@ -50,16 +50,14 @@ update_annotation --debug "debug";
 sleep 5;
 
 # Update the image attributes
-update_json --key "tr_image.src" --value "https://static.wikia.nocookie.net/nyancat/images/a/ac/Nyan_BalloonBlue.gif/revision/latest?cb=20230128002915"
-update_json --key "tr_image.alt" --value "A cat with a balloon"
+# update_json --key "tr_image.src" --value "https://static.wikia.nocookie.net/nyancat/images/a/ac/Nyan_BalloonBlue.gif/revision/latest?cb=20230128002915"
+update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
+update_json --key "tr_image.alt" --value "A different rainbow cat"
 update_json --key "tr_image.title" --value "meow yay meow!"
-update_json --key "tr_image.width" --value "28"
-# update_json --key "tr_image.height" --value "50"
+update_json --key "tr_image.width" --value "80"
 update_json --key "tr_image.class" --value "mt0"
-# update_json --key "tr_image.link" --value "https://new.image.link/"
 update_annotation --debug "debug";
 sleep 5;
-
 
 # Define start time and variations
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
