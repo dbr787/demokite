@@ -204,4 +204,6 @@ update_json --key "$deployment_key.deployment_status.class" --value "center bold
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 
+buildkite-agent annotate --style "success" --context "deploy-01"
+
 ls -lah ./assets/;
