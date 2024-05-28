@@ -233,14 +233,14 @@ update_json --key "$deployment_key.deployment_status.text" --value "Completed"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 
-# Update the image attributes
-update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
-update_json --key "tr_image.alt" --value "A different rainbow cat"
-update_json --key "tr_image.title" --value "meow yay meow!"
-update_json --key "tr_image.width" --value "55"
-update_json --key "tr_image.class" --value "mt0"
-update_annotation --debug "debug";
-sleep 2
+# # Update the image attributes
+# update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
+# update_json --key "tr_image.alt" --value "A different rainbow cat"
+# update_json --key "tr_image.title" --value "meow yay meow!"
+# update_json --key "tr_image.width" --value "55"
+# update_json --key "tr_image.class" --value "mt0"
+# update_annotation --debug "debug";
+# sleep 2
 
 deployment_key="deployments.llama-prod"
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
