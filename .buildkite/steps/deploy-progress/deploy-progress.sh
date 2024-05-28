@@ -49,16 +49,6 @@ update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current
 update_annotation --debug "debug";
 sleep 5;
 
-# Update the image attributes
-# update_json --key "tr_image.src" --value "https://static.wikia.nocookie.net/nyancat/images/a/ac/Nyan_BalloonBlue.gif/revision/latest?cb=20230128002915"
-update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
-update_json --key "tr_image.alt" --value "A different rainbow cat"
-update_json --key "tr_image.title" --value "meow yay meow!"
-update_json --key "tr_image.width" --value "50"
-update_json --key "tr_image.class" --value "mt0"
-update_annotation --debug "debug";
-sleep 5;
-
 # Define start time and variations
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
 start_time_epoch=$(date -d "$start_time" +"%s")
@@ -165,8 +155,15 @@ update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-
 update_json --key "$deployment_key.deployment_status.text" --value "Completed"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 2
+
+# Update the image attributes
+update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
+update_json --key "tr_image.alt" --value "A different rainbow cat"
+update_json --key "tr_image.title" --value "meow yay meow!"
+update_json --key "tr_image.width" --value "50"
+update_json --key "tr_image.class" --value "mt0"
+update_annotation --debug "debug";
+sleep 5;
 
 deployment_key="deployments.llama-prod"
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
