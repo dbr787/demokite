@@ -20,18 +20,30 @@ source ./assets/functions.sh;
 # upload assets as artifacts
 buildkite-agent artifact upload "assets/*.gif" --log-level error;
 
-minus_2_commit=$(git log -1 --pretty=format:%h HEAD~2)
-previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
-current_commit=$(git log -1 --pretty=format:%h)
+minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
+previous_commit_short=$(git log -1 --pretty=format:%h HEAD~1)
+current_commit_short=$(git log -1 --pretty=format:%h)
 
-update_json --key "deployments.llama-prod.old_version.text" --value "$previous_commit"
-update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit"
-update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit"
-update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit"
-update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit"
-update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit"
-update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit"
-update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit"
+minus_2_commit_long=$(git log -1 --pretty=format:%H HEAD~2)
+previous_commit_long=$(git log -1 --pretty=format:%H HEAD~1)
+current_commit_long=$(git log -1 --pretty=format:%H)
+
+update_json --key "deployments.llama-prod.old_version.text" --value "$previous_commit_short"
+update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit_short"
+update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit_short"
+update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit_short"
+update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.llama-prod.old_version.title" --value "$previous_commit_long"
+update_json --key "deployments.llama-prod.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.llama-dev.old_version.title" --value "$previous_commit_long"
+update_json --key "deployments.llama-dev.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-dev.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current_commit_long"
 update_annotation --debug "debug";
 sleep 5;
 
