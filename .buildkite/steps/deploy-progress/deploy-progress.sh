@@ -35,16 +35,20 @@ update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_
 update_annotation --debug "debug";
 sleep 5;
 
+# Define start time and variations
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
-start_time_epoch=$(date +"%s")
+start_time_epoch=$(date -d "$start_time" +"%s")
+start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
+start_time_short=$(date -d "$start_time" +"%H:%M:%S")
+# Function to calculate duration
 calculate_duration() {
   local current_time_epoch=$(date +"%s")
   echo "$((current_time_epoch - start_time_epoch))s"
 }
 
 deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.started.text" --value "$start_time"
-update_json --key "$deployment_key.started.title" --value "$start_time"
+update_json --key "$deployment_key.started.text" --value "$start_time_short"
+update_json --key "$deployment_key.started.title" --value "$start_time_long"
 update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
@@ -54,7 +58,8 @@ update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.started.text" --value "$start_time"
+update_json --key "$deployment_key.started.text" --value "$start_time_short"
+update_json --key "$deployment_key.started.title" --value "$start_time_long"
 update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
