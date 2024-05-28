@@ -21,18 +21,14 @@ minus_2_comment=$(git log -1 --pretty=format:%h HEAD~2)
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
 
-deployment_key="deployments.llama-prod"
-update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
-update_json --key "$deployment_key.new_version.text" --value "$current_commit"
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.old_version.text" --value "$previous_commit"
-update_json --key "$deployment_key.new_version.text" --value "$current_commit"
-deployment_key="deployments.kangaroo-prod"
-update_json --key "$deployment_key.old_version.text" --value "$minus_2_comment"
-update_json --key "$deployment_key.new_version.text" --value "$current_commit"
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.old_version.text" --value "$minus_2_comment"
-update_json --key "$deployment_key.new_version.text" --value "$current_commit"
+update_json --key "deployments.llama-prod.old_version.text" --value "$previous_commit"
+update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit"
+update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit"
+update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit"
+update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_comment"
+update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit"
+update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_comment"
+update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit"
 update_annotation --debug "debug";
 sleep 5;
 
@@ -87,13 +83,10 @@ update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)
 update_annotation
 sleep 5
 
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+update_json --key "deployments.llama-dev.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+update_json --key "deployments.llama-dev.duration.text" --value "$(calculate_duration)"
+update_json --key "deployments.kangaroo-dev.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+update_json --key "deployments.kangaroo-dev.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 5
 
