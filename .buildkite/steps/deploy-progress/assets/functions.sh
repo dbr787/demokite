@@ -90,6 +90,7 @@ update_html() {
   local tr_image_alt=$(jq -r '.tr_image.alt // ""' $json_file)
   local tr_image_title=$(jq -r '.tr_image.title // ""' $json_file)
   local tr_image_width=$(jq -r '.tr_image.width // ""' $json_file)
+  local tr_image_height=$(jq -r '.tr_image.height // ""' $json_file)
   local tr_image_class=$(jq -r '.tr_image.class // ""' $json_file)
   local tr_image_link=$(jq -r '.tr_image.link // ""' $json_file)
 
@@ -188,7 +189,8 @@ update_html() {
   # Replace placeholders in HTML template using awk
   awk -v title="$title" -v subtitle="$subtitle" -v table_rows="$table_rows" -v table_caption="Last updated: $last_updated" \
       -v tr_image_src="$tr_image_src" -v tr_image_alt="$tr_image_alt" -v tr_image_title="$tr_image_title" \
-      -v tr_image_width="$tr_image_width" -v tr_image_class="$tr_image_class" -v tr_image_link="$tr_image_link" '
+      -v tr_image_width="$tr_image_width" -v tr_image_height="$tr_image_height" -v tr_image_class="$tr_image_class" \
+      -v tr_image_link="$tr_image_link" '
     {
       gsub(/\[\[title\]\]/, title);
       gsub(/\[\[subtitle\]\]/, subtitle);
@@ -198,6 +200,7 @@ update_html() {
       gsub(/\[\[tr_image_alt\]\]/, tr_image_alt);
       gsub(/\[\[tr_image_title\]\]/, tr_image_title);
       gsub(/\[\[tr_image_width\]\]/, tr_image_width);
+      gsub(/\[\[tr_image_height\]\]/, tr_image_height);
       gsub(/\[\[tr_image_class\]\]/, tr_image_class);
       gsub(/\[\[tr_image_link\]\]/, tr_image_link);
     }

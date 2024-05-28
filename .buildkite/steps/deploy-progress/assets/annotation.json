@@ -6,6 +6,7 @@
     "alt": "A rainbow cat",
     "title": "meow!",
     "width": "80",
+    "height": "80",
     "class": "mt2",
     "link": "javascript:void(0)"
   },
