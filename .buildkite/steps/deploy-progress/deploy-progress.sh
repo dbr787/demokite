@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # TODO
-# - [ ] Creat function for updating end time
-# - [ ] Creat function for updating start time
-# - [ ] Creat function for updating deployment progress
-# - [ ] Creat function for updating old and new deployment versions
+# - [ ] Create function for updating end time
+# - [ ] Create function for updating start time
+# - [ ] Create function for updating deployment progress
+# - [ ] Create function for updating old and new deployment versions
+# - [ ] Link Buildkite job
 
 
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
@@ -37,19 +38,46 @@ generate_commit_url() {
   echo "$commit_url"
 }
 
+# Function to generate progress circles
 generate_progress_circles() {
   local percentage="$1"
   local filled_circles=$(( (percentage + 19) / 20 )) # Round up to nearest 20%
   local empty_circles=$(( 5 - filled_circles ))
   local result=""
+
   for ((i = 0; i < filled_circles; i++)); do
     result+=":large_green_circle:"
   done
+
   for ((i = 0; i < empty_circles; i++)); do
     result+=":white_circle:"
   done
+
   echo "$result"
 }
+
+# Function to update progress for multiple deployments
+update_deployment_progress() {
+  local percentage="$1"
+  local sleep_interval="$2"
+  shift 2
+  local deployment_keys=("$@")
+
+  local progress=$(generate_progress_circles "$percentage")
+
+  for deployment_key in "${deployment_keys[@]}"; do
+    update_json --key "$deployment_key.deployment_progress.text" --value "$progress"
+  done
+
+  update_annotation
+  sleep "$sleep_interval"
+}
+
+# # Example usage
+# update_deployment_progress 20 2 "deployments.llama-dev" "deployments.kangaroo-dev"
+# update_deployment_progress 40 2 "deployments.llama-dev" "deployments.kangaroo-dev"
+# update_deployment_progress 60 2 "deployments.llama-dev" "deployments.kangaroo-dev"
+
 
 # generate progress circles
 progress_0=$(generate_progress_circles 0)
@@ -95,9 +123,9 @@ update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current
 update_json --key "deployments.kangaroo-dev.new_version.link" --value "$current_commit_url"
 
 update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit_short"
-update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
-update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
 update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-prod.old_version.link" --value "$minus_2_commit_url"
+update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
 update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
 update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
 update_annotation
@@ -218,31 +246,26 @@ start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
 start_time_short=$(date -d "$start_time" +"%H:%M:%S")
 update_json --key "$deployment_key.started.text" --value "$start_time_short"
 update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_0"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 1
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_20"
 update_annotation
 sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_40"
 update_annotation
-sleep 3
+sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_60"
 update_annotation
-sleep 3
+sleep 2
 
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_80"
 update_annotation
 sleep 2
 
@@ -252,7 +275,7 @@ end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
 end_time_short=$(date -d "$end_time" +"%H:%M:%S")
 update_json --key "$deployment_key.finished.text" --value "$end_time_short"
 update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_100"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
 update_json --key "$deployment_key.deployment_status.text" --value "Completed"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
