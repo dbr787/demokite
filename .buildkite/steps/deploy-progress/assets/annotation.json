@@ -5,8 +5,9 @@
     "src": "https://i.pinimg.com/originals/09/58/a2/0958a212d8e4b354b2668472808d5548.gif",
     "alt": "A rainbow cat",
     "title": "meow!",
-    "height": "55",
-    "class": "mt2",
+    "width": "100",
+    "height": "100",
+    "class": "",
     "link": "javascript:void(0)"
   },
   "last_updated": "",
