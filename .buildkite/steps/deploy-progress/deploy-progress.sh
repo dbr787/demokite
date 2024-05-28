@@ -59,163 +59,163 @@ update_json --key "tr_image.class" --value "mt0"
 update_annotation --debug "debug";
 sleep 5;
 
-# Define start time and variations
-start_time=$(date +"%Y-%m-%d %H:%M:%S")
-start_time_epoch=$(date -d "$start_time" +"%s")
-start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
-start_time_short=$(date -d "$start_time" +"%H:%M:%S")
+# # Define start time and variations
+# start_time=$(date +"%Y-%m-%d %H:%M:%S")
+# start_time_epoch=$(date -d "$start_time" +"%s")
+# start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
+# start_time_short=$(date -d "$start_time" +"%H:%M:%S")
 
-# Function to calculate duration
-calculate_duration() {
-  local current_time_epoch=$(date +"%s")
-  echo "$((current_time_epoch - start_time_epoch))s"
-}
+# # Function to calculate duration
+# calculate_duration() {
+#   local current_time_epoch=$(date +"%s")
+#   echo "$((current_time_epoch - start_time_epoch))s"
+# }
 
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.started.text" --value "$start_time_short"
-update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
-update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
+# deployment_key="deployments.llama-dev"
+# update_json --key "$deployment_key.started.text" --value "$start_time_short"
+# update_json --key "$deployment_key.started.title" --value "$start_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
+# update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 2
+
+# deployment_key="deployments.kangaroo-dev"
+# update_json --key "$deployment_key.started.text" --value "$start_time_short"
+# update_json --key "$deployment_key.started.title" --value "$start_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
+# update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 5
+
+# deployment_key="deployments.llama-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 3
+
+# deployment_key="deployments.llama-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 2
+
+# deployment_key="deployments.kangaroo-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# deployment_key="deployments.kangaroo-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 5
+
+# deployment_key="deployments.llama-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# deployment_key="deployments.kangaroo-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 5
+
+# deployment_key="deployments.llama-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 5
+
+# deployment_key="deployments.kangaroo-dev"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 1
+
+# deployment_key="deployments.llama-dev"
+# end_time=$(date +"%Y-%m-%d %H:%M:%S")
+# end_time_epoch=$(date -d "$end_time" +"%s")
+# end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
+# end_time_short=$(date -d "$end_time" +"%H:%M:%S")
+# update_json --key "$deployment_key.finished.text" --value "$end_time_short"
+# update_json --key "$deployment_key.finished.title" --value "$end_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
+# update_json --key "$deployment_key.deployment_status.text" --value "Completed"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 2
+# update_annotation
+# sleep 5
 
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.started.text" --value "$start_time_short"
-update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
-update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
+# deployment_key="deployments.kangaroo-dev"
+# end_time=$(date +"%Y-%m-%d %H:%M:%S")
+# end_time_epoch=$(date -d "$end_time" +"%s")
+# end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
+# end_time_short=$(date -d "$end_time" +"%H:%M:%S")
+# update_json --key "$deployment_key.finished.text" --value "$end_time_short"
+# update_json --key "$deployment_key.finished.title" --value "$end_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
+# update_json --key "$deployment_key.deployment_status.text" --value "Completed"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 5
+# update_annotation
+# sleep 2
 
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+# deployment_key="deployments.llama-prod"
+# start_time=$(date +"%Y-%m-%d %H:%M:%S")
+# start_time_epoch=$(date -d "$start_time" +"%s")
+# start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
+# start_time_short=$(date -d "$start_time" +"%H:%M:%S")
+# update_json --key "$deployment_key.started.text" --value "$start_time_short"
+# update_json --key "$deployment_key.started.title" --value "$start_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
+# update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+# # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+# update_annotation
+# sleep 7
+
+# end_time=$(date +"%Y-%m-%d %H:%M:%S")
+# end_time_epoch=$(date -d "$end_time" +"%s")
+# end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
+# end_time_short=$(date -d "$end_time" +"%H:%M:%S")
+# update_json --key "$deployment_key.finished.text" --value "$end_time_short"
+# update_json --key "$deployment_key.finished.title" --value "$end_time_long"
+# update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+# update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
+# update_json --key "$deployment_key.deployment_status.text" --value "Completed"
+# update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 # update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 3
+# update_annotation
 
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 2
+# buildkite-agent annotate --style "success" --context "deploy-01"
 
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 5
-
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 5
-
-deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 5
-
-deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 1
-
-deployment_key="deployments.llama-dev"
-end_time=$(date +"%Y-%m-%d %H:%M:%S")
-end_time_epoch=$(date -d "$end_time" +"%s")
-end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
-end_time_short=$(date -d "$end_time" +"%H:%M:%S")
-update_json --key "$deployment_key.finished.text" --value "$end_time_short"
-update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
-update_json --key "$deployment_key.deployment_status.text" --value "Completed"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 5
-
-deployment_key="deployments.kangaroo-dev"
-end_time=$(date +"%Y-%m-%d %H:%M:%S")
-end_time_epoch=$(date -d "$end_time" +"%s")
-end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
-end_time_short=$(date -d "$end_time" +"%H:%M:%S")
-update_json --key "$deployment_key.finished.text" --value "$end_time_short"
-update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
-update_json --key "$deployment_key.deployment_status.text" --value "Completed"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 2
-
-deployment_key="deployments.llama-prod"
-start_time=$(date +"%Y-%m-%d %H:%M:%S")
-start_time_epoch=$(date -d "$start_time" +"%s")
-start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
-start_time_short=$(date -d "$start_time" +"%H:%M:%S")
-update_json --key "$deployment_key.started.text" --value "$start_time_short"
-update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
-update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-sleep 7
-
-end_time=$(date +"%Y-%m-%d %H:%M:%S")
-end_time_epoch=$(date -d "$end_time" +"%s")
-end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
-end_time_short=$(date -d "$end_time" +"%H:%M:%S")
-update_json --key "$deployment_key.finished.text" --value "$end_time_short"
-update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
-update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
-update_json --key "$deployment_key.deployment_status.text" --value "Completed"
-update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
-update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
-update_annotation
-
-buildkite-agent annotate --style "success" --context "deploy-01"
-
-ls -lah ./assets/;
+# ls -lah ./assets/;
