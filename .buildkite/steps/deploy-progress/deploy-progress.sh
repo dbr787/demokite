@@ -44,6 +44,7 @@ calculate_duration() {
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.started.text" --value "$start_time"
+update_json --key "$deployment_key.started.title" --value "$start_time"
 update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
