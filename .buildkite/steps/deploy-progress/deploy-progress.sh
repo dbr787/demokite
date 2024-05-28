@@ -82,57 +82,57 @@ update_deployment_progress() {
 # update_deployment_progress 60 2 "deployments.llama-dev" "deployments.kangaroo-dev"
 
 
-# # generate progress circles
-# progress_0=$(generate_progress_circles 0)
-# progress_20=$(generate_progress_circles 20)
-# progress_40=$(generate_progress_circles 40)
-# progress_60=$(generate_progress_circles 60)
-# progress_80=$(generate_progress_circles 80)
-# progress_100=$(generate_progress_circles 100)
+# generate progress circles
+progress_0=$(generate_progress_circles 0)
+progress_20=$(generate_progress_circles 20)
+progress_40=$(generate_progress_circles 40)
+progress_60=$(generate_progress_circles 60)
+progress_80=$(generate_progress_circles 80)
+progress_100=$(generate_progress_circles 100)
 
-# # get git commits and url
-# minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
-# previous_commit_short=$(git log -1 --pretty=format:%h HEAD~1)
-# current_commit_short=$(git log -1 --pretty=format:%h)
+# get git commits and url
+minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
+previous_commit_short=$(git log -1 --pretty=format:%h HEAD~1)
+current_commit_short=$(git log -1 --pretty=format:%h)
 
-# minus_2_commit_long=$(git log -1 --pretty=format:%H HEAD~2)
-# previous_commit_long=$(git log -1 --pretty=format:%H HEAD~1)
-# current_commit_long=$(git log -1 --pretty=format:%H)
+minus_2_commit_long=$(git log -1 --pretty=format:%H HEAD~2)
+previous_commit_long=$(git log -1 --pretty=format:%H HEAD~1)
+current_commit_long=$(git log -1 --pretty=format:%H)
 
-# minus_2_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$BUILDKITE_COMMIT")
-# previous_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$previous_commit_long")
-# current_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$current_commit_long")
+minus_2_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$BUILDKITE_COMMIT")
+previous_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$previous_commit_long")
+current_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$current_commit_long")
 
-# # update old and new deployment versions
-# update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit_short"
-# update_json --key "deployments.llama-dev.old_version.title" --value "$previous_commit_long"
-# update_json --key "deployments.llama-dev.old_version.link" --value "$previous_commit_url"
-# update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit_short"
-# update_json --key "deployments.llama-dev.new_version.title" --value "$current_commit_long"
-# update_json --key "deployments.llama-dev.new_version.link" --value "$current_commit_url"
+# update old and new deployment versions
+update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit_short"
+update_json --key "deployments.llama-dev.old_version.title" --value "$previous_commit_long"
+update_json --key "deployments.llama-dev.old_version.link" --value "$previous_commit_url"
+update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.llama-dev.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.llama-dev.new_version.link" --value "$current_commit_url"
 
-# update_json --key "deployments.llama-prod.old_version.text" --value "$previous_commit_short"
-# update_json --key "deployments.llama-prod.old_version.title" --value "$previous_commit_long"
-# update_json --key "deployments.llama-prod.old_version.link" --value "$previous_commit_url"
-# update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit_short"
-# update_json --key "deployments.llama-prod.new_version.title" --value "$current_commit_long"
-# update_json --key "deployments.llama-prod.new_version.link" --value "$current_commit_url"
+update_json --key "deployments.llama-prod.old_version.text" --value "$previous_commit_short"
+update_json --key "deployments.llama-prod.old_version.title" --value "$previous_commit_long"
+update_json --key "deployments.llama-prod.old_version.link" --value "$previous_commit_url"
+update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.llama-prod.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.llama-prod.new_version.link" --value "$current_commit_url"
 
-# update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit_short"
-# update_json --key "deployments.kangaroo-dev.old_version.title" --value "$minus_2_commit_long"
-# update_json --key "deployments.kangaroo-dev.old_version.link" --value "$minus_2_commit_url"
-# update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit_short"
-# update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current_commit_long"
-# update_json --key "deployments.kangaroo-dev.new_version.link" --value "$current_commit_url"
+update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit_short"
+update_json --key "deployments.kangaroo-dev.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-dev.old_version.link" --value "$minus_2_commit_url"
+update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-dev.new_version.link" --value "$current_commit_url"
 
-# update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit_short"
-# update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
-# update_json --key "deployments.kangaroo-prod.old_version.link" --value "$minus_2_commit_url"
-# update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
-# update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
-# update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
-# update_annotation
-# sleep 2
+update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit_short"
+update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-prod.old_version.link" --value "$minus_2_commit_url"
+update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
+update_annotation
+sleep 2
 
 # # Function to calculate duration
 # calculate_duration() {
