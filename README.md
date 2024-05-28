@@ -21,6 +21,25 @@ An example [Buildkite](https://buildkite.com/) repository showcasing some of Bui
   - Include link to step, image, hyperlinks, link to artifact etc.
 - Demo for redacted environment variables
 
+## Notes
+
+- Setting the padding seemed to truncate the image, sometimes that's what we want...
+
+```
+<div class="flex">
+  <div class="flex items-start">
+    <a href="javascript:void(0)" class="">
+      <img
+        src="https://f8n-production.s3.amazonaws.com/creators/profile/c8gley51s-nyan-cat-large-gif-gif-mbf1sa.gif"
+        alt="A rainbow cat"
+        title="meow!"
+        width="64"
+        class="rounded pr1"
+      />
+    </a>
+  </div>
+```
+
 <!--
 # to use emojis
 # :thisisfine: for failing build intentionally
