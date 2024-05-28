@@ -49,6 +49,17 @@ update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current
 update_annotation --debug "debug";
 sleep 5;
 
+# Update the image attributes
+update_json --key "tr_image.src" --value "https://static.wikia.nocookie.net/nyancat/images/a/ac/Nyan_BalloonBlue.gif/revision/latest?cb=20230128002915"
+update_json --key "tr_image.alt" --value "A new image description"
+update_json --key "tr_image.title" --value "A new tooltip title"
+update_json --key "tr_image.width" --value "100"
+# update_json --key "tr_image.class" --value "new-class"
+# update_json --key "tr_image.link" --value "https://new.image.link/"
+update_annotation --debug "debug";
+sleep 5;
+
+
 # Define start time and variations
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
 start_time_epoch=$(date -d "$start_time" +"%s")
