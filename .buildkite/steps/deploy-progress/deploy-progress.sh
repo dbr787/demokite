@@ -20,7 +20,7 @@ source ./assets/functions.sh;
 # upload assets as artifacts
 buildkite-agent artifact upload "assets/*.gif" --log-level error;
 
-minus_2_comment=$(git log -1 --pretty=format:%h HEAD~2)
+minus_2_commit=$(git log -1 --pretty=format:%h HEAD~2)
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit=$(git log -1 --pretty=format:%h)
 
@@ -28,9 +28,9 @@ update_json --key "deployments.llama-prod.old_version.text" --value "$previous_c
 update_json --key "deployments.llama-prod.new_version.text" --value "$current_commit"
 update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit"
 update_json --key "deployments.llama-dev.new_version.text" --value "$current_commit"
-update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_comment"
+update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit"
 update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit"
-update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_comment"
+update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit"
 update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit"
 update_annotation --debug "debug";
 sleep 5;
