@@ -1,21 +1,24 @@
 #!/bin/bash
 
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
-# set -euo pipefail # don't print executed commands to the terminal
-set -euo pipefail
+# set -euxo pipefail # print executed commands to the terminal
+set -euo pipefail # don't print executed commands to the terminal
 
 # source shared functions
-. .buildkite/assets/functions.sh
+. .buildkite/assets/functions.sh;
 
 # capture original working directory
-current_dir=$(pwd)
-current_dir_contents=$(ls -lah "$current_dir")
+current_dir=$(pwd);
+current_dir_contents=$(ls -lah $current_dir);
 
 # change into step directory
-cd .buildkite/steps/deploy-progress/
+cd .buildkite/steps/deploy-progress/;
 
 # source local functions
-source ./assets/functions.sh
+source ./assets/functions.sh;
+
+# upload assets as artifacts
+buildkite-agent artifact upload "assets/cat-running.gif" --log-level error;
 
 minus_2_comment=$(git log -1 --pretty=format:%h HEAD~2)
 previous_commit=$(git log -1 --pretty=format:%h HEAD~1)
