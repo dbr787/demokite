@@ -23,16 +23,37 @@ source ./assets/functions.sh;
 generate_commit_url() {
   local repo_url="$1"
   local commit_hash="$2"
-
   # Remove the .git suffix if it exists
   repo_url="${repo_url%.git}"
-
   # Construct the commit URL
   local commit_url="${repo_url}/commit/${commit_hash}"
-
   echo "$commit_url"
 }
 
+generate_progress_circles() {
+  local percentage="$1"
+  local filled_circles=$(( (percentage + 19) / 20 )) # Round up to nearest 20%
+  local empty_circles=$(( 5 - filled_circles ))
+  local result=""
+  for ((i = 0; i < filled_circles; i++)); do
+    result+=":large_green_circle:"
+  done
+  for ((i = 0; i < empty_circles; i++)); do
+    result+=":white_circle:"
+  done
+  echo "$result"
+}
+
+progress_0=$(generate_progress_circles 0)
+progress_20=$(generate_progress_circles 20)
+progress_40=$(generate_progress_circles 40)
+progress_60=$(generate_progress_circles 60)
+progress_80=$(generate_progress_circles 80)
+progress_100=$(generate_progress_circles 100)
+
+
+
+# get git commits and url
 minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
 previous_commit_short=$(git log -1 --pretty=format:%h HEAD~1)
 current_commit_short=$(git log -1 --pretty=format:%h)
@@ -45,6 +66,7 @@ minus_2_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$BUILDKITE_COMMIT")
 previous_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$previous_commit_long")
 current_commit_url=$(generate_commit_url "$BUILDKITE_REPO" "$current_commit_long")
 
+# update old and new deployment versions
 update_json --key "deployments.llama-dev.old_version.text" --value "$previous_commit_short"
 update_json --key "deployments.llama-dev.old_version.title" --value "$previous_commit_long"
 update_json --key "deployments.llama-dev.old_version.link" --value "$previous_commit_url"
@@ -72,8 +94,8 @@ update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current
 update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
 update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
 update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
-update_annotation --debug "debug"
-sleep 3
+update_annotation
+sleep 2
 
 # Define start time and variations
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
@@ -90,67 +112,58 @@ calculate_duration() {
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.started.text" --value "$start_time_short"
 update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_0"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
 update_json --key "$deployment_key.started.text" --value "$start_time_short"
 update_json --key "$deployment_key.started.title" --value "$start_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":white_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_0"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-running:"
 update_json --key "$deployment_key.deployment_status.text" --value "In Progress"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold orange"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 1
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 3
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
+
 deployment_key="deployments.kangaroo-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 1
 
 deployment_key="deployments.llama-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
 update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
-# update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
 sleep 1
 
