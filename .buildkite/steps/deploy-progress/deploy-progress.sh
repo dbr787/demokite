@@ -61,13 +61,17 @@ update_json --key "deployments.llama-prod.new_version.link" --value "$current_co
 
 update_json --key "deployments.kangaroo-dev.old_version.text" --value "$minus_2_commit_short"
 update_json --key "deployments.kangaroo-dev.old_version.title" --value "$minus_2_commit_long"
+update_json --key "deployments.kangaroo-dev.old_version.link" --value "$minus_2_commit_url"
 update_json --key "deployments.kangaroo-dev.new_version.text" --value "$current_commit_short"
 update_json --key "deployments.kangaroo-dev.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-dev.new_version.link" --value "$current_commit_url"
 
 update_json --key "deployments.kangaroo-prod.old_version.text" --value "$minus_2_commit_short"
 update_json --key "deployments.kangaroo-prod.new_version.text" --value "$current_commit_short"
+update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
 update_json --key "deployments.kangaroo-prod.old_version.title" --value "$minus_2_commit_long"
 update_json --key "deployments.kangaroo-prod.new_version.title" --value "$current_commit_long"
+update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current_commit_url"
 update_annotation --debug "debug"
 sleep 3
 
