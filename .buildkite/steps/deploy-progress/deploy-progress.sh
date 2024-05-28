@@ -6,6 +6,9 @@
 # - [ ] Create function for updating deployment progress
 # - [ ] Create function for updating old and new deployment versions
 # - [ ] Link Buildkite job
+# - [ ] Add margins to table headers to avoid it moving around as its populated
+# - [ ] Add "approved by this_person" into annotation
+# - [ ] Add margins to table headers to avoid it moving around as its populated
 
 
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
