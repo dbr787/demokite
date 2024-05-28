@@ -18,75 +18,63 @@ CURRENT_STATE=""
 FIRST_STEP_KEY="begin"
 CURRENT_DIR=$(pwd)
 
+# STEP_NAME="deploy-progress"
+# pipeline_prepare ".buildkite/steps/$STEP_NAME" "$STEP_NAME.yml" $CURRENT_DIR "$STEP_NAME.json"
+# pipeline_upload "$STEP_NAME.json"
 
-
-STEP_NAME="deploy-progress"
-pipeline_prepare ".buildkite/steps/$STEP_NAME" "$STEP_NAME.yml" $CURRENT_DIR "$STEP_NAME.json"
-pipeline_upload "$STEP_NAME.json"
-
-
-
-# pipeline_prepare ".buildkite/steps/deploy-status" "deploy-status.yml" $CURRENT_DIR "deploy-status.json"
-# pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-# pipeline_merge "deploy-status.json" "ask.json" > "merged.json"
-# # artifact_upload "merged.json"
-# pipeline_upload "merged.json"
-
-
-
-# if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
-#   CURRENT_STATE=$(buildkite-agent meta-data get "choice")
-#   echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY"
-#   echo "CHOICE: $CURRENT_STATE"
-#   if [ $CURRENT_STATE = "logs" ]; then
-#     pipeline_prepare ".buildkite/steps/logs" "logs.yml" $CURRENT_DIR "logs.json"
-#     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#     pipeline_merge "logs.json" "ask.json" > "merged.json"
-#     # artifact_upload "merged.json"
-#     pipeline_upload "merged.json"
-#   fi
-#   if [ $CURRENT_STATE = "annotations" ]; then
-#     pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $CURRENT_DIR "annotations.json"
-#     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#     pipeline_merge "annotations.json" "ask.json" > "merged.json"
-#     # artifact_upload "merged.json"
-#     pipeline_upload "merged.json"
-#   fi
-#   if [ $CURRENT_STATE = "parallel-steps" ]; then
-#     pipeline_prepare ".buildkite/steps/parallel-steps" "parallel-steps.yml" $CURRENT_DIR "parallel-steps.json"
-#     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#     pipeline_merge "parallel-steps.json" "ask.json" > "merged.json"
-#     # artifact_upload "merged.json"
-#     pipeline_upload "merged.json"
-#   fi
-#   if [ $CURRENT_STATE = "retry" ]; then
-#     pipeline_prepare ".buildkite/steps/retry" "retry.yml" $CURRENT_DIR "retry.json"
-#     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#     pipeline_merge "retry.json" "ask.json" > "merged.json"
-#     # artifact_upload "merged.json"
-#     pipeline_upload "merged.json"
-#   fi
-#   if [ $CURRENT_STATE = "deploy-status" ]; then
-#     pipeline_prepare ".buildkite/steps/deploy-status" "deploy-status.yml" $CURRENT_DIR "deploy-status.json"
-#     pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#     pipeline_merge "deploy-status.json" "ask.json" > "merged.json"
-#     # artifact_upload "merged.json"
-#     pipeline_upload "merged.json"
-#   fi
-#   if [ $CURRENT_STATE = "pass" ]; then
-#     pipeline_prepare ".buildkite/steps/pass" "pass.yml" $CURRENT_DIR "pass.json"
-#     pipeline_upload "pass.json"
-#   fi
-#   if [ $CURRENT_STATE = "fail" ]; then
-#     pipeline_prepare ".buildkite/steps/fail" "fail.yml" $CURRENT_DIR "fail.json"
-#     pipeline_upload "fail.json"
-#   fi
-# else
-#   sleep 10
-#   pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
-#   # artifact_upload "ask.json"
-#   pipeline_upload "ask.json"
-# fi
+if [ "$BUILDKITE_STEP_KEY" != "$FIRST_STEP_KEY" ]; then
+  CURRENT_STATE=$(buildkite-agent meta-data get "choice")
+  echo "BUILDKITE_STEP_KEY: $BUILDKITE_STEP_KEY"
+  echo "CHOICE: $CURRENT_STATE"
+  if [ $CURRENT_STATE = "logs" ]; then
+    pipeline_prepare ".buildkite/steps/logs" "logs.yml" $CURRENT_DIR "logs.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "logs.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+  if [ $CURRENT_STATE = "annotations" ]; then
+    pipeline_prepare ".buildkite/steps/annotations" "annotations.yml" $CURRENT_DIR "annotations.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "annotations.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+  if [ $CURRENT_STATE = "parallel-steps" ]; then
+    pipeline_prepare ".buildkite/steps/parallel-steps" "parallel-steps.yml" $CURRENT_DIR "parallel-steps.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "parallel-steps.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+  if [ $CURRENT_STATE = "retry" ]; then
+    pipeline_prepare ".buildkite/steps/retry" "retry.yml" $CURRENT_DIR "retry.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "retry.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+  if [ $CURRENT_STATE = "deploy-progress" ]; then
+    pipeline_prepare ".buildkite/steps/deploy-progress" "deploy-progress.yml" $CURRENT_DIR "deploy-progress.json"
+    pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+    pipeline_merge "deploy-progress.json" "ask.json" > "merged.json"
+    # artifact_upload "merged.json"
+    pipeline_upload "merged.json"
+  fi
+  if [ $CURRENT_STATE = "pass" ]; then
+    pipeline_prepare ".buildkite/steps/pass" "pass.yml" $CURRENT_DIR "pass.json"
+    pipeline_upload "pass.json"
+  fi
+  if [ $CURRENT_STATE = "fail" ]; then
+    pipeline_prepare ".buildkite/steps/fail" "fail.yml" $CURRENT_DIR "fail.json"
+    pipeline_upload "fail.json"
+  fi
+else
+  sleep 10
+  pipeline_prepare ".buildkite/steps/ask" "ask.yml" $CURRENT_DIR "ask.json"
+  # artifact_upload "ask.json"
+  pipeline_upload "ask.json"
+fi
 
 
 
