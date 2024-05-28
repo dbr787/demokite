@@ -90,86 +90,87 @@ update_html() {
   # Get current time with milliseconds in UTC
   local last_updated=$(date +"%Y-%m-%d %H:%M:%S")
 
-  # Function to generate table rows from JSON
-  generate_table_rows() {
-    jq -r '
-      .deployments | to_entries[] | 
-      "<tr>
-        <td class=\"\(.value.application.class // "")\">" + 
-          if .value.application.link != "" then 
-            "<a href=\"\(.value.application.link)\">\(.value.application.emoji // "") \(.value.application.text // "")</a>" 
-          else 
-            "\(.value.application.emoji // "") \(.value.application.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.environment.class // "")\">" + 
-          if .value.environment.link != "" then 
-            "<a href=\"\(.value.environment.link)\">\(.value.environment.emoji // "") \(.value.environment.text // "")</a>" 
-          else 
-            "\(.value.environment.emoji // "") \(.value.environment.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.old_version.class // "")\">" + 
-          if .value.old_version.link != "" then 
-            "<a href=\"\(.value.old_version.link)\">\(.value.old_version.emoji // "") \(.value.old_version.text // "")</a>" 
-          else 
-            "\(.value.old_version.emoji // "") \(.value.old_version.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.new_version.class // "")\">" + 
-          if .value.new_version.link != "" then 
-            "<a href=\"\(.value.new_version.link)\">\(.value.new_version.emoji // "") \(.value.new_version.text // "")</a>" 
-          else 
-            "\(.value.new_version.emoji // "") \(.value.new_version.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.deployment_strategy.class // "")\">" + 
-          if .value.deployment_strategy.link != "" then 
-            "<a href=\"\(.value.deployment_strategy.link)\">\(.value.deployment_strategy.emoji // "") \(.value.deployment_strategy.text // "")</a>" 
-          else 
-            "\(.value.deployment_strategy.emoji // "") \(.value.deployment_strategy.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.deployment_status.class // "")\">" + 
-          if .value.deployment_status.link != "" then 
-            "<a href=\"\(.value.deployment_status.link)\">\(.value.deployment_status.emoji // "") \(.value.deployment_status.text // "")</a>" 
-          else 
-            "\(.value.deployment_status.emoji // "") \(.value.deployment_status.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.deployment_progress.class // "")\">" + 
-          if .value.deployment_progress.link != "" then 
-            "<a href=\"\(.value.deployment_progress.link)\">\(.value.deployment_progress.emoji // "") \(.value.deployment_progress.text // "")</a>" 
-          else 
-            "\(.value.deployment_progress.emoji // "") \(.value.deployment_progress.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.duration.class // "")\">" + 
-          if .value.duration.link != "" then 
-            "<a href=\"\(.value.duration.link)\">\(.value.duration.emoji // "") \(.value.duration.text // "")</a>" 
-          else 
-            "\(.value.duration.emoji // "") \(.value.duration.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.started.class // "")\">" + 
-          if .value.started.link != "" then 
-            "<a href=\"\(.value.started.link)\">\(.value.started.emoji // "") \(.value.started.text // "")</a>" 
-          else 
-            "\(.value.started.emoji // "") \(.value.started.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.finished.class // "")\">" + 
-          if .value.finished.link != "" then 
-            "<a href=\"\(.value.finished.link)\">\(.value.finished.emoji // "") \(.value.finished.text // "")</a>" 
-          else 
-            "\(.value.finished.emoji // "") \(.value.finished.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.job.class // "")\">" + 
-          if .value.job.link != "" then 
-            "<a href=\"\(.value.job.link)\">\(.value.job.emoji // "") \(.value.job.text // "")</a>" 
-          else 
-            "\(.value.job.emoji // "") \(.value.job.text // "")" 
-          end + "</td>
-        <td class=\"\(.value.deployment.class // "")\">" + 
-          if .value.deployment.link != "" then 
-            "<a href=\"\(.value.deployment.link)\">\(.value.deployment.emoji // "") \(.value.deployment.text // "")</a>" 
-          else 
-            "\(.value.deployment.emoji // "") \(.value.deployment.text // "")" 
-          end + "</td>
-      </tr>"
-    ' $json_file
-  }
+# Function to generate table rows from JSON
+generate_table_rows() {
+  jq -r '
+    .deployments | to_entries[] | 
+    "<tr>
+      <td class=\"\(.value.application.class // "")\" title=\"\(.value.application.title // "")\">" + 
+        if .value.application.link != "" then 
+          "<a href=\"\(.value.application.link)\">\(.value.application.emoji // "") \(.value.application.text // "")</a>" 
+        else 
+          "\(.value.application.emoji // "") \(.value.application.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.environment.class // "")\" title=\"\(.value.environment.title // "")\">" + 
+        if .value.environment.link != "" then 
+          "<a href=\"\(.value.environment.link)\">\(.value.environment.emoji // "") \(.value.environment.text // "")</a>" 
+        else 
+          "\(.value.environment.emoji // "") \(.value.environment.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.old_version.class // "")\" title=\"\(.value.old_version.title // "")\">" + 
+        if .value.old_version.link != "" then 
+          "<a href=\"\(.value.old_version.link)\">\(.value.old_version.emoji // "") \(.value.old_version.text // "")</a>" 
+        else 
+          "\(.value.old_version.emoji // "") \(.value.old_version.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.new_version.class // "")\" title=\"\(.value.new_version.title // "")\">" + 
+        if .value.new_version.link != "" then 
+          "<a href=\"\(.value.new_version.link)\">\(.value.new_version.emoji // "") \(.value.new_version.text // "")</a>" 
+        else 
+          "\(.value.new_version.emoji // "") \(.value.new_version.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.deployment_strategy.class // "")\" title=\"\(.value.deployment_strategy.title // "")\">" + 
+        if .value.deployment_strategy.link != "" then 
+          "<a href=\"\(.value.deployment_strategy.link)\">\(.value.deployment_strategy.emoji // "") \(.value.deployment_strategy.text // "")</a>" 
+        else 
+          "\(.value.deployment_strategy.emoji // "") \(.value.deployment_strategy.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.deployment_status.class // "")\" title=\"\(.value.deployment_status.title // "")\">" + 
+        if .value.deployment_status.link != "" then 
+          "<a href=\"\(.value.deployment_status.link)\">\(.value.deployment_status.emoji // "") \(.value.deployment_status.text // "")</a>" 
+        else 
+          "\(.value.deployment_status.emoji // "") \(.value.deployment_status.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.deployment_progress.class // "")\" title=\"\(.value.deployment_progress.title // "")\">" + 
+        if .value.deployment_progress.link != "" then 
+          "<a href=\"\(.value.deployment_progress.link)\">\(.value.deployment_progress.emoji // "") \(.value.deployment_progress.text // "")</a>" 
+        else 
+          "\(.value.deployment_progress.emoji // "") \(.value.deployment_progress.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.duration.class // "")\" title=\"\(.value.duration.title // "")\">" + 
+        if .value.duration.link != "" then 
+          "<a href=\"\(.value.duration.link)\">\(.value.duration.emoji // "") \(.value.duration.text // "")</a>" 
+        else 
+          "\(.value.duration.emoji // "") \(.value.duration.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.started.class // "")\" title=\"\(.value.started.title // "")\">" + 
+        if .value.started.link != "" then 
+          "<a href=\"\(.value.started.link)\">\(.value.started.emoji // "") \(.value.started.text // "")</a>" 
+        else 
+          "\(.value.started.emoji // "") \(.value.started.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.finished.class // "")\" title=\"\(.value.finished.title // "")\">" + 
+        if .value.finished.link != "" then 
+          "<a href=\"\(.value.finished.link)\">\(.value.finished.emoji // "") \(.value.finished.text // "")</a>" 
+        else 
+          "\(.value.finished.emoji // "") \(.value.finished.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.job.class // "")\" title=\"\(.value.job.title // "")\">" + 
+        if .value.job.link != "" then 
+          "<a href=\"\(.value.job.link)\">\(.value.job.emoji // "") \(.value.job.text // "")</a>" 
+        else 
+          "\(.value.job.emoji // "") \(.value.job.text // "")" 
+        end + "</td>
+      <td class=\"\(.value.deployment.class // "")\" title=\"\(.value.deployment.title // "")\">" + 
+        if .value.deployment.link != "" then 
+          "<a href=\"\(.value.deployment.link)\">\(.value.deployment.emoji // "") \(.value.deployment.text // "")</a>" 
+        else 
+          "\(.value.deployment.emoji // "") \(.value.deployment.text // "")" 
+        end + "</td>
+    </tr>"
+  ' $json_file
+}
+
 
   # Generate table rows
   local table_rows=$(generate_table_rows)

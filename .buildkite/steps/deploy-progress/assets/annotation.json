@@ -10,73 +10,85 @@
         "emoji": ":llama:",
         "text": "Llama",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "environment": {
         "emoji": ":aws:",
         "text": "Development",
         "link": "https://console.aws.amazon.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "old_version": {
         "emoji": ":github:",
         "text": "test",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "new_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_strategy": {
         "emoji": ":k8s:",
         "text": "Rolling",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_status": {
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "center normal gray"
+        "class": "center normal gray",
+        "title": ""
       },
       "deployment_progress": {
         "emoji": "",
         "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "started": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "finished": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "job": {
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       }
     },
     "llama-prod": {
@@ -84,73 +96,85 @@
         "emoji": ":llama:",
         "text": "Llama",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "environment": {
         "emoji": ":aws:",
         "text": "Production",
         "link": "https://console.aws.amazon.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "old_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "new_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_strategy": {
         "emoji": ":k8s:",
         "text": "Rolling",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_status": {
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "center normal gray"
+        "class": "center normal gray",
+        "title": ""
       },
       "deployment_progress": {
         "emoji": "",
         "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "started": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "finished": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "job": {
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       }
     },
     "kangaroo-dev": {
@@ -158,73 +182,85 @@
         "emoji": ":kangaroo:",
         "text": "Kangaroo",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "environment": {
         "emoji": ":aws:",
         "text": "Development",
         "link": "https://console.aws.amazon.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "old_version": {
         "emoji": ":github:",
         "text": "test",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "new_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_strategy": {
         "emoji": ":k8s:",
         "text": "Rolling",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_status": {
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "center normal gray"
+        "class": "center normal gray",
+        "title": ""
       },
       "deployment_progress": {
         "emoji": "",
         "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "started": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "finished": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "job": {
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       }
     },
     "kangaroo-prod": {
@@ -232,73 +268,85 @@
         "emoji": ":kangaroo:",
         "text": "Kangaroo",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "environment": {
         "emoji": ":aws:",
         "text": "Production",
         "link": "https://console.aws.amazon.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "old_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "new_version": {
         "emoji": ":github:",
         "text": "",
         "link": "https://github.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_strategy": {
         "emoji": ":k8s:",
         "text": "Rolling",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment_status": {
         "emoji": ":bk-status-pending:",
         "text": "Pending",
         "link": "",
-        "class": "center normal gray"
+        "class": "center normal gray",
+        "title": ""
       },
       "deployment_progress": {
         "emoji": "",
         "text": ":white_circle::white_circle::white_circle::white_circle::white_circle:",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "started": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "finished": {
         "emoji": "",
         "text": "-",
         "link": "",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "job": {
         "emoji": ":buildkite:",
         "text": "Buildkite Job",
         "link": "https://buildkite.com/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       },
       "deployment": {
         "emoji": ":argo-cd:",
         "text": "ArgoCD Deployment",
         "link": "https://argoproj.github.io/",
-        "class": "center"
+        "class": "center",
+        "title": ""
       }
     }
   }
