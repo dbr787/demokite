@@ -18,7 +18,9 @@ cd .buildkite/steps/deploy-progress/;
 source ./assets/functions.sh;
 
 # upload assets as artifacts
-buildkite-agent artifact upload "assets/*.gif" --log-level error;
+# buildkite-agent artifact upload "assets/*.gif" --log-level error;
+
+echo $BUILDKITE_REPO
 
 minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
 previous_commit_short=$(git log -1 --pretty=format:%h HEAD~1)
