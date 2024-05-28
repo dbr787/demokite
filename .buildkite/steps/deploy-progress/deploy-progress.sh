@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# TODO
+# - [ ] Creat function for updating end time
+# - [ ] Creat function for updating start time
+# - [ ] Creat function for updating deployment progress
+# - [ ] Creat function for updating old and new deployment versions
+
+
 # set explanation: https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
 # set -euxo pipefail # print executed commands to the terminal
 set -euo pipefail # don't print executed commands to the terminal
@@ -44,14 +51,13 @@ generate_progress_circles() {
   echo "$result"
 }
 
+# generate progress circles
 progress_0=$(generate_progress_circles 0)
 progress_20=$(generate_progress_circles 20)
 progress_40=$(generate_progress_circles 40)
 progress_60=$(generate_progress_circles 60)
 progress_80=$(generate_progress_circles 80)
 progress_100=$(generate_progress_circles 100)
-
-
 
 # get git commits and url
 minus_2_commit_short=$(git log -1 --pretty=format:%h HEAD~2)
@@ -97,12 +103,6 @@ update_json --key "deployments.kangaroo-prod.new_version.link" --value "$current
 update_annotation
 sleep 2
 
-# Define start time and variations
-start_time=$(date +"%Y-%m-%d %H:%M:%S")
-start_time_epoch=$(date -d "$start_time" +"%s")
-start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
-start_time_short=$(date -d "$start_time" +"%H:%M:%S")
-
 # Function to calculate duration
 calculate_duration() {
   local current_time_epoch=$(date +"%s")
@@ -110,6 +110,10 @@ calculate_duration() {
 }
 
 deployment_key="deployments.llama-dev"
+start_time=$(date +"%Y-%m-%d %H:%M:%S")
+start_time_epoch=$(date -d "$start_time" +"%s")
+start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
+start_time_short=$(date -d "$start_time" +"%H:%M:%S")
 update_json --key "$deployment_key.started.text" --value "$start_time_short"
 update_json --key "$deployment_key.started.title" --value "$start_time_long"
 update_json --key "$deployment_key.deployment_progress.text" --value "$progress_0"
@@ -120,6 +124,10 @@ update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
+start_time=$(date +"%Y-%m-%d %H:%M:%S")
+start_time_epoch=$(date -d "$start_time" +"%s")
+start_time_long=$(date -d "$start_time" +"%Y-%m-%d %H:%M:%S")
+start_time_short=$(date -d "$start_time" +"%H:%M:%S")
 update_json --key "$deployment_key.started.text" --value "$start_time_short"
 update_json --key "$deployment_key.started.title" --value "$start_time_long"
 update_json --key "$deployment_key.deployment_progress.text" --value "$progress_0"
@@ -130,42 +138,41 @@ update_annotation
 sleep 2
 
 deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_20"
 update_annotation
-sleep 1
+sleep 2
 
 deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_40"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::white_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_20"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::white_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_40"
 update_annotation
-sleep 3
+sleep 2
 
 deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
-
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_60"
 deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::white_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_60"
 update_annotation
-sleep 1
+sleep 2
 
 deployment_key="deployments.llama-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_80"
 update_annotation
 sleep 2
 
 deployment_key="deployments.kangaroo-dev"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::white_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_80"
 update_annotation
-sleep 1
+sleep 2
 
 deployment_key="deployments.llama-dev"
 end_time=$(date +"%Y-%m-%d %H:%M:%S")
@@ -174,13 +181,13 @@ end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
 end_time_short=$(date -d "$end_time" +"%H:%M:%S")
 update_json --key "$deployment_key.finished.text" --value "$end_time_short"
 update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_100"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
 update_json --key "$deployment_key.deployment_status.text" --value "Completed"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
 update_json --key "$deployment_key.duration.text" --value "$(calculate_duration)"
 update_annotation
-sleep 3
+sleep 2
 
 deployment_key="deployments.kangaroo-dev"
 end_time=$(date +"%Y-%m-%d %H:%M:%S")
@@ -189,7 +196,7 @@ end_time_long=$(date -d "$end_time" +"%Y-%m-%d %H:%M:%S")
 end_time_short=$(date -d "$end_time" +"%H:%M:%S")
 update_json --key "$deployment_key.finished.text" --value "$end_time_short"
 update_json --key "$deployment_key.finished.title" --value "$end_time_long"
-update_json --key "$deployment_key.deployment_progress.text" --value ":large_green_circle::large_green_circle::large_green_circle::large_green_circle::large_green_circle:"
+update_json --key "$deployment_key.deployment_progress.text" --value "$progress_100"
 update_json --key "$deployment_key.deployment_status.emoji" --value ":bk-status-passed:"
 update_json --key "$deployment_key.deployment_status.text" --value "Completed"
 update_json --key "$deployment_key.deployment_status.class" --value "center bold green"
