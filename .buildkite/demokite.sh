@@ -20,8 +20,9 @@ CURRENT_DIR=$(pwd)
 
 
 
-pipeline_prepare ".buildkite/steps/deploy-new" "deploy-new.yml" $CURRENT_DIR "deploy-new.json"
-pipeline_upload "deploy-new.json"
+STEP_NAME="deploy-progress"
+pipeline_prepare ".buildkite/steps/$STEP_NAME" "$STEP_NAME.yml" $CURRENT_DIR "$STEP_NAME.json"
+pipeline_upload "$STEP_NAME.json"
 
 
 

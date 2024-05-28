@@ -1,4 +1,4 @@
 ---
 steps:
-  - label: ":rocket: Deploy Status"
-    command: ".buildkite/steps/deploy-new/deploy-new.sh"
+  - label: ":rocket: Deploy Progress"
+    command: ".buildkite/steps/deploy-progress/deploy-progress.sh"

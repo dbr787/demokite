@@ -12,7 +12,7 @@ current_dir=$(pwd)
 current_dir_contents=$(ls -lah "$current_dir")
 
 # change into step directory
-cd .buildkite/steps/deploy-new/
+cd .buildkite/steps/deploy-progress/
 
 # source local functions
 source ./assets/functions.sh
