@@ -55,13 +55,6 @@
         "class": "center",
         "title": ""
       },
-      "duration": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center",
-        "title": ""
-      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -70,6 +63,13 @@
         "title": ""
       },
       "finished": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center",
+        "title": ""
+      },
+      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
@@ -141,13 +141,6 @@
         "class": "center",
         "title": ""
       },
-      "duration": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center",
-        "title": ""
-      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -156,6 +149,13 @@
         "title": ""
       },
       "finished": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center",
+        "title": ""
+      },
+      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
@@ -227,13 +227,6 @@
         "class": "center",
         "title": ""
       },
-      "duration": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center",
-        "title": ""
-      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -242,6 +235,13 @@
         "title": ""
       },
       "finished": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center",
+        "title": ""
+      },
+      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
@@ -313,13 +313,6 @@
         "class": "center",
         "title": ""
       },
-      "duration": {
-        "emoji": "",
-        "text": "-",
-        "link": "",
-        "class": "center",
-        "title": ""
-      },
       "started": {
         "emoji": "",
         "text": "-",
@@ -328,6 +321,13 @@
         "title": ""
       },
       "finished": {
+        "emoji": "",
+        "text": "-",
+        "link": "",
+        "class": "center",
+        "title": ""
+      },
+      "duration": {
         "emoji": "",
         "text": "-",
         "link": "",
