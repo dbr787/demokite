@@ -51,11 +51,11 @@ sleep 5;
 
 # Update the image attributes
 update_json --key "tr_image.src" --value "https://static.wikia.nocookie.net/nyancat/images/a/ac/Nyan_BalloonBlue.gif/revision/latest?cb=20230128002915"
-update_json --key "tr_image.alt" --value "A new image description"
-update_json --key "tr_image.title" --value "A new tooltip title"
-update_json --key "tr_image.width" --value "50"
-update_json --key "tr_image.height" --value "50"
-# update_json --key "tr_image.class" --value "new-class"
+update_json --key "tr_image.alt" --value "A cat with a balloon"
+update_json --key "tr_image.title" --value "meow yay meow!"
+update_json --key "tr_image.width" --value "30"
+# update_json --key "tr_image.height" --value "50"
+update_json --key "tr_image.class" --value "mt0"
 # update_json --key "tr_image.link" --value "https://new.image.link/"
 update_annotation --debug "debug";
 sleep 5;
