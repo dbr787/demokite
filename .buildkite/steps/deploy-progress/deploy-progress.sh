@@ -54,7 +54,7 @@ sleep 5;
 update_json --key "tr_image.src" --value "https://66.media.tumblr.com/598227a61e3cc5d53c5e35e3ccd100ac/tumblr_mjoko81kiY1rfjowdo1_500.gif"
 update_json --key "tr_image.alt" --value "A different rainbow cat"
 update_json --key "tr_image.title" --value "meow yay meow!"
-update_json --key "tr_image.width" --value "80"
+update_json --key "tr_image.width" --value "50"
 update_json --key "tr_image.class" --value "mt0"
 update_annotation --debug "debug";
 sleep 5;
